@@ -5,13 +5,12 @@ puts 'Welcome to the 50 States! They all have capitals, but we want you to tell 
 flash_cards.map {|card| card[:correct] = 0}
 flash_cards.map{|card| card[:incorrect] = 0}
 flash_cards.map{|card| card[:tries] = 0}
-
 def play_start(flash_cards)
     i=49
     while i >= 0
         puts flash_cards[i][:name]
         answer = gets.chomp
-        if answer == flash_cards[i][:capital]
+        if answer.capitalize == flash_cards[i][:capital] || answer.downcase == flash_cards[i][:capital]
             puts 'You are Correct!'
             flash_cards[i][:correct] += 1
             flash_cards[i][:tries] += 1
@@ -27,7 +26,7 @@ def play_start(flash_cards)
     end
     puts 'Would you like to play again(y/n)?'
     answer = gets.chomp
-    if answer == 'y'
+    if answer == 'y' || answer == 'Y'
         flash_cards = flash_cards.sort_by{|card| card[:incorrect]}
         play_start(flash_cards)
     else
