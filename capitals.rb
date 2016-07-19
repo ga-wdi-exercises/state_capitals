@@ -174,18 +174,23 @@ if reply == "yes"
     state[:wrong]=0
   end
 
+  answer_right = 0
+  answer_wrong= 0
+
     states.shuffle.each_with_index do |state, index|
       puts "What is the capital of "+ state[:name] + "?"
       answer = gets.chomp.to_s
         if answer == state[:capital]
           puts "That's right!"
-          states[index][:correct] +=1
-          puts "You got 1 out of 1 correct."
+          # states[index][:correct] +=1
+          answer_right +=1
+          puts "You have "+ answer_right.to_s + " correct."
 
         else
           puts "That's not right."
-          states[index][:wrong] +=1
-          puts "You got 0 out of 1 correct."
+          # states[index][:wrong] +=1
+          answer_wrong +=1
+          puts "You have " + answer_wrong.to_s + " incorrect."
 
         # else
           # break if answer == "quit"
