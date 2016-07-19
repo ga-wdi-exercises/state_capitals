@@ -24,11 +24,18 @@ states =[{
 
 # shuffle up the states
 def states_shuffle(states)
+	states.map do |state|
+		state[:correct] = 0
+		state[:wrong] = 0
+	end
 	return states.shuffle
 end
 
 # get random state
 def state(states)
+	states[:correct] = 0
+	states[:wrong] = 0
+	puts states.inspect
 	return states.sample
 end
 
@@ -43,7 +50,7 @@ def state_question(state)
 		puts "Your have gotten this capital correct #{state[:correct]} time"
 	else
 		wrong(state)
-		puts "Your have gotten this capital correct #{state[:wrong]} time"
+		puts "Your have gotten this capital wrong #{state[:wrong]} time"
 	end
 end
 
@@ -66,6 +73,14 @@ def wrong(state)
 	end
 end
 
+# On play game again, order states based on how many times they got
+# something wrong
+def play_again_states_order(states)
+	sorted_states = states.sort_by{|w| w[:correct]} 
+	return sorted_states
+end
+
+# Play the game
 def play(states)
 	puts "Welcome to the state capitals game!" 
 	states = states_shuffle(states)
@@ -76,10 +91,15 @@ def play(states)
 	end
 	puts "You have gone through all the states! Would you like to play again? (yes) (no)"
 	play_again = gets.chomp
-		if play_again == 'yes'
-			puts 'play again'
-		else 
-			puts 'goodbye!'
+		while play_again == 'yes'
+			state_index = 0
+			states = play_again_states_order(states)
+			states.each do
+				state_question(states[state_index])
+				state_index += 1
+			end
+			puts "You have gone through all the states! Would you like to play again? (yes) (no)"
+			play_again = gets.chomp
 		end
 end
 
