@@ -52,7 +52,7 @@ end
 # hanldes correct answers
 def correct(state)
 	puts state.inspect
-	if state.key?('correct')
+	if state.key?(:correct)
 		state[:correct] += 1
 	else
 		state[:correct] = 1
@@ -61,12 +61,12 @@ end
 
 # handles worng answers
 def wrong(state)
-	if state.key?('wrong')
+	puts state.inspect
+	if state.key?(:wrong)
 		state[:wrong] += 1
 	else
 		state[:wrong] = 1
 	end
-	return state
 end
 
 def play(states)
