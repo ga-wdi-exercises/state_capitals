@@ -20,24 +20,26 @@ if answer == "GO"
 end
 
 
-  i=0
-
-  num_correct = states[i][:correct].to_i
-  num_tried = states[i][:correct].to_i 
-
-   while i < states.length
-    puts "what is the capital of " + states[i][:name].to_s+ "?"
+  while true
+     states.map do |state|
+      #  num_correct = state[:correct].to_i
+      #  num_tried = state[:correct].to_i
+    puts "what is the capital of " + state[:name] + "?"
     guess = gets.chomp
-    if guess == states[i][:capital]
-    num_correct = (states[i][:correct]).to_i + 1
-      puts "Correct! You have answered this question " + num_correct.to_s + " out of " + (num_correct + num_tried).to_s + " times!"
+    if guess == state[:capital]
+    state[:correct] += 1
+      puts "Correct!"
     else
-      num_tried = (states[i][:correct]).to_i + 1
-      num_correct = (states[i][:correct]).to_i + 0
-      puts "What an idiot! You have answered this question " + num_correct.to_s + " out of " + (num_correct + num_tried).to_s + " times!"
+      state[:incorrect] += 1
+      puts "NO! What an idiot!"
     end
-    i += 1
-    # then do...
+    total = state[:correct] + state[:incorrect]
+    puts "You've gotten #{state[:correct]} correct out of #{total} times answered."
+  end
+
+    puts "Play again? 'YES' or 'NO'?"
+    play_again = gets.chomp
+    break if play_again != "YES"
   end
 
 #
