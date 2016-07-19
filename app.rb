@@ -49,7 +49,6 @@ end
 
 # hanldes correct answers
 def correct(state)
-	puts state.inspect
 	if state.key?(:correct)
 		state[:correct] += 1
 	else
@@ -70,10 +69,18 @@ end
 def play(states)
 	puts "Welcome to the state capitals game!" 
 	states = states_shuffle(states)
-	states.each do
-		state_question(state(states))
+	state_index = 0
+	states.each do 
+		state_question(states[state_index])
+		state_index += 1
 	end
-	puts states.inspect
+	puts "You have gone through all the states! Would you like to play again? (yes) (no)"
+	play_again = gets.chomp
+		if play_again == 'yes'
+			puts 'play again'
+		else 
+			puts 'goodbye!'
+		end
 end
 
 play(states)
