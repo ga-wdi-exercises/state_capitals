@@ -13,9 +13,10 @@
 # User Answer capital = true gets point
 # User Answer capital = false, loses point
 
+puts "Please enter your name below."
+name = gets.chomp
 
-
-
+puts "Welcome " + name + "!" + "Please enter the state's matching capitals."
 
 
 # an array of state hashes
@@ -171,18 +172,18 @@ states =[{
     capital: "Cheyenne"
 }]
 
+states = states.shuffle
 
-
-# puts "What is the capital of "
-# states = gets.chomp
-
-     while true
-       states.each do |state|
-         puts "What is the capital of " + state[:name] + "?"
-         response = gets.chomp
-         if response = state[:capital]
-           puts "Correct!"
+    while true
+      states.length.times do |state|
+        puts "What's the capital of " + states[state][:name] + "?"
+        response = gets.chomp
+        if response == states[state][:capital]
+          puts "Correct!"
+        else
+          response == false
+          puts "Sorry, that is incorrect"
+          break
         end
-       break
-     end
+      end
     end
