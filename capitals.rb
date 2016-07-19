@@ -151,9 +151,31 @@ states =[{
     capital: "Cheyenne"
 }]
 
+game_states = []
+
 # map states to include a key to keep track of number of times they get it right and the number of times they get it wrong
+
+states.each do |state|
+  state[:correct] = 0,
+  state[:wrong] = 0,
+  state[:times_displayed] = 0
+end
+
+# {:name, :capital, :correct => 0, :wrong => 0, :times_displayed => 0}
+
+puts states
+
 # shuffle states during each turn
 # puts welcome message
+puts "Welcome to Let's Learn our State Capitals! Type 'play' to begin!"
+
+while true
+  start = gets.chomp
+  break if start == "play" || start == "Play"
+end
+
+puts "Alright!"
+
 # loop through all 50 states
 # prompt user to name the capital of the state
   # if answer = correct, ++ score of correct key
