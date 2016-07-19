@@ -35,18 +35,3 @@ def play_start(flash_cards)
     end
 end
 play_start(flash_cards)
-
-
-# flash_cards = play_start(flash_cards)
-#
-# def play_again(flash_cards)
-#
-#     answer = gets.chomp
-#     if answer == 'y'
-#
-#
-#     else
-#         puts 'That\'s ok! Just so you know though you got x wrong'
-#     end
-# end
-# play_again(flash_cards)
