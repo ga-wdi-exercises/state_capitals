@@ -169,7 +169,7 @@ if ready == "Y"
         puts "Good job, you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
       else
         states[i][:times_wrong] += 1
-        puts "Wrong answer dummy you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+        puts "Wrong answer you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
       end
       i += 1
     end
@@ -178,26 +178,29 @@ else
   puts "Okay. Have a good day"
 end
 
+
 puts "Want to play again? Y/N"
 ready = gets.chomp
 
-if ready == "Y"
-  states.sort_by! do |state|
-    state[:times_correct]
-    puts states
-  end
-  states.reverse!
-  while i < states.length
-    puts "You better tell me the capital of #{states[i][:name]}"
-    user_answer = gets.chomp
-    if user_answer == states[i][:capital]
-      states[i][:times_correct] += 1
-      puts "Good job, you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
-    else
-      states[i][:times_wrong] += 1
-      puts "Wrong answer dummy you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+while ready == "Y"
+    states.sort_by! {|state| state[:times_wrong]}.reverse!
+    while i < states.length
+      puts "You better tell me the capital of #{states[i][:name]}"
+      user_answer = gets.chomp
+      if user_answer == states[i][:capital]
+        states[i][:times_correct] += 1
+        puts "Good job, you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+      else
+        states[i][:times_wrong] += 1
+        puts "Wrong answer you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+      end
+      i += 1
     end
-    i += 1
-  end
-
+    i = 0
+    puts "Want to play again? Y/N"
+    ready = gets.chomp
+    if ready != "Y"
+      ready == "N"
+      break
+    end
 end
