@@ -151,5 +151,18 @@ states =[{
     capital: "Cheyenne"
 }]
 
-states = states.shuffle
-states.each {|state| puts state[:name]}
+states = states.shuffle.sample(2)
+states.each do |state|
+  puts "What is the capital of: " + state[:capital] + "?"
+end
+
+#initialize new keys within a Hash
+
+
+
+#Welcome player to the game and prompt response
+
+# user_input = gets.chomp.to_s
+# if user_input.include?(states[:name]) #true
+#   puts "You are right!"
+# end
