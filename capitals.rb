@@ -150,3 +150,6 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.shuffle
+states.each {|state| puts state[:name]}
