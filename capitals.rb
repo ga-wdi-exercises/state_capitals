@@ -155,7 +155,7 @@ answer_right = 0;
 answer_wrong = 0;
 total = 0;
 
-states = states.shuffle.sample(3)
+states = states.shuffle.sample(50)
 states.each do |state|
   puts "What is the capital of: " + state[:name].to_s + " state?"
    user_input = gets.chomp.to_s
@@ -173,7 +173,10 @@ states.each do |state|
      puts "Total: " + total.to_s
    end
 end
-
+  #  if total == 50
+  #    puts "Would you like to play again?"
+  #    if user_input == "yes"
+  #      puts "Refresh your page"
 #initialize new keys within a Hash
 
 
