@@ -193,21 +193,15 @@ end
 
 # hanldes correct answers
 def correct(state)
-	if state.key?(:correct)
 		state[:correct] += 1
-	else
-		state[:correct] = 1
-	end
 end
+
 
 # handles worng answers
 def wrong(state)
-	if state.key?(:wrong)
 		state[:wrong] += 1
-	else
-		state[:wrong] = 1
-	end
 end
+
 
 # On play game again, order states based on how many times they got
 # something wrong
