@@ -151,37 +151,57 @@ states =[{
     capital: "Cheyenne"
 }]
 
-game_states = []
 
-# map states to include a key to keep track of number of times they get it right and the number of times they get it wrong
+# shuffle states during each turn
+states = states.shuffle
 
-states.each do |state|
-  state[:correct] = 0,
-  state[:wrong] = 0,
+# states to include a key to keep track of number of times they get it right and the number of times they get it wrong
+game_states = states.each do |state|
+  state[:name] = state[:name]
+  state[:capital] = state[:capital]
+  state[:correct] = 0
+  state[:wrong] = 0
   state[:times_displayed] = 0
 end
 
-# {:name, :capital, :correct => 0, :wrong => 0, :times_displayed => 0}
+puts game_states
 
-puts states
-
-# shuffle states during each turn
-# puts welcome message
-puts "Welcome to Let's Learn our State Capitals! Type 'play' to begin!"
-
-while true
-  start = gets.chomp
-  break if start == "play" || start == "Play"
-end
-
-puts "Alright!"
+# # puts welcome message
+# puts "Welcome to Let's Learn our State Capitals! We'll give you a state, then you'll type what you think the capital is. Type 'play' to begin!"
+#
+# while true
+#   start = gets.chomp
+#   break if start == "play" || start == "Play"
+# end
 
 # loop through all 50 states
-# prompt user to name the capital of the state
-  # if answer = correct, ++ score of correct key
-  # if answer = wrong, ++ score of wrong key
-  # keep track of times prompt shows up
-  # after prompt, display message telling user how many times they answered correctly out of the total number of times answered
-
-# after 50 states have shown, ask user to play again
-  # if yes, start with states where wrong key is highest
+while true
+  states.each do |state|
+    puts state[:name]
+    # prompt user to name the capital of the state
+    guess = gets.chomp
+      if guess == state[:capital]
+        puts "You're right!"
+        # if answer = correct, ++ score of correct key
+        state[:correct] += 1
+      else
+        puts "Sorry, you're wrong!"
+        # if answer = wrong, ++ score of wrong key
+        state[:wrong] += 1
+      end
+      # keep track of times prompt shows up
+      state[:times_displayed] += 1
+      puts state
+      # after prompt, display message telling user how many times they answered correctly out of the total number of times answered
+      puts "You got #{state[:correct]} of #{state[:times_displayed]} right"
+  end
+  # after 50 states have shown, ask user to play again
+  puts "Want to play again? Yes/No"
+  answer = gets.chomp
+  if answer == "No"
+    break puts "Alright, see you later!"
+    # if yes, start with states where wrong key is highest
+    states.sort_by(:wrong)
+    puts states
+  end
+end
