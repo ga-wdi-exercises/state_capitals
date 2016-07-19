@@ -153,6 +153,7 @@ states =[{
 
 answer_right = 0;
 answer_wrong = 0;
+total = 0;
 
 states = states.shuffle.sample(3)
 states.each do |state|
@@ -162,10 +163,14 @@ states.each do |state|
      puts "You're smart!"
      answer_right+=1
      puts "You have: " + answer_right.to_s + " correct!"
+     total+=1
+     puts "Total: " + total.to_s
    else
      puts "You're dumb!"
      answer_wrong+=1
      puts "You have: " + answer_wrong.to_s + " incorrect!"
+     total+=1
+     puts "Total: " + total.to_s
    end
 end
 
