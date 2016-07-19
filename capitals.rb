@@ -150,3 +150,66 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+# shuffle states during each turn
+states = states.shuffle
+
+# states to include a key to keep track of number of times they get it right and the number of times they get it wrong
+game_states = states.each do |state|
+  state[:name] = state[:name]
+  state[:capital] = state[:capital]
+  state[:correct] = 0
+  state[:wrong] = 0
+  state[:times_displayed] = 0
+end
+
+# puts welcome message
+puts "Welcome to 'Let's Learn our State Capitals!' We'll give you a state, then you'll type what you think the capital is. Type 'play' to begin!"
+
+while true
+  start = gets.chomp
+  break if start == "play" || start == "Play"
+end
+
+# loop through all 50 states
+while true
+  states.each do |state|
+    puts "What's the capital of #{state[:name]}? Type your answer or 'hint' to get a hint."
+    # prompt user to name the capital of the state
+    answer = gets.chomp
+    # logic for if user wants a hint
+    if answer == "hint"
+      # regular expression to print first three letters
+      first_letters = state[:capital].scan(/\b(...)/i).join
+      puts "The capital begins with: '#{first_letters}'"
+      puts "So let's try again, what's the capital of #{state[:name]}?"
+      # prompt user to name the capital of the state
+      answer = gets.chomp
+    end
+
+    if answer == state[:capital]
+      puts "You're right!"
+      # if answer = correct, ++ score of correct key
+      state[:correct] += 1
+    else
+      puts "Sorry, you're wrong!"
+      # if answer = wrong, ++ score of wrong key
+      state[:wrong] += 1
+    end
+    # keep track of times prompt shows up
+    state[:times_displayed] += 1
+
+    # after prompt, display message telling user how many times they answered correctly out of the total number of times answered
+    puts "You got this one right #{state[:correct]} for #{state[:times_displayed]}."
+  end
+  # after 50 states have shown, ask user to play again
+  puts "Want to play again? Yes/No"
+  answer = gets.chomp.upcase
+  # if yes, start with states where wrong key is highest
+  states = states.sort_by{ |state| state[:wrong]}.reverse
+  puts states
+  if answer == "No"
+    break puts "Alright, see you later!"
+  end
+end
