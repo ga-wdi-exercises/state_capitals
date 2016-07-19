@@ -1,3 +1,23 @@
+# We're going to create a game to help us memorize the names of the capitals of all 50 states.
+# Your program should prompt the user to identify the capital associated with a given state.
+# There should be running tallies on the number of correct and incorrect answers.
+# After getting through all 50 states one time, users should be asked whether or not they want to play again.
+# As they continue, the prompts on states should appear in the order of the ones the user got wrong
+# the most to least. You're given an array of hashes that contain each state name and capital.
+# (Hint: For the purposes of developing this program, start with a
+# test array of three hashes so you don't have to play through all 50 states each time.)
+
+# *****psuedo code*****
+# Display question to user
+# Prompt user to answer question about state name
+# User Answer capital = true gets point
+# User Answer capital = false, loses point
+
+
+
+
+
+
 # an array of state hashes
 states =[{
     name: "Alabama",
@@ -150,3 +170,19 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+# puts "What is the capital of "
+# states = gets.chomp
+
+     while true
+       states.each do |state|
+         puts "What is the capital of " + state[:name] + "?"
+         response = gets.chomp
+         if response = state[:capital]
+           puts "Correct!"
+        end
+       break
+     end
+    end
