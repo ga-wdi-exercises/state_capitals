@@ -151,15 +151,19 @@ states =[{
 #     capital: "Cheyenne"
 }]
 
-print "It's time to learn state capitals! Write your answer following each state."
-states.each do |state|
-  puts "#{state}"
+print "It's time to learn state capitals! Write your answer following each state.\n"
 
-  userAns = guess(gets.chomp)
+  loop do
+    states.shuffle { |state, capital| puts state }.each do |state|
+      puts "#{state[:name]}"
+
+    userAns = gets.chomp
+
+    if userAns == "#{state[:capital]}"
+      puts "Nice work! You know this one."
+
+    else
+      puts "Not quite. We'll come back to this one."
+    end
+  end
 end
-
-# if userAns == states[:capital]
-#   puts "Nice work! You know this one."
-#
-# else
-#   puts "Not quite. We'll come back to this one."
