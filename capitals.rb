@@ -151,9 +151,22 @@ states =[{
     capital: "Cheyenne"
 }]
 
-states = states.shuffle.sample(2)
+answer_right = 0;
+answer_wrong = 0;
+
+states = states.shuffle.sample(3)
 states.each do |state|
-  puts "What is the capital of: " + state[:capital] + "?"
+  puts "What is the capital of: " + state[:name].to_s + " state?"
+   user_input = gets.chomp.to_s
+   if user_input == state[:capital]
+     puts "You're smart!"
+     answer_right+=1
+     puts "You have: " + answer_right.to_s + " correct!"
+   else
+     puts "You're dumb!"
+     answer_wrong+=1
+     puts "You have: " + answer_wrong.to_s + " incorrect!"
+   end
 end
 
 #initialize new keys within a Hash
