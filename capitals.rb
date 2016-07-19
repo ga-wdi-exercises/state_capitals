@@ -150,3 +150,35 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+puts "Strap in, it's time to learn the states and their capitals! Type 'hint' at any time for a clue"
+states = states.shuffle
+continue = true
+states.each do |state|
+  state[:correct]=0
+  state[:incorrect]=0
+end
+while continue == true
+  states.each do |state|
+    puts "What is the capital of #{state[:name]}?"
+    answer=gets.chomp
+    if answer == "hint"
+      puts "Starts with: #{state[:capital][0...3]}"
+      puts "What is the capital of the #{state[:name]}?"
+      answer=gets.chomp
+    end
+    if answer == state[:capital]
+      puts "CORRECT"
+      state[:correct]+= 1
+    else
+      puts "Sorry, the correct answer was '#{state[:capital]}'"
+      state[:incorrect]+= 1
+    end
+    puts "#{state[:name]}: you've answered #{state[:correct]} correctly out of a possible #{state[:incorrect] + state[:correct]}"
+  end
+  states = states.sort_by{|state| state[:correct]}
+  puts "Would you like to stop? Type 'Y' or 'N'"
+  userInput = gets.chomp
+  if userInput == "Y"
+    continue = false
+  end
+end
