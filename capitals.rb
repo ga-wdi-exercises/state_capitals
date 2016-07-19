@@ -209,7 +209,6 @@ end
 
 # handles worng answers
 def wrong(state)
-	puts state.inspect
 	if state.key?(:wrong)
 		state[:wrong] += 1
 	else
