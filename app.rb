@@ -40,12 +40,10 @@ def state_question(state)
 	user_cap_guess = gets.chomp
 	if user_cap_guess == state_cap
 		correct(state)
-		puts 'correct'
-		puts state.inspect
+		puts "Your have gotten this capital correct #{state[:correct]} time"
 	else
 		wrong(state)
-		puts 'wrong'
-		puts state.inspect
+		puts "Your have gotten this capital correct #{state[:wrong]} time"
 	end
 end
 
@@ -71,8 +69,9 @@ end
 
 def play(states)
 	puts "Welcome to the state capitals game!" 
+	states = states_shuffle(states)
 	states.each do
-		state_question(state(states_shuffle(states)))
+		state_question(state(states))
 	end
 	puts states.inspect
 end
