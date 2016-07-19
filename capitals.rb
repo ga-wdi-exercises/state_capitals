@@ -205,14 +205,27 @@ states =[{
 puts "Try to memorize your state capitals"
 response = ''
 play_counter = 1
-#while true
-states.each do |question|
-  puts "What is the capital of #{question[:name]}?"
-  response = gets.chomp
-  if response.capitalize == question[:capital]
-    question[:tally] += 1
-    puts "Correct. You are #{question[:tally]} for #{play_counter} on this state."
+play_again = ''
+while true
+  states.each do |question|
+    puts ""
+    puts "What is the capital of #{question[:name]}?"
+    response = gets.chomp
+    if response.capitalize == question[:capital] || response.downcase == question[:capital].downcase
+      question[:tally] += 1
+      puts "Correct. You are #{question[:tally]} for #{play_counter} on this state."
+    else
+      puts "Incorrect. The capital of #{question[:name]} is #{question[:capital]}"
+      puts "You are #{question[:tally]} for #{play_counter} on this state."
+    end
+  end
+  puts "Would you like to play again?"
+  play_again = gets.chomp
+  if play_again.downcase == 'y' || play_again.downcase == "yes"
+    play_counter += 1
+    states = states.shuffle
+    states = states.sort_by{ |state| state[:tally] }
   else
-    puts "Incorrect. The capital of #{question[:name]} is #{question[:capital]}"
+    break
   end
 end
