@@ -158,7 +158,7 @@ states =[{
     state[:wrong] = 0
   end
 
-states.shuffle
+states.shuffle!
 
 def game_launch(states)
   total_correct = 0
