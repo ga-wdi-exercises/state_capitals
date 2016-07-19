@@ -160,20 +160,20 @@ end
 
 while true
   states.each do |state|
-# def playing_game(states)
-  # i = 0
-  # while i < states.length
     puts "what is the capital of: " + state[:name] + "?"
     guess = gets.chomp
     if guess == state[:capital]
       puts "that's right!"
+      state[:correct] +=1
     else
       puts "Wrong."
+      state[:wrong] +=1
     end
-    # i+=1
+    total = state[:correct] + state[:wrong]
+    puts "You got #{state[:correct]} correct out of #{total}."
   end
 
   puts "Would you like to play again? Type yes or no."
-  guess = gets.chomp
-  break if guess == 'no'
+  play_again = gets.chomp
+  break if play_again == 'no'
 end
