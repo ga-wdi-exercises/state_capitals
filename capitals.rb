@@ -198,10 +198,10 @@ while true
   # after 50 states have shown, ask user to play again
   puts "Want to play again? Yes/No"
   answer = gets.chomp
+  # if yes, start with states where wrong key is highest
+  states = states.sort_by{ |state| state[:wrong]}.reverse
+  puts states
   if answer == "No"
     break puts "Alright, see you later!"
-    # if yes, start with states where wrong key is highest
-    states.sort_by(:wrong)
-    puts states
   end
 end
