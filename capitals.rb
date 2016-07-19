@@ -151,38 +151,29 @@ states =[{
 #     name: "Wyoming",
 #     capital: "Cheyenne"
 
-randomize = states.shuffle
+states = states.shuffle
 
-states.each do |state|
+states.map do |state|
   state[:correct] = 0
   state[:wrong] = 0
 end
 
-puts 'Hello, welcome to the game where you will learn about America! Type yes to continue.'
-
-i = 0
-while i < states.length
-  puts "what is the capital of: " + states[i][:name].to_s + "?"
-  i+=1
-  guess = gets.chomp
-  if guess == states[i][:capital]
-    puts "that's right!"
-  else
-    puts "Wrong."
+while true
+  states.each do |state|
+# def playing_game(states)
+  # i = 0
+  # while i < states.length
+    puts "what is the capital of: " + state[:name] + "?"
+    guess = gets.chomp
+    if guess == state[:capital]
+      puts "that's right!"
+    else
+      puts "Wrong."
+    end
+    # i+=1
   end
+
+  puts "Would you like to play again? Type yes or no."
+  guess = gets.chomp
+  break if guess == 'no'
 end
-
-
-=begin
-welcome message:
-create new keys in hashes to track correct and incorrect answers
-create a for loop that pulls each state and asks for the capital.
-- if answer is correct, display message saying correct
-    - store correct tally in new key created in hash
-    - puts how many times answered correctly out of total times answered
-- if answer is incorrect, display message saying wrong
-    - store correct tally in new key created in hash
-    - puts how many times answered correctly out of total times answered
-- After completing all 50 states, ask user if they would like to play again.
-- if yes, start quiz again starting with incorrect answers first
-=end
