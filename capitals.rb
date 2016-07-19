@@ -150,7 +150,9 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
-puts "Strap in, it's time to learn the states and their capitals! Type 'hint' at any time for a clue"
+puts "Let's learn the states and their capitals! Type 'hint' at any time for a clue"
+puts "Type 'stop' to exit mid-review"
+puts "(or to debug without rehashing*pun* middle school geography)"
 states = states.shuffle
 continue = true
 states.each do |state|
@@ -161,7 +163,9 @@ while continue == true
   states.each do |state|
     puts "What is the capital of #{state[:name]}?"
     answer=gets.chomp
-    if answer == "hint"
+    if answer == "stop"
+      break
+    elsif answer == "hint"
       puts "Starts with: #{state[:capital][0...3]}"
       puts "What is the capital of the #{state[:name]}?"
       answer=gets.chomp
