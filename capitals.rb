@@ -153,15 +153,29 @@ states =[{
 
 puts "Let's test your skills...You ready? Y/N"
 ready = gets.chomp
+states.shuffle!
+states.each do |state|
+  state[:times_correct] = 0
+  state[:times_wrong] = 0
+end
+i = 0
 
 if ready == "Y"
-    states.shuffle!
-    states.each do |state|
-      state[:times_correct] = 0
-      state[:times_wrong] = 0
+    while i < states.length
+      puts "You better tell me the capital of #{states[i][:name]}"
+      user_answer = gets.chomp
+      if user_answer == states[i][:capital]
+        states[i][:times_correct] += 1
+        puts "Good job, you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+        puts states[i]
+      else
+        states[i][:times_wrong] += 1
+        puts "Wrong answer dummy you are #{states[i][:times_correct]} for " + (states[i][:times_wrong] + states[i][:times_correct]).to_s + " on this state."
+        puts states[i]
+      end
+      i += 1
     end
-    puts "You better tell me the capital of #{states[0][:name]}"
-    
+
 else
   puts "Okay. Have a good day"
 end
