@@ -1,4 +1,4 @@
-# an array of state hashes
+def data
 states =[{
     name: "Alabama",
     capital: "Montgomery"
@@ -150,3 +150,5 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+return states
+end
