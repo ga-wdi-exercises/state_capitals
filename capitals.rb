@@ -6,14 +6,14 @@ states =[{
 #     name: "Alaska",
 #     capital: "Juneau"
 # }, {
-    name: "Arizona",
-    capital: "Phoenix"
-}, {
-    name: "Arkansas",
-    capital: "Little Rock"
-}, {
-    name: "California",
-    capital: "Sacramento"
+#     name: "Arizona",
+#     capital: "Phoenix"
+# }, {
+#     name: "Arkansas",
+#     capital: "Little Rock"
+# }, {
+#     name: "California",
+#     capital: "Sacramento"
 # }, {
 #     name: "Colorado",
 #     capital: "Denver"
@@ -42,14 +42,14 @@ states =[{
 #     name: "Indiana",
 #     capital: "Indianapolis"
 # }, {
-#     name: "Iowa",
-#     capital: "Des Moines"
-# }, {
-#     name: "Kansas",
-#     capital: "Topeka"
-# }, {
-#     name: "Kentucky",
-#     capital: "Frankfort"
+    name: "Iowa",
+    capital: "Des Moines"
+}, {
+    name: "Kansas",
+    capital: "Topeka"
+}, {
+    name: "Kentucky",
+    capital: "Frankfort"
 # }, {
 #     name: "Louisiana",
 #     capital: "Baton Rouge"
@@ -151,7 +151,7 @@ states =[{
 #     capital: "Cheyenne"
 }]
 
-print "It's time to learn state capitals! Write your answer following each state.\n"
+print "It's time to learn state capitals!\nWrite the capital of the states as they appear.\n"
 
   loop do
     states.shuffle { |state, capital| puts state }.each do |state|
@@ -159,11 +159,17 @@ print "It's time to learn state capitals! Write your answer following each state
 
     userAns = gets.chomp
 
-    if userAns == "#{state[:capital]}"
+    if userAns.upcase == "#{state[:capital]}".upcase
       puts "Nice work! You know this one."
 
     else
-      puts "Not quite. We'll come back to this one."
+      puts "Not quite. The correct answer is #{state[:capital]}. We'll come back to this one."
+
     end
   end
+
+  puts "Do you want to keep playing? Type Y or N."
+  contPlay = gets.chomp
+
+  break if contPlay.upcase == "N"
 end
