@@ -151,8 +151,6 @@ states =[{
     capital: "Cheyenne"
 }]
 
-
-
   states.map do |state|
     state[:correct] = 0
     state[:wrong] = 0
@@ -166,6 +164,10 @@ def game_launch(states)
   puts "Welcome to the game!"
   states.each do |state|
     puts "What is the capital of " + state[:name] +"?"
+    # state hint method starts here
+    state_name = state[:capital]
+    state_name.split(",")
+    puts state_name[0] + state_name[1] + state_name[2]
     questions_asked +=1
     answer = gets.chomp
       if answer == state[:capital]
