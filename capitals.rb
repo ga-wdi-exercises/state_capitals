@@ -176,13 +176,6 @@ def states_shuffle(states)
 	return states.shuffle
 end
 
-# get random state
-def state(states)
-	states[:correct] = 0
-	states[:wrong] = 0
-	return states.sample
-end
-
 # question the user for capital of given state
 def state_question(state)
 	state_name = state[:name]
@@ -191,10 +184,10 @@ def state_question(state)
 	user_cap_guess = gets.chomp
 	if user_cap_guess == state_cap
 		correct(state)
-		puts "Your have gotten this capital correct #{state[:correct]} time"
+		puts "Your score for #{state[:name]} is #{state[:correct]} correct and #{state[:wrong]} wrong"
 	else
 		wrong(state)
-		puts "Your have gotten this capital wrong #{state[:wrong]} time"
+		puts "Your score for #{state[:name]} is #{state[:correct]} correct and #{state[:wrong]} wrong"
 	end
 end
 
