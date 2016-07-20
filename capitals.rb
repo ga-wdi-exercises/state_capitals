@@ -1,47 +1,47 @@
 # an array of state hashes
 states =[{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Alaska",
-    capital: "Juneau"
-}, {
-    name: "Arizona",
-    capital: "Phoenix"
-}, {
-    name: "Arkansas",
-    capital: "Little Rock"
-}, {
-    name: "California",
-    capital: "Sacramento"
-}, {
-    name: "Colorado",
-    capital: "Denver"
-}, {
-    name: "Connecticut",
-    capital: "Hartford"
-}, {
-    name: "Delaware",
-    capital: "Dover"
-}, {
-    name: "Florida",
-    capital: "Tallahassee"
-}, {
-    name: "Georgia",
-    capital: "Atlanta"
-}, {
-    name: "Hawaii",
-    capital: "Honolulu"
-}, {
-    name: "Idaho",
-    capital: "Boise"
-}, {
-    name: "Illinois",
-    capital: "Springfield"
-}, {
-    name: "Indiana",
-    capital: "Indianapolis"
-}, {
+     name: "Alabama",
+     capital: "Montgomery"
+ }, {
+     name: "Alaska",
+     capital: "Juneau"
+ }, {
+     name: "Arizona",
+     capital: "Phoenix"
+ }, {
+     name: "Arkansas",
+     capital: "Little Rock"
+ }, {
+     name: "California",
+     capital: "Sacramento"
+ }, {
+     name: "Colorado",
+     capital: "Denver"
+ }, {
+     name: "Connecticut",
+     capital: "Hartford"
+ }, {
+     name: "Delaware",
+     capital: "Dover"
+ }, {
+     name: "Florida",
+     capital: "Tallahassee"
+ }, {
+     name: "Georgia",
+     capital: "Atlanta"
+ }, {
+     name: "Hawaii",
+     capital: "Honolulu"
+ }, {
+     name: "Idaho",
+     capital: "Boise"
+ }, {
+     name: "Illinois",
+     capital: "Springfield"
+ }, {
+     name: "Indiana",
+     capital: "Indianapolis"
+ }, {
     name: "Iowa",
     capital: "Des Moines"
 }, {
@@ -51,102 +51,142 @@ states =[{
     name: "Kentucky",
     capital: "Frankfort"
 }, {
-    name: "Louisiana",
-    capital: "Baton Rouge"
+     name: "Louisiana",
+     capital: "Baton Rouge"
 }, {
-    name: "Maine",
-    capital: "Augusta"
+     name: "Maine",
+     capital: "Augusta"
+ }, {
+     name: "Maryland",
+     capital: "Annapolis"
+ }, {
+     name: "Massachusetts",
+     capital: "Boston"
+ }, {
+     name: "Michigan",
+     capital: "Lansing"
+ }, {
+     name: "Minnesota",
+     capital: "St. Paul"
+ }, {
+     name: "Mississippi",
+     capital: "Jackson"
+ }, {
+     name: "Missouri",
+     capital: "Jefferson City"
+ }, {
+     name: "Montana",
+     capital: "Helena"
+ }, {
+     name: "Nebraska",
+     capital: "Lincoln"
+ }, {
+     name: "Nevada",
+     capital: "Carson City"
+ }, {
+     name: "New Hampshire",
+     capital: "Concord"
+ }, {
+     name: "New Jersey",
+     capital: "Trenton"
+ }, {
+     name: "New Mexico",
+     capital: "Santa Fe"
+ }, {
+     name: "New York",
+     capital: "Albany"
+ }, {
+     name: "North Carolina",
+     capital: "Raleigh"
+ }, {
+     name: "North Dakota",
+     capital: "Bismarck"
+ }, {
+     name: "Ohio",
+     capital: "Columbus"
+ }, {
+     name: "Oklahoma",
+     capital: "Oklahoma City"
+ }, {
+     name: "Oregon",
+     capital: "Salem"
+ }, {
+     name: "Pennsylvania",
+     capital: "Harrisburg"
+ }, {
+     name: "Rhode Island",
+     capital: "Providence"
+ }, {
+     name: "South Carolina",
+     capital: "Columbia"
+ }, {
+     name: "South Dakota",
+     capital: "Pierre"
+ }, {
+     name: "Tennessee",
+     capital: "Nashville"
+ }, {
+     name: "Texas",
+     capital: "Austin"
 }, {
-    name: "Maryland",
-    capital: "Annapolis"
+     name: "Utah",
+     capital: "Salt Lake City"
 }, {
-    name: "Massachusetts",
-    capital: "Boston"
+     name: "Vermont",
+     capital: "Montpelier"
 }, {
-    name: "Michigan",
-    capital: "Lansing"
+     name: "Virginia",
+     capital: "Richmond"
 }, {
-    name: "Minnesota",
-    capital: "St. Paul"
+     name: "Washington",
+     capital: "Olympia"
 }, {
-    name: "Mississippi",
-    capital: "Jackson"
+     name: "West Virginia",
+     capital: "Charleston"
 }, {
-    name: "Missouri",
-    capital: "Jefferson City"
+     name: "Wisconsin",
+     capital: "Madison"
 }, {
-    name: "Montana",
-    capital: "Helena"
-}, {
-    name: "Nebraska",
-    capital: "Lincoln"
-}, {
-    name: "Nevada",
-    capital: "Carson City"
-}, {
-    name: "New Hampshire",
-    capital: "Concord"
-}, {
-    name: "New Jersey",
-    capital: "Trenton"
-}, {
-    name: "New Mexico",
-    capital: "Santa Fe"
-}, {
-    name: "New York",
-    capital: "Albany"
-}, {
-    name: "North Carolina",
-    capital: "Raleigh"
-}, {
-    name: "North Dakota",
-    capital: "Bismarck"
-}, {
-    name: "Ohio",
-    capital: "Columbus"
-}, {
-    name: "Oklahoma",
-    capital: "Oklahoma City"
-}, {
-    name: "Oregon",
-    capital: "Salem"
-}, {
-    name: "Pennsylvania",
-    capital: "Harrisburg"
-}, {
-    name: "Rhode Island",
-    capital: "Providence"
-}, {
-    name: "South Carolina",
-    capital: "Columbia"
-}, {
-    name: "South Dakota",
-    capital: "Pierre"
-}, {
-    name: "Tennessee",
-    capital: "Nashville"
-}, {
-    name: "Texas",
-    capital: "Austin"
-}, {
-    name: "Utah",
-    capital: "Salt Lake City"
-}, {
-    name: "Vermont",
-    capital: "Montpelier"
-}, {
-    name: "Virginia",
-    capital: "Richmond"
-}, {
-    name: "Washington",
-    capital: "Olympia"
-}, {
-    name: "West Virginia",
-    capital: "Charleston"
-}, {
-    name: "Wisconsin",
-    capital: "Madison"
-}, {
-    name: "Wyoming",
-    capital: "Cheyenne"
+     name: "Wyoming",
+     capital: "Cheyenne"
 }]
+
+print "It's time to learn state capitals!\nWrite the capital of the states as they appear.\n"
+
+states.each do |state|
+state[:numR] = 0
+state[:numW] = 0
+
+end
+
+  loop do
+    states.shuffle { |state, capital| puts state }.each do |state|
+      puts "#{state[:name]}"
+
+    userAns = gets.chomp
+
+    if userAns.upcase == "#{state[:capital]}".upcase
+      puts "Nice work! You know this one."
+      state[:numR] +=1
+
+      totalC = state[:numR] + state[:numW]
+      puts "You've answered that correctly #{state[:numR]} out of #{totalC} times."
+
+    else
+      puts "The correct answer is #{state[:capital]}. We'll come back to this one."
+      state[:numW] +=1
+
+      totalC = state[:numR] + state[:numW]
+      puts "You've answered that correctly #{state[:numR]} out of #{totalC} times."
+
+    end
+  end
+
+  puts "Do you want to keep playing? Type Y or N."
+  contPlay = gets.chomp
+
+    states.sort_by {|state| state[:correct]}
+
+  break if contPlay.upcase == "N"
+
+end
