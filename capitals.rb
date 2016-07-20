@@ -185,6 +185,8 @@ end
   puts "Do you want to keep playing? Type Y or N."
   contPlay = gets.chomp
 
+    states.sort_by {|state| state[:correct]}
+
   break if contPlay.upcase == "N"
 
 end
