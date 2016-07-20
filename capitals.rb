@@ -150,3 +150,42 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.map { |state| state.merge!(correct: 0, wrong: 0) }.shuffle
+puts "-----------------------------------------"
+puts "Welcome to The States Capital Memory Game"
+puts "-----------------------------------------"
+
+loop do
+    a_correct = 0
+    a_wrong = 0
+    switch = false
+    states = states.sort_by { |state| state[:wrong] }.reverse
+    states.map do |state|
+        puts "What is the capital of #{state[:name]}??"
+        answer = gets.chomp.downcase
+        if answer == state[:capital].downcase
+            puts "You are correct!"
+            state[:correct] += 1
+            a_correct += 1
+        else
+            puts "Sorry that was incorrect ):"
+            state[:wrong] += 1
+            a_wrong += 1
+        end
+        puts "#{state[:name]} / Correct: #{state[:correct]}  Wrong: #{state[:wrong]}"
+        puts "----------------------------------------------------------------------"
+    end
+    puts "GAME IS OVER / You have #{a_correct} correct and #{a_wrong} wrong."
+    puts "Would you like to play again? yes/no"
+    newgame = gets.chomp.downcase
+    if newgame == "play" || newgame == "yes"
+        switch = true
+    end
+    if switch == true
+        puts "Shuffling states.."
+    else switch == false
+    break        
+    end
+end
+
