@@ -156,8 +156,8 @@ print "It's time to learn state capitals!\nWrite the capital of the states as th
 states.each do |state|
 state[:numR] = 0
 state[:numW] = 0
-    totalC = state[:numR] + state[:numW]
 
+end
 
   loop do
     states.shuffle { |state, capital| puts state }.each do |state|
@@ -169,17 +169,18 @@ state[:numW] = 0
       puts "Nice work! You know this one."
       state[:numR] +=1
 
+      totalC = state[:numR] + state[:numW]
       puts "You've answered that correctly #{state[:numR]} out of #{totalC} times."
 
     else
       puts "The correct answer is #{state[:capital]}. We'll come back to this one."
       state[:numW] +=1
 
+      totalC = state[:numR] + state[:numW]
       puts "You've answered that correctly #{state[:numR]} out of #{totalC} times."
 
     end
   end
-end
 
   puts "Do you want to keep playing? Type Y or N."
   contPlay = gets.chomp
