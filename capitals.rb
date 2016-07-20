@@ -155,11 +155,14 @@ states =[{
 #shuffles states and capitals
 states = states.shuffle
 
+#welcome message giving player option of playing or not
 puts "Welcome! Would you like to test your knowledge on the state capitals, yes/no?"
 answer = gets.chomp
 
+#anything other than a typed 'no' will start game
 if answer != "no"
 
+#pulls each state name and plugs into question, gets answer, matches or no with feedback output
   states.each do |state|
     puts "What is the capital of " + state[:name] + "?"
     answer = gets.chomp
@@ -167,7 +170,6 @@ if answer != "no"
       puts "You're correct!!!"
     else
       puts "Wrong answer!!!"
-
   end
-end
+ end
 end
