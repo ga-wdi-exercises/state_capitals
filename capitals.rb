@@ -154,6 +154,7 @@ states =[{
 
 #shuffles states and capitals
 states = states.shuffle
+score = 0
 
 #welcome message giving player option of playing or not
 puts "Welcome! Would you like to test your knowledge on the state capitals, yes/no?"
@@ -168,6 +169,8 @@ if answer != "no"
     answer = gets.chomp
     if answer == state[:capital]
       puts "You're correct!!!"
+      score +=1
+    #  puts "Your score is " + score + " so far!"
     else
       puts "Wrong answer!!!"
   end
