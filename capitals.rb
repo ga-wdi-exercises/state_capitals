@@ -153,6 +153,11 @@ states =[{
 
 print "It's time to learn state capitals!\nWrite the capital of the states as they appear.\n"
 
+states.each do |state|
+state[:numR] = 0
+state[:numW] = 0
+end
+
   loop do
     states.shuffle { |state, capital| puts state }.each do |state|
       puts "#{state[:name]}"
@@ -161,10 +166,13 @@ print "It's time to learn state capitals!\nWrite the capital of the states as th
 
     if userAns.upcase == "#{state[:capital]}".upcase
       puts "Nice work! You know this one."
+      state[:numR] +=1
+
+      puts state[:numR]
 
     else
-      puts "Not quite. The correct answer is #{state[:capital]}. We'll come back to this one."
-
+      puts "The correct answer is #{state[:capital]}. We'll come back to this one."
+      state[:numW] +=1
     end
   end
 
