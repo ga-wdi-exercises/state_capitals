@@ -158,7 +158,7 @@ states =[{
 #
 # shuffle the capitals list
 # pull one out
-# ask user what the captial of states[:name] is
+# ask user what the capitals of states[:name] is
 # lower case answer and check against lower case states[:capital]
 # add new key for correct or wrong +1 to either
 # puts how many times the user has gotten it right or wrong
@@ -191,13 +191,13 @@ def state_question(state)
 	end
 end
 
-# hanldes correct answers
+# handles correct answers
 def correct(state)
 		state[:correct] += 1
 end
 
 
-# handles worng answers
+# handles wrong answers
 def wrong(state)
 		state[:wrong] += 1
 end
