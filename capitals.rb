@@ -1,4 +1,7 @@
 # an array of state hashes
+puts "WELCOME TO STATE MADNESS"
+puts ""
+
 states =[{
     name: "Alabama",
     capital: "Montgomery"
@@ -150,3 +153,27 @@ states =[{
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+num_right = 0
+num_wrong = 0
+states = states.shuffle
+
+while true
+      states.length.times do |state|
+        puts "What's the capital of " + states[state][:name] + "?"
+        response = gets.chomp
+        if response == states[state][:capital]
+          num_right += 1
+          puts "Correct!"
+          puts "SCORE::: Correct: " + num_right.to_s + " Wrong: " + num_wrong.to_s
+        else
+          num_wrong += 1
+          puts "Wrong!"
+          puts "SCORE::: Correct: " + num_right.to_s + " Wrong: " + num_wrong.to_s
+          break
+        end
+      end
+      puts "Continue (Y/N)?"
+      answer = gets.chomp
+      break if answer.upcase == "N"
+    end
