@@ -23,31 +23,31 @@ while true
     #gets.chomp the user input and compare it to array[:capital]
     guess = gets.chomp
     #if the input == capital, increment correct key val +1
-    #also, puts 'correct. you are numc correct for numi + numc times answered'
+    #also, puts 'correct.'
     if guess == state[:capital]
       state[:correct] += 1
       puts "Yep that's right."
+      #else the input != capital, increment incorrect key val +1
+      #also, puts 'nope.'
     else
       state[:incorrect] += 1
       puts "NO!"
+      #end that if/else
     end
+    #puts 'you are numc correct for numi + numc times answered'
     total = state[:correct] + state[:incorrect]
     puts "You've gotten #{state[:correct]} correct out of #{total} times answered."
   end
+  #if all states are done, puts 'play again? Y/N'
+  #gets.chomp the input and if Y...
+  #sort states array by higher val of the incorrect key...
+  #and REPEAT
   puts "Play again? 'Y' or 'N'?"
   play_again = gets.chomp
+  if play_again == 'Y'
+    states = states.sort_by { |i| i[:incorrect] }.reverse
+  end
+  # puts states to see if sorting worked, then comment it out
+  # puts states
   break if play_again == 'N'
 end
-
-
-#else the input != capital, increment incorrect key val +1
-#also, puts 'nope. you are numc correct for numi + numc times answered'
-#end that if/else
-#define i = 0, while/until i < states.length, repeat the if/else and increment i+=1
-#otherwise if all states are done, puts 'play again? Y/N'
-#gets.chomp the input and if Y...
-#sort states array by higher val of the incorrect key...
-#and REPEAT the while/if/else etc.
-
-
-# puts states
