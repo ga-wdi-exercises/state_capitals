@@ -9,7 +9,10 @@ answer = gets.chomp
 
 
 states = states.shuffle!
-
+ def get_user_input prompt
+   puts prompt
+   gets.chomp
+ end
 
 
 if answer == "GO"
@@ -22,11 +25,10 @@ end
 
   while true
      states.map do |state|
-      #  num_correct = state[:correct].to_i
-      #  num_tried = state[:correct].to_i
-    puts "what is the capital of " + state[:name] + "?"
-    guess = gets.chomp
-    if guess == state[:capital]
+
+    input = get_user_input("what is the capital of " + state[:name] + "?")
+
+    if input == state[:capital]
     state[:correct] += 1
       puts "Correct!"
     else
@@ -37,9 +39,14 @@ end
     puts "You've gotten #{state[:correct]} correct out of #{total} times answered."
   end
 
-    puts "Play again? 'YES' or 'NO'?"
-    play_again = gets.chomp
-    break if play_again != "YES"
-  end
+  puts "Play again? 'Y' or 'N'?"
+play_again = gets.chomp
+if play_again == 'Y'
+ states = states.sort_by { |i| i[:incorrect] }.reverse
+end
+# puts states to see if sorting worked, then comment it out
+# puts states
+break if play_again == 'N'
+end
 
 #
