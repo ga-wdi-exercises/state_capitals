@@ -155,7 +155,7 @@ states = [
 
 
 
-#initialize quiz
+# Get desired quiz length from user
 def get_quiz_length
 	print "Enter quiz length (1 to 50): "
 	quiz_length = gets.chomp.to_i
@@ -169,90 +169,76 @@ def get_quiz_length
 			quiz_length = gets.chomp.to_i
 		end
 	end
-
+	puts "#{quiz_length} is a great choice!"
 	return quiz_length
 end
 
-# def replay states
-#
-# 	if quiz_length == 1
-# 		capitals = "capital"
-# 	end
-#
-# 	puts "\nGood choice! Time to replay.
-# 	Remember, no need to worry about case-sensitivity in your responses.
-# 	Enter 'hint' at any time to display a hint.
-# 	Enter 'quit' or 'exit' at any time to end the quiz."
-#
-# 	print "\nAre you ready to begin your replay on #{quiz_length} state #{capitals} (y/n)? "
-#
-# 	input = gets.chomp.downcase
-#
-# 	if input == 'n' || input == 'quit' || input == 'exit'
-# 		puts "Goodbye."
-# 	elsif input == 'y'
-# 		states.each do |state|
-# 			state[:correct] = 0
-# 			state[:wrong] = 0
-# 		end
-# 		quiz states, quiz_length
-# 	end
-# end
+
+
+# Print score
+def print_score states, i
+	puts "Score for #{states[i][:name]}: Correct = #{states[i][:correct]}, Incorrect = #{states[i][:wrong]}."
+end
 
 
 
 # prompt function
-def prompt state, i, states
+def prompt states, i, state
 
 	print "\nWhat is the capital of #{state[:name]}? "
 	res = gets.chomp.downcase
-	p res
 
-	# quit test
+	# Quit test
 	#break if res == 'quit' || res == 'exit'
 
-	# validate answer
+	# Validate answer
 	if res == state[:capital].downcase
 		states[i][:correct] += 1
 		p "Correct!"
+		print_score states, i
 	elsif res == 'hint'
+		# Show hint
 		print state[:capital][0,3]
-		prompt state, i, states
+		prompt states, i, state
 	else
 		states[i][:wrong] += 1
 		p "Nope!"
-		prompt state, i, states
+		print_score states, i
+		prompt states, i, state
 	end
 end
 
 
-# def shuffleOrder
-# 	states.shuffle!
-# end
 
+# Shuffle card
+def shuffleOrder states
+	states.shuffle!
+end
+
+
+
+# For replay, order cards by num wrong answers
 # def replayOrder
 #
 # end
 
 
 
-# quiz function
+# Quiz function
 def quiz states, quiz_length
 
-	# shuffle states
-	states.shuffle!
+	# Shuffle states
+	shuffleOrder states
 
-	# set test stack
+	# Set test stack
 	test_stack = states[0...quiz_length]
-	p test_stack
 
-	# for every state in quiz..
+	# For every state in quiz..
 	test_stack.each_with_index do |state, i|
 
-		# ask user question
-		prompt state, i, states
+		# Ask user the question
+		prompt states, i, state
 
-		p state
 		# TODO p "Current score: #{}"
 	end
 	# At end, ask if user wants to replay
@@ -267,45 +253,49 @@ end
 
 
 
-# Welcome message
-print "\n\"Let's Learn our State Capitals!\" What is your name: "
-name = gets.chomp
-print "\nWelcome #{name}. Enter quiz length (1 to 50): "
-quiz_length = gets.chomp.to_i
+# Initialize game
+def init_game states
 
-capitals = "capitals"
-until quiz_length >= 1 && quiz_length <= 50
-	if quiz_length < 1
-		puts "\nSorry, #{quiz_length} is too low. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
-		quiz_length = gets.chomp.to_i
-	elsif quiz_length > 50
-		puts "\nSorry, #{quiz_length} is too high. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
-		quiz_length = gets.chomp.to_i
+	# Welcome message
+	print "\n\"Let's Learn our State Capitals!\" What is your name: "
+	name = gets.chomp
+	puts "Welcome #{name}."
+
+	# Ask user for quiz length
+	quiz_length = get_quiz_length
+
+	# Plural fix
+	capitals = "capitals"
+	if quiz_length == 1
+		capitals = "capital"
 	end
-end
 
-if quiz_length == 1
-	capitals = "capital"
-end
+	# Instructions
+	puts "\nLet's start the quiz.
+	Remember, no need to worry about case-sensitivity in your responses.
+	Enter 'hint' at any time to display a hint.
+	Enter 'quit' or 'exit' at any time to end the quiz."
 
-puts "\nGood choice! Let's start the quiz.
-Remember, no need to worry about case-sensitivity in your responses.
-Enter 'hint' at any time to display a hint.
-Enter 'quit' or 'exit' at any time to end the quiz."
-
-print "\nAre you ready to begin your quiz on #{quiz_length} state #{capitals} (y/n)? "
-
-input = gets.chomp.downcase
-
-if input == 'n' || input == 'quit' || input == 'exit'
-	puts "Goodbye."
-elsif input == 'y'
-	states.each do |state|
-		state[:correct] = 0
-		state[:wrong] = 0
+	# Ask if user is ready
+	print "\nAre you ready to begin your quiz on #{quiz_length} state #{capitals} (y/n)? "
+	input = gets.chomp.downcase
+	if input == 'y'
+		states.each do |state|
+			state[:correct] = 0
+			state[:wrong] = 0
+		end
+		quiz states, quiz_length
+	else
+		puts "Goodbye."
 	end
-	quiz states, quiz_length
+
 end
+
+
+
+#Start game
+init_game states
+
 
 
 p 'done'
