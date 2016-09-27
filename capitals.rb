@@ -155,7 +155,7 @@ states =[
 correct = 0;
 wrong = 0;
 
-puts "Welcome State Capitals"
+puts "Welcome to the State Capitals Game"
 states.shuffle!
 # where we iterate over each state in states
 states.each do |state|
@@ -163,9 +163,8 @@ states.each do |state|
   user_input = gets.chomp
   if user_input == state[:capital]
     puts "You are correct"
-    return correct +=1
-  else "You are wrong"
-    return wrong +=1
+  else
+    puts "You are wrong"
   end
 end
 
