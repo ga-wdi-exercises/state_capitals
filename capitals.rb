@@ -182,14 +182,11 @@ end
 
 
 
-# prompt function
+# Show prompt to user, get response
 def prompt states, i, state
 
-	print "\nWhat is the capital of #{state[:name]}? "
+	print "\n##{i + 1}: What is the capital of #{state[:name]}? "
 	res = gets.chomp.downcase
-
-	# Quit test
-	#break if res == 'quit' || res == 'exit'
 
 	# Validate answer
 	if res == state[:capital].downcase
@@ -200,6 +197,8 @@ def prompt states, i, state
 		# Show hint
 		print state[:capital][0,3]
 		prompt states, i, state
+	elsif res == 'skip'
+		# Skip state
 	else
 		states[i][:wrong] += 1
 		p "Nope!"
@@ -218,17 +217,14 @@ end
 
 
 # For replay, order cards by num wrong answers
-# def replayOrder
-#
-# end
+def replayOrder states
+	states.sort_by { |state| state[:wrong]}
+end
 
 
 
 # Quiz function
 def quiz states, quiz_length
-
-	# Shuffle states
-	shuffleOrder states
 
 	# Set test stack
 	test_stack = states[0...quiz_length]
@@ -238,15 +234,15 @@ def quiz states, quiz_length
 
 		# Ask user the question
 		prompt states, i, state
-
-		# TODO p "Current score: #{}"
 	end
+
 	# At end, ask if user wants to replay
 	print "\nWould you like to replay (y/n)? "
 	replay = gets.chomp
 	if replay == 'y'
 		puts "Let's try again."
 		quiz_length = get_quiz_length
+		replayOrder states
 		quiz states, quiz_length
 	end
 end
@@ -274,21 +270,27 @@ def init_game states
 	puts "\nLet's start the quiz.
 	Remember, no need to worry about case-sensitivity in your responses.
 	Enter 'hint' at any time to display a hint.
-	Enter 'quit' or 'exit' at any time to end the quiz."
+	Enter 'skip' at any time to move to the next question."
 
 	# Ask if user is ready
 	print "\nAre you ready to begin your quiz on #{quiz_length} state #{capitals} (y/n)? "
 	input = gets.chomp.downcase
 	if input == 'y'
+
+		# Add scorekeeping
 		states.each do |state|
 			state[:correct] = 0
 			state[:wrong] = 0
 		end
+
+		# Shuffle states
+		shuffleOrder states
+
+		# Start Quiz
 		quiz states, quiz_length
 	else
 		puts "Goodbye."
 	end
-
 end
 
 
@@ -296,6 +298,10 @@ end
 #Start game
 init_game states
 
-
+# Print final score
+states.sort_by { |state| state[:name]}
+states.each do |state|
+	puts "Score for #{state[:name]}: Correct = #{state[:correct]}, Incorrect = #{state[:wrong]}."
+end
 
 p 'done'
