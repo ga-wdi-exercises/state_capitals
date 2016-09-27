@@ -11,15 +11,6 @@ states =[
 }, {
     name: "Delaware",
     capital: "Dover"
-}, {
-    name: "Florida",
-    capital: "Tallahassee"
-}, {
-    name: "Georgia",
-    capital: "Atlanta"
-}, {
-    name: "Hawaii",
-    capital: "Honolulu"
 }]
 
 # shuffles and alters the states variable, this works!
@@ -28,18 +19,21 @@ states.shuffle!
 # Greets the user, this works!
 # puts "Hey there! What's your name?"
 # user_name = gets 
-# puts "Welcome " + user_name + "! Here's the first state!"
+# puts "Welcome #{user_name} Here's the first state!"
 
 # Loops through states
 states.each do |state|
+    score = 0
     puts "What is the capital of " + state[:name] + "?"
     user_answer = gets.chomp
     if user_answer == state[:capital]
         puts "You got it right!"
-        # states[0].push[:score => "right"]
-        else
-        puts "You got it wrong!" 
-        # states[0].push[:score => "wrong"]
+        state.merge!(score:"right")
+        score += 1
+    else
+        puts "You got it wrong!"
+        state.merge!(score:"wrong")
+        score -= 1
     end
 end
 
