@@ -151,3 +151,52 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+#
+
+# initialize corrct and incorrect for each state
+states.each do |item|
+	item[:correct] = 0
+	item[:incorrect] = 0
+ end
+
+
+#Initialize new keys in the hashes that store the number of times
+# a user gets a capital correct and the number of times the answer is wrong.
+# Through all 50 states, prompt the user to name the capital of the state.
+
+# If the answer is correct, display a message saying so, and increment the correct key.
+# If the answer is wrong, display a message saying so, and increment the wrong key.
+# After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+# Once the user has gone through all 50 states, ask them if they'd like to play again.
+
+game_over=false
+#Provide a welcome message to introduce the player to the game.
+puts "Welcome to the State Capital Guessing game.  You will be asked"
+puts " to guess the Capital city of a state"
+
+loop do
+ 	states.shuffle!
+    break if game_over
+
+states.each do |item|
+	puts "Correct of #{item[:correct]} for  #{item[:name]}"
+	puts "Incorrect of #{item[:incorrect]} for  #{item[:name]}"
+ 	puts "Capitol of #{item[:name]} "
+    my_guess = gets.chomp!
+    puts my_guess
+	if my_guess == item[:capital]
+		puts "Correct answer"
+	    item[:correct] +=1
+	  else
+	  	puts"Incorrect, the correct answer is #{item[:capital]}"
+   		item[:incorrect] +=1
+ 	end # if
+ end # each
+
+ puts "Do you want to play again (Y or N)"
+ play_again=gets.chomp!
+ play_again.upcase!
+ game_over=!(play_again=="Y")
+end # loop
