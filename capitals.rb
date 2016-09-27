@@ -6,6 +6,9 @@ test = [
   }, {
       name: "Colorado",
       capital: "Denver"
+  }, {
+      name: "Arkansas",
+      capital: "Little Rock"
   }
 ]
 
@@ -25,8 +28,7 @@ def shuffle questions, play_count
   if play_count == 0
     questions.shuffle!
   else
-    # temp
-    questions.shuffle!
+    questions.sort! { |a,b| b[:wrong] - a[:wrong] }
   end
   questions
 end
@@ -61,6 +63,7 @@ puts "Are you ready (y/n)?"
 input = gets
 score_data = {play_count: 0, correct: 0, wrong: 0}
 test = initialize_questions test
+binding.pry
 test = shuffle test, score_data[:play_count]
 play test, score_data
 puts "You played #{score_data[:play_count]} times with a total score of #{score_data[:correct]}/#{score_data[:correct] + score_data[:wrong]}. Goodbye!"
