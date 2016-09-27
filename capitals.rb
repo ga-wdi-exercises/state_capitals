@@ -14,19 +14,21 @@ states =[
 index = 0
 while true
   while true
-    wins = 0
-    loses = 0
-    attempts = 0
+    states.each{
+      |state| state[:correct] = 0
+      state[:wrong] = 0
+      state[:attempts] = 0
+    }
   puts "What is the capital of #{states[index][:name]}?"
   input = gets.chomp
   if input != states[index][:capital]
-    loses += 1
-    attempts += 1
-    puts "Nope. You've guessed wrong #{loses} times out of #{attempts}"
+    states[index][:wrong] += 1
+    states[index][:attempts] += 1
+    puts "Nope. You've guessed wrong #{states[index][:wrong]} times out of #{states[index][:attempts]}"
   else
-    wins += 1
-    attempts += 1
-    puts "Yup! You've guessed right #{wins} times out of #{attempts}"
+    states[index][:correct] += 1
+    states[index][:attempts] += 1
+    puts "Yup! You've guessed right #{states[index][:correct]} times out of #{states[index][:attempts]}"
     break if index > states.length
   end
     index += 1
