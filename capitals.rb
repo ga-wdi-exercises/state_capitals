@@ -1,5 +1,3 @@
-require 'pry'
-
 states =[
 {
     name: "Alabama",
@@ -10,6 +8,15 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
+},{
+    name: "West Virginia",
+    capital: "Charleston"
+}, {
+    name: "Wisconsin",
+    capital: "Madison"
+}, {
+    name: "Wyoming",
+    capital: "Cheyenne"
 }]
 
 correct = []
@@ -20,7 +27,9 @@ playAgain = true
 puts "Hi! Welcome to the states capitals quiz!"
 
 while playAgain == true
+totalScore = 0
 i = 0
+states.shuffle!
 	while i < states.length
 	puts "What is the capital of #{states[i][:name]}?"
 	user_input = gets.chomp
@@ -33,6 +42,8 @@ i = 0
 			numIncorrect = incorrect.count(states[i][:name])
     		puts "Correct! You answered this question correctly #{numCorrect} times and incorrectly #{numIncorrect} times"
     		i = i +1
+        totalScore = totalScore + 1
+        puts "Your total score this round is #{totalScore}"
   		else
   			incorrect.push(states[i][:name])
   			numCorrect = correct.count(states[i][:name])
@@ -50,8 +61,6 @@ i = 0
 				playAgain = false
 			end
 end
-
-binding.pry
 
 # welcome message
 # shuffle cards
