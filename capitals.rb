@@ -1,4 +1,6 @@
 # an array of state hashes
+require.pry
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +153,7 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+binding.pry
+puts end
