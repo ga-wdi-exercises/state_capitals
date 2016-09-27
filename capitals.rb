@@ -20,16 +20,40 @@ four_states.shuffle!
 
 #Scoreboard of right and wrong answers
 score ={
-  right: [],
-  wrong: []
+  right: 0,
+  wrong: 0
 }
 #Gets answer for prompt
 puts "Please input your name"
 name = gets.chomp
 puts "Hi #{name}! I hope your brain is ready for the state capitals quiz"
 
+four_states.length.times do |i|
+  puts "What is the capital of #{four_states[i][:name]}?"
+  ans = gets.chomp
+    if ans == four_states[i][:capital]
+      score[:right] += 1
+      puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+    else
+      score[:wrong] +=1
+      puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+    end
+end
+
+
 binding.pry
 puts "test"
+
+def play_again()
+  puts "Would you like to play again? (y/n)"
+  play = gets.chomp
+    if play == "n"
+      restart = false
+    else
+      restart = true
+    end
+end
+
 
 
 
