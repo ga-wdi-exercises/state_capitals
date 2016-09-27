@@ -3,15 +3,16 @@ states =[
 {
     name: "Alabama",
     capital: "Montgomery"
+
 }, {
     name: "Alaska",
     capital: "Juneau"
 }, {
     name: "Arizona",
     capital: "Phoenix"
-  },
-  {correct: []},
-  {incorrect:[]}]
+  }]
+  # {correct: 0},
+  # {incorrect: 0}]
 # }, {
 #     name: "Arkansas",
 #     capital: "Little Rock"
@@ -154,7 +155,7 @@ states =[
 #     name: "Wyoming",
 #     capital: "Cheyenne"
 # }]
-
+correct = 0;
 p "Lets play a game, I'm gonna print out a state, and you will respond with the correct capital. Type out 'play' to start!"
 user_input = gets.chomp
 states = states.shuffle
@@ -164,12 +165,12 @@ if user_input == 'p'
     p "What is the capital of #{state[:name]}"
 answer = gets.chomp
 if answer == state[:capital]
-   states[:correct].push("Sure")
-   p states[:correct]
+   correct += 1
+   p correct;
 
 end
-# if answer != state[:capital]
-#   p correct -=1
-# end
+if answer != state[:capital]
+  p correct -=1
+end
 end
 end
