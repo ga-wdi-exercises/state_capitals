@@ -9,7 +9,9 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
-  }]
+  },
+  {correct: []},
+  {incorrect:[]}]
 # }, {
 #     name: "Arkansas",
 #     capital: "Little Rock"
@@ -157,7 +159,17 @@ p "Lets play a game, I'm gonna print out a state, and you will respond with the 
 user_input = gets.chomp
 states = states.shuffle
 if user_input == 'p'
+
   states.each do |state|
-  p  state[:name]
+    p "What is the capital of #{state[:name]}"
+answer = gets.chomp
+if answer == state[:capital]
+   states[:correct].push("Sure")
+   p states[:correct]
+
+end
+# if answer != state[:capital]
+#   p correct -=1
+# end
 end
 end
