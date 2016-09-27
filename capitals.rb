@@ -1,4 +1,6 @@
 # an array of state hashes
+require 'pry'
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +153,33 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle
+
+puts 'Welcome to the state capital game!'
+
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+
+loop do
+states.each do |state|
+  puts state[:name]
+  answer = gets.chomp
+  if answer == state[:capital]
+    puts "That is correct"
+    state[:correct]+=1
+  else
+    puts "That is incorrect"
+    state[:incorrect]+=1
+  end
+    puts "Number of Correct Answers = #{state[:correct]}"
+    puts "Number of Incorrect Answers = #{state[:incorrect]}"
+  end
+    puts 'Would you like to play again?'
+    answer = gets.chomp
+    break if answer != 'yes'
+end
+
+binding.pry
