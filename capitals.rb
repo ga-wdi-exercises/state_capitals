@@ -150,4 +150,35 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
+
+puts "Let's play - What's that capital!?"
+
+index = 0
+while true do
+  while true do
+states.each {
+  |state| state[:correct] = 0
+  state[:wrong] = 0
+}
+    puts "What's the capital of #{states[index][:name]} ?"
+    user_input = gets.chomp
+    if user_input != states[index][:capital]
+        states[index][:wrong] =+ 1
+        puts "Try again"
+    end
+    break if (user_input == states[index][:capital])
+  end
+  index =+ 1
+  states[index][:right] =+ 1
+  puts "You guessed wrong #{states[index][:wrong]} times and got it correct: #{states[index][:right]} times!"
+end
+
+
+# next keep a score of how many times it was wrong
+
+
+# states.shuffle!  to keep the states shuffled always
+
+# binding.pry
+# puts "stop pry bug"
