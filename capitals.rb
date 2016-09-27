@@ -40,15 +40,15 @@ def play questions, score_data
     if answer == question[:capital]
       question[:correct] += 1
       score_data[:correct] += 1
-      puts "Great job! You've gotten that one right #{question[:correct]} out of #{question[:correct] + question[:wrong]} times."
+      puts "Great job! You've gotten that one right #{question[:correct]} out of #{question[:correct] + question[:wrong]} times. Running score: #{score_date[:correct]} correct out of #{score_data[:correct] + score_data[:wrong]}."
     else
       question[:wrong] += 1
       score_data[:wrong] += 1
-      puts "Ooooh, someone's a big dum dum! You've gotten that one wrong #{question[:wrong]} out of #{question[:correct] + question[:wrong]} times."
+      puts "Ooooh, someone's a big dum dum! You've gotten that one wrong #{question[:wrong]} out of #{question[:correct] + question[:wrong]} times. Running score: #{score_date[:correct]} correct out of #{score_data[:correct] + score_data[:wrong]}."
     end
   end
   score_data[:play_count] += 1
-  puts "You have played #{score_data[:play_count]} times with a total score of #{score_data[:correct]}/#{score_data[:correct] + score_data[:wrong]}. Would you like to play again (y/n)?"
+  puts "You have played #{score_data[:play_count]} times with a total score of #{score_data[:correct]} correct / #{score_data[:correct] + score_data[:wrong]} total. Would you like to play again (y/n)?"
   play_again = gets.chomp
   if play_again == "y"
     questions = shuffle questions, score_data[:play_count]
