@@ -165,13 +165,41 @@ st = [
     capital: "Madison"
 }]
 
+def check guess, state
+  return guess.downcase == state[:capital].downcase
+end
+
+def addRightWrong state
+  if state[:correct] == nil
+    state[:correct] = 0
+  end
+  if state[:wrong] == nil
+    state[:wrong] = 0
+  end
+end
+
+def endGame states
+
 
 
 puts "Welcome to the STATES AND CAPITALS GAME!"
 puts "When I tell you the name of a state, tell me the capital. It's that easy!"
+puts "If you want to quit, just type in `q` at the prompt"
 
-def check guess, state
-  return guess.downcase == state[:capital].downcase
+st.shuffle.length.times do |i|
+  addRightWrong st[i]
+  p "What's the capital of #{st[i][:name]}?"
+  input = gets.chomp
+  break if input == 'q'
+  if (check input, st[i]) == false
+    p "I'm sorry! That's not correct"
+    st[i][:wrong] += 1
+  else
+    p "That's right!"
+    st[i][:correct] += 1
+  end
 end
+
+
 
 binding.pry
