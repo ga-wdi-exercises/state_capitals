@@ -1,4 +1,6 @@
 # an array of state hashes
+require 'pry'
+
 def start
 # states =[
 # {
@@ -166,8 +168,6 @@ states =[
     capital: "Tallahassee"
   }
 ]
-correct = 0
-wrong = 0
 score = 0
 puts "Ready to play? Press enter to begin!"
 # gets
@@ -175,6 +175,8 @@ puts "Ready to play? Press enter to begin!"
 states = states.shuffle
 loop
 states.each do |state|
+  correct = 0
+  wrong = 0
   # Ask the user to the name the capitol for ___ state
   puts "Guess the capitol of #{state[:name]}"
   userInput = gets.chomp
@@ -182,6 +184,9 @@ states.each do |state|
     puts"Awesome job."
     state[:userInput] = "correct"
     score +=1
+
+    state[:score] ||= 0
+    state[:score] +=1
 
   else
     puts "Not quite right. Keep trying!"
@@ -202,3 +207,6 @@ end
 end #end of def start
 
 start #starts the game
+
+binding.pry
+puts "end of the game"
