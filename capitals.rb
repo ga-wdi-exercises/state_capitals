@@ -20,9 +20,11 @@ while i < states.length
 puts "What is the capital of #{states[i][:name]}?"
 user_input = gets.chomp
   if user_input == states[i][:capital]
+    correct.push(states[i][:name])
     puts "congrats!"
-    i = i +1 
+    i = i +1
   else
+  	incorrect.push(states[i][:name])
   	puts "no!"
   	i = i+1
   end
