@@ -151,3 +151,38 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+correct = 0;
+wrong = 0;
+
+puts "Welcome State Capitals"
+states.shuffle!
+# where we iterate over each state in states
+states.each do |state|
+  puts "What is the capital of " + state[:name]
+  user_input = gets.chomp
+  if user_input == state[:capital]
+    puts "You are correct"
+    return correct +=1
+  else "You are wrong"
+    return wrong +=1
+  end
+end
+
+
+
+
+# index = 0
+# while index < states.length
+#   puts states[index]
+#   index +=1
+# end
+
+
+#randomize the states
+#states.shuffle
+#Initialize new keys in the hashes that store the number of times a user gets a capital correct and the number of times the answer is wrong
+#index = 0 if capital == true return correct+=1
+#if capital == false return +=1
+#forEach state puts "what is the capital"
+#if capital is correct +1correct, if capital is wrong +1 wrong key
