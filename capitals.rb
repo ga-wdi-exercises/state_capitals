@@ -157,11 +157,7 @@ states =[
 #shuffle states
 states.shuffle!
 
-#Scoreboard of right and wrong answers
-score ={
-  right: 0,
-  wrong: 0
-}
+
 #Gets answer for prompt
 puts "Please input your name"
 name = gets.chomp
@@ -170,20 +166,38 @@ puts "Hi #{name}! I hope your brain is ready for the state capitals quiz"
 restart = true
 
 while restart
-states.length.times do |i|
-  puts "What is the capital of #{states[i][:name]}?"
-  ans = gets.chomp
-    if ans == states[i][:capital]
-      score[:right] += 1
-      puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+  #Scoreboard of right and wrong answers
+  score ={
+    right: 0,
+    wrong: 0
+  }
+
+    states.length.times do |i|
+      puts "What is the capital of #{states[i][:name]}?"
+      ans = gets.chomp
+      if ans == "hint"
+         puts "The first three letters of the capital are #{states[i][:capital][0,3]}"
+         ans = gets.chomp
+        if ans == states[i][:capital]
+          score[:right] += 1
+          puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+        else
+          score[:wrong] +=1
+          puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+        end
     else
-      score[:wrong] +=1
-      puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+      if ans == states[i][:capital]
+        score[:right] += 1
+        puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+      else
+        score[:wrong] +=1
+        puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+      end
     end
-end
-puts "Would you like to play again? (y/n)"
-play = gets.chomp
-  if play == "n"
-    restart = false
   end
+  puts "Would you like to play again? (y/n)"
+  play = gets.chomp
+    if play == "n"
+      restart = false
+    end
 end
