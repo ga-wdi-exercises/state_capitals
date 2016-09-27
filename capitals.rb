@@ -1,3 +1,4 @@
+require 'pry'
 # an array of state hashes
 states =[
 {
@@ -151,3 +152,26 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+st = [
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Connecticut",
+    capital: "Hartford"
+}, {
+    name: "Wisconsin",
+    capital: "Madison"
+}]
+
+
+
+puts "Welcome to the STATES AND CAPITALS GAME!"
+puts "When I tell you the name of a state, tell me the capital. It's that easy!"
+
+def check guess, state
+  return guess.downcase == state[:capital].downcase
+end
+
+binding.pry
