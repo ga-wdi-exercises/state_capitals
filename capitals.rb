@@ -169,7 +169,7 @@ def check guess, state
   return guess.downcase == state[:capital].downcase
 end
 
-def addRightWrong state
+def add_right_wrong state
   if state[:correct] == nil
     state[:correct] = 0
   end
@@ -178,27 +178,49 @@ def addRightWrong state
   end
 end
 
-def endGame states
-
-
-
-puts "Welcome to the STATES AND CAPITALS GAME!"
-puts "When I tell you the name of a state, tell me the capital. It's that easy!"
-puts "If you want to quit, just type in `q` at the prompt"
-
-st.shuffle.length.times do |i|
-  addRightWrong st[i]
-  p "What's the capital of #{st[i][:name]}?"
-  input = gets.chomp
-  break if input == 'q'
-  if (check input, st[i]) == false
-    p "I'm sorry! That's not correct"
-    st[i][:wrong] += 1
-  else
-    p "That's right!"
-    st[i][:correct] += 1
+def play states
+  deck = states.shuffle
+  deck.length.times do |i|
+    add_right_wrong deck[i]
+    correct = deck[i][:correct]
+    wrong = deck[i][:wrong]
+    p "What's the capital of #{deck[i][:name]}?"
+    input = gets.chomp
+    break if input == 'q'
+    if (check input, deck[i]) == false
+      wrong += 1
+      p "I'm sorry! The correct answer is #{deck[i][:capital]}."
+    else
+      correct += 1
+      p "That's right! #{correct} / #{correct + wrong} ( #{correct/(correct + wrong) *100 } %)"
+    end
   end
 end
+
+
+# def get_total states
+#   c = states.reduce do |total, n|
+#     total[:correct] += n[:correct]
+#   end
+#   w = states.reduce do |total, n|
+#     total[:wrong] += n[:wrong]
+#   end
+#   puts c, w
+#   return [c, w]
+# end
+
+# def endGame states
+
+
+
+puts "\nWelcome to the STATES AND CAPITALS GAME!"
+puts "When I tell you the name of a state, tell me the capital. It's that easy!"
+puts "If you want to quit, just type in `q` at the prompt"
+puts "\n----\n\n"
+
+play st
+
+puts "Would you like to play again?"
 
 
 
