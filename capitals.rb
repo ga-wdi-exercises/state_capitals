@@ -152,7 +152,9 @@ states =[
     capital: "Cheyenne"
 }]
 
-puts("It's a boy!")
+puts("Welcome to the states capital game.  Are you ready to play?")
+answer = gets.chomp
+if answer === "y"
 
 states = states.shuffle
 index = 0
@@ -161,10 +163,13 @@ while index < states.length do
   answer = gets.chomp
   if states[index][:capital] === answer
     puts "You got it right."
+  else
+    puts "You got it wrong."
   end
   index += 1
 end
-
+end
+ 
 
 ##puts states[49][:name]
 ##if states[49][:capital] === "Cheyenne"
