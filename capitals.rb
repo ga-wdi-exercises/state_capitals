@@ -1,5 +1,26 @@
-# an array of state hashes
-require.pry
+
+
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+  state[:total] = state[:correct] +state[:wrong]
+end
+
+puts "Are you ready to have FUN?"
+answer = gets.chomp
+while answer != "No" do
+
+puts "alright, lets do this!"
+name = gets.chomp
+puts "Ok, so the rules are the following:"
+puts "You will get a state, and you have to type in the capital! Good Luck"
+states.shuffle.each do |state|
+  puts "Which is the capital of "+ state[:name]+ "?"
+  user_input =gets.chomp
+  if user_input == state[:capital]
+
+  end
 
 states =[
 {
@@ -155,5 +176,6 @@ states =[
 }]
 
 
+
 binding.pry
-puts end
+puts "program ends here"
