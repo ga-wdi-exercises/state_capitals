@@ -11,6 +11,7 @@ states = [
 }
 ]
 
+states = states.shuffle
 states.each do |state|
   puts state[:name]
   answer = gets.chomp
