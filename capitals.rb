@@ -13,10 +13,14 @@ states = [
 }
 ]
 
+overallCorrect = []
+overallIncorrect = []
+
+puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
+gets
+
 loop do
   states = states.shuffle
-  puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
-  gets
 
   states.each do |state|
     puts state[:name]
@@ -28,14 +32,20 @@ loop do
       puts 'wrong'
       state[:wrong]? state[:wrong] += 1 : state[:wrong] = 1
     end
-    puts "Score : #{state[:correct]? state[:correct] : 0} / #{state[:correct].to_i + state[:wrong].to_i}"
+    timesCorrect = (state[:correct]? state[:correct] : 0)
+    timesIncorrect = (state[:correct].to_i + state[:wrong].to_i)
+    # states.map{ |state| state[:correct]}.reduce { |prev, curr| prev + curr }
+    overallCorrect = states.inject(0){|sum, state| sum + state[:correct].to_i}
+    overallIncorrect = states.inject(0){|sum, state| sum + state[:wrong].to_i}
+    puts "State Score : #{timesCorrect} / #{timesIncorrect}"
+    puts "Overall Score : #{overallCorrect} / #{overallCorrect + overallIncorrect}"
   end
 puts 'Play Again? yes / no'
 continue = gets.chomp
 break if continue != 'yes'
 end
 
-
+binding.pry
 
 
 # binding.pry
