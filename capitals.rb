@@ -151,3 +151,19 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "How Well Do You Know Your State Capitals?"
+
+correct = 0
+
+states.each do |state|
+  puts "What is the capital of #{state[:name]}"
+  answer = gets.chomp
+
+  if answer == state[:capital]
+      puts correct += 1
+    end
+if answer != state[:capital]
+      puts correct -= 1
+    end
+end
