@@ -18,23 +18,26 @@ overallIncorrect = []
 
 puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
 gets
+states = states.shuffle
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
 
 loop do
-  states = states.shuffle
-
   states.each do |state|
     puts state[:name]
     answer = gets.chomp
     if answer == state[:capital]
       puts 'correct'
-      state[:correct]? state[:correct] += 1 : state[:correct] = 1
+      state[:correct] += 1
     else
       puts 'wrong'
-      state[:wrong]? state[:wrong] += 1 : state[:wrong] = 1
+      state[:wrong] += 1
     end
-    timesCorrect = (state[:correct]? state[:correct] : 0)
-    timesIncorrect = (state[:correct].to_i + state[:wrong].to_i)
-    # states.map{ |state| state[:correct]}.reduce { |prev, curr| prev + curr }
+    timesCorrect = state[:correct]
+    timesIncorrect = state[:correct].to_i + state[:wrong].to_i
     overallCorrect = states.inject(0){|sum, state| sum + state[:correct].to_i}
     overallIncorrect = states.inject(0){|sum, state| sum + state[:wrong].to_i}
     puts "State Score : #{timesCorrect} / #{timesIncorrect}"
@@ -43,6 +46,7 @@ loop do
 puts 'Play Again? yes / no'
 continue = gets.chomp
 break if continue != 'yes'
+states = states.sort_by{ |state| state[:correct]}
 end
 
 binding.pry
