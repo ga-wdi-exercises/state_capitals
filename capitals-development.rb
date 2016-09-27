@@ -1,14 +1,5 @@
 require 'pry'
 
-# shuffles the states
-states.shuffle
-
-# Greets the user
-puts "Hey there! What's your name?"
-user_name = gets 
-puts "Welcome " + user_name + "! Here's the first state!"
-
-
 # an array of state hashes
 states =[
 {
@@ -30,6 +21,14 @@ states =[
     name: "Hawaii",
     capital: "Honolulu"
 }]
+
+# shuffles and alters the states variable 
+states.shuffle! 
+
+# Greets the user
+puts "Hey there! What's your name?"
+user_name = gets 
+puts "Welcome " + user_name + "! Here's the first state!"
 
 binding.pry
 puts "Finished!"
