@@ -157,26 +157,35 @@ states.each do |state|
   state[:wrong] = 0
   state[:total] = state[:correct] + state[:wrong]
 end
-# shuffle states using each
-puts "Hi, Please enter capital of the state you see"
+
+puts "Do you want to play a game?"
+answer = gets.chomp
+while answer != "No" do
+
+puts "Hi there! What is your name?"
+name = gets.chomp
+puts "Hi #{name}! Today we will know if you paid attention in your geography class. Please enter capital of the state."
 states.shuffle.each do |state|
-  puts state[:name]
+  puts "What is the capital of " + state[:name]+ "?"
   user_input = gets.chomp
   if user_input == state[:capital]
     puts "Correct!"
     state[:correct]+=1
-    state[:total]
-    puts state[:correct].to_s + " times out of " + state[:total].to_s + " times correct!"
+    state[:total] = state[:correct] + state[:wrong]
+    puts "You got " + state[:correct].to_s + " out of " + state[:total].to_s + " correct!"
   else
     puts "Wrong"
     state[:wrong]+=1
-    puts state[:correct].to_s + " times out of " + state[:total] + " times wrong"
+      state[:total] = state[:correct] + state[:wrong]
+    puts "You got " + state[:wrong].to_s + " out of " + state[:total].to_s + " wrong"
   end
 end
-user_input = gets.chomp.to
-if user_input !=  state[:capital]
-  puts wrong
+
+  puts "Play Again?"
+  answer = gets.chomp
+
 end
+# Play Again?
 # prompt state (key)
 # gets input
 # if input does not equal the capital(value), display "wrong"
