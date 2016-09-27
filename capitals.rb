@@ -13,9 +13,6 @@ states = [
 }
 ]
 
-overallCorrect = []
-overallIncorrect = []
-
 puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
 gets
 states = states.shuffle
@@ -28,7 +25,12 @@ end
 loop do
   states.each do |state|
     puts state[:name]
+    puts "Type hint to see the first 3 letters"
     answer = gets.chomp
+    if answer == 'hint'
+      puts state[:capital].slice(0, 3)
+      answer = gets.chomp
+    end
     if answer == state[:capital]
       puts 'correct'
       state[:correct] += 1
