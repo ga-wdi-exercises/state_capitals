@@ -152,8 +152,6 @@ states =[
     capital: "Cheyenne"
 }]
 
-correct = 0;
-wrong = 0;
 
 puts "Welcome to the State Capitals Game"
 states.shuffle!
