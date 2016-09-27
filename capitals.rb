@@ -157,34 +157,47 @@ states = [
 
 # quiz function
 def quiz states, quiz_length
+
+	# shuffle states
 	states.shuffle!
+
+	# set test stack
 	testStack = states[0...quiz_length]
 	p testStack
-	testStack.each { |state|
-		puts "What is the capital of #{state[:name]}?"
+
+	# for every state in quiz..
+	testStack.each do |state|
+
+		# ask user question
+		print "\nWhat is the capital of #{state[:name]}?"
 		res = gets.chomp.downcase
+
+		# quit test
+		break if res != 'quit' || res != 'exit'
+
+		# validate answer
 		if res == state[:capital].downcase
 			p "Correct!"
 		end
-	}
+	end
 end
 
 
 
 # Welcome message
-puts "\"Let's Learn our State Capitals!\" What is your name: "
+print "\n\"Let's Learn our State Capitals!\" What is your name: "
 name = gets.chomp
 
-puts "Welcome #{name}. Enter quiz length (1 to 50): "
+print "\nWelcome #{name}. Enter quiz length (1 to 50): "
 quiz_length = gets.chomp.to_i
 
 capitals = "capitals"
 until quiz_length >= 1 && quiz_length <= 50
 	if quiz_length < 1
-		puts "Sorry, #{quiz_length} is too low. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
+		puts "\nSorry, #{quiz_length} is too low. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
 		quiz_length = gets.chomp.to_i
 	elsif quiz_length > 50
-		puts "Sorry, #{quiz_length} is too high. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
+		puts "\nSorry, #{quiz_length} is too high. Quiz length must be between 1 and 50, inclusive. Enter quiz length: "
 		quiz_length = gets.chomp.to_i
 	end
 end
@@ -193,10 +206,10 @@ if quiz_length == 1
 	capitals = "capital"
 end
 
-puts "Good choice! Let's start the quiz.\n
-Remember, do need to worry about case-sensitivity in your responses.\n
-Enter 'quit' or 'exit' at any time to end the quiz.\n
-Are you ready to begin your quiz on #{quiz_length} state #{capitals}? (y/n)"
+puts "\nGood choice! Let's start the quiz.
+Remember, no need to worry about case-sensitivity in your responses.
+Enter 'quit' or 'exit' at any time to end the quiz."
+print "\nAre you ready to begin your quiz on #{quiz_length} state #{capitals} (y/n)? "
 
 input = gets.chomp.downcase
 
