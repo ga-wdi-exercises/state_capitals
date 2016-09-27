@@ -193,7 +193,7 @@ def play states
       deck[i][:wrong] += 1
       p "I'm sorry! The correct answer is #{deck[i][:capital]}. (#{deck[i][:correct]} / #{deck[i][:correct] + deck[i][:wrong]})"
       # I tried to print out a percentage, but I never got it working properly! Any idea why? Each part of that expression works on its own, but when I try to combine them, I get 0;
-      p (deck[i][:correct] / (deck[i][:correct] + deck[i][:wrong]))
+      # p (deck[i][:correct] / (deck[i][:correct] + deck[i][:wrong]))
     else
       deck[i][:correct] += 1
       p "That's right! (#{deck[i][:correct]} / #{deck[i][:correct] + deck[i][:wrong]})"
