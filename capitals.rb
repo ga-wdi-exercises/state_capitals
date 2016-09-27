@@ -160,10 +160,10 @@ def quiz states, quiz_length
 	states.shuffle!
 	testStack = states[0...quiz_length]
 	p testStack
-	states.each { |state|
+	testStack.each { |state|
 		puts "What is the capital of #{state[:name]}?"
 		res = gets.chomp.downcase
-		if res == state[:name].downcase
+		if res == state[:capital].downcase
 			p "Correct!"
 		end
 	}
