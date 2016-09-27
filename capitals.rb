@@ -12,6 +12,9 @@ states = [
 ]
 
 states = states.shuffle
+puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
+gets
+
 states.each do |state|
   puts state[:name]
   answer = gets.chomp
