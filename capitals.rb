@@ -13,23 +13,22 @@ states =[
 }, {
     name: "Arkansas",
     capital: "Little Rock"
+}, {
+    name: "California",
+    capital: "Sacramento"
+}, {
+    name: "Colorado",
+    capital: "Denver"
+}, {
+    name: "Connecticut",
+    capital: "Hartford"
+}, {
+    name: "Delaware",
+    capital: "Dover"
+}, {
+    name: "Florida",
+    capital: "Tallahassee"
 }]
-# }, {
-#     name: "California",
-#     capital: "Sacramento"
-# }, {
-#     name: "Colorado",
-#     capital: "Denver"
-# }, {
-#     name: "Connecticut",
-#     capital: "Hartford"
-# }, {
-#     name: "Delaware",
-#     capital: "Dover"
-# }, {
-#     name: "Florida",
-#     capital: "Tallahassee"
-# }]
 score = 0
 states.shuffle!
 
@@ -55,12 +54,12 @@ end
 
 puts "You scored #{score} points!!!"
 
+
+
 puts "Wanna play again? Y/N"
 continue = gets.chomp.upcase
-states = states.shuffle
-states.sort_by! do |state|
-  state[]
-end
+states.shuffle
+
 
 
 
