@@ -32,23 +32,28 @@ states =[
 correct = 0
 
 
+
         states.each do |state|
+          state[:correct] = 0
+          state[:wrong] = 0
+          state[:total] = state[:correct] + state[:wrong]
+
           puts "What is the capital of #{state[:name]}"
           answers = gets.chomp
 
           if answers == state[:capital]
-            puts correct += 1
-          end
-          if answers != state[:capital]
-            puts correct -= 1
+            puts "correct"
+            state[:correct] += 1
+            state[:total] = state[:correct] + state[:wrong]
+            puts "You got " + state[:correct].to_s + " out of " + state[:total].to_s + " correct"
+        else
+            puts "wrong"
+            state[:wrong] += 1
+            state[:total] = state[:correct] + state[:wrong]
+              puts "You got " + state[:wrong].to_s + " out of " + state[:total].to_s + " wrong"
           end
 end
 
-          # index = 0
-          # while index < states.length
-          #   puts states[index]
-          #   index += 1
-          # end
 
 
 
