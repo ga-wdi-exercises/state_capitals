@@ -1,3 +1,8 @@
+puts "Enter your name"
+user_name = gets 
+puts "Welcome " + user_name + "! Ready to play?"
+
+
 # an array of state hashes
 states =[
 {
