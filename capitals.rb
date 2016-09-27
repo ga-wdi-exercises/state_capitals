@@ -1,5 +1,18 @@
+# require 'pry'
+
+
 # an array of state hashes
-states =[
+  # ask question
+  # get answer
+  # evaluate & update array
+  # right or wrong count
+
+  # total score
+
+  # play again?
+
+
+states = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +164,40 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+
+
+
+# add keys in hash per state for incorrect and correct
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+correct = 0;
+
+  # welcome
+  puts "Welcome to the State Capitals game!"
+  # loop through test array
+  input = gets.chomp
+  states.shuffle!
+  if input == "yes"
+
+
+    states.each do |state|
+      puts "What is the capital of #{state[:name]}"
+    answer = gets.chomp
+    if (answer == state[:capital])
+      p state[:correct] +=1
+      p "Good Job"
+      p "You have scored #{state[:correct]} out of #{state[:incorrect] + state[:correct]}"
+    end
+    if (answer != state[:capital])
+      p state[:incorrect] +=1
+      p "Better luck next time!"
+      p "You have scored #{state[:correct]} out of #{state[:incorrect] + state[:correct]}"
+
+    end
+  end
+end
