@@ -1,4 +1,5 @@
 # an array of state hashes
+def start
 # states =[
 # {
 #     name: "Alabama",
@@ -177,7 +178,7 @@ states.each do |state|
   # Ask the user to the name the capitol for ___ state
   puts "Guess the capitol of #{state[:name]}"
   userInput = gets.chomp
-  if userInput == state[:capital]
+  if userInput.capitalize == state[:capital]
     puts"Awesome job."
     state[:userInput] = "correct"
     score +=1
@@ -189,3 +190,15 @@ states.each do |state|
 end
 end
 puts "Here is your :#{score}. Do you want to play again (Yes/No?)"
+
+play_again = gets.chomp
+if play_again.capitalize == "Yes"
+  start #replay the game
+
+else
+  puts "Thanks for playing!"
+end
+
+end #end of def start
+
+start #starts the game
