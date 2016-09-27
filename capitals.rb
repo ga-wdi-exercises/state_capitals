@@ -166,18 +166,22 @@ def quiz states, quiz_length
 	p testStack
 
 	# for every state in quiz..
-	testStack.each do |state|
+	testStack.each_with_index do |state, i|
 
 		# ask user question
-		print "\nWhat is the capital of #{state[:name]}?"
+		print "\nWhat is the capital of #{state[:name]}? "
 		res = gets.chomp.downcase
-
+		p res
 		# quit test
-		break if res != 'quit' || res != 'exit'
+		break if res == 'quit' || res == 'exit'
 
 		# validate answer
 		if res == state[:capital].downcase
+			states[i][:correct] += 1
 			p "Correct!"
+		else
+			states[i][:wrong] += 1
+			p "Nope!"
 		end
 	end
 end
@@ -216,7 +220,13 @@ input = gets.chomp.downcase
 if input == 'n' || input == 'quit' || input == 'exit'
 	puts "Goodbye."
 elsif input == 'y'
+	states.each do |state|
+		state[:correct] = 0
+		state[:wrong] = 0
+	end
 	quiz states, quiz_length
 end
+
+p states
 
 # TODO
