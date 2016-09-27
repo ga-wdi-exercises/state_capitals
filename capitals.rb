@@ -15,25 +15,43 @@ states =[
 correct = []
 incorrect = []
 
+playAgain = true
+
+puts "Hi! Welcome to the states capitals quiz!"
+
+while playAgain == true
 i = 0
-while i < states.length
-puts "What is the capital of #{states[i][:name]}?"
-user_input = gets.chomp
-  if user_input == states[i][:capital]
-    correct.push(states[i][:name])
-    puts "congrats!"
-    i = i +1
-  else
-  	incorrect.push(states[i][:name])
-  	puts "no!"
-  	i = i+1
-  end
+	while i < states.length
+	puts "What is the capital of #{states[i][:name]}?"
+	user_input = gets.chomp
+	numCorrect = correct.count(states[i][:name])
+	numIncorrect = incorrect.count(states[i][:name])
+
+  		if user_input == states[i][:capital]
+    		correct.push(states[i][:name])
+    		numCorrect = correct.count(states[i][:name])
+			numIncorrect = incorrect.count(states[i][:name])
+    		puts "Correct! You answered this question correctly #{numCorrect} times and incorrectly #{numIncorrect} times"
+    		i = i +1
+  		else
+  			incorrect.push(states[i][:name])
+  			numCorrect = correct.count(states[i][:name])
+			numIncorrect = incorrect.count(states[i][:name])
+  			puts "Ah thats incorrect, you answered this question correctly #{numCorrect} times and incorrectly #{numIncorrect} times "
+  			i = i+1
+  		end
+	end
+
+		puts "Would you like to play again?"
+		answer = gets.chomp
+			if answer == "yes"
+				playAgain = true
+			else
+				playAgain = false
+			end
 end
 
-
 binding.pry
-
-
 
 # welcome message
 # shuffle cards
