@@ -1,3 +1,46 @@
+require 'pry'
+
+#test array
+four_states =[
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Delaware",
+    capital: "Dover"
+}, {
+    name: "Kansas",
+    capital: "Topeka"
+}, {
+    name: "North Carolina",
+    capital: "Raleigh"
+}]
+#shuffle states
+four_states.shuffle!
+
+#Scoreboard of right and wrong answers
+score ={
+  right: [],
+  wrong: []
+}
+#Gets answer for prompt
+puts "Please input your name"
+name = gets.chomp
+puts "Hi #{name}! I hope your brain is ready for the state capitals quiz"
+
+binding.pry
+puts "test"
+
+
+
+
+
+
+
+
+
+
+
 # an array of state hashes
 states =[
 {
