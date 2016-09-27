@@ -1,69 +1,3 @@
-require 'pry'
-
-#test array
-four_states =[
-{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Delaware",
-    capital: "Dover"
-}, {
-    name: "Kansas",
-    capital: "Topeka"
-}, {
-    name: "North Carolina",
-    capital: "Raleigh"
-}]
-#shuffle states
-four_states.shuffle!
-
-#Scoreboard of right and wrong answers
-score ={
-  right: 0,
-  wrong: 0
-}
-#Gets answer for prompt
-puts "Please input your name"
-name = gets.chomp
-puts "Hi #{name}! I hope your brain is ready for the state capitals quiz"
-
-four_states.length.times do |i|
-  puts "What is the capital of #{four_states[i][:name]}?"
-  ans = gets.chomp
-    if ans == four_states[i][:capital]
-      score[:right] += 1
-      puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
-    else
-      score[:wrong] +=1
-      puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
-    end
-end
-
-
-binding.pry
-puts "test"
-
-def play_again()
-  puts "Would you like to play again? (y/n)"
-  play = gets.chomp
-    if play == "n"
-      restart = false
-    else
-      restart = true
-    end
-end
-
-
-
-
-
-
-
-
-
-
-
 
 # an array of state hashes
 states =[
@@ -218,3 +152,38 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+#shuffle states
+states.shuffle!
+
+#Scoreboard of right and wrong answers
+score ={
+  right: 0,
+  wrong: 0
+}
+#Gets answer for prompt
+puts "Please input your name"
+name = gets.chomp
+puts "Hi #{name}! I hope your brain is ready for the state capitals quiz"
+
+restart = true
+
+while restart
+states.length.times do |i|
+  puts "What is the capital of #{states[i][:name]}?"
+  ans = gets.chomp
+    if ans == states[i][:capital]
+      score[:right] += 1
+      puts "You are correct! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+    else
+      score[:wrong] +=1
+      puts "You are incorrect! You have #{score[:right]} out of #{score[:right] + score[:wrong]} correct"
+    end
+end
+puts "Would you like to play again? (y/n)"
+play = gets.chomp
+  if play == "n"
+    restart = false
+  end
+end
