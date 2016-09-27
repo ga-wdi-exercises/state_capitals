@@ -228,7 +228,7 @@ puts "When I tell you the name of a state, tell me the capital. It's that easy!"
 puts "If you want to quit, just type in `q` at the prompt"
 puts "\n----\n\n"
 
-play st
+play states
 
 puts "Would you like to play again?"
 
