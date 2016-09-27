@@ -1,31 +1,44 @@
+require 'pry'
+
 states = [
 {
   name: 'Alabama',
   capital: 'Montgomery'
 }, {
   name: 'California',
-  capital: 'Montogmery'
+  capital: 'Sacramento'
 }, {
   name: 'Georgia',
   capital: 'Atlanta'
 }
 ]
 
-states = states.shuffle
-puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
-gets
+loop do
+  states = states.shuffle
+  puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
+  gets
 
-states.each do |state|
-  puts state[:name]
-  answer = gets.chomp
-  if answer == state[:capital]
-    puts 'correct'
-  else
-    puts 'wrong'
+  states.each do |state|
+    puts state[:name]
+    answer = gets.chomp
+    if answer == state[:capital]
+      puts 'correct'
+      state[:correct]? state[:correct] += 1 : state[:correct] = 1
+    else
+      puts 'wrong'
+      state[:wrong]? state[:wrong] += 1 : state[:wrong] = 1
+    end
+    puts "Score : #{state[:correct]? state[:correct] : 0} / #{state[:correct].to_i + state[:wrong].to_i}"
   end
+puts 'Play Again? yes / no'
+continue = gets.chomp
+break if continue != 'yes'
 end
 
 
+
+
+# binding.pry
 
 # # an array of state hashes
 # states =[
