@@ -218,7 +218,7 @@ end
 
 # For replay, order cards by num wrong answers
 def replayOrder states
-	states.sort_by { |state| state[:wrong]}
+	return states.sort_by { |state| state[:wrong]}.reverse
 end
 
 
@@ -242,7 +242,9 @@ def quiz states, quiz_length
 	if replay == 'y'
 		puts "Let's try again."
 		quiz_length = get_quiz_length
-		replayOrder states
+		p states
+		states = replayOrder states
+		p states
 		quiz states, quiz_length
 	end
 end
