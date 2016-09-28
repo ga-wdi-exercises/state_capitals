@@ -148,7 +148,7 @@ states =[
     name: "Wisconsin",
     capital: "Madison"
 }, {
-    name: "Wyoming",
+ name: "Wyoming",
     capital: "Cheyenne"
 }]
 
@@ -160,12 +160,18 @@ states.each do |state|
   puts "What is the capital of " + state[:name]
   user_input = gets.chomp
   if user_input == state[:capital]
+
+      state[:correct] ||=0
+
+    state[:correct]+=1
     puts "You are correct"
   else
+    state[:wrong] =0
+    state[:wrong] +=1
     puts "You are wrong"
   end
 end
-
+p states.inspect
 
 
 
