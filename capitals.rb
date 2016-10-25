@@ -9,7 +9,8 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
-}, {
+}
+=begin {
     name: "Arkansas",
     capital: "Little Rock"
 }, {
@@ -150,4 +151,25 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+    }
+=end
+]
+
+index = 0
+correct_points = 0
+
+states.shuffle!
+
+while index < states.length
+  #Asks each question in hash.
+
+  puts "What is the capital of #{states[index][:name]}"
+  user_input = gets.chomp.to_s
+
+   if user_input == states[index][:capital]
+     puts "That's correct!"
+     index += 1
+     correct_points += 1
+     puts "you have #{correct_points} points!"
+   end
+ end
