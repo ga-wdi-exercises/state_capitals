@@ -155,6 +155,7 @@ states =[
 =end
 ]
 
+puts "Welcome! Let's learn our state capitals!"
 index = 0
 correct_points = 0
 
@@ -164,12 +165,14 @@ while index < states.length
   #Asks each question in hash.
 
   puts "What is the capital of #{states[index][:name]}"
-  user_input = gets.chomp.to_s
+  user_input = gets.chomp
 
    if user_input == states[index][:capital]
      puts "That's correct!"
+     states[index][:answer] = "correct"
      index += 1
      correct_points += 1
      puts "you have #{correct_points} points!"
+
    end
  end
