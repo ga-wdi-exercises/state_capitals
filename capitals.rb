@@ -129,7 +129,8 @@ $states =[
 }, {
     name: "Texas",
     capital: "Austin"
-}, {
+},
+ {
     name: "Utah",
     capital: "Salt Lake City"
 }, {
@@ -157,10 +158,10 @@ $answered = 0
 $correct_answers = 0
 
 def playagain
-  $states.shuffle.each do |state|
-    if state[:correct] > 0
-        next
-    end
+  newstates = $states.sort_by {|state| [state[:correct]]}
+    # puts $states
+    newstates.each do |state|
+
   puts "what is the capital of #{state[:name]}?"
   answer = gets.chomp
   $answered = $answered + 1
