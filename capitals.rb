@@ -9,8 +9,8 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
-}
-=begin {
+},
+{
     name: "Arkansas",
     capital: "Little Rock"
 }, {
@@ -152,7 +152,6 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
     }
-=end
 ]
 
 correct_points = 0
@@ -177,12 +176,10 @@ states.each do |states|
       yes_or_no = gets.chomp
       if yes_or_no == "y"
         puts "Ok, let's continue!"
-
       else
         puts "Thanks for playing!"
         break
       end
-
   else
     states[:answer] = "incorrect"
     puts "That's #{states[:answer]}"

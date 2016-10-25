@@ -1,4 +1,4 @@
-def quiz
+
 states =[
 {
     name: "Alabama",
@@ -159,8 +159,11 @@ correct_points = 0
 counter = 0
 states.shuffle!
 
+puts "do you want to play y / n?"
+input = gets.chomp
 
-puts "Welcome! Let's learn our state capitals!"
+ while input == "y"
+   puts "Welcome! Let's learn our state capitals!"
 
 states.each do |states|
   puts "What is the capital of #{states[:name]}"
@@ -173,16 +176,14 @@ states.each do |states|
     counter += 1
     puts "You have #{correct_points} points!"
   elsif counter == states.length
-    puts "Want to try again?"
+    puts "Want to try again y / n?"
       yes_or_no = gets.chomp
       if yes_or_no == "y"
         puts "Ok, let's continue!"
-
       else
         puts "Thanks for playing!"
         break
       end
-
   else
     states[:answer] = "incorrect"
     puts "That's #{states[:answer]}"
@@ -191,7 +192,6 @@ states.each do |states|
     next
   end
   #Each ends here
+ end
+#Ending
 end
-#Quiz Ending
-end
-quiz
