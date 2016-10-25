@@ -162,7 +162,6 @@ states.shuffle!
 
 puts "Welcome! Let's learn our state capitals!"
 
-
 states.each do |states|
   puts "What is the capital of #{states[:name]}"
   user_input = gets.chomp
@@ -178,6 +177,7 @@ states.each do |states|
       yes_or_no = gets.chomp
       if yes_or_no == "y"
         puts "Ok, let's continue!"
+
       else
         puts "Thanks for playing!"
         break

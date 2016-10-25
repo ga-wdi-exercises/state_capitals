@@ -1,3 +1,4 @@
+def quiz
 states =[
 {
     name: "Alabama",
@@ -172,7 +173,15 @@ states.each do |states|
     counter += 1
     puts "You have #{correct_points} points!"
   elsif counter == states.length
-    puts "run this code again"
+    puts "Want to try again?"
+      yes_or_no = gets.chomp
+      if yes_or_no == "y"
+        puts "Ok, let's continue!"
+
+      else
+        puts "Thanks for playing!"
+        break
+      end
 
   else
     states[:answer] = "incorrect"
@@ -183,3 +192,6 @@ states.each do |states|
   end
   #Each ends here
 end
+#Quiz Ending
+end
+quiz
