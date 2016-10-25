@@ -1,4 +1,3 @@
-# an array of state hashes
 states =[
 {
     name: "Alabama",
@@ -155,23 +154,32 @@ states =[
 =end
 ]
 
-puts "Welcome! Let's learn our state capitals!"
-index = 0
 correct_points = 0
-
+counter = 0
 states.shuffle!
 
-while index < states.length
-  #Asks each question in hash.
-  puts "What is the capital of #{states[index][:name]}"
+
+puts "Welcome! Let's learn our state capitals!"
+
+states.each do |states|
+  puts "What is the capital of #{states[:name]}"
   user_input = gets.chomp
+  if user_input == states[:capital]
+    puts "That's correct!"
+    states[:answer] = "correct"
+    puts states
+    correct_points += 1
+    counter += 1
+    puts "You have #{correct_points} points!"
+  elsif counter == states.length
+    puts "run this code again"
 
-   if user_input == states[index][:capital]
-     puts "That's correct!"
-     states[index][:answer] = "correct"
-     index += 1
-     correct_points += 1
-     puts "you have #{correct_points} points!"
-
-   end
- end
+  else
+    states[:answer] = "incorrect"
+    puts "That's #{states[:answer]}"
+    puts "You have #{correct_points} points!"
+    counter += 1
+    next
+  end
+  #Each ends here
+end
