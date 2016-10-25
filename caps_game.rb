@@ -3,7 +3,6 @@ puts StateCapitals::STATES
 
 states =  StateCapitals::STATES
 
-
 def add_scoring (states)
   states.each { |state|
     state[:correct] = 0
@@ -12,6 +11,7 @@ def add_scoring (states)
 end
 
 def play_round (states)
+  states.shuffle!
   states.each { |state|
     puts "What is the capital #{state[:name]}?"
     answer = gets.chomp
@@ -27,3 +27,14 @@ end
 
 add_scoring(states)
 puts states
+
+puts "Welcome to my struggle game about states and their capitals"
+
+loop {
+  play_round states
+  puts "Again? ((y)es to play another round)"
+  continue = gets.chomp
+  if continue != 'y'  && continue != 'yes'
+    break
+  end
+}
