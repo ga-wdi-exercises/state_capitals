@@ -151,7 +151,8 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
-# states = [
+#test states
+#states = [
 #   {
 #       name: "Alabama",
 #       capital: "Montgomery"
@@ -163,14 +164,6 @@ states =[
 #       capital: "St. Paul"
 #   }
 # ]
-
-correct_states = [
-
-]
-
-incorrect_states = [
-
-]
 
 score = {
   correct: 0,
