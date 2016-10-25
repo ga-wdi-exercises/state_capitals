@@ -150,4 +150,37 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+ }]
+
+game_over = false
+
+loop do #everything below runs in this loop
+states.shuffle!
+break if game_over
+
+correct = []
+incorrect = []
+
+states.each do |state| #.each another loop for the users input answers
+ puts "What is the state capital of #{state[:name]}"
+ my_guess = gets.chomp #this gets input
+ puts "you guessed " + my_guess
+  if  my_guess == state[:capital] #if guess is the state capital
+    puts "Correct!!"
+    correct << state #moves to the correct array
+  else
+    puts "Sorryyy thats wrong"
+    incorrect << state
+  end
+end
+
+puts "" #for a line break
+puts "correct: #{correct.length}"
+puts "incorrect: #{incorrect.length}"
+puts "" #for a line break
+
+puts "Do you wanna play again(Y or N)?"
+answer = gets.chomp
+answer.upcase!
+game_over=!(answer == "Y")
+end
