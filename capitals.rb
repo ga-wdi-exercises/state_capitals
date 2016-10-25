@@ -1,4 +1,6 @@
 # an array of state hashes
+
+
 states =[
 {
     name: "Alabama",
@@ -12,7 +14,7 @@ states =[
 }, {
     name: "Arkansas",
     capital: "Little Rock"
-}, {
+},{
     name: "California",
     capital: "Sacramento"
 }, {
@@ -151,3 +153,32 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+scorekeeper = {
+  correct: 0,
+  incorrect: 0
+}
+
+
+puts "Welcome!"
+
+loop do
+  puts "Do you want to play"
+  user_response= gets.chomp.to_s
+
+if user_response == "yes"
+   states = states.shuffle
+   states.each do |state|
+   puts "What's the capital of" + " " + state[:name]
+   capital_response = gets.chomp.downcase
+if capital_response == state[:capital].downcase
+     scorekeeper[:correct] += 1
+     puts "You are Correct! You have answered a total of" + " " + scorekeeper[:correct].to_s + "/50 questions correctly"
+else
+     scorekeeper[:incorrect] += 1
+     puts "You are Incorrect! You have answered a total of" + " " + scorekeeper[:incorrect].to_s + "/50 questions incorrectly"
+end
+end
+end
+break if user_response == "no"
+end
