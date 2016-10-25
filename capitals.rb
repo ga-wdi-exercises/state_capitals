@@ -173,17 +173,19 @@ while true
     if userinput == state[:capital].downcase
       puts "Your answer is correct!"
       answer[:correct]+=1
-      # puts "You have answered #{answer[:correct]} correctly."
+      puts "You have answered #{answer[:correct]} correct out of #{states.count} questions."
 
     else
       puts "Your answer is incorrect!"
       answer[:wrong]+=1
       # puts "You have answer #{answer[:wrong]} question(s) wrong."
+      puts "You have answered #{answer[:wrong]} wrong out of #{states.count} questions."
+
     end
 
-    puts "You have answered #{answer[:correct]} correct out of #{states.count} questions."
-
   end
+
+  puts "You have answered #{answer[:correct]} correct and #{answer[:wrong]} wrong out of #{states.count} questions."
 
   puts "Would you like to play again? Y/N"
   userplay = gets.chomp
