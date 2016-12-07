@@ -1,9 +1,6 @@
 # Import capitals file
 require_relative 'capitals'
 
-# set states to states from capitals file
-states = Capitals.states
-
 playing = true
 
 while playing
@@ -12,7 +9,7 @@ while playing
   system 'clear'
 
   # Shuffle States
-  shuffled_states = states.shuffle
+  shuffled_states = @states.shuffle
 
   # Introduction to game
   puts "\n\n"

@@ -1,4 +1,3 @@
-module Capitals
   # an array of state hashes
   @states = [
     {
@@ -153,8 +152,3 @@ module Capitals
       capital: 'Cheyenne'
     }
   ]
-
-  def self.states
-    @states
-  end
-end
