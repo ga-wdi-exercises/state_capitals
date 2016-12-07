@@ -1,6 +1,39 @@
 # Import capitals file
 require_relative 'capitals'
 
+# METHODS
+def get_difficulty
+  puts 'What difficult would you like to play? easy, medium, or hard'
+  difficulty = gets.chomp
+  difficulty.downcase!
+  if difficulty == 'easy'
+    hints = 15
+    return hints
+  elsif difficulty == 'medium'
+    hints = 10
+    return hints
+  elsif difficulty == 'hard'
+    hints = 5
+    return hints
+  else
+    puts "You didn't type what I asked so you only get 3!"
+    hints = 3
+    return hints
+  end
+end
+
+def play_again
+  puts "Play again? Y/N"
+
+  play_again = gets.chomp
+
+  play_again.downcase!
+  puts "\n\n"
+  if play_again == "n"
+    playing = false
+  end
+end
+
 playing = true
 
 while playing
@@ -22,21 +55,13 @@ while playing
   incorrect_state = []
 
   # User chooses difficulty and gets number of hints
-  puts 'What difficult would you like to play? easy, medium, or hard'
-  difficulty = gets.chomp
-  difficulty.downcase!
-  if difficulty == 'easy'
-    hints = 15
-  elsif difficulty == 'medium'
-    hints = 10
-  elsif difficulty == 'hard'
-    hints = 5
-  else
-    puts "You didn't type what I asked so you only get 3!"
-    hints = 3
-  end
+  hints = get_difficulty
+  puts "\n"
   puts "Having Trouble?  Type 'hint' for the first 3 letters of the answer"
+  puts "\n"
   puts "Caution. You only get #{hints} per game."
+  puts "\n"
+  puts "Type 'exit' to quit"
   puts "\n\n\n\n\n"
 
   # Iterate through each of the shuffled states
@@ -103,6 +128,9 @@ while playing
       sleep(0.5)
       puts "Congrats! You were correct.  Your score is now #{score}.  There are #{questions_left} questions left."
       puts "\n"
+    elsif user_answer == "exit"
+      puts "You had #{score} correct and still had #{questions_left} questions left."
+      exit
     else
       questions_left -= 1
       puts "\n"
@@ -119,13 +147,10 @@ while playing
     puts "   -#{wrong_state}"
   end
   puts "\n\n\n"
-  puts "Play again? Y/N"
 
-  play_again = gets.chomp
+  play_again
+end
 
-  play_again.downcase!
-  puts "\n\n"
-  if play_again == "n"
-    playing = false
-  end
+def ask_question
+
 end
