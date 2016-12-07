@@ -56,7 +56,7 @@ while playing
       new_answer = gets.chomp
       new_answer.downcase!
 
-      # Check users new answer
+      # Check users new answer after failed hint attempt
       if new_answer == answer
         score += 1
         questions_left -= 1
@@ -81,7 +81,7 @@ while playing
       new_answer = gets.chomp
       new_answer.downcase!
 
-      # Check users new answer
+      # Check users new answer after hint
       if new_answer == answer
         score += 1
         questions_left -= 1
