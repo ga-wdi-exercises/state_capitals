@@ -158,3 +158,7 @@ states =[
 
 # states arranged in non alphabetical order
 states.sort_by {|name| name.length}
+
+# Initialize new keys to sort the num time of correct and wrong answers
+num_correct = []
+num_wrong = []
