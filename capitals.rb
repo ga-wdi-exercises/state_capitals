@@ -159,7 +159,10 @@ states =[
 correct = []
 incorrect = []
 
+prompt = ">"
 states.each do |state|
   puts "What is the capital of #{state[:name]} ?"
+  puts prompt
+  user_input = gets.chomp
 
 end
