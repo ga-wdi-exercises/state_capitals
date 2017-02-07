@@ -151,3 +151,6 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# states arranged in non alphabetical order
+states.sort_by {|name| name.length}
