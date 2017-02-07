@@ -1,4 +1,5 @@
 # an array of state hashes
+def start
 states =[
 {
     name: "Alabama",
@@ -151,3 +152,46 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+score = 0
+puts "Guess the state capitals!"
+puts "What is your name, player?"
+name = gets.chomp
+puts "Welcome, #{name}."
+puts "You don't need to capitalize (heh) your answers!"
+
+states = states.shuffle
+loop
+states.each do |state|
+  correct = 0
+  wrong = 0
+  puts "What is the capital of #{state[:name]}?"
+  userInput = gets.chomp
+  if userInput.capitalize == state[:capital]
+    puts "Great job!"
+    state[:userInput] = "Correct!"
+    score +=1
+
+    state[:score] ||= 0
+    state[:score] +=1
+
+  else
+    puts "Boo!"
+    state[:userInput] == "Incorrect."
+    score == score
+  end
+end
+puts "Score: #{score}. Do you want to play again? (Yes/No)"
+
+play_again = gets.chomp
+if play_again.capitalize == "Yes"
+  start
+
+else
+  puts "Thanks for playing!"
+end
+
+end
+
+start
