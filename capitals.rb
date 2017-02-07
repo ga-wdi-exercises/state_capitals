@@ -1,3 +1,7 @@
+# provide a welcome message to introduce game
+puts "Welcome to State Capitals Quiz!"
+
+
 # an array of state hashes
 states =[
 {
