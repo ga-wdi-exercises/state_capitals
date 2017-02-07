@@ -155,7 +155,6 @@ states =[
 puts "Welcome to Capitol Trivia!"
 
 shuffled_cards = []
-question_in_play = []
 user_input = []
 scoreCorrect = 0
 scoreWrong = 0
@@ -164,12 +163,14 @@ shuffled_cards = states.shuffle!
 
 shuffled_cards.each do |state|
   puts "What is the capitol of " + state[:name] + " ?"
-  user_input = gets.chomp
+  user_input = gets.chomp.to_s
   if user_input == state[:capital]
     puts "Correct"
-    score += 1
+    $scoreCorrect += 1
+    puts "You have #{scoreCorrect} correct out of 50!"
   else
     puts "incorrect"
-    score += 1
+    $scoreWrong += 1
+    puts "You have #{scoreCorrect} correct out of 50!"
 end
 end
