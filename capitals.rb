@@ -1,7 +1,6 @@
 # provide a welcome message to introduce game
 puts "Welcome to State Capitals Quiz!"
 
-
 # an array of state hashes
 states =[
 {
@@ -160,11 +159,10 @@ states =[
 
 
 # Initialize new keys to sort the num time of correct and wrong answers
-name[:num_correct]
-name[:num_wrong]
-state = name[]
+states[:num_correct]
+states[:num_wrong]
 user_input = []
-
+index = 0
 
 # prompt the user to name the capital of each 50 state
  # index = 0
@@ -182,20 +180,23 @@ user_input = []
  # end
 
 
-index = 0
-state.each do |name|
+states.each do |name|
   puts "What is the capital of"  + name[:name]
 
+user_input = []
 user_input = gets.chomp.to_s
 
  if user_input === name[:capital]
-   puts Correct << num_correct
-   name[:capital] << index +=1
+   puts Correct << states[:num_correct]
+   name[:capital] +=1
  end
 
  if user_input = !name[:capital]
-   puts Wrong << num_wrong
+   puts Wrong << states[:num_wrong]
  end
 
 break if index == states.length
+puts "Would you like to play again? y/n"
+puts "You answered #{states[:num_correct]} questions correctly out of #{states.length}"
+gets.chomps.to_s
 end
