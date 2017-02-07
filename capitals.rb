@@ -162,25 +162,32 @@ states =[
 # Initialize new keys to sort the num time of correct and wrong answers
 num_correct = []
 num_wrong = []
+state = []
+user_input = []
+
 
 # prompt the user to name the capital of each 50 state
- index = 0
- loop do
-   puts states[index]
-   # make prompt appear
-   puts "What is the capital of " + states[:name]
-      user_input =gets.chomp
-      if user_input === states[:capital]
-        index +=1
-      end
-      if user_input == num_wrong
-        puts "WRONG"
-      end
-   break if index == states.length
+ # index = 0
+ # loop do
+ #   # make prompt appear
+ #   puts "What is the capital of " + state.name[index]
+ #      user_input =gets.chomp
+ #      if user_input === state.capital[index] <<
+ #        index +=1
+ #      end
+ #      if user_input == num_wrong
+ #        puts "WRONG"
+ #      end
+ #   break if index == states.length
+ # end
+
+
+puts "What is the capital of " +
+state.each do |name|
+end
+user_input = gets.chomp.to_s
+ if user_input === state.capital
+   puts correct << num_correct
+ elsif user_input == num_wrong
+   puts wrong << num_wrong
  end
-
-# make prompt appear
-# puts "What is the capital of " + state[:name]
-#    user_input = states_gets.chomp
-
- # states.each do|name|
