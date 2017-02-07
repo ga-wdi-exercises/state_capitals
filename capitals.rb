@@ -151,40 +151,52 @@ states =[
 #     name: "Wyoming",
 #     capital: "Cheyenne"
 }]
+statesIGotRight = []
 statesIGotWrong = []
 
 # FOR EACH ITERATION THIS WILL RUN ONE
 states.each do |each_state|
                 each_state[:name]
                 each_state[:right] = 0
-end
+                each_state[:wrong] = 0
+            end
 
             # Once the user has gone through all 50 states, ask them if they'd like to play again.
-splashPagePlayAgain     = 'Wanna play again?'
+            splashPagePlayAgain     = 'Wanna play again?'
 
-def game_states(states, statesIGotWrong)
-                                # VARIABLE INSIDE OF GLOBAL ARE NOT AVAIL WITHIN THIS METHOD
-
-puts 'welcome to capitals'
-
-states.shuffle.each do |state|  # ITS A COUNTER FOR EACH INDL STATE
-                puts "whats the capital of: " + state[:name]
-                answered = gets.chomp.to_s
-                puts "you answered: " + answered
-                if answered == state[:capital]
-                  state[:right] += 1
-                  puts "right"
-                else
-                  # state[:wrong] += 1
-                  puts "wrong"
-                  statesIGotWrong << state
-                end
-                puts "right: " + state[:right].to_s
-            end
-            puts "HERE ARE THE STATES: "
-            puts states
+            def game_states(states, statesIGotRight, statesIGotWrong)
+                                        # VARIABLE INSIDE OF GLOBAL ARE NOT AVAIL WITHIN THIS METHOD
+                puts 'welcome to capitals'
+                states.shuffle.each do |state|  # ITS A COUNTER FOR EACH INDL STATE
+                              puts ' '
+                              puts "whats the capital of: " + state[:name]
+                              puts ' '
+                              answered = gets.chomp.to_s
+                              if answered == state[:capital]
+                                state[:right] += 1
+                                puts ' '
+                                puts "yer answer-->   " + answered + "   <--be right"
+                                puts ' '
+                                statesIGotRight << state
+                              else
+                                state[:wrong] += 1
+                                puts ' '
+                                puts "yer answer-->   " + answered + "   <--be wrong"
+                                puts ' '
+                                statesIGotWrong << state
+                              end
+                              puts "right: " + state[:right].to_s
+                              puts "wrong: " + state[:wrong].to_s
+                           end
+            puts ' '
+            puts "HERE ARE THE STATES THAT GOT RIGHT ANSWERS: "
+            puts statesIGotRight
             puts ' '
             puts "HERE ARE THE STATES THAT GOT WRONG ANSWERS: "
             puts statesIGotWrong
+            # puts each_state[:name]
+            # puts state[:state]
+            # puts states[:state]
+            # puts statesIGotWrong[:name]
 end
-game_states(states, statesIGotWrong)
+game_states(states, statesIGotRight, statesIGotWrong)
