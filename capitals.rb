@@ -158,12 +158,18 @@ for united in states
   united[:correct] = 0
   united[:wrong] = 0
 end
+puts "Welcome to the United States Capitals Game!  If you don't get all 50 right, you're not a REAL MURICAN!"
+states.shuffle
 while i == 0
-  puts "Welcome to the United States Capitals Game!  If you don't get all 50 right, you're not a REAL MURICAN!"
-  states.shuffle
   for united in states
-    puts "What is the capital of #{united[:name]}?"
+    puts "What is the capital of #{united[:name]}? Press h for a hint."
     answer = gets.chomp.to_s.downcase
+    if answer = 'h'
+      puts "The first three letters are #{united[:capital][0..2]}.  Please enter your guess."
+      answer = gets.chomp.to_s.downcase
+    else
+      next
+    end
     if answer == united[:capital].downcase
       puts "Correct!"
       united[:correct] += 1
@@ -176,10 +182,10 @@ while i == 0
       puts "You have gotten this capital wrong #{united[:wrong]} time(s) and have #{wrong_answers} wrong answers.  Learn the right answer and make yourself great again!"
     end
   end
-  puts "Would you like to play again? (y/n)"
+  puts "You got a total of #{correct_answers} correct answers and #{wrong_answers} wrong answers.  Would you like to play again? (y/n)"
   play_again = gets.chomp.to_s
   if play_again == 'y'
-    puts "You're making MURICA great again!"
+    puts "You're making America great again!"
   else
     puts "YOU AIN'T NO MURICAN!"
     i += 1
