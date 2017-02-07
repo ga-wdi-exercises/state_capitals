@@ -170,24 +170,26 @@ def quiz_game(states)
   overall_score = 0
 
   until i_want_to_play == 0
-
-
-
-    #========================
     mixed_states.each do |individual_state|
       puts "#{mixed_states.index(individual_state)+1}. What is the capital of #{individual_state[:name]}?"
-      answer = gets.chomp
-      if individual_state[:capital].downcase == answer.downcase
-        individual_state[:times_correct] += 1
-        puts "Correct! You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
-        round_score += 1
-        overall_score +=1
-      else
-        puts "Incorrect...You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
-        puts "The correct answer was #{individual_state[:capital]}"
+      hint = 0
+      while hint == 0
+        answer = gets.chomp
+        if answer.downcase == "hint"
+          puts "The capital starts with #{individual_state[:capital][0,3]}. Make your guess:"
+        elsif individual_state[:capital].downcase == answer.downcase
+          individual_state[:times_correct] += 1
+          puts "Correct! You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
+          round_score += 1
+          overall_score +=1
+          hint = 1
+        else
+          puts "Incorrect...You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
+          puts "The correct answer was #{individual_state[:capital]}"
+          hint = 1
+        end
       end
     end
-    #=========================
     puts ""
     puts "=============================================================================="
     puts ""
