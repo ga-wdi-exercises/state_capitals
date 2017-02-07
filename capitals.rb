@@ -162,11 +162,14 @@ puts "Do you know the state capitals?"
 
 while true
   correct = 0
-  incorrect = 0
-  total_score = 0
-    states.each do |state|
-      puts "What is the capital of " + state[:name] + "?"
 
+  incorrect = 0
+
+  total_score = 0
+
+    states.each do |state|
+
+      puts "What is the capital of " + state[:name] + "?"
       answer = gets.chomp
 
         if answer.upcase == state[:capital].upcase
@@ -175,16 +178,18 @@ while true
           total_score += 1
         else
           puts "Incorrect, the capital is #{state[:capital]}."
-          # state[:incorrect] = state[:incorrect] + 1
           incorrect += 1
           total_score += 1
         end
-
         puts "You are #{correct} for #{total_score} on that."
+
       end
-    puts "You got #{incorrect} incorrect and #{correct} correct out of #{total_score}."  
+
+    puts "You got #{incorrect} incorrect and #{correct} correct out of #{total_score}."
+
     puts "Continue (Y/N)?"
+
     answer = gets.chomp
+
     break if answer.upcase == "N"
-    states = states.sort_by{|state| state[:correct]}
 end
