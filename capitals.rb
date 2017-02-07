@@ -159,3 +159,8 @@ states =[
 states = states.shuffle
 
 puts "Do you know the state capitals?"
+
+score = {
+  correct: 0,
+  incorrect: 0
+}
