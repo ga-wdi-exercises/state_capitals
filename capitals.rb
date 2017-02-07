@@ -156,15 +156,19 @@ states =[
 
 prompt = ">"
 states.each do |state|
+  # Add correct and incorrect keys
+  "#{state[:correct] = 0}"
+	"#{state[:incorrect] = 0}"
+
   puts "What is the capital of #{state[:name]} ?"
   puts prompt
   user_input = gets.chomp
 
   if user_input == "#{state[:capital]}"
-    "#{state[:correct] = 0}"#add "correct" hash key
+    "#{state[:correct] = state[:correct] +1}"#add "correct" hash key
     puts "You got it!"
   else
-    "#{state[:incorrect] = 0}"#add "wrong" hash key
+    "#{state[:incorrect] = state[:correct] +1}"#add "wrong" hash key
     puts "Nope."
 
   end

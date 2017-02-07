@@ -1,0 +1,30 @@
+Learn State Capitals game
+
+- Provide a welcome message to introduce the player to the game.
+
+  puts "Welcome! Let's Learn the State Capitals!"
+
+- Your program should prompt the user to identify the capital associated with a given state.
+
+  puts "What is the capital of this state?"
+
+  user_input = gets.chomp
+
+  IF user_input = correct name of state capital
+    move state to "correct" array
+    puts "WOO!  You got it!"
+  ELSE
+    move state to "incorrect" array
+    puts "Wah wah wah...that is wrong.""
+
+  - Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+
+
+
+- There should be running tallies on the number of correct and incorrect answers for each state
+
+  - Initialize new keys in the hashes that store the number of times a user gets a capital `correct` and the number of times the answer is `wrong`.
+
+
+
+- After getting through all 50 states one time, users should be asked whether or not they want to play again.
