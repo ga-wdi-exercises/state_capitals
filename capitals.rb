@@ -164,3 +164,15 @@ score = {
   correct: 0,
   incorrect: 0
 }
+
+states.each do |state|
+  puts "What is the capital of " + state[:name] + "?"
+
+  answer = gets.chomp
+
+    if answer.upcase == state[:capital].upcase
+      puts "Correct!"
+    else
+      puts "Incorrect, the capital is..."
+    end
+  end
