@@ -162,3 +162,11 @@ states.sort_by {|name| name.length}
 # Initialize new keys to sort the num time of correct and wrong answers
 num_correct = []
 num_wrong = []
+
+# prompt the user to name the capital of each 50 state
+ index = 0
+ loop do
+   puts states[index]
+   index +=1
+   break if index == states.length
+ end
