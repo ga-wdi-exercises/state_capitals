@@ -153,7 +153,7 @@ states =[
 }]
 
 puts "\nLet's test your knowledge of state capitals!\n~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
-puts "If you need a hint, type 'hint'\n\n"
+puts "Type 'hint' to receive the first three letters of the answer.\n\n"
 
 states.each do |state|
   state[:correct] = 0
