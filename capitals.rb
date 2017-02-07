@@ -151,3 +151,51 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+correct = 0
+wrong = 0
+
+states.each {|h| h[:correct]}
+states.each {|h| h[:asked]}
+
+
+random_states = states.shuffle do |states|
+      states
+end
+
+random_states.each do |state|
+  puts  "What is the capital of #{state[:name]}?"
+  answer = gets.chomp
+  state[:asked] += 1 
+
+        if answer == state[:capital]
+            puts "That is correct!"
+            state[:correct] += 1
+            state[:asked] += 1 
+            puts state[:correct]
+            puts state[:asked]
+            correct += 1
+            break
+            
+        elsif answer != state[:capital]
+            puts "I'm sorry, that is not correct."
+            puts state[:correct]
+            puts state[:asked]
+            wrong += 1
+        end
+end    
+
+
+
+puts correct
+puts wrong
+
+puts "Would you like to play again? yes or no"
+  play_again = gets.chomp
+    if play_again == "yes"
+      playtime = 0
+    elsif play_again == "no"
+      puts "Thanks for playing. Goodbye."
+      playtime = 1
+end
