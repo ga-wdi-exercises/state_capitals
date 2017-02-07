@@ -151,3 +151,64 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+puts "*****************************"
+puts "*        STATE QUIZ         *"
+puts "*****************************"
+puts " DO YOU LOVE AMERICA? IF SO, "
+puts "GET AT LEAST A SCORE OF 50 OR"
+puts " YOUR PATRIOTISM WILL BE PUT "
+puts "        INTO QUESTION.       "
+puts " "
+
+def quiz_game(states)
+  times_played = 1
+  mixed_states = states.shuffle
+  i_want_to_play = 1
+  round_score = 0
+  overall_score = 0
+
+  until i_want_to_play == 0
+
+
+
+    #========================
+    mixed_states.each do |individual_state|
+      puts "#{mixed_states.index(individual_state)+1}. What is the capital of #{individual_state[:name]}?"
+      answer = gets.chomp
+      if individual_state[:capital].downcase == answer.downcase
+        individual_state[:times_correct] += 1
+        puts "Correct! You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
+        round_score += 1
+        overall_score +=1
+      else
+        puts "Incorrect...You have gotten this question correct #{individual_state[:times_correct]} out of #{times_played} times."
+        puts "The correct answer was #{individual_state[:capital]}"
+      end
+    end
+    #=========================
+    puts ""
+    puts "=============================================================================="
+    puts ""
+    if round_score < 40
+      puts "ТОВАРИЩ, Ваш общий балл для этого раунда: #{round_score}/50."
+    else
+      puts "Your total score for this round is #{round_score} out of 50"
+    end
+    puts "Your overall score is #{overall_score} out of #{times_played*50}."
+    puts "You have played this game #{times_played} time(s). Would you like to play again?"
+    play_again = gets.chomp
+    if ["no","definitely not","no thanks","bye","goodbye","n","ew"].include? play_again.downcase
+      i_want_to_play = 0
+    end
+    round_score = 0
+    times_played += 1
+    mixed_states = states.shuffle.sort_by{|states_shuffle| states_shuffle[:times_correct]}
+  end
+
+end
+states.each do |indiv_states|
+  indiv_states[:times_correct]=0
+end
+quiz_game(states)
