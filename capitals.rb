@@ -151,3 +151,44 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# first we need to randomize the states, next we
+
+
+# I wanted to add some more things to the start up but didnt have enough time to implement them.
+
+
+# states = states.shuffle
+#   puts "Would you like to play? (Y/N)"
+#
+# answer = gets.chomp
+# if answer.upcase = "Y"
+#   puts "Great, lets begin!"
+# else
+#   puts "That's no fun"
+
+
+
+states.each do |state|
+
+end
+
+while true
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+    answer = gets.chomp
+    if answer.upcase == state[:capital].upcase
+      puts "Correct! Nice job!"
+      state[:num_correct]+=1
+    else
+      puts "Incorrect! The capital is #{state[:capital]}."
+      state[:num_wrong] += 1
+    end
+    total = state[:num_correct] + state[:num_wrong]
+    puts "Your score is #{state[:num_correct]} out of #{total}."
+  end
+  puts "Would you like to continue (Y/N)?"
+  answer = gets.chomp
+  if answer.upcase == "Y"
+  break if answer.upcase == "N"
+end
+end
