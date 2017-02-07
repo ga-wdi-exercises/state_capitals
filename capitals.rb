@@ -1,3 +1,5 @@
+puts "Welcome! Let's Learn the State Capitals!"
+
 # an array of state hashes
 states =[
 {
@@ -151,3 +153,13 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+correct = []
+incorrect = []
+
+states.each do |state|
+  puts "What is the capital of #{state[:name]} ?"
+
+end
