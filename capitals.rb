@@ -158,7 +158,7 @@ prompt = ">"
 states.each do |state|
   # Add correct and incorrect keys
   "#{state[:correct] = 0}"
-	"#{state[:incorrect] = 0}"
+	"#{state[:wrong] = 0}"
 
   puts "What is the capital of #{state[:name]} ?"
   puts prompt
@@ -168,7 +168,7 @@ states.each do |state|
     "#{state[:correct] = state[:correct] +1}"#add "correct" hash key
     puts "You got it!"
   else
-    "#{state[:incorrect] = state[:correct] +1}"#add "wrong" hash key
+    "#{state[:wrong] = state[:wrong] +1}"#add "wrong" hash key
     puts "Nope."
 
   end
