@@ -196,7 +196,7 @@ while i == 0
   play_again = gets.chomp.to_s
   if play_again == 'y'
     puts "You're making America great again!"
-    states.sort_by!{|united| united[:wrong]}
+    states.sort_by!{|united| united[:wrong]}.reverse!
   else
     puts "YOU AIN'T NO MURICAN!"
     i += 1
