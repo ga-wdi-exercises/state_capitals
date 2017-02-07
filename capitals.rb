@@ -163,6 +163,7 @@ response. Please use CAPITALIZATION! "
 
 states = states.shuffle
 score_var = 0
+
 #
 states.each do |state|
   state[:num_right] = 0
@@ -194,6 +195,10 @@ end
           score_var -=1
           puts "Here is your score #{score_var}"
         end
-        if response.upcase == 
+        # if response.upcase ==
+        #    puts "you won the game"
+        #  elsif response.upcase ==
+        #    puts "you lose the game!"
+        # end
       end
     end
