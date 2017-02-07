@@ -154,10 +154,10 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
 
 # states arranged in non alphabetical order
-states.sort_by {|name| name.length}
+
 
 # Initialize new keys to sort the num time of correct and wrong answers
 num_correct = []
@@ -167,6 +167,20 @@ num_wrong = []
  index = 0
  loop do
    puts states[index]
-   index +=1
+   # make prompt appear
+   puts "What is the capital of " + states[:name]
+      user_input =gets.chomp
+      if user_input === states[:capital]
+        index +=1
+      end
+      if user_input == num_wrong
+        puts "WRONG"
+      end
    break if index == states.length
  end
+
+# make prompt appear
+# puts "What is the capital of " + state[:name]
+#    user_input = states_gets.chomp
+
+ # states.each do|name|
