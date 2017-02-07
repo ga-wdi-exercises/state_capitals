@@ -8,7 +8,7 @@ states =[
     capital: "Juneau"
 }, {
     name: "Arizona",
-    capital: "Phoenix"}]
+    capital: "Phoenix"
 }, {
     name: "Arkansas",
     capital: "Little Rock"
@@ -198,7 +198,7 @@ while i == 0
       correct_capitals += 1
     end
   end
-  if correct_capitals >= 50
+  if correct_capitals >= states.length
     puts "You got all 50 capitals correct!"
   end
   puts "You got a total of #{correct_answers} correct answers and #{wrong_answers} wrong answers.  Would you like to play again? (y/n)"
