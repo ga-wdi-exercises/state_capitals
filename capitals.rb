@@ -152,6 +152,7 @@ states =[
     capital: "Cheyenne"
 }]
 i = 0
+correct_capitals = 0
 correct_answers = 0
 wrong_answers = 0
 for united in states
@@ -191,6 +192,14 @@ while i == 0
         puts "You have gotten this capital wrong #{united[:wrong]} time(s) and have #{wrong_answers} wrong answers.  Learn the right answer and make yourself great again!"
       end
     end
+  end
+  for united in states
+    if united[:correct] > 0
+      correct_capitals += 1
+    end
+  end
+  if correct_capitals >= 50
+    puts "You got all 50 capitals correct!"
   end
   puts "You got a total of #{correct_answers} correct answers and #{wrong_answers} wrong answers.  Would you like to play again? (y/n)"
   play_again = gets.chomp.to_s
