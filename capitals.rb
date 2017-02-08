@@ -151,3 +151,63 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+i = 0
+correct_capitals = 0
+correct_answers = 0
+wrong_answers = 0
+for united in states
+  united[:correct] = 0
+  united[:wrong] = 0
+end
+puts "Welcome to the United States Capitals Game!  If you don't get all 50 right, you're not a REAL MURICAN!"
+states.shuffle!
+while i == 0
+  for united in states
+    puts "What is the capital of #{united[:name]}? Press h for a hint."
+    answer = gets.chomp.to_s.downcase
+    if answer == 'h'
+      puts "The first three letters are #{united[:capital][0..2]}.  Please enter your guess."
+      answer = gets.chomp.to_s.downcase
+      if answer == united[:capital].downcase
+        puts "Correct!"
+        united[:correct] += 1
+        correct_answers += 1
+        puts "You have gotten this capital correct #{united[:correct]} time(s) and have #{correct_answers} correct answers.  You're making America great again!"
+      else
+        puts "Incorrect!"
+        united[:wrong] += 1
+        wrong_answers += 1
+        puts "You have gotten this capital wrong #{united[:wrong]} time(s) and have #{wrong_answers} wrong answers.  Learn the right answer and make yourself great again!"
+      end
+    else
+      if answer == united[:capital].downcase
+        puts "Correct!"
+        united[:correct] += 1
+        correct_answers += 1
+        puts "You have gotten this capital correct #{united[:correct]} time(s) and have #{correct_answers} correct answers.  You're making America great again!"
+      else
+        puts "Incorrect!"
+        united[:wrong] += 1
+        wrong_answers += 1
+        puts "You have gotten this capital wrong #{united[:wrong]} time(s) and have #{wrong_answers} wrong answers.  Learn the right answer and make yourself great again!"
+      end
+    end
+  end
+  for united in states
+    if united[:correct] > 0
+      correct_capitals += 1
+    end
+  end
+  if correct_capitals >= states.length
+    puts "You got all 50 capitals correct!"
+  end
+  puts "You got a total of #{correct_answers} correct answers and #{wrong_answers} wrong answers.  Would you like to play again? (y/n)"
+  play_again = gets.chomp.to_s
+  if play_again == 'y'
+    puts "You're making America great again!"
+    states.sort_by!{|united| united[:wrong]}.reverse!
+  else
+    puts "YOU AIN'T NO MURICAN!"
+    i += 1
+  end
+end
