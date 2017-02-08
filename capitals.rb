@@ -156,8 +156,12 @@ states =[
 
 states = states.shuffle
 
+puts "Quiz your knowledge on United State capitals!"
+
 while true
 
-correct =
-incorrect =
+correct = 0
+incorrect = 0
+
+
 end
