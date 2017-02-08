@@ -10,7 +10,7 @@ wrong = 0
 # curr_state = states_mixed[counter][:name]
 # curr_cap = states_mixed[counter][:capital]
 
-states.each do |state|
+states_mixed.each do |state|
 puts "what is the capital of #{state[:name]}"
 input = gets.chomp
 if  input == state[:name]
@@ -18,12 +18,16 @@ if  input == state[:name]
 	counter += 1
 	correct += 1
 else
-	puts "Sorry that is not the correct capital of #{curr_state} actually it is: #{curr_cap}"
+	puts "Sorry that is not the correct capital of #{state[:name]} actually it is: #{state[:capital]}"
 	counter += 1
 	wrong +=1
 end
+p '---------------'
 
 end
+p counter
+p correct
+p wrong
 
 # def check_answer()
 
