@@ -32,7 +32,7 @@ def play_game_with states
         puts ' '
         puts "ugh...you're right..."
         total_guesses = state[:correct].to_i + state[:wrong].to_i
-        puts "You've gotten that one right #{state[:correct].to_s} out of #{total_guesses} times."
+        puts "You've gotten that one right #{state[:correct].to_s} out of #{total_guesses.to_s} times."
       else
         state[:wrong] += 1
         puts ' '
@@ -45,10 +45,13 @@ end
 
 play_game_with states
 
-again = " "
-until again.downcase == "no"
+
+while true
   states.shuffle! #changes the array for every new game
   puts "That's all...want to play again? [Yes/No]"
   again = gets.chomp
+  if again.downcase == "no"
+    break
+  end
   play_game_with states
 end
