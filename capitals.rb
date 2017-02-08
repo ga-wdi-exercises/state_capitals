@@ -151,3 +151,40 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+
+puts "Welcome message! Type anything to begin"
+input = gets.chomp
+
+question_counter = 0
+
+counter = 0
+states.each do |x|
+  states[counter][:correct] = 0
+  states[counter][:incorrect] = 0 
+  counter += 1
+end
+
+while true
+
+  index = 0
+  states.each do |y|
+  puts "What is the capital of #{states[index][:name]}?"
+  question_counter += 1
+    input = gets.chomp
+    if input == states[index][:capital]
+      states[index][:correct] += 1
+      puts "Correct! #{states[index][:correct]} / #{states[index][:correct] + states[index][:incorrect]}"
+    elsif input != states[index][:capital]
+      states[index][:incorrect] += 1
+      puts "Incorrect! #{states[index][:correct]} / #{states[index][:correct] + states[index][:incorrect]}"
+    end
+    index += 1
+  end
+  if question_counter == 50
+    puts "Type 'n' to quit playing, otherwise type anything to play again"
+    answer = gets.chomp 
+  end
+  break if answer == "n"
+end
