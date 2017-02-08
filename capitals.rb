@@ -151,3 +151,32 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "Welcome to Capitol Trivia!"
+
+shuffled_cards = []
+user_input = []
+scoreCorrect = 0
+scoreWrong = 0
+
+shuffled_cards = states.shuffle!
+
+while true
+
+shuffled_cards.each do |state|
+  puts "What is the capitol of " + state[:name] + " ?"
+  user_input = gets.chomp
+  if user_input == state[:capital]
+    puts "Correct"
+    scoreCorrect += 1
+    puts "You have #{scoreCorrect} correct out of 50!"
+  else
+    puts "incorrect"
+    scoreWrong += 1
+    puts "You have #{scoreCorrect} correct out of 50!"
+end
+end
+puts "Play again? (y/n)?"
+userPlay = get.chomp
+break if userplay == "n"
+end
