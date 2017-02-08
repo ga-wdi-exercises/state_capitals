@@ -1,3 +1,6 @@
+# provide a welcome message to introduce game
+puts "Welcome to State Capitals Quiz!"
+
 # an array of state hashes
 states =[
 {
@@ -150,4 +153,50 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
+
+# states arranged in non alphabetical order
+
+
+# Initialize new keys to sort the num time of correct and wrong answers
+states[:num_correct]
+states[:num_wrong]
+user_input = []
+index = 0
+
+# prompt the user to name the capital of each 50 state
+ # index = 0
+ # loop do
+ #   # make prompt appear
+ #   puts "What is the capital of " + state
+ #      user_input =gets.chomp.to_s
+ #      if user_input === capital <<
+ #        index +=1
+ #      end
+ #      if user_input == num_wrong
+ #        puts "WRONG"
+ #      end
+ #   break if index == states.length
+ # end
+
+
+states.each do |name|
+  puts "What is the capital of"  + name[:name]
+
+user_input = []
+user_input = gets.chomp.to_s
+
+ if user_input === name[:capital]
+   puts Correct << states[:num_correct]
+   name[:capital] +=1
+ end
+
+ if user_input = !name[:capital]
+   puts Wrong << states[:num_wrong]
+ end
+
+break if index == states.length
+puts "Would you like to play again? y/n"
+puts "You answered #{states[:num_correct]} questions correctly out of #{states.length}"
+gets.chomps.to_s
+end
