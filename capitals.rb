@@ -1,3 +1,5 @@
+require "pry"
+
 # an array of state hashes
 states =[
 {
@@ -157,14 +159,30 @@ states =[
 states = states.shuffle
 
 puts "Quiz your knowledge on United State capitals!"
+puts "Do you want to play"
+play = gets.chomp
+play.capitalize!
 
-while true
+while play == "Yes"
 
 correct = 0
 incorrect = 0
 score = 0
 
 states.each do |state|
+  puts "What is the capital of #{state[:name]}?"
+    answer = gets.chomp
+    answer = answer.split(/ |\_|\-/).map(&:capitalize).join(" ")
+if answer == state[:capital]
+  puts "Bingo! You are correct."
+    correct += 1
+else
+  puts "Sorry, you are incorrect."
+    incorrect += 1
+    end
+  end
 
-puts "What is the capital of #{state[:name]}"
+
 end
+
+binding.pry
