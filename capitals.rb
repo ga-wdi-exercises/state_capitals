@@ -162,6 +162,9 @@ while true
 
 correct = 0
 incorrect = 0
+score = 0
 
+states.each do |state|
 
+puts "What is the capital of #{state[:name]}"
 end
