@@ -157,45 +157,38 @@ states =[
 
 # PSEUDO CODE, MAKE A PULL REQUEST RIGHT AWAY!
 # prompt the user to identify the capital associated with a given state
-# write a loop to shuffle the states
-puts "Hey, here's your chance to test your wits with knowing the capitals of every state in America."
-
-while true
-  states.each do |state|
-    puts "Insert the name of the capital for this state" + state[:name]
-
-  end
-end
-
 # tally on the number of correct and incorrect answers for each state
 # after getting through all 50 states one time, ask the user if they would like to play again
+puts "Hey, here's your chance to test your wits with knowing the capitals of every state in America."
+
+# write a loop to shuffle the states
+# initialize new keys in the hashes that store the number of times a user gets a capital correct + wrong
+  states.each do |state|
+    state[:numcorrect] = 0
+    state [:numwrong] = 0
+  end
+
+# make the player play through all 50 states by prompting the player to name the capital of each state
+while true
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+
+    answer = gets.chomp
+  end
 
 
 end
 
-
 # shuffle the states to make it challenging
-
-
 # create a welcome message to introduce the player to the game
+puts "Welcome to the remember all of the state capitals game! Where learning is fun."
 
-
-# initialize new keys in the hashes that store the number of times a user gets a capital correct + wrong
-
-
-# through all 50 states prompt the player to name the capital of each state
 
 
 # if the player answer is correct, display a message saying so
-
-
 # if the player answer is wrong, display a message saying so
-
-
 # after each prompt, display a message telling the reader how many times the state was answered correctly out of the number of times answered
-
-
 # ask the player if they'd like to play again after going through all 50 states
-
+end
 
 binding.pry
