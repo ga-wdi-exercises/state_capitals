@@ -154,9 +154,10 @@ states =[
     capital: "Cheyenne"
 }].shuffle
 
-
 #shuffle the states so they're not in order
-#states = states.shuffle
+
+#welcome message
+puts "Let's learn the state capitals"
 
 #add the keys correct and incorrect to keep track
 states.each do |states|
@@ -165,6 +166,8 @@ states.each do |states|
 end
 
 
+index = 0
+while index < states.length
 #for each state ask what the capital is
 states.each do |states|
 puts "What is the capital of: #{states[:name]}?"
@@ -180,6 +183,9 @@ puts "What is the capital of: #{states[:name]}?"
    end
   total = states[:correct] + states[:incorrect]
   puts "You have answered that one correctly #{states[:correct]} time(s) out of #{total}"
+
+  index += 1
+end
 end
 
 loop do
