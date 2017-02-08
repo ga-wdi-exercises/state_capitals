@@ -157,12 +157,16 @@ states =[
 
 states= states.shuffle
 
-score= 0
-number_incorrect= 0
+# score= 0
+# number_incorrect= 0
 
 puts "Welcome to the State Capitals Game! This is an interactive tool that will help you to memorize the state capitals of the US! \n"
 
   def run_game (states)
+
+    score= 0
+    number_incorrect= 0
+
     states.each do |state|
       puts "\nWhat is the capital of #{state[:name]}?"
       answer = gets.chomp
