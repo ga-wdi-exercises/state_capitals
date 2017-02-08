@@ -190,7 +190,7 @@ else
   play = gets.chomp
   play.capitalize!
   break if play == "No"
-    puts "Thanks for playing. Goodbye"
+    puts "Thanks for playing. Goodbye."
 end
 
 binding.pry
