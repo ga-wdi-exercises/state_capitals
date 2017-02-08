@@ -1,10 +1,3 @@
-# Let's Learn our State Capitals
-
-We're going to create a game to help us memorize the names of the capitals of all 50 states.
-
-To play the game:
-
- - Your program should prompt the user to identify the capital associated with a given state.
  - There should be running tallies on the number of correct and incorrect answers for each state
  - After getting through all 50 states one time, users should be asked whether or not they want to play again.
 
