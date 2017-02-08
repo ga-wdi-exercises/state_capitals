@@ -168,26 +168,26 @@ loop do
   states.each do |state|
   puts "What is the capital of #{state[:name]} ?"
 
+    answer = gets.chomp
+      if answer == state[:capital]
+      puts "Correct!"
+      state[:correct] = +1
+     else
+      puts "Sorry, that's incorrect!"
+      state[:incorrect] = +1
+     end
+
+ end
+
+  puts "Would you like to play again? (Y/N)"
   answer = gets.chomp
-    if answer == state[:capital]
-    puts "Correct!"
-    state[:correct] = +1
-   else
-    puts "Sorry, that's incorrect!"
-    state[:incorrect] = +1
-
-  end
+    break if answer == "N"
+      puts "Thanks for playing!"
+  
 
 end
 
-end
 
-puts "Would you like to play again? (Y/N)"
-answer = gets.chomp
-  if answer == "N"
-    puts "Thanks for playing!"
-  else
-  end
 
 
 binding.pry
