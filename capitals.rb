@@ -151,3 +151,32 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "WELCOME TO THE STATES CAPITAL GAME!\n***********************************"
+
+def game(state)
+  answer = "y"
+  while answer == "y"
+    count = 0
+    correct = 1
+    final = 0
+    wrong = 0
+    state.shuffle.each do |each_state|
+      count += 1
+      puts "#{count}) What is the capitol of #{each_state[:name]}"
+      guess = gets.chomp
+      if guess == each_state[:capital]
+        final += 1
+        puts "Correct! \nCurrent Score: #{final}/#{count}\n***************************************"
+      else
+        puts "Incorrect\nCurrent Score: #{final}/#{count}\n***************************************"
+      end
+      if count == 50
+        puts "Would you like to play again? (y/n)"
+        answer = gets.chomp
+      end
+    end
+  end
+end
+
+game(states)
