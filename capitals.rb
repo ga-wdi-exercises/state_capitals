@@ -161,30 +161,39 @@ puts "#"*50
 states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
+  state[:guess] = 0
 end
 
 # new_game = []
 # new_game =
 states.shuffle
 
-# new_game = true
-# while new_game == true
+new_game = true
+while new_game == true
   states.each do |state|
 
     puts state[:name]
-    input = gets.chomp
+    input = gets.capitalize.chomp
 
     if input == state[:capital]
       puts "Correct!"
       state[:correct] += 1
-      puts "Your score is now #{state.[:correct]}"
+      state[:guess] += 1
+      puts "You guessed correctly #{state[:correct]} times out of #{state[:guess]}."
     else puts "Nope, it's #{state[:capital]}"
       state[:wrong] +=1
-      puts "Your score is now#{state[:correct]}"
+      state[:guess] += 1
+      puts "You guessed correctly #{state[:correct]} times out of #{state[:guess]}."
     end
 
-    break if input == "exit"
+    break if input == "Exit"
   end
-puts states
-
-# end
+  puts states
+  new_game == false
+  puts "Do you wish to restart the game? (y/n)"
+  prompt = gets.chomp
+  if prompt == "y"
+    new_game == true
+  else break
+  end
+end
