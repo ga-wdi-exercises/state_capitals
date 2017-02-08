@@ -161,10 +161,8 @@ states.each do |state|
   "#{state[:wrong] = 0}"
 
 prompt = ">"
-i = 0
-states.each do |state|
 
-  until i == 3
+states.each do |state|
 
     puts "What is the capital of #{state[:name]} ?"
     puts prompt
@@ -173,11 +171,10 @@ states.each do |state|
     if user_input == "#{state[:capital]}"
       "#{state[:correct] = state[:correct] +=1}"#add "correct" hash key and adds 1 every time wrong
       puts "You got it!  You've gotten this correct #{state[:correct]} times and wrong #{state[:wrong]} times."
-      i += 1
+        puts "Do yu want to play again?"
     else
       "#{state[:wrong] = state[:wrong] +=1}"#add "wrong" hash key and adds 1 every time wrong
       puts "Nope.  You've gotten this correct #{state[:correct]} times and wrong #{state[:wrong]} times."
-      i += 1
     end
   end
 end
