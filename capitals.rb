@@ -163,25 +163,33 @@ play.capitalize!
 while play == "Yes"
 
   states_randomized = states.shuffle
+  correct = 0
 
   states_randomized.each do |state|
 
     index = 0
+    puts "*****"*5
     puts "\nWhat is the capital of #{state[:name]}?"
     state[:guesses] +=1
     answer = gets.chomp
     answer = answer.split.map(&:capitalize).join(' ')
     if answer == state[:capital]
-      puts "Wow! I can't believe you got that right!"
+      puts "\nWow! I can't believe you got that right!"
       state[:correct] +=1
+      correct +=1
+    elsif answer == "Exit" || answer == "Quit"
+      break
     else
-      puts "Nope. You're a dumb-dumb."
+      puts "\nNope. You're a dumb-dumb."
       state[:correct] += 0
     end
-    puts "You've gotten this question right #{state[:correct]} number of times out of #{state[:guesses]} number of guesses.\n"
+    puts "You've gotten this question right #{state[:correct]} time(s) out of #{state[:guesses]} guess(es).\n"
     index += 1
   end
 
+  puts "*****"*5
+  puts "*****"*5
+  puts "\nThis round, you answered #{correct} question(s) correctly."
   puts "\nWould you like to play again?"
   play = gets.chomp
   play.capitalize!
