@@ -151,3 +151,26 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+
+puts "++++++++++++++++++++++++++++++++++++++++++++++"
+puts "Are ya ready kids??!!"
+puts "Yes/No"
+puts "++++++++++++++++++++++++++++++++++++++++++++++"
+
+user_input_start = gets.chomp.to_s
+
+if user_input_start == "Yes"
+
+puts "Lets Go!"
+
+else
+
+  puts ":("
+
+end
+
+def play_game
+  
+end
