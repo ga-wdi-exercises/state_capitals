@@ -169,6 +169,7 @@ class Game
     @states = states.shuffle!
     @score = 0
     @rounds = 0
+    self.add_keys
   end
 
   def run_questions
@@ -177,22 +178,51 @@ class Game
       puts "  #{i + 1}. What is the state capital of #{state[:name]}"
       puts $line_break
       answer = gets.chomp.split.map(&:capitalize).join(" ")
-      if answer == state[:capital]
-        # Correct response
+# attempting to add hint
+      if answer == "hint"
+        puts state[:capital][0...3]
+      end
 
+      if answer == state[:capital]
         @score += 1
-        state
+        state[:correct] += 1
+        state[:tries] += 1
+        puts "\n  Correct response!!\n  #{@score} correct out of 50\n  You have answered this correctly #{state[:correct]} out of #{state[:tries]} tries.\n "
+      elsif answer == "quit"
+        break
       else
-        puts " "
-        puts " That is the incorrect response"
-        puts " "
+        state[:tries] += 1
+        puts "\n  That is the incorrect response\n  #{@score} correct out of 50\n  You have answered this correctly #{state[:correct]} out of #{state[:tries]} tries.\n "
+      end
+    end
+    while true
+      puts "\n  Game complete!  Do you want to play again? (y/n)\n "
+      play_again = gets.chomp.downcase
+      break if play_again == "n"
+      if play_again == "y"
+        self.reset
+        self.run_questions
       end
     end
   end
 
+  def add_keys
+    self.states.each do |x|
+      x[:tries] = 0
+      x[:correct] = 0
+    end
+  end
+
+  def reset
+    @score = 0
+    @states.shuffle!
+    @states.sort_by { |answers| answers[:correct] }
+    self.run_questions
+  end
+
 end
 
-state_caps = Game.new(test)
+state_caps = Game.new(states)
 
 puts $line_break
 puts "  Welcome to State Capitals!!  Identify each state capital when prompted."
