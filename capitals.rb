@@ -49,12 +49,15 @@ states =[{name: "Alabama", capital: "Montgomery"},
          {name: "Wisconsin", capital: "Madison"},
          {name: "Wyoming", capital: "Cheyenne"}]
 
+states.shuffle!
+
 states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
 end
 
-states.shuffle!
+total_correct = 0
+total_wrong = 0
 
 puts "\nHello! Do you know your US capitals? Let's find out! ..."
 
@@ -65,11 +68,14 @@ while true
     if input == state[:capital]
       puts "That's correct!"
       state[:correct] += 1
+      total_correct += 1
     else
       puts "Sorry, the answer is #{state[:capital]}."
       state[:wrong] += 1
+      total_wrong += 1
     end
-    puts "You have correctly identified #{state[:name]}'s capital #{state[:correct]} out of #{state[:correct]+state[:wrong]} times."
+    puts "Your #{state[:name]} score is #{state[:correct]} out of #{state[:correct]+state[:wrong]}."
+    puts "Your total score is #{total_correct} out of #{total_correct+total_wrong}."
   end
   puts "\nYou have gone through all 50 states. Would you like to play again? (y/n)"
   input = gets.chomp.downcase
