@@ -19,20 +19,23 @@ shuffled_states = states.shuffle
 
 puts "Welcome! The object of this game is to learn US state capitals! Let's get started ..."
 
-shuffled_states.each do |state|
-  puts "What is the capital of #{state[:name]}?"
-  input = gets.chomp
-  if input == state[:capital]
-    puts "That's correct!"
-    state[:correct] += 1
-  else
-    puts "Sorry, the answer is #{state[:capital]}."
-    state[:wrong] += 1
+while true
+  shuffled_states.each do |state|
+    puts "What is the capital of #{state[:name]}?"
+    input = gets.chomp
+    if input == state[:capital]
+      puts "That's correct!"
+      state[:correct] += 1
+    else
+      puts "Sorry, the answer is #{state[:capital]}."
+      state[:wrong] += 1
+    end
+    puts "You have correctly identified #{state[:name]}'s capital #{state[:correct]} out of #{state[:correct]+state[:wrong]} times."
   end
-  puts "You have correctly identified #{state[:name]}'s capital #{state[:correct]} out of #{state[:correct]+state[:wrong]} times."
+  puts "You have gone through all 50 states. Would you like to play again? (y/n)"
+  input = gets.chomp.downcase
+  break if input != "y"
 end
-
-# - Once the user has gone through all 50 states, ask them if they'd like to play again.
 
 # ## Bonus!
 #
