@@ -52,6 +52,9 @@ while true
   again = gets.chomp
   if again.downcase == "no"
     break
+  elsif again.downcase == "yes"
+    play_game_with states
+  else
+    break
   end
-  play_game_with states
 end
