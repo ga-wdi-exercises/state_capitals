@@ -151,3 +151,41 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "\nLet's test your knowledge of state capitals!\n~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
+puts "Type 'hint' to receive the first three letters of the answer.\n\n"
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
+play_number = 0
+play_game = "Y"
+
+while play_game == "Y"
+  question = 0
+  play_number += 1
+  total_score = 0
+  states.shuffle!.sort_by{|hash| hash[:correct]}.each do |state|
+    question += 1
+    puts "#{question}) #{state[:name]}"
+    user_answer = gets.chomp
+    while user_answer == "hint"
+      answer = state[:capital].split("")
+      puts answer[0..2].join
+      user_answer = gets.chomp
+    end
+    if user_answer == state[:capital]
+      state[:correct] += 1
+      total_score += 1
+      puts "Correct! You have guessed correctly #{state[:correct]} out of #{play_number} time(s).\n\n"
+    else
+      state[:wrong] += 1
+      puts "Wrong! You have guessed correctly #{state[:correct]} out of #{play_number} time(s).\n\n"
+    end
+  end
+  puts "Your total score is #{total_score}/#{states.length}"
+  puts "Would you like to play again? (Y/N)"
+  play_game = gets.chomp
+end
