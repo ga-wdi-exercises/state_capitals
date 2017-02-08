@@ -151,3 +151,91 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+test = [{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}]
+
+$line_break = "#" * 80
+
+class Game
+  attr_accessor :states, :score, :rounds
+
+  def initialize(states)
+    @states = states.shuffle!
+    @score = 0
+    @rounds = 0
+    self.add_keys
+  end
+
+  def run_questions
+    @states.each_with_index do |state,i|
+      puts $line_break
+      puts "  #{i + 1}. What is the state capital of #{state[:name]}"
+      puts $line_break
+      answer = gets.chomp.split.map(&:capitalize).join(" ")
+      # attempting to add hint
+      if answer == "Hint"
+        puts state[:capital][0...3]
+        answer = gets.chomp
+      end
+
+      if answer == state[:capital]
+        @score += 1
+        state[:correct] += 1
+        state[:tries] += 1
+        puts "\n  Correct response!!\n  #{@score} correct out of 50\n  You have answered this correctly #{state[:correct]} out of #{state[:tries]} tries.\n "
+      elsif answer == "Quit"
+        puts "Goodbye!"
+        break
+      else
+        state[:tries] += 1
+        puts "\n  That is the incorrect response\n  #{@score} correct out of 50\n  You have answered this correctly #{state[:correct]} out of #{state[:tries]} tries.\n "
+      end
+    end
+    while true
+      puts "\n  Game complete!  Do you want to play again? (y/n)\n "
+      play_again = gets.chomp.downcase
+      break if play_again == "n"
+      if play_again == "y"
+        self.reset
+        self.run_questions
+      end
+    end
+  end
+
+  def add_keys
+    self.states.each do |x|
+      x[:tries] = 0
+      x[:correct] = 0
+    end
+  end
+
+  def reset
+    @score = 0
+    @states.shuffle!
+    @states.sort_by { |answers| answers[:correct] }
+    self.run_questions
+  end
+
+end
+
+state_caps = Game.new(states)
+
+puts $line_break
+puts "  Welcome to State Capitals!!  Identify each state capital when prompted."
+puts "  To begin, enter 'ready' and to exit enter 'quit' at anytime."
+puts $line_break
+
+while true
+  user_input = gets.chomp
+  break if user_input == "quit"
+  if user_input == "ready"
+    state_caps.run_questions
+    break
+  end
+end
