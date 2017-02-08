@@ -163,18 +163,36 @@ states.each do |state|
   state[:attempts] = 0
 end
 
-randomized = states.shuffle
-
-randomized.each do |state|
-  puts "What is the capital of #{state[:name]}"
-  input = gets.strip
-  if input == state[:capital]
-    state[:correct] +=1
-    state[:attempts] +=1
-    puts "Correct, the capital of #{state[:name]} is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
-  else
-    state[:attempts] +=1
-    state[:wrong] += 1
-    puts "Sorry that is not correct. The correct answer is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
-  end
+puts "Would you like to start playing? Type [y] or [n]"
+input2 = gets.strip
+while input2 == "y"
+  randomized = states.shuffle
+    randomized.each do |state|
+      puts "What is the capital of #{state[:name]}"
+      input = gets.strip
+      if input == state[:capital]
+        state[:correct] +=1
+        state[:attempts] +=1
+        puts "Correct, the capital of #{state[:name]} is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
+      else
+        state[:attempts] +=1
+        state[:wrong] += 1
+        puts "Sorry that is not correct. The correct answer is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
+      end
+    end
+  puts "Congratulations on finishing the game. Would you like to play again? Type 'y' for yes and 'n' for no"
+  input2 = gets.strip
+  break if input2 == "n"
 end
+
+# puts "Congratulations on finishing the game. Would you like to play again? Type 'y' for yes and 'n' for no"
+#  input2 = gets.strip
+#  if input2 == y
+#
+#
+#  elsif input2 == n
+#
+#  else
+#    puts "Sorry that is not an answer"
+#
+#  end
