@@ -175,40 +175,29 @@ while true
 
     answer = gets.chomp
 
+# if the player answer is correct, display a message saying so
 if answer.upcase == state[:capital].upcase
   puts "Correct Answer!"
   state[:num_correct_answer] +=1
+# if the player answer is wrong, display a message saying so
 else
   puts "Your absolutely wrong, the capital is #{state[:capital]}"
   state[:num_wrong_answer] +=1
 end
 
-# after getting through all 50 states one time, ask the user if they would like to play again
+# let the player see their record on guesses
+# after each prompt, display a message telling the reader how many times the state was answered correctly out of the number of times answered
+  total = state[:num_correct_answer] + state[:num_wrong_answer]
+  puts "You got #{{state[:num_correct_answer]} out of {total}} on the first try"
+end
 
+# after getting through all 50 states one time, ask the user if they would like to play again
 puts "That was a great first try, would you like to play again (Y/N)?"
   answer = gets.chomp
   break if answer.upcase == "N"
 
-
-
-
-
-
-
-
-
-
-
-
 # shuffle the states to make it challenging
 
-
-
-
-# if the player answer is correct, display a message saying so
-# if the player answer is wrong, display a message saying so
-# after each prompt, display a message telling the reader how many times the state was answered correctly out of the number of times answered
-# ask the player if they'd like to play again after going through all 50 states
 end
 
 binding.pry
