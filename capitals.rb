@@ -166,8 +166,8 @@ states.each do |states|
 end
 
 
-index = 0
-while index < states.length
+
+while true
 #for each state ask what the capital is
 states.each do |states|
 puts "What is the capital of: #{states[:name]}?"
@@ -179,25 +179,21 @@ puts "What is the capital of: #{states[:name]}?"
     else
       states[:incorrect] +=1
       puts "Sorry, that is incorrect"
-
    end
+
   total = states[:correct] + states[:incorrect]
   puts "You have answered that one correctly #{states[:correct]} time(s) out of #{total}"
 
-  index += 1
-end
 end
 
-loop do
-  puts "Do you want to play again? Type Y/N"
+  puts "You've gone through all of the states. Do you want to play again? Type Y/N"
   input = gets.chomp
-  if input == "Y"
+  if input == "N"
 
-  else
     break
   end
-  end
 
+end
 
 binding.pry
 puts "end of file"
