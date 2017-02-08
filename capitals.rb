@@ -151,3 +151,70 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.each {|hash| hash[:guesses] = 0 }
+states.each {|hash| hash[:correct] = 0 }
+
+puts "\nWell hello there! \n\nLet's have some fun and do the thing!"
+puts "Do you want to play?"
+play = gets.chomp
+play.capitalize!
+ever_said_yes = false
+
+while play == "Yes"
+
+  states_randomized = states.shuffle
+  correct = 0
+  index = 0
+  ever_said_yes = true
+
+  states_randomized.each do |state|
+
+    puts "\n"
+    puts "*****"*5
+    puts "\nWhat is the capital of #{state[:name]}?"
+    state[:guesses] +=1
+    answer = gets.chomp
+    answer = answer.split.map(&:capitalize).join(' ')
+    if answer == state[:capital]
+      puts "\n            X"
+      puts "           X"
+      puts "  X       X"
+      puts "   X     X"
+      puts "    X   X"
+      puts "     X X"
+      puts "      X"
+      state[:correct] +=1
+      correct +=1
+      puts "\nYippee."
+    elsif answer == "Exit" || answer == "Quit"
+      puts "\n  X     XXXXX XXXXX XXXXX XXXXX   XX"
+      puts "  X     X   X X     X     X   X   XX"
+      puts "  X     X   X  XXX  XXXX  XXXX    XX"
+      puts "  X     X   X     X X     X   X"
+      puts "  XXXXX XXXXX XXXXX XXXXX X    X  XX"
+      break
+    else
+      puts "\n  X       X"
+      puts "   X     X"
+      puts "    X   X"
+      puts "      X"
+      puts "    X   X"
+      puts "   X     X"
+      puts "  X       X"
+      state[:correct] += 0
+      puts "\nActually, it's #{state[:capital]}."
+    end
+    index += 1
+    puts "You've gotten this question right #{state[:correct]} time(s) out of #{state[:guesses]} guess(es).\n"
+    puts "So far this round, you've answered #{correct} out of #{index} question(s) correctly."
+  end
+
+  puts "\n"
+  puts "*****"*5
+  puts "*****"*5
+  puts "\nThis round, you answered #{correct} out of #{index} question(s) correctly."
+  puts "\nWould you like to play again?"
+  play = gets.chomp
+  play.capitalize!
+end
