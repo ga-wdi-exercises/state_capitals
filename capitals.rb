@@ -196,7 +196,8 @@ puts "That was a great first try, would you like to play again (Y/N)?"
   answer = gets.chomp
   break if answer.upcase == "N"
 
-# shuffle the states to make it challenging
+# shuffle the states to make it challenging if the player decides to continue to play
+  states = states.sort_by {|state| state[:num_correct_answer]}
 
 end
 
