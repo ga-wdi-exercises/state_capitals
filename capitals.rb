@@ -162,37 +162,40 @@ play.capitalize!
 
 while play == "Yes"
 
-states_randomized = states.shuffle
+  states_randomized = states.shuffle
 
-index = 0
-puts "\nWhat is the capital of #{states_randomized[index][:name]}?"
-states_randomized[index][:guesses] +=1
-answer = gets.chomp
-answer.capitalize!
-if answer == states_randomized[index][:capital]
-  puts "Wow! I can't believe you got that right!"
-  states_randomized[index][:correct] +=1
-else
-  puts "Nope. You're a dumb-dumb."
-  states_randomized[index][:correct] += 0
-end
-puts "You've gotten this question right #{states_randomized[index][:correct]} number of times out of #{states_randomized[index][:guesses]} number of guesses.\n"
-index += 1
+  states_randomized.each do |state|
 
-puts "\nWhat is the capital of #{states_randomized[index][:name]}?"
-states_randomized[index][:guesses] +=1
-answer = gets.chomp
-answer.capitalize!
-if answer == states_randomized[index][:capital]
-  puts "Wow! I can't believe you got that right!"
-  states_randomized[index][:correct] +=1
-else
-  puts "Nope. You're a dumb-dumb."
-  states_randomized[index][:correct] += 0
-end
-puts "You've gotten this question right #{states_randomized[index][:correct]} number of times out of #{states_randomized[index][:guesses]} number of guesses.\n"
-index += 1
-puts "\nWould you like to play again?"
-play = gets.chomp
-play.capitalize!
+    index = 0
+    puts "\nWhat is the capital of #{state[:name]}?"
+    state[:guesses] +=1
+    answer = gets.chomp
+    answer = answer.split.map(&:capitalize).join(' ')
+    if answer == state[:capital]
+      puts "Wow! I can't believe you got that right!"
+      state[:correct] +=1
+    else
+      puts "Nope. You're a dumb-dumb."
+      state[:correct] += 0
+    end
+    puts "You've gotten this question right #{state[:correct]} number of times out of #{state[:guesses]} number of guesses.\n"
+    index += 1
+  end
+
+  # puts "\nWhat is the capital of #{states_randomized[index][:name]}?"
+  # states_randomized[index][:guesses] +=1
+  # answer = gets.chomp
+  # answer = answer.split.map(&:capitalize).join(' ')
+  # if answer == states_randomized[index][:capital]
+  #   puts "Wow! I can't believe you got that right!"
+  #   states_randomized[index][:correct] +=1
+  # else
+  #   puts "Nope. You're a dumb-dumb."
+  #   states_randomized[index][:correct] += 0
+  # end
+  # puts "You've gotten this question right #{states_randomized[index][:correct]} number of times out of #{states_randomized[index][:guesses]} number of guesses.\n"
+  # index += 1
+  puts "\nWould you like to play again?"
+  play = gets.chomp
+  play.capitalize!
 end
