@@ -159,7 +159,7 @@ states =[
 states = states.shuffle
 
 puts "Quiz your knowledge on United State capitals!"
-puts "Do you want to play"
+puts "Do you want to play? Yes/No"
 play = gets.chomp
 play.capitalize!
 
