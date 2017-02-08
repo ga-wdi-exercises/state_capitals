@@ -155,6 +155,26 @@ states =[
     capital: "Cheyenne"
 }]
 
+states.shuffle
+
+
+states.each do |state|
+ state[:correct] = 0,
+ state[:incorrect] = 0
+end
+
+loop do
+  states.each do |state|
+  puts "What is the capital of #{state[:name]} ?"
+  answer = gets.chomp
+    if answer == state[:capital]
+    puts "Correct!"
+    state[:correct] = +1
+  end
+end
+
+
+end 
 
 
 
