@@ -154,23 +154,72 @@ states =[
 
 states.shuffle!
 
-puts "++++++++++++++++++++++++++++++++++++++++++++++"
-puts "Are ya ready kids??!!"
-puts "Yes/No"
-puts "++++++++++++++++++++++++++++++++++++++++++++++"
+def play
+  puts "++++++++++++++++++++++++++++++++++++++++++++++"
+  puts "Are ya ready kids??!!"
+  puts "Yes/No"
+  puts "++++++++++++++++++++++++++++++++++++++++++++++"
 
-user_input_start = gets.chomp.to_s
+  user_input_start = gets.chomp.to_s.upcase
 
-if user_input_start == "Yes"
+  if user_input_start == "YES"
 
-puts "Lets Go!"
+    puts "Lets Go!"
 
-else
+    def play_game(arr1)
 
-  puts ":("
+      index = 0
+      right = 0
+      wrong = 0
 
+      while index < arr1.length
+
+        name = arr1[index][:name]
+        capital = arr1[index][:capital]
+        puts " "
+        puts "What is the capital of #{name}?"
+        puts " "
+
+        user_answer1 = gets.chomp.to_s
+        if user_answer1 == capital
+          puts "Correct Homie"
+          right += 1
+        else
+          puts " "
+          puts "WRONGGGGG"
+          puts "It was acutally #{capital}."
+          wrong += 1
+        end
+
+        index += 1
+        puts " "
+        puts "Right: #{right}"
+        puts "Wrong: #{wrong}"
+      end
+
+    end
+
+    play_game(states)
+
+  else
+    puts ":("
+    end
 end
 
-def play_game
-  
+
+
+def new_game(meth1)
+  puts " "
+  puts "Not bad. Not bad. But can you do better?"
+  puts "Yes/No"
+  puts " "
+
+  user_input_new_game = gets.chomp.to_s.upcase
+
+  if user_input_new_game == "YES"
+    meth1
+  else
+    puts "Game Over"
 end
+
+new_game(play)
