@@ -178,9 +178,10 @@ class Game
       puts "  #{i + 1}. What is the state capital of #{state[:name]}"
       puts $line_break
       answer = gets.chomp.split.map(&:capitalize).join(" ")
-# attempting to add hint
-      if answer == "hint"
+      # attempting to add hint
+      if answer == "Hint"
         puts state[:capital][0...3]
+        answer = gets.chomp
       end
 
       if answer == state[:capital]
@@ -188,7 +189,8 @@ class Game
         state[:correct] += 1
         state[:tries] += 1
         puts "\n  Correct response!!\n  #{@score} correct out of 50\n  You have answered this correctly #{state[:correct]} out of #{state[:tries]} tries.\n "
-      elsif answer == "quit"
+      elsif answer == "Quit"
+        puts "Goodbye!"
         break
       else
         state[:tries] += 1
