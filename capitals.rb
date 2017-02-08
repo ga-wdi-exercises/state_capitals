@@ -151,3 +151,51 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+#Randomizing the order of states 
+states.shuffle!(random: Random.new())
+
+#Adding correct and wrong symbols to states
+i = 0
+loop do
+  states[i][:correct] = 0
+  states[i][:wrong] = 0
+  i += 1
+  break if i == states.length
+end
+
+#Method for starting the game
+def start
+puts "Welcome to our game! Do you know the names of the capitals of the 50 states? We are going to find out."
+end
+start
+
+#Loop for questions
+index = 0
+loop do
+  # nstates = states.shuffle!
+  puts "What is the capital of #{states[index][:name]}?"
+  user_input = gets.chomp
+  # p user_input
+    if user_input == states[index][:capital]
+      puts "correct answer\n"
+      states[index][:correct]+=1
+      puts "#{states[index][:correct]} players have answered this question correctly, and #{states[index][:wrong]} players answered it worng"
+    else
+      puts "wrong answer\n"
+      states[index][:wrong]+=1
+      puts "#{states[index][:correct]} players have answered this question correctly, and #{states[index][:wrong]} players answered it worng"
+    end
+  index += 1
+  if index == states.length
+    puts "Game over! Do you want to start again? (y/n)\n"
+    u_input = gets.chomp
+    if u_input == "y"
+      start
+      index = 0
+    else
+      p "Thanks for playing this game!"
+      break
+    end
+  end
+end
