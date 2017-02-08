@@ -54,12 +54,12 @@ states.each do |state|
   state[:wrong] = 0
 end
 
-shuffled_states = states.shuffle
+states.shuffle!
 
 puts "Welcome! The object of this game is to learn US state capitals! Let's get started ..."
 
 while true
-  shuffled_states.each do |state|
+  states.each do |state|
     puts "What is the capital of #{state[:name]}?"
     input = gets.chomp
     if input == state[:capital]
