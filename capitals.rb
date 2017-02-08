@@ -1,59 +1,78 @@
+
 # an array of state hashes
 states =[
 {
     name: "Alabama",
     capital: "Montgomery"
+
 }, {
     name: "Alaska",
     capital: "Juneau"
+
 }, {
     name: "Arizona",
     capital: "Phoenix"
+
 }, {
     name: "Arkansas",
     capital: "Little Rock"
+
 }, {
     name: "California",
     capital: "Sacramento"
+
 }, {
     name: "Colorado",
     capital: "Denver"
+
 }, {
     name: "Connecticut",
     capital: "Hartford"
+
 }, {
     name: "Delaware",
     capital: "Dover"
+
 }, {
     name: "Florida",
     capital: "Tallahassee"
+
 }, {
     name: "Georgia",
     capital: "Atlanta"
+
 }, {
     name: "Hawaii",
     capital: "Honolulu"
+
 }, {
     name: "Idaho",
     capital: "Boise"
+
 }, {
     name: "Illinois",
     capital: "Springfield"
+
 }, {
     name: "Indiana",
     capital: "Indianapolis"
+
 }, {
     name: "Iowa",
     capital: "Des Moines"
+
 }, {
     name: "Kansas",
     capital: "Topeka"
+
 }, {
     name: "Kentucky",
     capital: "Frankfort"
+
 }, {
     name: "Louisiana",
     capital: "Baton Rouge"
+
 }, {
     name: "Maine",
     capital: "Augusta"
@@ -151,3 +170,43 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "Hello. Welcome to the state capital game."
+
+states = states.each
+
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+
+
+while true
+  states.each do |state|
+    puts "What is the capital of " + state[:name]
+
+  answer = gets.chomp
+    #ask the user to input a capital in each interation of .each
+
+    if answer == state[:capital]
+      puts "Correct"
+      state[:correct] += 1
+
+    else
+      puts "Incorrect"
+      state[:incorrect] += 1
+
+    end
+
+
+    #tally up user score
+    total = state[:correct]
+    puts "You got #{state[:correct]} correct."
+  end
+
+  # Does the user want to play again?
+    puts "Do you want to play again?"
+
+  break if answer == "No"
+
+end
