@@ -154,7 +154,7 @@ states =[
     capital: "Cheyenne"
 }]
 
-state_test = [
+states = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -164,12 +164,10 @@ state_test = [
 }, {
     name: "Arizona",
     capital: "Phoenix"
-}]
+}].shuffle
 
-#welcome message
-puts "Welcome! Let's learn the state capitals"
 #shuffle the states so they're not in order
-states = states.shuffle
+#states = states.shuffle
 
 #add the keys correct and incorrect to keep track
 states.each do |states|
@@ -185,21 +183,25 @@ puts "What is the capital of: #{states[:name]}?"
   if capital_input == states[:capital]
     states[:correct] +=1
     puts "Correct!"
-    p states
+
     else
       states[:incorrect] +=1
       puts "Sorry, that is incorrect"
-      p states
-  end
+
+   end
+  total = states[:correct] + states[:incorrect]
+  puts "You have answered that one correctly #{states[:correct]} time(s) out of #{total}"
 end
 
+loop do
+  puts "Do you want to play again? Type Y/N"
+  input = gets.chomp
+  if input == "Y"
 
-  # puts "Do you want to play again? Type Y/N"
-  # input = gets.chomp
-  # if input == "Y"
-  #
-  #
-  # end
+  else
+    break
+  end
+  end
 
 
 binding.pry
