@@ -154,37 +154,48 @@ states =[
 }]
 
 states.shuffle!
-this_round = []
+count = 50
 
 
 puts "Hey there, want to learn some capitals? (y/n)"
 response = gets.chomp
 if response == 'y'
   puts "Wonderful!"
-  this_round = states
+  count = 0
 else
   puts "Another time then!"
 end
 
-while this_round.length != 0
-  this_question = this_round.sample
-  puts "what is the capital of #{this_question[:name]}?"
+while count != 50
+  puts "what is the capital of #{states[count][:name]}?"
   response = gets.chomp
-  if response == this_question[:capital]
+  if response == states[count][:capital]
     puts "Correct!"
-    if states[this_round.index this_question][:correct] == nil
-      states[this_round.index this_question][:correct] = 1
+    if states[count][:correct] == nil
+      states[count][:correct] = 1
     else
-      states[this_round.index this_question][:correct] = states[this_round.index this_question][:correct] + 1
+      states[count][:correct] = states[count][:correct] + 1
     end
-    this_round.slice!(this_round.index this_question)
+    puts "You've got this correct #{states[count][:correct]}"
   else
-    if states[this_round.index this_question][:wrong] == nil
-      states[this_round.index this_question][:wrong] = 1
+    puts "Incorrect!"
+    if states[count][:wrong] == nil
+      states[count][:wrong] = 1
     else
-      states[this_round.index this_question][:wrong] = states[this_round.index this_question][:wrong] + 1
+      states[count][:wrong] = states[count][:wrong] + 1
     end
-    this_round.slice!(this_round.index this_question)
+    puts "You've got this incorrect #{states[count][:wrong]}"
+  end
+  count += 1
+  if count == 50
+    puts "Want to go again? (y/n)"
+    input = gets.chomp
+    if input == 'y'
+      count = 0
+      states.shuffle!
+    else
+      puts "See ya later"
+    end
   end
 end
 
