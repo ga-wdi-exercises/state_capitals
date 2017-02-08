@@ -1,4 +1,5 @@
-# an array of state hashes
+require 'pry'
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +152,53 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+count = 50
+
+
+puts "Hey there, want to learn some capitals? (y/n)"
+response = gets.chomp
+if response == 'y'
+  puts "Wonderful!"
+  count = 0
+else
+  puts "Another time then!"
+end
+
+while count != 50
+  puts "what is the capital of #{states[count][:name]}?"
+
+  response = gets.chomp
+  if response == states[count][:capital]
+    puts "Correct!"
+    if states[count][:correct] == nil
+      states[count][:correct] = 1
+    else
+      states[count][:correct] = states[count][:correct] + 1
+    end
+    puts "You've got this correct #{states[count][:correct].to_i} times out of #{states[count][:correct].to_i + states[count][:wrong].to_i} times"
+  else
+    puts "Incorrect!"
+    if states[count][:wrong] == nil
+      states[count][:wrong] = 1
+    else
+      states[count][:wrong] = states[count][:wrong] + 1
+    end
+    puts "You've got this correct #{states[count][:correct].to_i} times out of #{states[count][:correct].to_i + states[count][:wrong].to_i} times"
+  end
+  count += 1
+  if count == 50
+    puts "Want to go again? (y/n)"
+    input = gets.chomp
+    if input == 'y'
+      count = 0
+      states.shuffle!
+    else
+      puts "See ya later"
+    end
+  end
+end
+binding.pry
+
+puts "program resumes here."
