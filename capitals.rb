@@ -56,11 +56,11 @@ end
 
 states.shuffle!
 
-puts "Welcome! The object of this game is to learn US state capitals! Let's get started ..."
+puts "\nHello! Do you know your US capitals? Let's find out! ..."
 
 while true
   states.each do |state|
-    puts "What is the capital of #{state[:name]}?"
+    puts "\nWhat is the capital of #{state[:name]}?"
     input = gets.chomp
     if input == state[:capital]
       puts "That's correct!"
@@ -71,7 +71,7 @@ while true
     end
     puts "You have correctly identified #{state[:name]}'s capital #{state[:correct]} out of #{state[:correct]+state[:wrong]} times."
   end
-  puts "You have gone through all 50 states. Would you like to play again? (y/n)"
+  puts "\nYou have gone through all 50 states. Would you like to play again? (y/n)"
   input = gets.chomp.downcase
   break if input != "y"
 end
