@@ -170,57 +170,76 @@ puts "
 
 puts "Welcome, just enter the name of the Capital for each state with the first letter capitalized, Please enter your name:"
 
+
+#get the users name
 puts prompt
  user_name = $stdin.gets.chomp
 
 puts "Hi #{user_name}."
 
+
+
+# shuffle the states and start all the scores at zero
   states.shuffle!
   $correct = 0
   $wrong = 0
   $total = 0
   $questions = 0
 
-loop do
-  states.sort_by{|state| state[:correct]}.each do |state|
 
 
-#states.each do |state|
+#this is the loop
+
+  loop do
+
+
+
+    states.sort_by{|state| state[:correct]}.each do |state|
+
+
+# the question which asks the capital of each state
+
+
     puts "what is the capital of" + " " + state[:name]
     puts prompt
 
+#store the users answer
      @answer = $stdin.gets.chomp
 
+#if Answer is correct add scores
        if @answer == state[:capital]
          puts "correct"
          $correct += 1
          $questions += 1
 
-
+#if Answer is wrong message and scores
       else
         puts "not quite,try again!"
         $wrong +=1
         $questions += 1
        end
-end
+     end
 
 
 puts @correct
 
-print "You answered #{$correct} questions correctly and #{$wrong} questions wrong out of #{$questions} questions\n"
+#prints out once all states are answeres
 
+     print "You answered #{$correct} questions correctly and #{$wrong} questions wrong out of #{$questions} questions\n"
 
-puts "do you wanna play again? yes or no"
+#asking if they wanna play again
+
+       puts "do you wanna play again? yes or no"
 
 again = $stdin.gets.chomp
 
 
-if again == "yes"
-  loop
+     if again == "yes"
+          loop
 
-else
-  puts "Thank you for playing!"
-  break
-end
+    else
+           puts "Thank you for playing!"
+    break
+    end
 
 end
