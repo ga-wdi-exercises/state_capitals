@@ -82,6 +82,7 @@ def play
   puts "\nYou have gone through all 50 states. Would you like to play again? (y/n)"
   input = gets.chomp.downcase
   if input == "y"
+    $states.sort_by!{|state| state[:correct]}
     play
   end
 end
