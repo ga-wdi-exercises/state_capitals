@@ -153,16 +153,14 @@ states =[
 # }, {
 #     name: "Wyoming",
 #     capital: "Cheyenne"
-}]
+]
+
+prompt = ">"
 
 states.each do |state|
   # Add correct and incorrect keys
   "#{state[:correct] = 0}"
   "#{state[:wrong] = 0}"
-
-prompt = ">"
-
-states.each do |state|
 
     puts "What is the capital of #{state[:name]} ?"
     puts prompt
@@ -170,11 +168,9 @@ states.each do |state|
 
     if user_input == "#{state[:capital]}"
       "#{state[:correct] = state[:correct] +=1}"#add "correct" hash key and adds 1 every time wrong
-      puts "You got it!  You've gotten this correct #{state[:correct]} times and wrong #{state[:wrong]} times."
-        puts "Do yu want to play again?"
+      puts "You got it!  You've gotten this state correct #{state[:correct]} times and wrong #{state[:wrong]} times."
     else
       "#{state[:wrong] = state[:wrong] +=1}"#add "wrong" hash key and adds 1 every time wrong
-      puts "Nope.  You've gotten this correct #{state[:correct]} times and wrong #{state[:wrong]} times."
+      puts "Nope.  You've gotten this state #{state[:correct]} correct times and wrong #{state[:wrong]} times."
     end
-  end
 end
