@@ -1,4 +1,6 @@
 # an array of state hashes
+
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +153,39 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+
+# prompt player
+puts "Do you remember your state capitals?yes or no?"
+game  = gets.chomp
+
+input == gets.chomp
+if input == "yes"
+  puts "Lets play!"
+else
+  puts ""
+end
+
+states.each do |state|
+  "#{state[:right] = 0}"
+  "#{state[:wrong] = 0}"
+
+puts "What's the capital of #{state[:name]} ?"
+
+player_input = gets.chomp
+
+if player_input == "#{state[:capital]}"
+      "#{state[:right] = state[:right] +=1}"]
+      puts "Good Job!!! You answered this state right #{state[:right]} times and wrong #{state[:wrong]}"
+
+    else
+      "#{state[:wrong] = state[:wrong] +=1}"
+      puts "Not quite. You answered this state wrong#{state[:right]} correct times and wrong #{state[:wrong]} times."
+
+    end
+
+end
+
+#.shuffle????? for shuffle?
