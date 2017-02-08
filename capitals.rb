@@ -152,19 +152,8 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
-
-states = [
-{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Alaska",
-    capital: "Juneau"
-}, {
-    name: "Arizona",
-    capital: "Phoenix"
 }].shuffle
+
 
 #shuffle the states so they're not in order
 #states = states.shuffle
