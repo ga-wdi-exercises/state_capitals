@@ -173,14 +173,12 @@ scoreCorrect = 0
      end
      puts "You have #{scoreCorrect} correct out of 50!"
    end
-   loop do
-     puts "Play again?"
-     answer = gets.chomp.to_s
-     if answer != "Y"
+     puts "Do you want to play again (Yes of No)?"
+     answer = gets.chomp
+     if answer != "Yes"
+       puts "Thanks for playing!"
        break
-     end
    end
-
 
 end
 
