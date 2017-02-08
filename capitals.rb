@@ -151,3 +151,59 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+test = [{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}]
+
+$line_break = "#" * 80
+
+class Game
+  attr_accessor :states, :score, :rounds
+
+  def initialize(states)
+    @states = states.shuffle!
+    @score = 0
+    @rounds = 0
+  end
+
+  def run_questions
+    @states.each_with_index do |state,i|
+      puts $line_break
+      puts "  #{i + 1}. What is the state capital of #{state[:name]}"
+      puts $line_break
+      answer = gets.chomp.split.map(&:capitalize).join(" ")
+      if answer == state[:capital]
+        # Correct response
+
+        @score += 1
+        state
+      else
+        puts " "
+        puts " That is the incorrect response"
+        puts " "
+      end
+    end
+  end
+
+end
+
+state_caps = Game.new(test)
+
+puts $line_break
+puts "  Welcome to State Capitals!!  Identify each state capital when prompted."
+puts "  To begin, enter 'ready' and to exit enter 'quit' at anytime."
+puts $line_break
+
+while true
+  user_input = gets.chomp
+  break if user_input == "quit"
+  if user_input == "ready"
+    state_caps.run_questions
+    break
+  end
+end
