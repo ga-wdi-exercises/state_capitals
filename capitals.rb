@@ -1,4 +1,4 @@
-states =[{name: "Alabama", capital: "Montgomery"},
+$states =[{name: "Alabama", capital: "Montgomery"},
          {name: "Alaska", capital: "Juneau"},
          {name: "Arizona", capital: "Phoenix"},
          {name: "Arkansas",capital: "Little Rock"},
@@ -49,35 +49,41 @@ states =[{name: "Alabama", capital: "Montgomery"},
          {name: "Wisconsin", capital: "Madison"},
          {name: "Wyoming", capital: "Cheyenne"}]
 
-states.shuffle!
+$states.shuffle!
 
-states.each do |state|
+$states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
 end
 
-total_correct = 0
-total_wrong = 0
+$total_correct = 0
+$total_wrong = 0
 
 puts "\nHello! Do you know your US capitals? Let's find out! ..."
 
-while true
-  states.each do |state|
-    puts "\nWhat is the capital of #{state[:name]}?"
-    input = gets.chomp
-    if input == state[:capital]
-      puts "That's correct!"
-      state[:correct] += 1
-      total_correct += 1
-    else
-      puts "Sorry, the answer is #{state[:capital]}."
-      state[:wrong] += 1
-      total_wrong += 1
-    end
-    puts "Your #{state[:name]} score is #{state[:correct]} out of #{state[:correct]+state[:wrong]}."
-    puts "Your total score is #{total_correct} out of #{total_correct+total_wrong}."
+def handle(state)
+  puts "\nWhat is the capital of #{state[:name]}?"
+  input = gets.chomp
+  if input == state[:capital]
+    puts "That's correct!"
+    state[:correct] += 1
+    $total_correct += 1
+  else
+    puts "Sorry, the answer is #{state[:capital]}."
+    state[:wrong] += 1
+    $total_wrong += 1
   end
+  puts "Your #{state[:name]} score is #{state[:correct]} out of #{state[:correct]+state[:wrong]}."
+  puts "Your total score is #{$total_correct} out of #{$total_correct+$total_wrong}."
+end
+
+def play
+  $states.each{|state| handle(state)}
   puts "\nYou have gone through all 50 states. Would you like to play again? (y/n)"
   input = gets.chomp.downcase
-  break if input != "y"
+  if input == "y"
+    play
+  end
 end
+
+play
