@@ -1,3 +1,5 @@
+require "pry"
+
 # an array of state hashes
 states =[
 {
@@ -152,6 +154,36 @@ states =[
     capital: "Cheyenne"
 }]
 
-states[:name].each do |state|
-  puts "What is the capital of #{state}?"
+states = states.shuffle
+
+puts "***********************Welcome to the United States capital game. How many state capitals can you guess correctly?*"
+
+scoreCorrect = 0
+
+ while true
+
+   states.each do |state|
+     puts "What is the state capital of #{state[:name]}?"
+     guess = gets.chomp.to_s
+     if guess == state[:capital]
+       puts "Correct!"
+       scoreCorrect += 1
+     else
+       puts "Incorrect!"
+     end
+     puts "You have #{scoreCorrect} correct out of 50!"
+   end
+   loop do
+     puts "Play again?"
+     answer = gets.chomp.to_s
+     if answer != "Y"
+       break
+     end
+   end
+
+
 end
+
+
+
+binding.pry
