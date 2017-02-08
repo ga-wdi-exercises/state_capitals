@@ -1,3 +1,5 @@
+require "Pry"
+
 # an array of state hashes
 states =[
 {
@@ -153,4 +155,4 @@ states =[
 }]
 
 
-#
+binding.pry
