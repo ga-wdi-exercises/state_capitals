@@ -1,4 +1,6 @@
+require "pry"
 # an array of state hashes
+
 states =[
 {
     name: "Alabama",
@@ -150,4 +152,48 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
+
+#shuffle the states so they're not in order
+
+#welcome message
+puts "Let's learn the state capitals"
+
+#add the keys correct and incorrect to keep track
+states.each do |states|
+    states[:correct] = 0
+    states[:incorrect] = 0
+end
+
+
+
+while true
+#for each state ask what the capital is
+states.each do |states|
+puts "What is the capital of: #{states[:name]}?"
+  capital_input = gets.chomp
+  if capital_input == states[:capital]
+    states[:correct] +=1
+    puts "Correct!"
+
+    else
+      states[:incorrect] +=1
+      puts "Sorry, that is incorrect"
+   end
+
+  total = states[:correct] + states[:incorrect]
+  puts "You have answered that one correctly #{states[:correct]} time(s) out of #{total}"
+
+end
+
+  puts "You've gone through all of the states. Do you want to play again? Type Y/N"
+  input = gets.chomp
+  if input == "N"
+
+    break
+  end
+
+end
+
+binding.pry
+puts "end of file"
