@@ -1,3 +1,5 @@
+require "pry"
+
 # an array of state hashes
 states =[
 {
@@ -8,7 +10,7 @@ states =[
     capital: "Juneau"
 }, {
     name: "Arizona",
-    capital: "Phoenix"
+    capital: "Phoenix",
 }, {
     name: "Arkansas",
     capital: "Little Rock"
@@ -151,3 +153,53 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# write a shuffle the states
+  states = states.shuffle
+
+# create a welcome message to introduce the player to the game
+  puts "Hey, here's your chance to test your wits with knowing the capitals of every state in America."
+
+# initialize new keys in the hashes that store the number of times a user gets a capital correct + wrong
+# tally on the number of correct and incorrect answers for each state
+  states.each do |state|
+    state[:num_correct_answer] = 0
+    state [:num_wrong_answer] = 0
+  end
+
+# prompt the user to identify the capital associated with a given state
+# make the player play through all 50 states by prompting the player to name the capital of each state
+while true
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+
+    answer = gets.chomp
+
+# if the player answer is correct, display a message saying so
+if answer.upcase == state[:capital].upcase
+  puts "Correct Answer!"
+  state[:num_correct_answer] +=1
+# if the player answer is wrong, display a message saying so
+else
+  puts "Your absolutely wrong, the capital is #{state[:capital]}"
+  state[:num_wrong_answer] +=1
+end
+
+# let the player see their record on guesses
+# after each prompt, display a message telling the reader how many times the state was answered correctly out of the number of times answered
+  total = state[:num_correct_answer] + state[:num_wrong_answer]
+  puts "You got #{{state[:num_correct_answer]} out of {total}} on the first try"
+end
+
+# after getting through all 50 states one time, ask the user if they would like to play again
+puts "That was a great first try, would you like to play again (Y/N)?"
+  answer = gets.chomp
+  break if answer.upcase == "N"
+
+# shuffle the states to make it challenging if the player decides to continue to play
+  states = states.sort_by {|state| state[:num_correct_answer]}
+
+end
+
+binding.pry
+puts "end of file"
