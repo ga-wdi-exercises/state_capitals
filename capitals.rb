@@ -1,4 +1,3 @@
-# an array of state hashes
 states =[
 {
     name: "Alabama",
@@ -151,3 +150,50 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.map! {|state| state[:correct] = 0; state[:wrong] = 0; state}
+
+def capital_game (states)
+index = 0
+totalCorrect = 0;
+totalRight = 0;
+totalWrong = 0;
+states.shuffle!
+puts "Hello! Welcome to the U.S. capitals game. Rules of the game: you must correctly identify the capital of the given state. Good luck!"
+while index <= states.length + 1
+  currentState = states[index]
+  currentState[:shown] = "yes"
+  puts ("What's the capital of #{currentState[:name]}?")
+  user_input = gets.chomp
+  if user_input == currentState[:capital]
+    currentState[:correct] += 1
+    currentStateTotal = currentState[:correct] + currentState[:wrong]
+    index +=1
+    totalCorrect +=1
+    puts "Correct! You have answered #{currentState[:name]}'s capital correctly #{currentState[:correct]} times out of #{currentStateTotal} times total. ou have answered #{totalWrong} questions wrong and #{totalRight} questions right."
+    puts index
+  else
+    currentState[:wrong] += 1
+    currentStateTotal = currentState[:correct] + currentState[:wrong]
+    index +=1
+    totalWrong +=1
+    puts "Wrong! You have answered #{currentState[:name]}'s capital correctly #{currentState[:correct]} times out of #{currentStateTotal} times total. You have answered #{totalWrong} questions wrong and #{totalRight} questions right."
+    puts index
+  end
+  if index == states.length
+    puts "Would you like to play again?"
+    user_input = gets.chomp.downcase
+    if user_input == "yes"
+      index = 0
+      states.shuffle!
+      states.sort_by!{|state| state[:correct]}
+    else
+      index = 51
+      break
+    end
+  end
+end
+puts "See you later!"
+end
+
+capital_game (states)
