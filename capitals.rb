@@ -183,14 +183,14 @@ puts "Welcome to the State Capitals Game! This is an interactive tool that will 
           puts "Number incorrect : #{number_incorrect}"
         end
     end
-# puts "Congrats you have finished the game. You scored #{score} out of 50 and got #{number_incorrect} incorrect. Would you like to play again? Y/N"
-#
-#       play_again= gets.chomp
-#         if play_again == "Y"
-#           #run game again
-#         else
-#           puts "Thanks for playing"
-#         end
+puts "Congrats you have finished the game. You scored #{score} out of 50 and got #{number_incorrect} incorrect. Would you like to play again? Y/N"
+
+      play_again= gets.chomp
+        if play_again == "Y"
+          run_game (states)
+        else
+          puts "Thanks for playing"
+        end
 end
 
 run_game(states)
