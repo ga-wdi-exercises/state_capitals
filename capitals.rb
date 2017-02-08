@@ -176,13 +176,13 @@ puts prompt
 puts "Hi #{user_name}."
 
   states.shuffle!
-
-  states.sort_by{|state| state[:correct]}.each do |state|
   $correct = 0
   $wrong = 0
   $total = 0
-
   $questions = 0
+  
+  states.sort_by{|state| state[:correct]}.each do |state|
+
 
 #states.each do |state|
     puts "what is the capital of" + " " + state[:name]
