@@ -180,7 +180,8 @@ puts "Hi #{user_name}."
   $wrong = 0
   $total = 0
   $questions = 0
-  
+
+loop do
   states.sort_by{|state| state[:correct]}.each do |state|
 
 
@@ -203,6 +204,23 @@ puts "Hi #{user_name}."
        end
 end
 
+
 puts @correct
 
-print "You answered #{$correct} questions correctly and #{$wrong} questions wrong out of #{$questions} questions"
+print "You answered #{$correct} questions correctly and #{$wrong} questions wrong out of #{$questions} questions\n"
+
+
+puts "do you wanna play again? yes or no"
+
+again = $stdin.gets.chomp
+
+
+if again == "yes"
+  loop
+
+else
+  puts "Thank you for playing!"
+  break
+end
+
+end
