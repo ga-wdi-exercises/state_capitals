@@ -151,12 +151,23 @@ states =[
 #     name: "Wyoming",
 #     capital: "Cheyenne"
 }]
-new_game = []
-puts "#"*20
+puts "#"*50
 puts "Do you still remember the state's capitals? We'll see about that."
-puts "#"*20
 puts "Your goal is to enter the correct capital city when provided with the name of the state. Good luck."
-puts "#"*20
+puts "If you wish to quit the game, type 'exit'."
+puts "#"*50
+# def start_game
+new_game = []
 new_game = states.shuffle
+new_game.each do |state|
+  response = [{correct: "Correct!", times: +=1} , {wrong: "Nope, it's #{state[:capital]}", times: +=1}
+  puts state[:name]
+  input = gets.chomp
+  if input == state[:capital]
+    puts "Correct!"
+  else puts "Nope, it's #{state[:capital]}"
+  end
+  break if input == "exit"
+end
 
-input = gets.chomp
+# end
