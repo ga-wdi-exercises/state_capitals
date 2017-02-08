@@ -1,5 +1,5 @@
 # an array of state hashes
-states =[
+test_array =[
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +151,14 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = []
+states << test_array[0]
+states << test_array[1]
+states << test_array[2]
+states << test_array[3]
+states << test_array[4]
+states << test_array[5]
+states_randomized = states.shuffle
+
+puts "Well hello there! \n\nLet's have some fun and do the thing! \n"
