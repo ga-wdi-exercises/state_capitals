@@ -168,6 +168,7 @@ end
 
 while count != 50
   puts "what is the capital of #{states[count][:name]}?"
+
   response = gets.chomp
   if response == states[count][:capital]
     puts "Correct!"
@@ -176,7 +177,7 @@ while count != 50
     else
       states[count][:correct] = states[count][:correct] + 1
     end
-    puts "You've got this correct #{states[count][:correct]}"
+    puts "You've got this correct #{states[count][:correct].to_i} times out of #{states[count][:correct].to_i + states[count][:wrong].to_i} times"
   else
     puts "Incorrect!"
     if states[count][:wrong] == nil
@@ -184,7 +185,7 @@ while count != 50
     else
       states[count][:wrong] = states[count][:wrong] + 1
     end
-    puts "You've got this incorrect #{states[count][:wrong]}"
+    puts "You've got this correct #{states[count][:correct].to_i} times out of #{states[count][:correct].to_i + states[count][:wrong].to_i} times"
   end
   count += 1
   if count == 50
@@ -198,40 +199,6 @@ while count != 50
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 binding.pry
 
 puts "program resumes here."
-
-# this_round = states
-#
-# this_question = this_round.sample
-#
-# this_round.slice!(this_round.index this_question)
