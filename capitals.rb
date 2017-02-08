@@ -171,12 +171,14 @@ while index <= states.length + 1
     index +=1
     totalCorrect +=1
     puts "Correct! You have answered #{currentState[:name]}'s capital correctly #{currentState[:correct]} times out of #{currentStateTotal} times total. ou have answered #{totalWrong} questions wrong and #{totalRight} questions right."
+    puts index
   else
     currentState[:wrong] += 1
     currentStateTotal = currentState[:correct] + currentState[:wrong]
     index +=1
     totalWrong +=1
     puts "Wrong! You have answered #{currentState[:name]}'s capital correctly #{currentState[:correct]} times out of #{currentStateTotal} times total. You have answered #{totalWrong} questions wrong and #{totalRight} questions right."
+    puts index
   end
   if index == states.length
     puts "Would you like to play again?"
@@ -184,7 +186,7 @@ while index <= states.length + 1
     if user_input == "yes"
       index = 0
       states.shuffle!
-      states = states.sort_by{|state| [:correct]}
+      states.sort_by!{|state| state[:correct]}
     else
       index = 51
       break
@@ -193,3 +195,5 @@ while index <= states.length + 1
 end
 puts "See you later!"
 end
+
+capital_game (states)
