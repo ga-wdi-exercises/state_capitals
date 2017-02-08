@@ -1,4 +1,4 @@
-# an array of state hashes
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +151,51 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+puts "Welcome to States and Capitals Trivia"
+puts "Type 'yes' to begin game"
+
+start = gets.chomp.to_s
+puts "Trivia Game Begins..."
+
+new_game = 0
+user_input = 0
+# Counter for Correct/Wrong Answers and # of attempts!
+while new_game == 0
+for counter in states.shuffle do
+  counter[:correct] = 0
+  counter[:incorrect] = 0
+  counter[:attempts] = 0
+end
+
+# Trivia Game
+for state in states.shuffle do
+  puts "What is the capital of this state: #{state[:name]}?"
+  user_input = gets.chomp.to_s
+  if user_input == state[:capital].downcase
+    puts "Correct Answer: #{state[:capital]}"
+    counter[:correct] += 1
+    counter[:attempts] += 1
+  else user_input != state[:capital].downcase
+    puts "Wrong Answer, Retry"
+    counter[:incorrect] += 1
+    counter[:attempts] += 1
+    # puts "Hint: - - - - - #{state[:capitol]}"
+  end
+    puts "Correct Answers: #{counter[:correct]}"
+    puts "Incorrect Answers: #{counter[:incorrect]}"
+    puts "Attempts: #{counter[:attempts]}"
+
+  end
+
+  puts "Read above to correct/incorrect and number of attempts. Play Again? Type 'yes' or 'no'?"
+  retry_game = gets.chomp.to_s
+
+  if retry_game == 'yes'
+  puts "Trivia has restarted, Good Luck sir!"
+  else
+  puts "Well..Movin on...GAME OVER"
+  new_game += 1
+  end
+end
