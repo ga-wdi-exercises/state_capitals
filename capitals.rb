@@ -164,8 +164,8 @@ puts "Hey, here's your chance to test your wits with knowing the capitals of eve
 # write a loop to shuffle the states
 # initialize new keys in the hashes that store the number of times a user gets a capital correct + wrong
   states.each do |state|
-    state[:numcorrect] = 0
-    state [:numwrong] = 0
+    state[:num_correct_answer] = 0
+    state [:num_wrong_answer] = 0
   end
 
 # make the player play through all 50 states by prompting the player to name the capital of each state
@@ -174,10 +174,24 @@ while true
     puts "What is the capital of " + state[:name] + "?"
 
     answer = gets.chomp
-  end
 
-
+if answer == state[:capital]
+  puts "Correct Answer!"
+  state[:num_correct_answer] +=1
+else
+  puts "Your absolutely wrong, the capital is #{state[:capital]}"
+  state[:num_wrong_answer] +=1
 end
+
+
+
+
+
+
+
+
+
+
 
 # shuffle the states to make it challenging
 # create a welcome message to introduce the player to the game
