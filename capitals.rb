@@ -1,4 +1,5 @@
-# random comment to allow initial commit and pull request
+puts "Welcome! The object of this game is to learn US state capitals!"
+
 
 # an array of state hashes
 states =[
