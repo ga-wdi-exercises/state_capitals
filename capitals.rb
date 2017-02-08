@@ -186,7 +186,11 @@ else
     end
   end
 
-
+  puts "Congratulations! You have finished the game. Would you like to play again? Yes/No?"
+  play = gets.chomp
+  play.capitalize!
+  break if play == "No"
+    puts "Thanks for playing. Goodbye"
 end
 
 binding.pry
