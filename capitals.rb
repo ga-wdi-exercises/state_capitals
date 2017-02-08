@@ -151,3 +151,13 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+states = states.shuffle
+
+while true
+
+correct =
+incorrect =
+end
