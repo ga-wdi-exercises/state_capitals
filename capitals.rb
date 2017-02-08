@@ -151,3 +151,7 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states[:name].each do |state|
+  puts "What is the capital of #{state}?"
+end
