@@ -177,13 +177,13 @@ states.each do |each_state|
                                 puts ' '
                                 puts "yer answer-->   " + answered + "   <--be right"
                                 puts ' '
-                                statesIGotRight << state
+                                statesIGotRight << state[:name]
                               else
                                 state[:wrong] += 1
                                 puts ' '
                                 puts "yer answer-->   " + answered + "   <--be wrong"
                                 puts ' '
-                                statesIGotWrong << state
+                                statesIGotWrong << state[:name]
                               end
                               puts "right: " + state[:right].to_s
                               puts "wrong: " + state[:wrong].to_s
