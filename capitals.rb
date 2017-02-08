@@ -151,3 +151,30 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# ********************************************************************************
+puts "Welcome to: Can You Name that Capital?"
+# ********************************************************************************
+# correct = 0
+# wrong = 0
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+  state[:attempts] = 0
+end
+
+randomized = states.shuffle
+
+randomized.each do |state|
+  puts "What is the capital of #{state[:name]}"
+  input = gets.strip
+  if input == state[:capital]
+    state[:correct] +=1
+    state[:attempts] +=1
+    puts "Correct, the capital of #{state[:name]} is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
+  else
+    state[:attempts] +=1
+    state[:wrong] += 1
+    puts "Sorry that is not correct. The correct answer is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
+  end
+end
