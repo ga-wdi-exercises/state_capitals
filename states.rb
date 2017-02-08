@@ -8,24 +8,34 @@ states = data[:states]
 #if INCORRECT puts incorrect
 
 puts "\n\nWelcome to the United States- States Capital game\n\n"
-states.shuffle
 
-correct =0
-incorrect =0
-total =0
-
-totalStates = states.length
+states.shuffle!
+continue = 'y'
+guesses ={
+  correct: 0,
+  incorrect: 0,
+  stateCorrect: 0,
+  total: 0
+}
 
 index = 1
-states.each do |state|
-    puts "Do you know the capital of #{state[:name]}?"
-    answer = gets.downcase.chomp
-    total +=1
-    if(answer == state[:capital].downcase)
-      correct +=1
-      puts "\nCongrats! You got it correct \n\nCORRECT: #{correct} INCORRECT: #{incorrect} TOTAL: #{total}/#{totalStates}\n"
-    else
-      incorrect +=1
-      puts "\nSorry! You got it incorrect \n\nCorrect Guesses: #{correct} INCORRECT: #{incorrect} out of #{total}/#{totalStates}\n"
+until continue == 'n'
+  states.each do |state|
+      puts "Do you know the capital of #{state[:name]}?"
+      answer = gets.downcase.chomp
+      guesses[:total] +=1
+      if(answer == state[:capital].downcase)
+        guesses[:correct]+=1
+        guesses[:stateCorrect]+=1
+        puts "\nCongrats! You got it correct \n\nCORRECT: #{guesses[:correct]} INCORRECT: #{guesses[:incorrect]}\n\nTimes guessed correct out of attempts #{guesses[:stateCorrect]}/#{guesses[:total]}"
+      else
+        guesses[:incorrect]+=1
+        puts "\nSorry! You got it incorrect \n\nCorrect Guesses: #{guesses[:correct]} INCORRECT: #{guesses[:incorrect]}\n\nTimes guessed correct out of attempts #{guesses[:stateCorrect]}/#{guesses[:total]} "
+    end
+    guesses[:stateCorrect]=0
   end
+  guesses[:correct]=0
+  guesses[:incorrect]=0
+  puts "Would you like to play agian? (y/n)"
+  continue = gets.chomp
 end
