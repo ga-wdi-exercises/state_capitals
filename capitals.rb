@@ -176,9 +176,13 @@ states.each do |state|
 if answer == state[:capital]
   puts "Bingo! You are correct."
     correct += 1
+    score += 1
+  puts "You are #{correct} for #{score}"
 else
   puts "Sorry, you are incorrect."
     incorrect += 1
+    score += 1
+  puts "You are #{correct} for #{score}"
     end
   end
 
