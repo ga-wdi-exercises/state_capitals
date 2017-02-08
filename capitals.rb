@@ -159,12 +159,14 @@ puts "\nWell hello there! \n\nLet's have some fun and do the thing!"
 puts "Do you want to play?"
 play = gets.chomp
 play.capitalize!
+ever_said_yes = false
 
 while play == "Yes"
 
   states_randomized = states.shuffle
   correct = 0
   index = 0
+  ever_said_yes = true
 
   states_randomized.each do |state|
 
@@ -186,6 +188,11 @@ while play == "Yes"
       correct +=1
       puts "\nYippee."
     elsif answer == "Exit" || answer == "Quit"
+      puts "\n  X     XXXXX XXXXX XXXXX XXXXX   XX"
+      puts "  X     X   X X     X     X   X   XX"
+      puts "  X     X   X  XXX  XXXX  XXXX    XX"
+      puts "  X     X   X     X X     X   X"
+      puts "  XXXXX XXXXX XXXXX XXXXX X    X  XX"
       break
     else
       puts "\n  X       X"
