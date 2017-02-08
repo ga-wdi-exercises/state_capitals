@@ -155,8 +155,8 @@ states =[
 # ********************************************************************************
 puts "Welcome to: Can You Name that Capital?"
 # ********************************************************************************
-# correct = 0
-# wrong = 0
+total_correct = 0
+
 states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
@@ -173,6 +173,7 @@ while input2 == "y"
       if input == state[:capital]
         state[:correct] +=1
         state[:attempts] +=1
+        total_correct +=1
         puts "Correct, the capital of #{state[:name]} is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
       else
         state[:attempts] +=1
@@ -180,19 +181,12 @@ while input2 == "y"
         puts "Sorry that is not correct. The correct answer is #{state[:capital]}. You have answered this question correct #{state[:correct]} out of #{state[:attempts]} times."
       end
     end
-  puts "Congratulations on finishing the game. Would you like to play again? Type 'y' for yes and 'n' for no"
+  puts "Congratulations on finishing the game. You got #{total_correct} out of 50. Would you like to play again? Type 'y' for yes and 'n' for no"
   input2 = gets.strip
   break if input2 == "n"
 end
 
-# puts "Congratulations on finishing the game. Would you like to play again? Type 'y' for yes and 'n' for no"
-#  input2 = gets.strip
-#  if input2 == y
-#
-#
-#  elsif input2 == n
-#
-#  else
-#    puts "Sorry that is not an answer"
-#
-#  end
+
+# Calculate a overall total score, display a running tally for each prompt
+# If the user plays again, set the order of how the prompts appear to start with the ones they got wrong the most often.
+# Add a hint functionality that prints the first 3 letters of a capital
