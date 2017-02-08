@@ -10,6 +10,11 @@ states = [
     capital: "Phoenix"
 }]
 
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
 shuffled_states = states.shuffle
 
 puts "Welcome! The object of this game is to learn US state capitals! Let's get started ..."
@@ -18,37 +23,17 @@ shuffled_states.each do |state|
   puts "What is the capital of #{state[:name]}?"
   input = gets.chomp
   if input == state[:capital]
-    puts "Yes!"
+    puts "That's correct!"
+    state[:correct] += 1
   else
-    puts "No!"
+    puts "Sorry, the answer is #{state[:capital]}."
+    state[:wrong] += 1
   end
+  puts "You have correctly identified #{state[:name]}'s capital #{state[:correct]} out of #{state[:correct]+state[:wrong]} times."
 end
 
-# - Provide a welcome message to introduce the player to the game.
-#
-# - Initialize new keys in the hashes that store the number of times a user gets a capital `correct` and the number of times the answer is `wrong`.
-#
-# - Through all 50 states, prompt the user to name the capital of the state.
-#  - If the answer is correct, display a message saying so, and increment the `correct` key.
-#  - If the answer is wrong, display a message saying so, and increment the `wrong` key.
-#  - After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
-#
 # - Once the user has gone through all 50 states, ask them if they'd like to play again.
-#
-# ## Getting Started
-#
-# You're given an array of hashes that contain each state name and capital.
-#
-# > **Hint**: For the purposes of developing this program, start with a test array of three hashes so you don't have to play through all 50 states each time.
-#
-# ### Potentially Useful Methods
-#
-# - `puts`
-# - `gets`
-# - `.each`
-# - `.sort_by`
-# - `.shuffle`
-#
+
 # ## Bonus!
 #
 # - Calculate a overall total score, display a running tally for each prompt
