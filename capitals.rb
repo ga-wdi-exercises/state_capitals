@@ -1,4 +1,3 @@
-require 'pry'
 # an array of state hashes
 states =[
 {
@@ -168,23 +167,44 @@ loop do
 end
 
 states.shuffle.each do |state|
-    puts "What is the capital of #{state[:name]}?"
+    puts "\nWhat is the capital of #{state[:name]}?"
     input = gets.chomp.to_s
     if input == state[:capital]
-      puts "That's correct!"
+      puts "\nThat's correct!"
       state[:correct] = state[:correct] + 1
     else
-      puts "Incorrect. Try Again!"
+      puts "\nIncorrect. Try Again!"
       state[:wrong] = state[:wrong] + 1
     end
-    puts "You guessed correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times!"
+    puts "\nYou guessed correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times!"
+end
+states.each do |state|
+
 end
 
-puts "Would you like to play again? y/n"
+# total_correct = states[:correct].reduce do |result, element|
+#   result + element
+# end
+#^tried inject, couldn't get it to work
+
+total_correct = 0
+index = 0
+loop do
+  total_correct = total_correct + states[index][:correct]
+  index += 1
+  break if index == states.length
+end
+
+total_wrong = 0
+index = 0
+loop do
+  total_wrong = total_wrong + states[index][:wrong]
+  index += 1
+  break if index == states.length
+end
+
+total = total_correct + total_wrong
+
+puts "\nYour total is #{total_correct} out of #{total}!\nWould you like to play again? y/n"
 command = gets.chomp.to_s
 end
-
-
-
-
-binding.pry
