@@ -151,3 +151,24 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.shuffle
+
+scoreCorrect = 0
+scoreIncorrect = 0
+
+puts "Time to learn our state capitals!  Let's get started!"
+
+states.each do |state|
+  puts "What is the capital of #{state[:name]}?"
+  answer = gets.chomp
+  if answer == state[:capital]
+    puts "That is correct!"
+    scoreCorrect += 1
+    puts "You have #{scoreCorrect} out of 50"
+  else
+    puts "Incorrect."
+    scoreIncorrect += 1
+    puts "You got #{scoreCorrect} out of 50"
+  end
+end
