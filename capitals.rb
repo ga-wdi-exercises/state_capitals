@@ -200,6 +200,8 @@ states.shuffle!
     end
 
     play_game(states)
+    puts " "
+    puts "Not bad. Not bad. But can you do better?"
 
   else
     puts ":("
