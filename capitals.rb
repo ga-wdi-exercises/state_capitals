@@ -1,3 +1,6 @@
+require "pry"
+
+
 # an array of state hashes
 states =[
 {
@@ -151,3 +154,9 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+
+binding.pry
+puts "end of file"
