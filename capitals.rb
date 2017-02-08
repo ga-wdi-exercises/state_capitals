@@ -12,7 +12,7 @@ states =[
 }, {
     name: "Arkansas",
     capital: "Little Rock"
-}, {
+ }, {
     name: "California",
     capital: "Sacramento"
 }, {
@@ -151,3 +151,36 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+def capital_game(states)
+  states.shuffle!
+  score = 0
+  index = 0
+  states.each do |each_state|
+    each_state[:correct] = 0
+    each_state[:wrong] = 0
+    each_state[:asked] = 0
+  end
+
+  puts "Welcome to the state capital game!"
+
+  states.each do |state|
+  puts "Name the capital of #{state[:name]}."
+            user_input = gets.chomp.to_s
+            if user_input == state[:capital]
+              state[:correct] += 1
+              state[:asked]  += 1
+              puts "You got it right!You have answered this correctly #{state[:correct]} times and incorrectly #{state[:wrong]} out of  #{state[:asked]} time(s)."
+            elsif user_input != state[:capital]
+              state[:wrong] += 1
+              state[:asked] += 1
+              puts "Wrong answer!You have answered this correctly #{state[:wrong]} times and incorrectly #{state[:wrong]} out of  #{state[:asked]} time(s)."
+          end
+        end
+
+    end
+    capital_game(states)
+    puts "Play again? Y/N"
+    user_input_play = gets.chomp.to_s
+    if user_input_play == "Y"
+      capital_game(states)
+    end
