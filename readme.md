@@ -12,6 +12,8 @@ To play the game:
 
  - Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
 
+ - Provide a welcome message to introduce the player to the game.
+
  - Initialize new keys in the hashes that store the number of times a user gets a capital `correct` and the number of times the answer is `wrong`.
 
  - Through all 50 states, prompt the user to name the capital of the state.
@@ -21,7 +23,19 @@ To play the game:
 
 - Once the user has gone through all 50 states, ask them if they'd like to play again.
 
+## Getting Started
 
+ You're given an array of hashes that contain each state name and capital.
+
+ > **Hint**: For the purposes of developing this program, start with a test array of three hashes so you don't have to play through all 50 states each time.
+
+### Potentially Useful Methods
+
+- `puts`
+- `gets`
+- `.each`
+- `.sort_by`
+- `.shuffle`
 
 ## Bonus!
 
