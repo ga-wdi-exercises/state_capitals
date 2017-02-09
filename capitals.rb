@@ -63,16 +63,22 @@ puts "\nHello! Do you know your US capitals? Let's find out! ..."
 
 def handle(state)
   puts "\nWhat is the capital of #{state[:name]}?"
-  input = gets.chomp
-  if input == state[:capital]
-    puts "That's correct!"
-    state[:correct] += 1
-    $total_correct += 1
-  else
-    puts "Sorry, the answer is #{state[:capital]}."
-    state[:wrong] += 1
-    $total_wrong += 1
+  def handle_input(state)
+    input = gets.chomp
+    if input == "hint"
+      puts "It starts with #{state[:capital].slice(0, 3)}"
+      handle_input(state)
+    elsif input == state[:capital]
+      puts "That's correct!"
+      state[:correct] += 1
+      $total_correct += 1
+    else
+      puts "Sorry, the answer is #{state[:capital]}."
+      state[:wrong] += 1
+      $total_wrong += 1
+    end
   end
+  handle_input(state)
   puts "Your #{state[:name]} score is #{state[:correct]} out of #{state[:correct]+state[:wrong]}."
   puts "Your total score is #{$total_correct} out of #{$total_correct+$total_wrong}."
 end
