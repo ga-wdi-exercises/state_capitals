@@ -151,3 +151,14 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+states.each do |state|
+  puts state
+end
+while count != 50
+    puts "what is the capital of #{states[count][:name]}?"
+ +
+    response = gets.chomp
+    if response == states[count][:capital]
+      puts "Correct!"
+
+      binding.pry
