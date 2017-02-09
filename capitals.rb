@@ -66,7 +66,7 @@ def handle(state)
   def handle_input(state)
     input = gets.chomp
     if input == "hint"
-      puts "It starts with #{state[:capital].slice(0, 3)}"
+      puts "It starts with #{state[:capital][0..2]}"
       handle_input(state)
     elsif input == state[:capital]
       puts "That's correct!"
