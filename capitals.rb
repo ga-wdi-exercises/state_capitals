@@ -151,3 +151,42 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+puts 'Ready to Learn Your State Capitals? Press Enter to Begin'
+gets
+states = states.shuffle
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
+loop do
+  states.each do |state|
+    puts state[:name]
+    puts "Type hint to see the first 3 letters"
+    answer = gets.chomp
+    if answer == 'hint'
+      puts state[:capital].slice(0, 3)
+      answer = gets.chomp
+    end
+    if answer == state[:capital]
+      puts 'correct'
+      state[:correct] += 1
+    else
+      puts 'wrong'
+      state[:wrong] += 1
+    end
+    timesCorrect = state[:correct]
+    timesIncorrect = state[:correct].to_i + state[:wrong].to_i
+    overallCorrect = states.inject(0){|sum, state| sum + state[:correct].to_i}
+    overallIncorrect = states.inject(0){|sum, state| sum + state[:wrong].to_i}
+    puts "State Score : #{timesCorrect} / #{timesIncorrect}"
+    puts "Overall Score : #{overallCorrect} / #{overallCorrect + overallIncorrect}"
+  end
+puts 'Play Again? yes / no'
+continue = gets.chomp
+break if continue != 'yes'
+states = states.sort_by{ |state| state[:correct]}
+end
