@@ -151,3 +151,67 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+
+def play_game states
+  puts "Welcome to the capital states game, where you guess the capitals!\n\n"
+  states.length.times do |i|
+    puts "What's the capital of #{states[i][:name]}? \n(Do you want a hint? Type in hint.)"
+    answer = gets.chomp.downcase
+    if answer == "hint"
+      puts "The hint is #{states[i][:capital][0..2]}\n"
+      answer = gets.chomp.downcase
+    end
+    if answer == states[i][:capital].downcase
+      states[i][:correct] += 1
+      puts "You got the answer correct! You are the greatest!"
+      scoreboard states, i
+    else
+      states[i][:incorrect] += 1
+      puts "You got the answer incorrect. The capital for #{states[i][:name]} is #{states[i][:capital]}."
+      scoreboard states, i
+    end
+  end
+  puts "Nice! You are done."
+end
+
+def scoreboard states, i
+  correct = states.map{|state| state[:correct]}.reduce(:+)
+  incorrect = states.map{|state| state[:incorrect]}.reduce(:+)
+  puts "\n-------------------\nScoreboard\nCorrect: #{correct}/#{i+ 1}\nIncorrect: #{incorrect}/#{i+1}\n------------------\n"
+end
+
+def scorecard states
+  puts "\n-------------------\nState by State Scorecard\n-------------------\n"
+  states.each do |state|
+    puts "State: #{state[:name]}     Correct: #{state[:correct]}     Incorrect: #{state[:incorrect]}"
+  end
+end
+
+def sort_questions states
+  states.sort_by { |state| state[:incorrect] }
+end
+
+def play_again
+  puts "Do you want to play again? (Y or N)"
+  answer = gets.chomp
+  return answer
+end
+
+answer = "Y"
+while answer == "Y"
+  play_game states
+  sort_questions states
+  puts "Do you want a state by state scorecard?(Y or N)"
+  answer = gets.chomp
+  if answer == "Y"
+    scorecard states
+  end
+  answer = play_again
+end
