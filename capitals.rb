@@ -1,5 +1,5 @@
-# an array of state hashes
-states =[
+# # an array of state hashes
+$states =[
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -129,7 +129,8 @@ states =[
 }, {
     name: "Texas",
     capital: "Austin"
-}, {
+},
+ {
     name: "Utah",
     capital: "Salt Lake City"
 }, {
@@ -141,7 +142,8 @@ states =[
 }, {
     name: "Washington",
     capital: "Olympia"
-}, {
+},
+{
     name: "West Virginia",
     capital: "Charleston"
 }, {
@@ -151,3 +153,57 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+$answered = 0
+$correct_answers = 0
+
+def playagain
+  newstates = $states.sort_by {|state| [state[:correct]]}
+    # puts $states
+    newstates.each do |state|
+
+  puts "what is the capital of #{state[:name]}?"
+  answer = gets.chomp
+  $answered = $answered + 1
+  if answer == "#{state[:capital]}"
+    state[:correct] = (state[:correct] + 1)
+    $correct_answers = $correct_answers + 1
+    puts "correct! you've answered #{state[:name]} correctly #{state[:correct]} times"
+  else puts "nope!"
+    state[:wrong] = (state[:wrong] + 1)
+  end
+  puts "you've answered #{$correct_answers} correct out of #{$answered} total"
+end
+puts "Would you like to play again? (y/n)"
+again = gets.chomp
+  if again == "n"
+  puts "Okay have a good day!"
+elsif again == "y"
+  playagain
+end
+end
+
+
+puts "Welcome to state capital guessing!"
+$states.shuffle.each do |state|
+puts "what is the capital of #{state[:name]}?"
+answer = gets.chomp
+$answered = $answered + 1
+state[:correct] = 0
+state[:wrong] = 0
+if answer == "#{state[:capital]}"
+  state[:correct] = (state[:correct] + 1)
+  $correct_answers = $correct_answers + 1
+  puts "correct!"
+else puts "nope!"
+  state[:wrong] = (state[:wrong] + 1)
+end
+puts "you've answered #{$correct_answers} correct out of #{$answered} total"
+end
+puts "Would you like to play again? (y/n)"
+again = gets.chomp
+  if again == "n"
+  puts "Okay have a good day!"
+elsif again == "y"
+    playagain()
+end
