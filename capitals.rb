@@ -9,6 +9,7 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
+
 }, {
     name: "Arkansas",
     capital: "Little Rock"
@@ -151,3 +152,47 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+puts "Hello! Welcome to the State Capital game. You will be prompted with a state and must give the Capital. Good Luck!"
+answer =
+replay =
+game_on = 1
+score = 0
+states.map {|this_state| this_state[:num_correct] = 0}
+states.map {|this_state| this_state[:num_incorrect] = 0}
+states = states.shuffle!
+hint_mode = ''
+until game_on == 0
+  puts "Would you like to enable hints? (Y/N)"
+  hint_mode = gets.chomp
+
+states.each do |prompt|
+  puts "What is the capital of #{prompt[:name]}? On this state your #{prompt[:num_correct]}/#{prompt[:num_correct] + prompt[:num_incorrect]}"
+  if hint_mode == 'Y'
+    puts prompt[:capital][0..2]
+  end
+  answer = gets.to_s.chomp
+  if answer == prompt[:capital]
+    prompt[:num_correct] += 1
+    score += 1
+    puts "****Correct!**** Your score is #{score}"
+  else
+    puts "Nope."
+    prompt[:num_incorrect] += 1
+  end
+end
+puts "Thats it! Your final score is #{score}. Would you like to play again? (Y/N)"
+replay = gets.chomp
+if replay == 'Y'
+  game_on = 1
+  score = 0
+  states.sort_by! do |wrong|
+    -wrong[:num_incorrect]
+  end
+else replay == 'N'
+  game_on = 0
+  puts "Thanks for playing!"
+end
+end
