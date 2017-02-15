@@ -151,3 +151,44 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+  states.map do |state|
+    state[:correct] = 0
+    state[:wrong] = 0
+  end
+
+states.shuffle!
+
+def game_launch(states)
+  total_correct = 0
+  questions_asked = 0
+  puts "Welcome to the game!"
+  states.each do |state|
+    puts "What is the capital of " + state[:name] +"?"
+    # state hint method starts here
+    state_name = state[:capital]
+    state_name.split(",")
+    puts state_name[0] + state_name[1] + state_name[2]
+    questions_asked +=1
+    answer = gets.chomp
+      if answer == state[:capital]
+        puts "You got it correct!"
+        total_correct +=1
+        puts "You have gotten " + total_correct.to_s + "/" + questions_asked.to_s
+        state[:correct] +=1
+      elsif answer != state[:capital]
+        puts "you got it wrong!"
+        state[:wrong] +=1
+        puts "You have gotten " + total_correct.to_s + "/" + questions_asked.to_s
+      end
+  end
+  puts "Continue? Y/N"
+  continue = gets.chomp
+  if continue == "Y"
+    states.sort_by!{|state| state[:wrong]}.reverse!
+    puts states
+    game_launch(states)
+  end
+end
+
+game_launch(states)
