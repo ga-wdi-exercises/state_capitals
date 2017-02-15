@@ -129,25 +129,51 @@ states =[
 }, {
     name: "Texas",
     capital: "Austin"
-}, {
-    name: "Utah",
-    capital: "Salt Lake City"
-}, {
-    name: "Vermont",
-    capital: "Montpelier"
-}, {
-    name: "Virginia",
-    capital: "Richmond"
-}, {
-    name: "Washington",
-    capital: "Olympia"
-}, {
-    name: "West Virginia",
-    capital: "Charleston"
-}, {
-    name: "Wisconsin",
-    capital: "Madison"
-}, {
-    name: "Wyoming",
-    capital: "Cheyenne"
+
+#}, {
+#    name: "Utah",
+#    capital: "Salt Lake City"
+#}, {
+#    name: "Vermont",
+#    capital: "Montpelier"
+#}, {
+#    name: "Virginia",
+#    capital: "Richmond"
+#}, {
+#    name: "Washington",
+#    capital: "Olympia"
+#}, {
+#    name: "West Virginia",
+#    capital: "Charleston"
+#}, {
+#    name: "Wisconsin",
+#    capital: "Madison"
+#}, {
+#    name: "Wyoming",
+#    capital: "Cheyenne"
 }]
+
+#shuffles states and capitals
+states = states.shuffle
+score = 0
+
+#welcome message giving player option of playing or not
+puts "Welcome! Would you like to test your knowledge on the state capitals, yes/no?"
+answer = gets.chomp
+
+#anything other than a typed 'no' will start game
+if answer != "no"
+
+#pulls each state name and plugs into question, gets answer, matches or no with feedback output
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+    answer = gets.chomp
+    if answer == state[:capital]
+      puts "You're correct!!!"
+      score +=1
+    #  puts "Your score is " + score + " so far!"
+    else
+      puts "Wrong answer!!!"
+  end
+ end
+end
