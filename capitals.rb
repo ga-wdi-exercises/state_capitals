@@ -151,3 +151,56 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+correct = []
+incorrect = []
+
+playAgain = true
+
+puts "Hi! Welcome to the states capitals quiz!"
+
+while playAgain == true
+totalScore = 0
+i = 0
+states.shuffle!
+	while i < states.length
+	puts "What is the capital of #{states[i][:name]}?"
+	user_input = gets.chomp
+
+  		if user_input == states[i][:capital]
+    		correct.push(states[i][:name])
+    		numCorrect = correct.count(states[i][:name])
+			numIncorrect = incorrect.count(states[i][:name])
+    		puts "Correct! You answered this question correctly #{numCorrect} times and incorrectly #{numIncorrect} times"
+    		i = i +1
+        totalScore = totalScore + 1
+        puts "Your total score this round is #{totalScore}"
+  		else
+  			incorrect.push(states[i][:name])
+  			numCorrect = correct.count(states[i][:name])
+			numIncorrect = incorrect.count(states[i][:name])
+  			puts "Ah thats incorrect, you answered this question correctly #{numCorrect} times and incorrectly #{numIncorrect} times "
+  			i = i+1
+  		end
+	end
+
+		puts "Would you like to play again?"
+		answer = gets.chomp
+			if answer == "yes"
+				playAgain = true
+			else
+				playAgain = false
+			end
+end
+
+# welcome message
+# shuffle cards
+#
+# #what is the capital of (STATE)
+#
+#     if correct then correct = +1
+#     if incorrect then incoorect + 1
+# increase tally for state was that was answered incorrecly (add to an arra)
+# next question
+#
+#   if states[i]=50 then wanna play again? use gets.chomp
