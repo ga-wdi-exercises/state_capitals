@@ -255,3 +255,9 @@ states =[
 
 
 puts "Welcome!  We're going to guess some capitals!"
+
+states.each do |state|
+  puts "What's the capital of #{state[:name]}?"
+  break
+  answer = gets.chomp
+end
