@@ -1,4 +1,8 @@
+correct = 0
+incorrect = 0
+
 puts "Welcome to the craziest state capitals game...EVER!"
+puts "We'll ask you for 10 (random) State's Capitals.  At the end - we'll show you your score!"
 
 states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
@@ -6,13 +10,17 @@ capitals = ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", "Den
 
 
 
-50.times do
+10.times do
   question = rand(0..50)
     puts "what is the capitol of " + states[question]
   answer = gets.chomp
   if answer == capitals[question]
 	puts "You ROCKSTAR!"
+  correct += 1
   else
-	puts "You Suck..."
+	puts "Learn our map... you UNPATRIOT!"
+  incorrect +=1
   end
 end
+
+puts "You had #{correct} answers correct and #{incorrect} answers wrong."
