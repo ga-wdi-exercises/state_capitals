@@ -316,7 +316,10 @@ while in_play
     states.each do |state|
         puts "What is the capital of #{state[:name]}?"
         user_input = gets.chomp
-        if user_input == state[:capital]
+        if user_input == "hint"
+            hint = state[:capital][0, 3]
+            puts hint
+        elsif user_input == state[:capital]
             puts "Correct!"
             state[:correct] += 1
             state[:guesses] += 1
