@@ -152,13 +152,17 @@ states =[
     capital: "Cheyenne"
 }]
 
+#Randomizes array
 states.shuffle!
+
+#Appends correct, wrong, and total properties to all states
 states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
   state[:total] = 0
 end
 
+#Play method which prompts user with question and updates correct, wrong, and total properties
 def play(states)
   states.each do |state|
     puts "What is #{state[:name]}'s capital?"
@@ -176,12 +180,13 @@ def play(states)
   end
 end
 
+#Starts game if user replies with Y
 puts "Welcome to the state capitals game. Your job is to give the capital of all 50 states. Would you like to play? Y for yes N for no."
 answer = gets.chomp
 if answer == "Y"
   play(states)
 end
-
+#Keeps game going if user replies with Y after finished a round
 while answer == "Y"
 puts "Would you like to play again? type Y for yes or N for no:"
 answer = gets.chomp
