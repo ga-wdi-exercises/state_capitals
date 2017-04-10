@@ -157,7 +157,7 @@ states = states.shuffle
 states.each do |state|
 	puts 'What is the capital of' + state[:name] + '?'
   answer = gets.chomp
-      if answer == #{state[:capital]}
+      if answer == [state]
 	 puts 'That is right' +' #{state[:capital]}' + ' is the capital!'
 	      state[:num_correct] += 1
 	    else
