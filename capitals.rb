@@ -156,12 +156,13 @@ states = states.shuffle
 
 puts "Welcome to State Capitals by cj"
 
-states.each << {:wrong ==> 0,
-          :right==> 0,
-        }
+states.each do |state|
+   state[:wrong] = 0
+   state[:right]= 0
+ end
 
 states.each do |name|
-  puts "What is the captial of " + state[:name]
+  puts "What is the captial of " + name[:name]
   input = gets.chomp
 
 
@@ -173,9 +174,10 @@ states.each do |name|
     state[:wrong] += 1
   end
 
-  amount = states[:wrong] + states[:right]
-  puts "you gotten " + states[:right] + " right out of " + amount + "attempts"
+  amount = state[:wrong] + state[:right]
+  puts "you gotten " + state[:right] + " right out of " + amount + "attempts"
 
 puts "continue?"
 break if input = "no"
 input = gets.chomp
+end
