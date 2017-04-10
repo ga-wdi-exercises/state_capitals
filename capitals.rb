@@ -2,152 +2,297 @@
 states =[
 {
     name: "Alabama",
-    capital: "Montgomery"
+    capital: "Montgomery",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Alaska",
-    capital: "Juneau"
+    capital: "Juneau",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Arizona",
-    capital: "Phoenix"
+    capital: "Phoenix",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Arkansas",
-    capital: "Little Rock"
+    capital: "Little Rock",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "California",
-    capital: "Sacramento"
+    capital: "Sacramento",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Colorado",
-    capital: "Denver"
+    capital: "Denver",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Connecticut",
-    capital: "Hartford"
+    capital: "Hartford",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Delaware",
-    capital: "Dover"
+    capital: "Dover",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Florida",
-    capital: "Tallahassee"
+    capital: "Tallahassee",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Georgia",
-    capital: "Atlanta"
+    capital: "Atlanta",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Hawaii",
-    capital: "Honolulu"
+    capital: "Honolulu",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Idaho",
-    capital: "Boise"
+    capital: "Boise",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Illinois",
-    capital: "Springfield"
+    capital: "Springfield",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Indiana",
-    capital: "Indianapolis"
+    capital: "Indianapolis",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Iowa",
-    capital: "Des Moines"
+    capital: "Des Moines",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Kansas",
-    capital: "Topeka"
+    capital: "Topeka",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Kentucky",
-    capital: "Frankfort"
+    capital: "Frankfort",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Louisiana",
-    capital: "Baton Rouge"
+    capital: "Baton Rouge",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Maine",
-    capital: "Augusta"
+    capital: "Augusta",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Maryland",
-    capital: "Annapolis"
+    capital: "Annapolis",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Massachusetts",
-    capital: "Boston"
+    capital: "Boston",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Michigan",
-    capital: "Lansing"
+    capital: "Lansing",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Minnesota",
-    capital: "St. Paul"
+    capital: "St. Paul",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Mississippi",
-    capital: "Jackson"
+    capital: "Jackson",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Missouri",
-    capital: "Jefferson City"
+    capital: "Jefferson City",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Montana",
-    capital: "Helena"
+    capital: "Helena",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Nebraska",
-    capital: "Lincoln"
+    capital: "Lincoln",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Nevada",
-    capital: "Carson City"
+    capital: "Carson City",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "New Hampshire",
-    capital: "Concord"
+    capital: "Concord",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "New Jersey",
-    capital: "Trenton"
+    capital: "Trenton",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "New Mexico",
-    capital: "Santa Fe"
+    capital: "Santa Fe",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "New York",
-    capital: "Albany"
+    capital: "Albany",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "North Carolina",
-    capital: "Raleigh"
+    capital: "Raleigh",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "North Dakota",
-    capital: "Bismarck"
+    capital: "Bismarck",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Ohio",
-    capital: "Columbus"
+    capital: "Columbus",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Oklahoma",
-    capital: "Oklahoma City"
+    capital: "Oklahoma City",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Oregon",
-    capital: "Salem"
+    capital: "Salem",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Pennsylvania",
-    capital: "Harrisburg"
+    capital: "Harrisburg",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Rhode Island",
-    capital: "Providence"
+    capital: "Providence",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "South Carolina",
-    capital: "Columbia"
+    capital: "Columbia",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "South Dakota",
-    capital: "Pierre"
+    capital: "Pierre",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Tennessee",
-    capital: "Nashville"
+    capital: "Nashville",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Texas",
-    capital: "Austin"
+    capital: "Austin",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Utah",
-    capital: "Salt Lake City"
+    capital: "Salt Lake City",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Vermont",
-    capital: "Montpelier"
+    capital: "Montpelier",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Virginia",
-    capital: "Richmond"
+    capital: "Richmond",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Washington",
-    capital: "Olympia"
+    capital: "Olympia",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "West Virginia",
-    capital: "Charleston"
+    capital: "Charleston",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Wisconsin",
-    capital: "Madison"
+    capital: "Madison",
+    correct: 0,
+    incorrect: 0
 }, {
     name: "Wyoming",
-    capital: "Cheyenne"
-}]
+    capital: "Cheyenne",
+    correct: 0,
+    incorrect: 0
+}].shuffle
+
+correct = 0
+
+incorrect = 0
+
+correct_score = correct.to_s
+incorrect_score = incorrect.to_s
+
+puts "Welcome to Capitals Quiz!"
+
+#iterate through and ask
+
+
+    states.each do |state|
+      puts "What is the capital of " + state[:name] + "?"
+      guess = gets.chomp
+        if guess == state[:capital]
+        correct += 1
+        puts "Correct!"
+        puts "Correct: " + correct_score
+        puts "Incorrect: " + incorrect_score
+        
+
+      
+        else 
+        puts "Incorrect!"
+        incorrect +=1 
+        puts "Correct: " + correct_score
+        puts "Incorrect: " + incorrect_score
+        end
+
+    end
+
+
+
+puts "Congratulations! You got " + correct_score + "correct, and " + incorrect_score + "wrong."
+
+
+
+
+
+
+
+
+

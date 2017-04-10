@@ -10,11 +10,22 @@ To play the game:
 
 ### Game Requirements
 
- - Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+ - Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user. DONE
 
- - Provide a welcome message to introduce the player to the game.
+ - Provide a welcome message to introduce the player to the game. DONE
 
  - Initialize new keys in the hashes that store the number of times a user gets a capital `correct` and the number of times the answer is `wrong`.
+ DONE (but manually)
+
+ h[:key] = "bar"
+If you want a method, use store:
+
+h.store(:key, "bar")
+If you really, really want to use a "shovel" operator (<<), it is actually appending to the value of the hash as an array, and you must specify the key:
+
+h[:key] << "bar"
+
+ Add a new key for each that adds correct and wrong 
 
  - Through all 50 states, prompt the user to name the capital of the state.
   - If the answer is correct, display a message saying so, and increment the `correct` key.
@@ -42,3 +53,10 @@ To play the game:
 - Calculate a overall total score, display a running tally for each prompt
 - If the user plays again, set the order of how the prompts appear to start with the ones they got wrong the most often.
 - Add a hint functionality that prints the first 3 letters of a capital
+
+guess = gets.chomp
+        if guess == state[:capital]
+        puts "correct!"
+        else 
+        puts "incorrect!"
+    end
