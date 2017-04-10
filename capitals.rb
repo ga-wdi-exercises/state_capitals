@@ -159,10 +159,10 @@ for state in state_shuffle.each do
   puts "what is the capital city of #{state[:name]}"
   user_input = gets.chomp
     if(user_input ==state[:capital])
-         player[correct] + =1
+
       puts "Player got #{correct} right"
     else
-        player[incorrect] + =1
+      
       puts "Player got #{incorrect} wrong"
     end
 
