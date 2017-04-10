@@ -181,3 +181,17 @@ else
   puts "incorrect"
   state[:number_wrong] += 1
 end
+
+
+#After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+  total_number_answered = state[:number_correct] + state[:number_wrong]
+  puts "You answered #{state[:number_correct]} correctly from total number of #{total_number_answered} answered."
+
+
+#Once the user has gone through all 50 states, ask them if they'd like to play again.
+
+puts "Play again? YES or NO"
+answer = gets.chomp
+break if answer.upcase == "NO"
+  states = states.sort_by {|state| state[:number_correct]}
+end
