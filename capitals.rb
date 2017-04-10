@@ -254,8 +254,10 @@ states =[
 
 correct = 0
 
-incorrect = [0
+incorrect = 0
 
+correct_score = correct.to_s
+incorrect_score = incorrect.to_s
 
 puts "Welcome to Capitals Quiz!"
 
@@ -267,16 +269,24 @@ puts "Welcome to Capitals Quiz!"
       guess = gets.chomp
         if guess == state[:capital]
         correct += 1
-        puts "Correct! Your score is " + correct + "!"
+        puts "Correct!"
+        puts "Correct: " + correct_score
+        puts "Incorrect: " + incorrect_score
+        
+
       
         else 
         puts "Incorrect!"
-        incorrect +=1
-      
-        
-    end
+        incorrect +=1 
+        puts "Correct: " + correct_score
+        puts "Incorrect: " + incorrect_score
+        end
 
     end
+
+
+
+puts "Congratulations! You got " + correct_score + "correct, and " + incorrect_score + "wrong."
 
 
 
