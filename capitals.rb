@@ -1,5 +1,4 @@
 # an array of state hashes
-
 states =[
 {
     name: "Alabama",
@@ -151,4 +150,63 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
+
+testArray = [
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}].shuffle
+
+def total_answers_correct(obj)
+  obj.each do |hsh|
+    total_correct += hsh[:correct]
+  end
+end
+
+def answer_correct?(ans, obj)
+  if ans.downcase == obj[:capital].downcase
+    obj[:correct] += 1
+
+  else
+    obj[:wrong] += 1
+  end
+end
+
+def add_answer_bank(obj)
+  obj[:correct] = 0
+  obj[:wrong] = 0
+end
+
+testArray.each do |hsh|
+  add_answer_bank(hsh)
+end
+
+def quiz_game(quiz)
+  quiz.each do |hsh|
+    puts "What is the capital of #{hsh[:name]}?"
+    answer = gets.chomp
+    answer_correct?(answer, hsh)
+  end
+end
+
+loop do
+  quiz_game(testArray)
+  puts "Would you like to play again? (yes/no)"
+  answer = gets.chomp
+  break if answer == 'no'
+end
+
+total_correct = 0
+testArray.each do |hsh|
+  total_correct += hsh[:correct]
+end
+
+puts total_correct
+puts testArray
