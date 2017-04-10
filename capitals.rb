@@ -1,4 +1,5 @@
 # an array of state hashes
+
 states =[
 {
     name: "Alabama",
