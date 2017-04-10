@@ -151,3 +151,33 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+#Provide a welcome message to introduce the player to the game.
+puts "Let's play and study all 50 state capitals!!!"
+
+
+#Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+states = states.shuffle
+
+#Initialize new keys in the hashes that store the number of times a user gets a capital correct and the number of times the answer is wrong.
+states.each do |state|
+  state[:number_correct] = 0
+  state[:number_wrong] = 0
+end
+
+#Through all 50 states, prompt the user to name the capital of the state.
+states.each do |state|
+  puts "What is the capital of " + state[:name] + "?"
+answer = gets.chomp
+
+#If the answer is correct, display a message saying so, and increment the correct key.
+if answer == state[:capital]
+  puts "correct"
+  state[:number_correct] += 1
+
+#If the answer is wrong, display a message saying so, and increment the wrong key.
+else
+  puts "incorrect"
+  state[:number_wrong] += 1
+end
