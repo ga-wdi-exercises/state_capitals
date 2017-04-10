@@ -181,3 +181,5 @@ puts "continue?"
 break if input = "no"
 input = gets.chomp
 end
+
+# I wrote the code out first w/o testing on a repl, couldnt get it to run completley.  need to put something on line 158? will update
