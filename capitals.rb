@@ -175,18 +175,3 @@ for state in shuffled_states do
     playagain
   end
 end
-
-def playagain
-  for state in shuffled_states do
-    puts "Whats the capital of #{state[:name]}?"
-    cap = state[:capital]
-    answer = gets.chomp
-    if answer == cap
-      player[:correct] += 1
-      puts "That's correct!"
-    else
-      player[:wrong] += 1
-      puts "Sorry. That's wrong"
-    end
-  end
-end
