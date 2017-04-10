@@ -151,3 +151,10 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+print "Welcome to the State Capitals Game! Type play to begin:"
+ $start_game = gets.chomp
+ random_state = states.shuffle
+ states.each do |state|
+  puts "What is the capital of #{state[:name]}?"
+end
