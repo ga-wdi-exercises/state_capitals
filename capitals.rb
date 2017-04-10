@@ -151,3 +151,27 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.shuffle
+
+puts "Welcome to State Capitals by cj"
+
+states = {:wrong ==> 0,
+          :right==> 0,
+        }
+
+states.each do |name|
+  puts "What is the captial of " + state.[:name]
+
+  if answer.state = state[:capital]
+    puts "correct answer"
+    state[:right] += 1
+  else
+    puts "wrong answer"
+    state[:wrong] += 1
+  end
+
+  amount = states[:wrong] + states[:right]
+  puts "you gotten " + states[:right] + " right out of " + amount + "attempts"
+
+  
