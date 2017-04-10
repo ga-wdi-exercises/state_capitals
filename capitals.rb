@@ -164,6 +164,11 @@
         if answer == state[:capital]
             puts "Correct"
             state[:correct++]
+            current_state++
         else puts "Incorrect"
             state[:incorrect++]
-        end current_state++
+            current_state++
+        end
+        puts "You have states #{states[:correct]} right, and states #{states[:incorrect]}. Would you like to play again?"
+        if answer == "yes"
+            # ????
