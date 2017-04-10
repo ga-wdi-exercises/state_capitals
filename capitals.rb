@@ -158,17 +158,20 @@ states =[
     name: "Alabama",
     capital: "Montgomery",
     correct: 0,
-    wrong: 0
+    wrong: 0,
+    guesses: 0
 }, {
     name: "Delaware",
     capital: "Dover",
     correct: 0,
-    wrong: 0
+    wrong: 0,
+    guesses: 0
 }, {
     name: "Kansas",
     capital: "Topeka",
     correct: 0,
-    wrong: 0
+    wrong: 0,
+    guesses: 0
 }]
 
 
@@ -179,18 +182,27 @@ states.shuffle!
 puts "Welcome to the Capitals learning game."
 
 index = 0
+game_score = 0
 while index < states.length
     puts "What is the capital of #{states[index][:name]}?"
     user_input = gets.chomp
     if user_input == states[index][:capital]
     puts "Correct!"
     states[index][:correct] += 1
+    states[index][:guesses] += 1
+    game_score += 1
+    puts "This state was answered correctly #{states[index][:correct]} times out of #{states[index][:guesses]}."
+    puts "Your overall game score is #{game_score}."
     else
     puts "Wrong"
     states[index][:wrong] += 1
+    states[index][:guesses] += 1
+    puts "This state was answered correctly #{states[index][:correct]} times out of #{states[index][:guesses]}."
+    puts "Your overall game score is #{game_score}."
 end
     index += 1
 
 end
 
 puts states
+puts total_guesses
