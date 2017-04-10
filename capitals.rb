@@ -161,21 +161,24 @@ states.each do |state|
    state[:right]= 0
  end
 
-states.each do |name|
-  puts "What is the captial of " + name[:name]
-  input = gets.chomp
+ while true
+
+   states.each do |name|
+     puts "What is the captial of " + name[:name]
+     input = gets.chomp
 
 
-  if input = state[:capital]
-    puts "correct anwser"
-    state[:right] += 1
-  else
-    puts "wrong answer"
-    state[:wrong] += 1
-  end
+     if input = state[:capital]
+       puts "correct anwser"
+       state[:right] += 1
+     else
+       puts "wrong answer"
+       state[:wrong] += 1
+     end
 
   amount = state[:wrong] + state[:right]
   puts "you gotten " + state[:right] + " right out of " + amount + "attempts"
+end
 
 puts "continue?"
 break if input = "no"
