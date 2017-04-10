@@ -63,3 +63,8 @@ questions.each {
     puts wrong = "Nah."
   end
 }
+puts playagain = "Wanna play again? y/n"
+  user_input_again = gets.chomp
+  if user_input_again == "y"
+    puts welcome
+  end
