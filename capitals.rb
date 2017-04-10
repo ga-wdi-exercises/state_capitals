@@ -164,6 +164,28 @@ testArray = [
     capital: "Phoenix"
 }].shuffle
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def total_answers_correct(obj)
   obj.each do |hsh|
     total_correct += hsh[:correct]
@@ -173,7 +195,6 @@ end
 def answer_correct?(ans, obj)
   if ans.downcase == obj[:capital].downcase
     obj[:correct] += 1
-
   else
     obj[:wrong] += 1
   end
@@ -188,11 +209,17 @@ testArray.each do |hsh|
   add_answer_bank(hsh)
 end
 
+total_correct = 0
+
 def quiz_game(quiz)
+
   quiz.each do |hsh|
     puts "What is the capital of #{hsh[:name]}?"
     answer = gets.chomp
     answer_correct?(answer, hsh)
+    testArray.each do |hsh|
+      total_correct += hsh[:correct]
+    end
   end
 end
 
