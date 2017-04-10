@@ -6,20 +6,20 @@ states =[
 }, {
     name: "Alaska",
     capital: "Juneau"
-}, {
-    name: "Arizona",
-    capital: "Phoenix"
-}, {
-    name: "Arkansas",
-    capital: "Little Rock"
-}, {
-    name: "California",
-    capital: "Sacramento"
-}, {
-    name: "Colorado",
-    capital: "Denver"
 }
-# , {
+#, {
+#     name: "Arizona",
+#     capital: "Phoenix"
+# }, {
+#     name: "Arkansas",
+#     capital: "Little Rock"
+# }, {
+#     name: "California",
+#     capital: "Sacramento"
+# }, {
+#     name: "Colorado",
+#     capital: "Denver"
+# }, {
 #     name: "Connecticut",
 #     capital: "Hartford"
 # }, {
@@ -157,25 +157,28 @@ states =[
 points = 0
 
 ## Game Function
-states.shuffle.each do |state|
-  puts "What is the capital of #{state[:name]}?"
-  user_input = gets.chomp
+loop do
+  puts "Welcome! Let's see how well you know your states."
+  states.shuffle.each do |state|
+    state[:correct] = 0
+    state[:incorrect] = 0
 
-  if user_input == state[:capital]
-    puts "Correct"
-    points += 1
-  else
-    puts "Incorrect"
+    puts "What is the capital of #{state[:name]}?"
+    user_input = gets.chomp
+    ## Determine what happens if the user is correct or not
+    if user_input == state[:capital]
+      puts "Correct"
+      state[:correct] += 1
+      puts state[:correct]
+    else
+      puts "Incorrect. The capital of #{state[:name]} is #{state[:capital]}."
+      state[:incorrect] += 1
+      puts state[:incorrect]
+    end
   end
-  ## Show Score
-  puts points
+#Play again?
+  puts "You got #{state[:correct]}, correct and #{state[:incorrect]} correct"
+  puts "Would you like to play again? Y/N"
+  puts play_again = gets.chomp
+  break if play_again == "N"
 end
-
-##Play again?
-# puts "Would you like to play again? Y/N"
-# play_again = gets.chomp
-# if play_again == "Y"
-#   play_game
-# elsif play_again == "N"
-#   puts "Ok!"
-# end
