@@ -152,23 +152,34 @@
         capital: "Cheyenne"
     }]
 
-    puts "Welcome to the State Capital Game"
-
-    shuffled_states = states.shuffle.map { |state| [:incorrect=0], [:correct=0]  }
-    current_state = shuffled_states[:name][0]
 
 
-    for current_state in shuffled_states do
-        puts "Whats the state capital of #{state[:name]}?"
-        answer = gets.chomp
-        if answer == state[:capital]
-            puts "Correct"
-            state[:correct++]
-            current_state++
-        else puts "Incorrect"
-            state[:incorrect++]
-            current_state++
+shuffled_states = states.shuffle
+
+player = {
+    correct: 0,
+    incorrect: 0
+}
+
+puts "Welcome to the State Capital Game"
+    def start_game(states)
+        for state in shuffled_states do
+        puts "What is #{state[:name]}'s capital?"
+        guess = gets.chomp
+   if guess == state[:capital]
+     player[:correct] +=1
+     puts "This is correct!"
+ else
+     player[:incorrect] +=1
+     puts "This is incorrect!"
         end
-        puts "You have states #{states[:correct]} right, and states #{states[:incorrect]}. Would you like to play again?"
-        if answer == "yes"
-            # ????
+    end
+ end
+
+ puts "Would you like to play again? Yes or No"
+ answer == gets.chomp
+ if answer == "yes"
+     start_game
+ else
+ end
+ end
