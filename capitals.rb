@@ -173,6 +173,7 @@ puts "Welcome to the State Capital Game"
      player[:incorrect] +=1
      puts "This is incorrect!"
         end
+        "You got #{state[:correct]} right, and #{state[:incorrect]} wrong"
     end
  end
 
@@ -181,5 +182,4 @@ puts "Welcome to the State Capital Game"
  if answer == "yes"
      start_game
  else
- end
  end
