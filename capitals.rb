@@ -154,8 +154,6 @@ states =[
 # }
 ]
 
-points = 0
-
 ## Game Function
 loop do
   puts "Welcome! Let's see how well you know your states."
