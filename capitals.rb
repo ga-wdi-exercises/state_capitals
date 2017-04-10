@@ -153,14 +153,18 @@ states =[
 }]
 
 states = states.shuffle
-puts 'Hello, I want to you to guess the capitals!'
+  puts 'Hello, I want to you to guess the capitals!'
 states.each do |state|
-	    puts "What is the capital of " + state[:name] + "?"
-      answer = gets.chomp
-      if answer == state[:capital]
-	      puts "That is right!"
+	puts 'What is the capital of' + state[:name] + '?'
+  answer = gets.chomp
+      if answer == #{state[:capital]}
+	 puts 'That is right' +' #{state[:capital]}' + ' is the capital!'
 	      state[:num_correct] += 1
 	    else
-        puts "This is wrong #{state[:capital]}."
+    puts "This is wrong #{state[:capital]}."
 	      state[:num_wrong] += 1
 	    end
+      states.each do |state|
+	  state[:num_correct] = 0
+	  state[:num_wrong] = 0
+	end
