@@ -21,7 +21,7 @@ To play the game:
   - If the answer is wrong, display a message saying so, and increment the `wrong` key.
   - After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
 
-- Once the user has gone through all 50 states, ask them if they'd like to play again.
+- Once the user has gone through all 50 states, ask them if they'd like to play again
 
 ## Getting Started
 
