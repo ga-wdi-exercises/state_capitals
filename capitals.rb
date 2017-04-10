@@ -156,10 +156,12 @@
 
 
 
-states_array = states.each {|state| state[:times_correct] = 0}
-states_array = states.each {|state| state[:times_asked] = 0}
+states_array = states.each do |state|
+  state[:times_correct] = 0
+  state[:times_asked] = 0
+end
 
-def ask_question(state)
+def ask_question(state, array)
   puts "whats the capital of #{state[:name]}"
   user_input = gets.chomp
 
@@ -168,17 +170,21 @@ def ask_question(state)
     state[:times_correct] += 1
     state[:times_asked] += 1
     puts "you answered #{state[:name]} #{state[:times_correct]} times correctly out of #{state[:times_asked]}"
-    if state == states_array[49]
-      states_array.shuffle.each { |state| ask_question(state) }
+    if state === array[49]
+      start_game
     end
   else
     puts 'nope'
     state[:times_asked] += 1
     puts "you answered #{state[:name]} #{state[:times_correct]} times correctly out of #{state[:times_asked]}"
-    if state == states_array[49]
-      states_array.shuffle.each { |state| ask_question(state) }
+    if state === array[49]
+      start_game
     end
   end
 end
 
-states_array.shuffle.each { |state| ask_question(state) }
+def start_game(array)
+    array.shuffle.each { |state| ask_question(state, array) }
+end
+
+start_game(states_array)
