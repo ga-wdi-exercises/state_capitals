@@ -8,10 +8,10 @@ states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", 
 capitals = ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", "Denver", "Hartford", "Dover", "Tallahassee", "Atlanta", "Honolulu", "Boise", "Springfield", "Indianapolis", "Des Moines", "Topeka", "Frankfort", "Baton Rouge", "Augusta", "Annapolis", "Boston", "Lansing", "St. Paul", "Jackson", "Jefferson City", "Helena", "Lincoln", "Carson City", "Concord", "Trenton", "Santa Fe", "Albany", "Raleigh", "Bismarck", "Columbus", "Oklahoma City", "Salem", "Harrisburg", "Providence", "Columbia", "Pierre", "Nashville", "Austin", "Salt Lake City", "Montpelier", "Richmond", "Olympia", "Charleston", "Madison", "Cheyenne"]
 
 
-
+#SET this back to desired match length at end
 50.times do
   question = rand(0..50)
-    puts "what is the capitol of " + states[question]
+    puts "what is the Capitol of " + states[question]
   answer = gets.chomp
   if answer == capitals[question]
 	puts "You ROCKSTAR!"
@@ -22,4 +22,10 @@ capitals = ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", "Den
   incorrect +=1
   puts "You have #{incorrect} incorrect answer(s) so far."
   end
+
+
+puts "Want to play again? (y/n)"
+play_again = gets.chomp
+
+break if play_again !="y"
 end
