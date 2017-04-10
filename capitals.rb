@@ -1,3 +1,9 @@
+# Welcome note
+puts "Welcome to the 'name the state capitals' game "
+
+# placeholder hash for score tally
+my_score = {correct:0, Wrong:0}
+
 # an array of state hashes
 states =[
 {
@@ -151,3 +157,20 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# shuffle array items
+shuffled_states = states.shuffle
+
+# question prompt
+for state in shuffled_states do
+  puts "What is the the capital of #{state[:name]}?"
+  answer = gets.chomp
+end
+  if answer == [:capital]
+  puts "Correct!"
+  else
+  puts "Wrong!"
+  end
+
+
+#Response after question is answered
