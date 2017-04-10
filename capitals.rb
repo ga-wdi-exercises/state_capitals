@@ -152,7 +152,7 @@ states =[
     capital: "Cheyenne"
 }]
 
-states.shuffle
+states.shuffle!
 states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
