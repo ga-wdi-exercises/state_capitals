@@ -162,6 +162,7 @@ states.each << {:wrong ==> 0,
 
 states.each do |name|
   puts "What is the captial of " + state[:name]
+  input = gets.chomp
 
 
   if input = state[:capital]
@@ -177,3 +178,4 @@ states.each do |name|
 
 puts "continue?"
 break if input = "no"
+input = gets.chomp
