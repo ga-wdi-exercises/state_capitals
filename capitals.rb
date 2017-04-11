@@ -152,24 +152,24 @@ states =[
     capital: "Cheyenne"
 }].shuffle
 
-testArray = [
-{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Alaska",
-    capital: "Juneau"
-}, {
-    name: "Arizona",
-    capital: "Phoenix"
-}].shuffle
+# testArray = [
+# {
+#     name: "Alabama",
+#     capital: "Montgomery"
+# }, {
+#     name: "Alaska",
+#     capital: "Juneau"
+# }, {
+#     name: "Arizona",
+#     capital: "Phoenix"
+# }].shuffle
 
 def add_answer_bank(obj)
   obj[:correct] = 0
   obj[:wrong] = 0
 end
 
-testArray.each do |hsh|
+states.each do |hsh|
   add_answer_bank(hsh)
 end
 
@@ -177,7 +177,7 @@ total_correct = 0
 total_questions = 0
 
 loop do
-  testArray.each do |hsh|
+  states.each do |hsh|
     total_questions += 1
     puts "\n******************************************"
     puts "What is the capital of #{hsh[:name]}? (hint)"
@@ -213,5 +213,3 @@ loop do
   answer = gets.chomp
   break if answer != 'yes'
 end
-
-puts testArray
