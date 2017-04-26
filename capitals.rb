@@ -16,7 +16,7 @@ states =[
     name: "California",
     capital: "Sacramento"
 }, {
-    name: "Colorado",
+     name: "Colorado",
     capital: "Denver"
 }, {
     name: "Connecticut",
@@ -150,4 +150,28 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+
+]
+
+puts "Welcome to the game! This will test your knowledge of the states capitals"
+puts "let's begin! good luck!"
+
+states = states.shuffle
+  states.each do |state|
+  prompt ="Capital: "
+  puts state[:name]
+  puts prompt
+  answer = gets.chomp
+end
+
+# If the user responses = capital, then prompt "correct"
+if answer == state[:capital]
+     puts "This is correct!"
+     state[:correct] += 1
+
+   else
+     puts "This is not correct"
+     state[:incorrect] += 1
+   end
+puts "would you like to play again?"
