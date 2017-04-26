@@ -151,3 +151,35 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+score = {correct:0, incorrect:0, total:0}
+
+puts "~~~~~Let's Learn State Capitals~~~~~\n"
+
+def game states, score
+  states.each do |state|
+    puts "\n\n ***What's the capital of #{state[:name]}?*** \n "
+    answer = gets.chomp.split.map(&:capitalize).join(' ')
+    if answer == state[:capital]
+      # state[:guesses] = +1  --- this line leads to the bonus
+      score[:correct] += 1
+      score[:total] += 1
+      puts "\n++You got #{score[:correct]} question(s) correct!++\n"
+      # puts state.inspect
+    else
+      # state[:guesses] = -1 --- this line leads to the bonus
+      score[:incorrect] += 1
+      score[:total] += 1
+      puts "\n--You got #{score[:incorrect]} question(s) incorrect!--\n"
+      # puts state.inspect
+    end
+    end
+    puts "\nYour score is #{score[:correct]}/#{score[:total]}. Would you like to play again yes or no?\n"
+    reply = gets.chomp
+    if reply == "yes"
+      score = {correct:0, incorrect:0, total:0}
+      game states, score
+  end
+end
+game states, score
