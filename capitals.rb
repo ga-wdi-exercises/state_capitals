@@ -1,11 +1,14 @@
 # an array of state hashes
-states =[
+states = [
 {
     name: "Alabama",
     capital: "Montgomery"
 }, {
     name: "Alaska",
     capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
 }, {
     name: "Arizona",
     capital: "Phoenix"
@@ -150,4 +153,53 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+]
+
+# Make sure the states don't appear in alphabetical order in the prompts.
+states.shuffle!
+
+puts "Welcome to the State Capital Game!"
+
+# Initialize new keys in the Hashes that store the number of times a user gets a capital `correct` and the number of times the answer is `wrong`.
+states = states.each do |state|
+  state[:correct_guesses] = 0
+  state[:wrong_guesses] = 0
+end
+
+
+def questionAnswer(stateArray)
+
+  stateArray.each do |state|
+# Through all 50 states, prompt the user to name the capital of the state.
+  puts "What is the capital of #{state[:name]}?"
+  answer = gets.chomp
+
+# If the answer is correct, display a message saying so, and increment the `correct` key.
+  if answer == state[:capital]
+    puts "Correct answer"
+      state[:correct_guesses] +=1
+
+# After each prompt, display a message telling the reader how many times the state was answered correctly out of the total number of times answered.
+    puts "You have #{state[:correct_guesses]} correct answer out of #{state[:correct_guesses] + state[:wrong_guesses]} "
+
+# If the answer is wrong, display a message saying so, and increment the `wrong` key.
+  elsif answer != state[:capital]
+    puts "Wrong answer"
+     state[:wrong_guesses] +=1
+
+    puts "You have #{state[:wrong_guesses]} wrong answer"
+  end
+ end
+end
+
+questionAnswer(states)
+
+# Once the user has gone through all 50 states, ask them if they'd like to play again.
+
+puts "Do you want to play again?"
+wannaPlay = gets.chomp
+
+if wannaPlay == "Yes"
+   questionAnswer(states)
+end
