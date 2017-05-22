@@ -150,4 +150,49 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
+
 }]
+
+#global var
+$correct_score = 0;
+$wrong_score = 0;
+$total_score = 50;
+
+
+# start game prompt
+puts "Hello Welcome! Please enter the capital city for the given state. Good luck!"
+puts "-" * 80
+
+
+# game loop, will end when "no" @play again?
+states.each do |state|
+  state[:correct] = 0;
+  state[:wrong] = 0;
+end
+
+loop do
+  states.shuffle.each do |state|
+    puts "What is the capital of #{state[:name]}?"
+    input = gets.chomp
+      if input.downcase == state[:capital].downcase
+        puts "Correct!"
+        $correct_score += 1
+        state[:correct] += 1;
+      else
+        puts "Wrong!"
+        $wrong_score += 1
+        state[:wrong] += 1;
+      end
+      total_guess = state[:correct] + state[:wrong]
+      puts "You are correct: #{state[:correct]} out of #{total_guess}."
+      puts "-" * 80
+    end
+  puts "Total score: #{$correct_score} out of #{$total_score} correct."
+  $correct_score = 0;
+  # play again
+  puts "-" * 80
+  puts "Play again? Yes/No"
+  playagain = gets.chomp
+  break if playagain.downcase == "no".downcase
+end
+puts "***GAME OVER!***"
