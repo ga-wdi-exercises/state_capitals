@@ -1,5 +1,6 @@
 # an array of state hashes
-states =[
+
+  states = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +152,39 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+
+
+states_array = states.each do |state|
+  state[:times_correct] = 0
+  state[:times_asked] = 0
+end
+
+def ask_question(state, array)
+  puts "whats the capital of #{state[:name]}"
+  user_input = gets.chomp
+
+  if user_input == state[:capital]
+    puts 'correct'
+    state[:times_correct] += 1
+    state[:times_asked] += 1
+    puts "you answered #{state[:name]} #{state[:times_correct]} times correctly out of #{state[:times_asked]}"
+    if state === array[49]
+      start_game
+    end
+  else
+    puts 'nope'
+    state[:times_asked] += 1
+    puts "you answered #{state[:name]} #{state[:times_correct]} times correctly out of #{state[:times_asked]}"
+    if state === array[49]
+      start_game
+    end
+  end
+end
+
+def start_game(array)
+    array.shuffle.each { |state| ask_question(state, array) }
+end
+
+start_game(states_array)
