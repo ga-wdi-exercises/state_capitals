@@ -150,4 +150,66 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle
+
+# testArray = [
+# {
+#     name: "Alabama",
+#     capital: "Montgomery"
+# }, {
+#     name: "Alaska",
+#     capital: "Juneau"
+# }, {
+#     name: "Arizona",
+#     capital: "Phoenix"
+# }].shuffle
+
+def add_answer_bank(obj)
+  obj[:correct] = 0
+  obj[:wrong] = 0
+end
+
+states.each do |hsh|
+  add_answer_bank(hsh)
+end
+
+total_correct = 0
+total_questions = 0
+
+loop do
+  states.each do |hsh|
+    total_questions += 1
+    puts "\n******************************************"
+    puts "What is the capital of #{hsh[:name]}? (hint)"
+    answer = gets.chomp
+    if answer.downcase == 'hint'
+      puts "Your hint is #{hsh[:capital][0, 3]}"
+      answer = gets.chomp
+
+      if answer.downcase == hsh[:capital].downcase
+        puts "You are correct."
+        hsh[:correct] = 1
+        total_correct += 1
+        break
+      else
+        puts "You are wrong."
+        hsh[:wrong] = 1
+      end
+
+    elsif answer.downcase == hsh[:capital].downcase
+      puts "You are correct."
+      hsh[:correct] = 1
+      total_correct += 1
+    else
+      puts "You are wrong."
+      hsh[:wrong] = 1
+    end
+    answer = gets.chomp
+
+    puts "You have answered #{total_correct} of #{total_questions}"
+  end
+
+  puts "Would you like to play again? (yes/no)"
+  answer = gets.chomp
+  break if answer != 'yes'
+end
