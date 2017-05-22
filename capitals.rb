@@ -151,3 +151,46 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+def game
+states = @states.shuffle
+play_again = ""
+i = 0
+numRight = 0
+numWrong = 0
+playing = true
+puts "Welcome to the States and their Capitals!"
+while playing
+  prompt = "What is the capital of #{states[i][:name]}?"
+  puts prompt
+  answer = gets.chomp.downcase
+  if answer == ""
+    playing = false
+  elsif answer == states[i][:capital].downcase
+    puts "That....is correct!"
+    numRight +=1
+  else
+    puts "Wrong!"
+    numWrong +=1
+
+  end
+  i +=1
+end
+
+puts "You answered #{numRight} correct!"
+puts "Which means you got #{numWrong} incorrect"
+puts "Would you like to play again? Y/N"
+  play_again = gets.chomp
+
+  if play_again == "Y"
+    game
+  else
+    puts "Later!"
+  end
+end
+
+game
+
+
+
+  end
