@@ -151,3 +151,30 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+## Game Function
+loop do
+  puts "Welcome! Let's see how well you know your states."
+  states.shuffle.each do |state|
+    state[:correct] = 0
+    state[:incorrect] = 0
+
+    puts "What is the capital of #{state[:name]}?"
+    user_input = gets.chomp
+    ## Determine what happens if the user is correct or not
+    if user_input == state[:capital]
+      puts "Correct"
+      state[:correct] += 1
+      puts state[:correct]
+    else
+      puts "Incorrect. The capital of #{state[:name]} is #{state[:capital]}."
+      state[:incorrect] += 1
+      puts state[:incorrect]
+    end
+  end
+#Play again?
+  puts "You got #{state[:correct]}, correct and #{state[:incorrect]} correct"
+  puts "Would you like to play again? Y/N"
+  puts play_again = gets.chomp
+  break if play_again == "N"
+end
