@@ -151,3 +151,35 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+while true
+    
+
+
+player = {correct: 0, # Hah to store the score. 
+           wrong: 0}
+
+new_stats = states.shuffle
+
+puts "Welcome to the game"
+
+new_stats.each { |st| puts " What is the cpital of " + st[:name] 
+    answer = gets.chomp.upcase
+  if answer == st[:capital].upcase
+    puts "Your answer is correct!"
+    player[:correct]+= 1
+    puts player[:correct]
+  else
+    
+  puts "Your answer is wrong!"
+  player[:wrong]+= 1
+  puts player[:wrong]
+end
+}
+
+total_score = player[:correct] + player [:wrong]
+puts "Your total score is: " + total_score
+end
+puts "Do you want to keep playing? Yes or No"
+keep_playing = gets.chomp.upcase
