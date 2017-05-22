@@ -1,8 +1,13 @@
 # an array of state hashes
+puts="Welcome, would you like to play the states capitals game?"
+
+
+
 states =[
 {
     name: "Alabama",
     capital: "Montgomery"
+
 }, {
     name: "Alaska",
     capital: "Juneau"
@@ -151,3 +156,14 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.each do |states|
+puts "What is the state Capital?"
+input= gets.chomp
+
+  if stateCapital[];
+    state:|correct|
+  else
+    state:|wrong|
+  end
+end
