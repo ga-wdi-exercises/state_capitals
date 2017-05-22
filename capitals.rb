@@ -151,3 +151,56 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+shuffled_states = states.shuffle
+
+player = {
+  correct: 0,
+  incorrect: 0
+}
+
+puts "Welcome to \'State Capitals Game\'!\nWould you like to play?"
+user_input = gets.chomp
+if user_input.downcase == "yes"
+      for state in shuffled_states
+      puts "\nWhat is the capital of #{state[:name]}?"
+      user_input = gets.chomp.downcase
+      if user_input == state[:capital].downcase
+             player[:correct] += 1
+             puts "Correct!\nCorrect Answers: #{player[:correct]}\nIncorrect Answers: #{player[:incorrect]}\n(If you would like to quit, please enter \'quit\')"
+           elsif user_input == "quit"
+             break
+           elsif
+            player[:incorrect] +=  1
+            puts "Incorrect!\nCorrect answer is #{state[:capital]}\nCorrect: #{player[:correct]}\nIncorrect: #{player[:incorrect]}\n(If you would like to quit, please enter \'quit\')"
+      end
+    end
+elsif puts "See you next time!"
+end
+
+if
+ player[:correct] + player[:incorrect] == 50
+ puts "\nWould you like to play again?"
+ user_input = gets.chomp
+ shuffled_states = states.shuffle
+ player = {
+   correct: 0,
+   incorrect: 0
+ }
+ if user_input.downcase == "yes"
+       for state in shuffled_states
+       puts "\nWhat is the capital of #{state[:name]}?"
+       user_input = gets.chomp.downcase
+       if user_input == state[:capital].downcase
+              player[:correct] += 1
+              puts "Correct!\nCorrect Answers: #{player[:correct]}\nIncorrect Answers: #{player[:incorrect]}\n(If you would like to quit, please enter \'quit\')"
+            elsif user_input == "quit"
+              break
+            elsif
+             player[:incorrect] +=  1
+             puts "Incorrect!\nCorrect answer is #{state[:capital]}\nCorrect: #{player[:correct]}\nIncorrect: #{player[:incorrect]}\n(If you would like to quit, please enter \'quit\')"
+       end
+     end
+ elsif puts "See you next time!"
+ end
+ end
