@@ -1,4 +1,3 @@
-# an array of state hashes
 states =[
 {
     name: "Alabama",
@@ -21,7 +20,7 @@ states =[
 }, {
     name: "Connecticut",
     capital: "Hartford"
-}, {
+ }, {
     name: "Delaware",
     capital: "Dover"
 }, {
@@ -150,4 +149,60 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
+
 }]
+
+states = states.shuffle
+
+puts "Welcome to 50 states trivia. See how well you can match states and capitals!"
+
+loop do
+  states.each do |state|
+    state[:correct] = 0
+    state[:wrong] = 0
+    i = 0
+
+puts "What is the capital of #{state[:name]}?"
+input = gets.chomp
+  if input == state[:capital]
+    puts "Correct!"
+    state[:correct] += 1;
+    puts "You got #{state[:correct]} out of 50 states correct!"
+  else
+    puts "Wrong Answer. The capital is #{state[:capital]}"
+    state[:wrong] += 1
+    puts "You got #{state[:wrong]} out of 50 states wrong!"
+    end
+
+  end
+  puts "Play again? Yes or No?"
+  playAgain = gets.chomp
+  break if playAgain == "no"
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+#
+# final_correct = states[:correct].reduce(:+)
+# puts final_correct
+# final_wrong = states[:wrong].reduce(:+)
+# puts final_wrong
+
+
+
+# puts "Play again? yes or no"
+# answer = gets.chomp
+#   if answer == "yes"
+#     def game
+#   else answer == "no"
+#     puts "Thanks for playing"
+#   end
