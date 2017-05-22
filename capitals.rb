@@ -3,7 +3,8 @@ states =[
 {
     name: "Alabama",
     capital: "Montgomery"
-}, {
+},
+ {
     name: "Alaska",
     capital: "Juneau"
 }, {
@@ -141,7 +142,9 @@ states =[
 }, {
     name: "Washington",
     capital: "Olympia"
-}, {
+}, 
+
+ {
     name: "West Virginia",
     capital: "Charleston"
 }, {
@@ -151,3 +154,86 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states2 = states.each do |place|
+    place[:wrong] = 0
+    place[:correct] = 0
+end
+
+testArray = states2.shuffle!
+
+puts "Hi welcome to the Test of States..."
+puts "State Capitals that is"
+puts "Ready for question 1?"
+puts "y or y ???"
+yn = gets.chomp!
+
+def start (input)
+    if input == "y"
+        puts "Lets Start!!!!!!!!!!!!"
+    else
+        puts "Too bad... you could've done real well"
+    end
+end
+
+
+def theGame(array)
+    
+    array.each do |place|
+        puts place[:name]
+        ans = gets.chomp.capitalize!
+
+        if ans == place[:capital]
+            place[:correct] = place[:correct]+ 1
+            puts "Thats Right!! #{place[:correct]} times right"
+            puts "#{place[:wrong]} times wrong"
+        else
+            place[:wrong] = place[:wrong] + 1
+            puts "Try again next time"
+            puts "#{place[:correct]} times right"
+            puts "#{place[:wrong]} times wrong"
+            next
+        end
+    end
+end
+
+start(yn)
+
+theGame(testArray)
+puts testArray
+
+puts "would you like to try agin???"
+puts "y or n ??"
+def tryAgain(yn,arr)
+    if yn == "y"
+        testy = arr.shuffle!
+        theGame(testy)
+        puts "Do you want to go again??  y or n"
+        attempt = gets.chomp!
+        tryAgain(attempt, testy)
+    else
+        puts "sorry to see you go"
+    end
+end
+
+try = gets.chomp!
+tryAgain(try,testArray)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
