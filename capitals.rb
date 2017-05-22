@@ -1,3 +1,7 @@
+# Correct and Incorrect answers.
+correct =[]
+incorrect =[]
+
 # an array of state hashes
 states =[
 {
@@ -150,4 +154,33 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+].shuffle!
+
+
+
+def playGame (states, correct, incorrect) 
+states.each do |hash|
+  puts "Hello Player! Welcome to the guessing game invloving states and capitals!"  
+  puts "Guess capital for #{hash[:name]}"
+  guess = gets.chomp
+  if hash[:capital] == guess
+    puts 'correct scored a tally for correct answer' 
+    correct.push("/")
+    puts  "Your number of correct tallys!"  
+    print correct
+  else
+    puts 'incorrect scored a tally for incorrect answer.'
+    incorrect.push("/")
+    puts "Your number of incorrect tallys."
+    print incorrect
+  end
+end
+playGame(states, correct, incorrect)
+
+# do
+#   puts "Would you like to play again?"
+#   answer = gets.chomp
+#   if answer == "yes"
+#     playGame(states, correct, incorrect)  
+# end
