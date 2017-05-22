@@ -181,24 +181,24 @@ def theGame(array)
         if ans == place[:capital]
             place[:correct] = place[:correct]+ 1
             right = right +1
-            puts "Thats Right!! #{place[:correct]} times right"
-            puts "#{place[:wrong]} times wrong"
+            puts "Thats Right!! #{place[:correct]} times right, #{place[:wrong]} times wrong"
+            puts "total score = #{right}"
         else
             place[:wrong] = place[:wrong] + 1
             wrong = wrong + 1
             puts "Try again next time"
-            puts "#{place[:correct]} times right"
-            puts "#{place[:wrong]} times wrong"
+            puts "#{place[:correct]} times right, #{place[:wrong]} times wrong"
+            puts "total score = #{right}"
             next
         end
     end
-    puts "total correct = #{right}"
-    puts "total wrong = #{wrong}"
+    puts "total correct = #{right} out of 50"
 end
 
 def tryAgain(yn,arr)
     if yn == "y"
-        testy = arr.shuffle!
+        testy = arr.sort_by { |hashs| hashs[:wrong] }
+        testy.reverse!
         theGame(testy)
         puts "Do you want to go again??  y or n"
         attempt = gets.chomp!
