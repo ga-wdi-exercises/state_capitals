@@ -162,12 +162,6 @@ end
 
 testArray = states2.shuffle!
 
-puts "Hi welcome to the Test of States..."
-puts "State Capitals that is"
-puts "Ready for question 1?"
-puts "y or y ???"
-yn = gets.chomp!
-
 def start (input)
     if input == "y"
         puts "Lets Start!!!!!!!!!!!!"
@@ -178,32 +172,30 @@ end
 
 
 def theGame(array)
-    
+    right = 0
+    wrong = 0
     array.each do |place|
         puts place[:name]
         ans = gets.chomp.capitalize!
 
         if ans == place[:capital]
             place[:correct] = place[:correct]+ 1
+            right = right +1
             puts "Thats Right!! #{place[:correct]} times right"
             puts "#{place[:wrong]} times wrong"
         else
             place[:wrong] = place[:wrong] + 1
+            wrong = wrong + 1
             puts "Try again next time"
             puts "#{place[:correct]} times right"
             puts "#{place[:wrong]} times wrong"
             next
         end
     end
+    puts "total correct = #{right}"
+    puts "total wrong = #{wrong}"
 end
 
-start(yn)
-
-theGame(testArray)
-puts testArray
-
-puts "would you like to try agin???"
-puts "y or n ??"
 def tryAgain(yn,arr)
     if yn == "y"
         testy = arr.shuffle!
@@ -216,7 +208,22 @@ def tryAgain(yn,arr)
     end
 end
 
+
+puts "Hi welcome to the Test of States..."
+puts "State Capitals that is"
+puts "Ready for question 1?"
+puts "y or y ???"
+yn = gets.chomp!
+
+start(yn)
+
+theGame(testArray)
+# puts testArray
+
+puts "would you like to try agin???"
+puts "y or n ??"
 try = gets.chomp!
+
 tryAgain(try,testArray)
 
 
