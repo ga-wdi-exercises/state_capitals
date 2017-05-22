@@ -151,3 +151,27 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "Welcome to us capitals game"
+
+player = {correct: 0, wrong: 0}
+
+shuffled_states = states.shuffle
+
+for state in shuffled_states do
+  puts "Whats the capital of #{state[:name]}?"
+  cap = state[:capital]
+  answer = gets.chomp
+  if answer == cap
+    player[:correct] += 1
+    puts "That's correct!"
+  else
+    player[:wrong] += 1
+    puts "Sorry. That's wrong"
+  end
+  puts "Do you want to play again?"
+  wants = gets.chomp
+  if wants == "yes"
+    playagain
+  end
+end
