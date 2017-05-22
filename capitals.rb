@@ -151,3 +151,38 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.shuffle
+
+puts "Welcome to State Capitals by cj"
+
+states.each do |state|
+   state[:wrong] = 0
+   state[:right]= 0
+ end
+
+ while true
+
+   states.each do |name|
+     puts "What is the captial of " + name[:name]
+     input = gets.chomp
+
+
+     if input = state[:capital]
+       puts "correct anwser"
+       state[:right] += 1
+     else
+       puts "wrong answer"
+       state[:wrong] += 1
+     end
+
+  amount = state[:wrong] + state[:right]
+  puts "you gotten " + state[:right] + " right out of " + amount + "attempts"
+end
+
+puts "continue?"
+break if input = "no"
+input = gets.chomp
+end
+
+# I wrote the code out first w/o testing on a repl, couldnt get it to run completley.  need to put something on line 158? will update
