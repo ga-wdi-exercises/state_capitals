@@ -151,3 +151,19 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+$random_obj = states.shuffle
+counter = 0
+
+puts "Welcome to the states capital memory game. Identify the capital associated with a given state."
+
+states.shuffle.each do |random_obj|
+  puts "What is the capital of #{random_obj[:name]}?"
+  if gets.chomp.downcase == random_obj[:capital].downcase
+  puts "Correct! The answer is #{random_obj[:capital]} "
+  counter += 1
+else
+  puts "Please try again."
+end
+end
+puts "You have answered #{counter} from the total #{states.length} + questions. Do you want to play again?"
