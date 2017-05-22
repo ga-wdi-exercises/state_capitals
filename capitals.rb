@@ -2,10 +2,10 @@
 states =[
 {
     name: "Alabama",
-    capital: "Montgomery"
+    capital: "Montgomery",
 }, {
     name: "Alaska",
-    capital: "Juneau"
+    capital: "Juneau",
 }, {
     name: "Arizona",
     capital: "Phoenix"
@@ -151,3 +151,51 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+score = 0
+possible = 0
+
+for state in states do
+  state[:correct] = 0
+  state[:wrong] = 0
+  state[:total_guesses] = 0
+end
+
+states = states.shuffle
+
+loop do
+
+  puts "Let's play State Capitals"
+  puts "Type 'hint' for a hint."
+  states.sort_by! { |state|
+    state[:correct]
+  }
+  for state in states do
+    possible += 1
+    puts "What is the capital of #{state[:name]}?"
+    answer = gets.chomp
+    if answer == "hint"
+      puts state[:capital][0,3]
+      answer = gets.chomp
+    end
+    if answer == state[:capital]
+      puts "Correct!"
+      state[:correct] += 1
+      score +=1
+    else
+      puts "Wrong!"
+      state[:wrong] += 1
+    end
+    state[:total_guesses] += 1
+    puts "Total Guesses for #{state[:name]}: #{state[:total_guesses]} -- Correct: #{state[:correct]} -- Wrong: #{state[:wrong]}"
+    puts "Total Score: #{score} of #{possible}"
+
+  end
+
+  puts "Play Again? y/n"
+  play_again = gets.chomp
+  break if play_again == "n"
+end
+
+puts "Goodbye"
