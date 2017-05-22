@@ -1,4 +1,4 @@
-# an array of state hashes
+def statesgame()
 states =[
 {
     name: "Alabama",
@@ -151,3 +151,34 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+state_shuffle = states.shuffle
+
+puts state_shuffle
+capital={
+  correct:0,
+  incorrect:0
+}
+
+for state in state_shuffle.each do
+  puts "what is the capital city of #{state[:name]}"
+  user_input = gets.chomp
+  if(user_input ==state[:capital])
+    puts " player got#{capital[:correct]+=1} correct"
+
+  else
+puts " player got #{capital[:incorrect]+=1} wrong"
+
+  end
+
+end
+puts" The player Got #{capital[:correct]} correct"
+puts" The Player Got #{capital[:incorrect] } incorrect"
+end
+puts" Would you like to play Again "
+play_again = gets.chomp
+if play_again=="yes"
+statesgame
+else
+  puts" Thank you Bye"
+end
