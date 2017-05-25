@@ -1,5 +1,5 @@
 # an array of state hashes
-states =[
+states = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +151,92 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+### psuedo code
+
+# loop through
+  # put question
+  # get answer
+  # evaluate
+  # update array
+  # put right / wrong count for question
+
+# put total score
+
+# put play again
+
+# different shuffle method
+
+test = [
+  {
+      name: "Delaware",
+      capital: "Dover"
+  }, {
+      name: "Colorado",
+      capital: "Denver"
+  }, {
+      name: "Arkansas",
+      capital: "Little Rock"
+  }
+]
+
+def initialize_questions questions
+  questions.each do |question|
+    if question[:correct] == nil
+      question[:correct] = 0
+    end
+    if question[:wrong] == nil
+      question[:wrong] = 0
+    end
+  end
+  questions
+end
+
+def shuffle questions, play_count
+  if play_count == 0
+    questions.shuffle!
+  else
+    questions.sort! { |a,b| b[:wrong] - a[:wrong] }
+  end
+  questions
+end
+
+def play questions, score_data
+  questions.each do |question|
+    puts "What is the capital of #{question[:name]}?"
+    answer = gets.chomp
+    if answer == "hint"
+      puts "Here's a hint: it starts with #{question[:capital][0,3]}... Do you know it now?"
+      answer = gets.chomp
+    end
+    if answer == question[:capital]
+      question[:correct] += 1
+      score_data[:correct] += 1
+      puts "Great job! You've gotten that one right #{question[:correct]} out of #{question[:correct] + question[:wrong]} times. Running score: #{score_data[:correct]} correct out of #{score_data[:correct] + score_data[:wrong]}."
+    else
+      question[:wrong] += 1
+      score_data[:wrong] += 1
+      puts "Ooooh, someone's a big dum dum! You've gotten that one wrong #{question[:wrong]} out of #{question[:correct] + question[:wrong]} times. Running score: #{score_data[:correct]} correct out of #{score_data[:correct] + score_data[:wrong]}."
+    end
+  end
+  score_data[:play_count] += 1
+  puts "You have played #{score_data[:play_count]} times with a total score of #{score_data[:correct]} correct / #{score_data[:correct] + score_data[:wrong]} total. Would you like to play again (y/n)?"
+  play_again = gets.chomp
+  if play_again == "y"
+    questions = shuffle questions, score_data[:play_count]
+    score_data = play questions, score_data
+  end
+  score_data
+end
+
+# welcome
+score_data = {play_count: 0, correct: 0, wrong: 0}
+states = initialize_questions states
+states = shuffle states, score_data[:play_count]
+puts "-------State Capitals Game-------"
+puts "Are you ready (y/n)?"
+input = gets.chomp
+if input == "y"
+  play states, score_data
+end
+puts "You played #{score_data[:play_count]} times with a total score of #{score_data[:correct]}/#{score_data[:correct] + score_data[:wrong]}. Goodbye!"
