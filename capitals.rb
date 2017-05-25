@@ -1,3 +1,4 @@
+require 'pry'
 # an array of state hashes
 states =[
 {
@@ -151,3 +152,86 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+st = [
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Connecticut",
+    capital: "Hartford"
+}, {
+    name: "Wisconsin",
+    capital: "Madison"
+}]
+
+def check guess, state
+  return guess.downcase == state[:capital].downcase
+end
+
+def add_right_wrong state
+  if state[:correct] == nil
+    state[:correct] = 0
+  end
+  if state[:wrong] == nil
+    state[:wrong] = 0
+  end
+end
+
+def get_total deck
+
+end
+
+def play states
+  deck = states.shuffle
+  deck.length.times do |i|
+    add_right_wrong deck[i]
+    puts "\nWhat's the capital of #{deck[i][:name]}?"
+    input = gets.chomp
+    break if input == 'q'
+    if (check input, deck[i]) == false
+      deck[i][:wrong] += 1
+      p "I'm sorry! The correct answer is #{deck[i][:capital]}. (#{deck[i][:correct]} / #{deck[i][:correct] + deck[i][:wrong]})"
+      # I tried to print out a percentage, but I never got it working properly! Any idea why? Each part of that expression works on its own, but when I try to combine them, I get 0;
+      # p (deck[i][:correct] / (deck[i][:correct] + deck[i][:wrong]))
+    else
+      deck[i][:correct] += 1
+      p "That's right! (#{deck[i][:correct]} / #{deck[i][:correct] + deck[i][:wrong]})"
+    end
+  end
+  p "Would you like to play again? Press `y` to continue, or anything else to quit"
+  again = gets.chomp
+  if again == "y"
+    play deck
+  end
+end
+
+# Any thoughts on this block below? I couldn't get it to work.
+
+# def get_total states
+#   c = states.reduce do |total, n|
+#     return total[:correct] += n[:correct]
+#   end
+#   w = states.reduce do |total, n|
+#     return total[:wrong] += n[:wrong]
+#   end
+#   puts c, w
+#   return [c, w]
+# end
+
+# def endGame states
+
+
+
+puts "\nWelcome to the STATES AND CAPITALS GAME!"
+puts "When I tell you the name of a state, tell me the capital. It's that easy!"
+puts "If you want to quit, just type in `q` at the prompt"
+puts "\n----\n\n"
+
+play states
+
+puts "Would you like to play again?"
+
+
+
+binding.pry
