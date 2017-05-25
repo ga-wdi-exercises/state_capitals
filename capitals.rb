@@ -151,3 +151,60 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+command = 'y'
+until command == 'n'
+loop do
+  puts "How well do you know your state capitals? Type 'play' to find out!"
+  input = gets.chomp.to_s
+  if input == 'play'
+      break
+  end
+end
+
+states.shuffle.each do |state|
+    puts "\nWhat is the capital of #{state[:name]}?"
+    input = gets.chomp.to_s
+    if input == state[:capital]
+      puts "\nThat's correct!"
+      state[:correct] = state[:correct] + 1
+    else
+      puts "\nIncorrect. Try Again!"
+      state[:wrong] = state[:wrong] + 1
+    end
+    puts "\nYou guessed correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times!"
+end
+states.each do |state|
+
+end
+
+# total_correct = states[:correct].reduce do |result, element|
+#   result + element
+# end
+#^tried inject, couldn't get it to work
+
+total_correct = 0
+index = 0
+loop do
+  total_correct = total_correct + states[index][:correct]
+  index += 1
+  break if index == states.length
+end
+
+total_wrong = 0
+index = 0
+loop do
+  total_wrong = total_wrong + states[index][:wrong]
+  index += 1
+  break if index == states.length
+end
+
+total = total_correct + total_wrong
+
+puts "\nYour total is #{total_correct} out of #{total}!\nWould you like to play again? y/n"
+command = gets.chomp.to_s
+end
