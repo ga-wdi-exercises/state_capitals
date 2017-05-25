@@ -151,3 +151,35 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts("Welcome to the states capital game.  Are you ready to play?")
+answer = gets.chomp
+if answer === "y"
+
+states = states.shuffle
+index = 0
+while index < states.length do
+  puts "What is the caipital of " + states[index][:name] +"?"
+  answer = gets.chomp
+  if states[index][:capital] === answer
+    puts "You got it right."
+  else
+    puts "You got it wrong."
+  end
+  index += 1
+end
+end
+ 
+
+##puts states[49][:name]
+##if states[49][:capital] === "Cheyenne"
+##  puts "You got it."
+##end
+
+
+
+#states.each {|state| puts state}
+
+#puts "What is your name?"
+#name = gets
+#puts "Hello" +name + "How are you?"
