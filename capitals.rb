@@ -1,5 +1,5 @@
 # an array of state hashes
-states =[
+$states =[
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +151,48 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+def capitalQuestion()
+  puts"\t \t Welcome to State Capital Game"
+  allStates = $states.shuffle
+  questionNumber=0
+  correctAnswer=0
+  wrongAnswer=0
+  allStates.each do |state|
+    questionNumber +=1
+    puts "Q#{questionNumber}: What is the capital city of #{state[:name]}"
+    answe= gets.chomp
+    answer=answe.capitalize
+    if answer == state[:capital]
+      puts "Your answer is correct"
+      correctAnswer += 1
+      # puts "Number of correct answer: #{correctAnswer}"
+    else
+      puts "#{answer}?  \n Nop, the capital city of #{state[:name]} is #{state[:capital]}"
+      wrongAnswer += 1
+      # puts "Number of wrong answer: #{wrongAnswer}"
+    end
+    if questionNumber==allStates.length
+      def replyOrExit()
+        replyExit = gets.chomp
+        if replyExit == "1"
+          capitalQuestion()
+        elsif replyExit == "2"
+          puts "Closed"
+        else
+          puts"Enter valid Answer"
+          replyOrExit()
+        end
+      end
+      puts   "\n Totally, you answered #{correctAnswer} questions correctly out of #{correctAnswer + wrongAnswer} questions"
+      # Asking if player wants to plain again
+      puts "\n Do you want to play again? If yes press 1, if not press 2"
+
+      replyOrExit()
+
+    end
+
+  end
+
+end
+capitalQuestion()
