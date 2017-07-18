@@ -151,3 +151,60 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+ # Provide a welcome message to introduce the player to the game
+puts "Welcome players! Let's play guess the state Capital!"
+overal_score = 0
+# add correct and incorrect keys to Hashes
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+repeat = "Yes"
+while repeat == "Yes" do
+
+# Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+states.shuffle!
+states.sort_by! do |state|
+    state[:correct]
+end
+# useing for loop with state name
+for state in states do
+  # prompt user for capital
+  puts "enter capital of #{state[:name]}"
+#input = gets.chomp
+input= gets.chomp
+# if input == [:capital]
+if input == state[:capital]
+  # the answer is correct, display a message
+  puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+  # [:correct]
+  overal_score +=1
+state[:correct] +=1
+# Add a hint functionality that prints the first 3 letters of a capita
+
+
+
+# esle
+else
+  # [:incorrect]
+  state[:incorrect] +=1
+  # the answer is wrong, display a message
+  puts "You are wrong #{state[:capital]} is the capital of #{state[:name]}!"
+end
+# display the correct and incorrect responses for each state
+state[:total] = state[:correct] + state[:incorrect]
+puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
+
+# display a running tally for each prompt
+puts "Your running tally is " + overal_score
+end
+# Once the user has gone through all 50 states, ask them if they'd like to play again.
+# how would the play respond
+#what if they say yes. ruby isn't a synchrise
+puts "You are done with this round, do you want to play again?"
+repeat = gets.chomp
+end
+# if your selsects play again
+# pirotize the higher incorrect
+# puts state[:captials][0, 3]
