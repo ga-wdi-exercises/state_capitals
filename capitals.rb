@@ -152,23 +152,39 @@ states =[
     capital: "Cheyenne"
 }]
 
-score_correct = 0
-score_incorrect= 0
+#creating hashes
+user= {
+name: "",
+score_correct: 0,
+score_incorrect: 0
+}
+
+#making welcoming  message
+puts "WELCOME TO THE STATE CAPITALS GAME "
+puts "enter your name"
+user[:name] = gets.chomp
+
+#shuffling the card
+states.shuffle!
+
+
+#making the loop for all 50 states
+# states.length.times do |index|
+4.times do |index|
+
+      puts "what is the capital of #{states[index][:name]}"
+      input = gets.chomp
+
+      if(input == states[index][:capital])
+        user[:score_correct] +=1
+      else
+        user[:score_incorrect] +=1
+      end
+
+
+end # end of the loop
 
 
 
-def run_game(states)
-
-
-
-  states.length.times do |index|
-    score_incorrect+=1
-    puts score_incorrect
-
-  end
-
-
-end
-
-
-run_game(states)
+puts user[:score_correct]
+puts user[:score_incorrect]
