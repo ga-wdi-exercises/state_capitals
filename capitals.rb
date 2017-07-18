@@ -151,3 +151,35 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+play = "Y"
+while play == "Y"
+print "Try to guess the capitals of the 50 states!" + "\n"
+states.shuffle!
+rightAnswers = 0
+wrongAnswers = 0
+states.each do |i|
+  currentState = i[:name]
+  currentCapital = i[:capital]
+
+
+  print "hey what is the capital of " + currentState + "?" + "\n"
+  answer = gets.chomp
+
+  if answer == currentCapital
+    rightAnswers += 1
+    print "YEY... "
+  else
+    wrongAnswers += 1
+    print "NAY... "
+  end
+  puts "Right answers so far " + rightAnswers.to_s + ". Wrong answers so far " + wrongAnswers.to_s + "\n"
+
+end
+print "Want to play again? Type Y"
+play = gets.chomp.upcase
+end
+# prompt = "What is the capital of... " +
+# print "Yo, try to answer these questions... Whats the Capital of.."
+# answer = gets.chomp
+# puts answer
