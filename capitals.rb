@@ -151,3 +151,58 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# a truncated array of state hashes
+states_test =[
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}]
+
+score = 0
+play = "Y"
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
+puts "Hey, nerd! Bet you know all the state capitals, like a neerrrd! (Don't forget to capitalize!)"
+
+states = states.shuffle
+
+while play == "Y"
+  states.each do |state|
+    puts "What is the capital of #{state[:name]}? Type 'Hint' if you're stuck."
+    answer = gets.chomp
+    if answer == state[:capital]
+      state[:correct] += 1
+      score += 1
+      puts "You're right, dweeb! This has been guessed correctly #{state[:correct]} times and incorrectly #{state[:wrong]} times. You have made #{score} correct guesses total."
+    elsif answer.upcase == "HINT"
+      puts "The first three letters are '#{state[:capital].slice(0, 3)}'. Now type your answer, dork!"
+      answer = gets.chomp
+      if answer == state[:capital]
+        state[:correct] += 1
+        score += 1
+        puts "You're right, dweeb! This has been guessed correctly #{state[:correct]} times and incorrectly #{state[:wrong]} times. You have made #{score} correct guesses total."
+      else
+        state[:wrong] += 1
+        puts "You're not even good at nerd stuff! The answer is #{state[:capital]}. This has been guessed correctly #{state[:correct]} times and incorrectly #{state[:wrong]} times. You have made #{score} correct guesses total."
+      end
+    else
+      state[:wrong] += 1
+      puts "You're not even good at nerd stuff! The answer is #{state[:capital]}. This has been guessed correctly #{state[:correct]} times and incorrectly #{state[:wrong]} times. You have made #{score} correct guesses total."
+    end
+  end
+
+  puts "Wanna play again, neerrrd (Y/N)?"
+  play = gets.chomp.upcase
+  states = states.sort_by { |state| state[:correct]}
+end
