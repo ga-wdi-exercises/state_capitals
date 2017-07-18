@@ -151,3 +151,21 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts 'welcome! the state capital game'
+states.shuffle!
+puts states
+states.each do |state|
+  state[:correct] = nil
+  state[:incorrect] = nil
+end
+puts states
+
+for state in states do
+  puts "enter capitol of " + state[:name]
+  input = gets.chomp
+  if input == state[:capital]
+    puts "that is right!"
+  end
+  break
+end
