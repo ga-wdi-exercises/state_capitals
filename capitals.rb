@@ -20,9 +20,15 @@ states =[
 
 puts "Welcome, ready to test your knowledge of state capitals?"
 
+states = states.shuffle
+
 states.length.times do |index|
-  states = states.shuffle
   state_to_guess = states[index][:name]
   puts "What is the capital of #{state_to_guess}?"
   guess = gets.chomp
+  if guess == states[index][:capital]
+    puts 'Correct'
+  elsif
+    puts 'Wrong'
+  end
 end
