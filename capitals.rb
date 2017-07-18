@@ -167,9 +167,9 @@ states.each do |state|
   state[:right] = 0
   state[:wrong] = 0
   print "Please identify the capital of #{state[:name]} "
-  input = gets.chomp
+  input = gets.chomp.upcase
   turns += 1
-  if input == state[:capital]
+  if input == state[:capital].upcase
     rightGuesses += 1
     print "You have #{rightGuesses} right out of #{turns} attempt(s) \n"
     state[:right] += 1
