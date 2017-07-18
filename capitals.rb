@@ -151,3 +151,19 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+  states = states.shuffle
+ states.length.times do |index|
+state_name = states[index][:name]
+puts "What is the capital of #{state_name}?"
+user_input = gets.chomp
+state_capital = states[index][:capital]
+correct = 0
+# puts state_capital
+if user_input == state_capital
+  correct = correct + 1
+  puts "correct"
+  puts "You get #{correct} out of 50"
+elsif
+  puts "wrong"
+end
+end
