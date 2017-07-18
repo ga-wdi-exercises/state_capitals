@@ -151,3 +151,38 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+# Make sure the states don't appear in alphabetical order in the prompts. This will make the game a bit more challenging for the user.
+states.shuffle!
+
+# add correct and incorrect keys to Hashes
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+
+# useing for loop with state name
+for state in states do
+  # prompt user for capital
+  puts "enter capital of #{state[:name]}"
+#input = gets.chomp
+input= gets.chomp
+# if input == [:capital]
+if input == state[:capital]
+  # the answer is correct, display a message
+  puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+  # [:correct]
+state[:correct] +=1
+# esle
+else
+  # [:incorrect]
+  state[:incorrect] +=1
+  # the answer is wrong, display a message 
+  puts "You are wrong #{state[:capital]} is the capital of #{state[:name]}!"
+end
+break
+end
+# if the answer is correct, display a message saying so, and increment the correct key.
+
+puts states
