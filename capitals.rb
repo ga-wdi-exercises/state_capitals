@@ -151,3 +151,47 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# Y to start and restart the game
+score = 0
+play = "Y"
+
+# set correct and wrong sates to 0
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+# intial prompt
+    puts "Do you know the state capitals?"
+# shuffle states
+      states = states.shuffle
+# If Y game is active
+      while play == "Y"
+        states.each do |state|
+          # prompt contains the states(symbol) name pulled from the array
+          puts "What is the capital of #{state[:name]}?"
+          # inputs first letter will alsways be capitalized
+          answer = gets.chomp.upcase
+          if answer.upcase == state[:capital].upcase
+            # +1 if correct
+            state[:correct]  += 1
+            score  += 1
+            # counts the total correct 
+            puts "Correct #{state[:correct]} times and incorrectly #{state[:wrong]} times. Nice #{score} rights total."
+            if answer == state[:capital]
+              state[:correct]  += 1
+              score  += 1
+              puts "Nice #{state[:correct]} times and wrong #{state[:wrong]} times. Nice #{score} rights total."
+            else
+              state[:wrong]  += 1
+              puts "WRONG! #{state[:capital]}. You guessed this right #{state[:correct]} times and WRONG! #{state[:wrong]} times. Good, job #{score} rights total."
+            end
+          else
+            state[:wrong]  += 1
+            puts "WRONG! #{state[:capital]}.You got this right #{state[:correct]} times and WRONG! #{state[:wrong]} times. Good, job #{score} rights total."
+          end
+        end
+
+        puts "Try again, (Y/N)?"
+        play = gets.chomp.upcase
+       states = states.sort_by { |state| state[:correct]}
+     end
