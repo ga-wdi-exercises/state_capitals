@@ -4,22 +4,7 @@ require_relative 'capitals'
 # the capitals of all 50 states.
 
 
-#states = States::STATE_CAPITALS
-states = [
-  {
-      name: "Alabama",
-      capital: "Montgomery"
-  }, {
-      name: "Alaska",
-      capital: "Juneau"
-  }, {
-      name: "Arizona",
-      capital: "Phoenix"
-  }, {
-      name: "Arkansas",
-      capital: "Little Rock"
-  }
-]
+states = States::STATE_CAPITALS
 
 total_right = 0
 total_possible = 0
@@ -33,22 +18,28 @@ states.each { |state|
   state[:wrong] = 0
 }
 
+# Make sure the states don't appear in alphabetical order in the prompts.
+states.shuffle!
 
 flag = "y"
 
 while flag == "y"
   # Welcome Message
-  puts "Welcome to the Capital Guessing Game!"
+  puts "Welcome to the Capital Guessing Game! If you need a hint type 'h'. If you would like to quit type 'q'"
   puts
-
-  # Make sure the states don't appear in alphabetical order in the prompts.
-  states.shuffle!
 
   # Through all 50 states, prompt the user to name the capital of the state.
   states.each { |state|
-    puts "What is the capital of #{state[:capital]}?"
+    puts "What is the capital of #{state[:name]}?"
     input = gets.chomp
 
+    # Add a hint functionality that prints the first 3 letters of a capital
+    if input == 'h'
+      puts "It starts with: #{state[:capital][0,3]}"
+      input = gets.chomp
+    end
+
+    #
     if input == 'q'
       break
     end
@@ -78,5 +69,8 @@ while flag == "y"
   puts "Your total score is #{total_right}/#{total_possible}. Would you like to play again? [y=Yes]"
   flag = gets.chomp
 
-  possible_score *= 2
+  # If the user plays again, set the order of how the prompts appear to
+  # start with the ones they got wrong the most often.
+  states.sort_by! {|state| -state[:wrong] }
+
 end
