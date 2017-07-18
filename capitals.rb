@@ -166,7 +166,7 @@ while play_again.downcase == "yes"
   # randomize states array
   states.shuffle!
   states.sort_by! do |state|
-    state[:incorrect].reverse
+    state[:correct]
   end
   # using a for in loop with state name
   for state in states do
@@ -180,6 +180,9 @@ while play_again.downcase == "yes"
         overall_score += 1
         state[:correct] += 1
         puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+      # elsif
+      elsif input.downcase == 'hint'
+        puts state[:capital][0, 3]
       # else
       else
         # [:incorrect] ++
@@ -199,4 +202,4 @@ while play_again.downcase == "yes"
 end
 
 # elsif input.downcase == 'hint'
-  # state[:capital].
+  # puts state[:capital][0, 3]
