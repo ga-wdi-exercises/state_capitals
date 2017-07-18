@@ -171,10 +171,12 @@ for state in states do
     if input == state[:capital]
       # [:correct] ++
       state[:correct] += 1
+      puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
     # else
     else
       # [:incorrect] ++
       state[:incorrect] += 1
+      puts "Sorry, your answer of #{input} is incorrect!"
     # end
   end
   puts state
