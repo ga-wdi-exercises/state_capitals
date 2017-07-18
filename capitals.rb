@@ -151,4 +151,11 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
-states.shuffle
+  puts "Enter the capital for each state below"
+ states.length.times do |index|
+state_name = states[index][:name]
+puts state_name
+end
+correct = 0
+
+user_input = gets.chomp
