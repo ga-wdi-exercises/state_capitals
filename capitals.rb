@@ -172,16 +172,17 @@ while player_input = gets.chomp
     break
   when "no"
     puts "maybe next time.."
+
     break
   else
-    puts "Please entes yes or no"
+    puts "Please enter yes or no"
     print prompt
   end
 end
 
 def game(player, states)
 
-2.times do |index|
+50.times do |index|
     correct = player[:correct]
     puts correct
     puts "What is the Capital of #{states[index][:name]}\ntotal correct: #{correct} out of #{index}"
@@ -189,9 +190,9 @@ def game(player, states)
 
     if (input == states[index][:capital])
       puts "Correct! The Capital of #{states[index][:name]} is #{states[index][:capital]}"
-      user[:correct] += 1
+      player[:correct] += 1
     else
-      puts " The Capital of #{states[index][:name]} is #{states[index][:capital]}"
+      puts " Keep trying! The Capital of #{states[index][:name]} is #{states[index][:capital]}"
       player[:incorrect] += 1
     end
   end
