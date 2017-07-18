@@ -151,3 +151,13 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# welcome message explaining game to players
+# randomize states array
+states.shuffle!
+# add correct & incorrect keys to hashes set to nil
+states.each do |state|
+  state[:correct] = nil
+  state[:incorrect] = nil
+end
+puts states
+#
