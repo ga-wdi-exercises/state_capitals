@@ -152,7 +152,7 @@ states =[
     capital: "Cheyenne"
 }]
 # welcome message explaining game to players
-# randomize states array
+puts "Welcome to the bestest states and capitals game in the world -- humblebrag! Try your luck at guessing the capitals of each state... we'll start you off with an easy one: "
 
 # add correct & incorrect keys to hashes set to nil
 states.each do |state|
@@ -160,8 +160,9 @@ states.each do |state|
   state[:incorrect] = 0
 end
 play_again = "yes"
+# if play_again.downcase == 'yes'
 while play_again.downcase == "yes"
-  # if play_again.downcase == 'yes'
+  # randomize states array
   states.shuffle!
   # using a for in loop with state name
   for state in states do
@@ -186,7 +187,6 @@ while play_again.downcase == "yes"
     puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
     puts state
     # end
-    break
   end
   # prompt do they want to play again
   puts "enter yes if you want to play again"
