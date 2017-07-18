@@ -157,10 +157,9 @@ states.shuffle!
 
 # add correct & incorrect keys to hashes set to nil
 states.each do |state|
-  state[:correct] = nil
-  state[:incorrect] = nil
+  state[:correct] = 0
+  state[:incorrect] = 0
 end
-puts states
 
 # using a for in loop with state name
 for state in states do
@@ -168,11 +167,17 @@ for state in states do
   puts "enter capitol of #{state[:name]}"
   # input = gets.chomp
   input = gets.chomp
-  break
     # if input == [:capital]
+    if input == state[:capital]
       # [:correct] ++
+      state[:correct] += 1
     # else
+    else
       # [:incorrect] ++
+      state[:incorrect] += 1
     # end
+  end
+  puts state
   # end
+  break
 end
