@@ -179,6 +179,9 @@ for state in states do
       puts "Sorry, your answer of #{input} is incorrect!"
     # end
   end
+  # display correct and incorrect responses for each state
+  state[:total] = state[:correct] + state[:incorrect]
+  puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
   puts state
   # end
   break
