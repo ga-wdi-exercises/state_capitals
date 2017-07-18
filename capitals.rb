@@ -151,3 +151,11 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# states array above
+def askQuestion(state)
+  # puts a question (ie What is the capital off...)
+  # gets an answer from the user
+  # compares the user input to the correct answer
+  # puts a message if correct or incorrect
+  puts state
+end
