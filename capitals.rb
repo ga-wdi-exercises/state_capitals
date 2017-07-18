@@ -151,3 +151,63 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+puts "Welcome, ready to test your knowledge of state capitals?"
+
+play = true
+#shuffle states
+states = states.shuffle
+total_correct = 0
+#create new symboles for each sate
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+  state[:total] = 0
+end
+
+#while loop to continue game logic
+while play == true do
+
+  states.each do |state|
+    #select a state to have the player guess and take in their input
+    state_to_guess = state[:name]
+    puts "What is the capital of #{state_to_guess}? (type 'hint' for a hint)."
+    guess = gets.chomp
+    #determine if the player got the capital correct
+    #logic for bonus 3
+    if guess == 'hint'
+      capital_start = state[:capital][0,3]
+      puts "The capital starts with #{capital_start}."
+      puts "What is the capital of #{state_to_guess}?"
+      guess = gets.chomp
+    end
+
+    if guess == state[:capital]
+      state[:correct] += 1
+      state[:total] += 1
+      total_correct += 1
+      puts "Correct. You have gotten this state correct #{state[:correct]} out of #{state[:total]} attempts"
+      puts "You have gotten #{total_correct} states right this round."
+      puts "----------------"
+
+    else
+      state[:wrong] += 1
+      state[:total] += 1
+      puts "Wrong. You have gotten this state correct #{state[:correct]} out of #{state[:total]} attempts"
+      puts "You have gotten #{total_correct} states right this round."
+      puts "----------------"
+    end
+
+  end
+  #Asks the player if they want to play again
+  puts "You got #{total_correct} correct this round. Do you want to play again?"
+  again = gets.chomp
+  if (again != 'yes') && (again != 'Yes') && (again != 'y') && (again != 'Y')
+    play = false
+  else
+    #resets total correct variable for new round
+    total_correct = 0
+    #reorders state list by number of wrong answers
+    states = states.sort_by{ |item| item[:correct] }
+  end
+end
