@@ -151,3 +151,62 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+i = 0
+rightcounter = 0
+wrongcounter = 0
+totalcounter = 0
+statecounter = 0
+scorecounter = 0
+gameOn = 1
+puts "Welcome to the State Capital Game!"
+puts "We will give you a state, and you enter the capital"
+
+states.shuffle!
+states.map do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+
+i = 0
+until gameOn == 0 do
+
+while i < states.length do
+  puts "What is the capital of #{states[i][:name]}"
+   answer = gets.chomp
+   if answer == 'hint'
+     puts "#{states[i][:capital][0,3]}"
+     answer = gets.chomp
+   end
+
+   if answer == states[i][:capital]
+     scorecounter += 1
+     states[i][:correct] += 1
+     puts "Correct!"
+   else
+     states[i][:incorrect] += 1
+     puts "Wrong!"
+
+   end
+   totalcounter += 1
+   statecounter = states[i][:correct] + states[i][:incorrect]
+   puts "This question has been answered correctly #{states[i][:correct]} out of #{statecounter} times"
+   puts "You're total score is #{scorecounter} out of #{totalcounter}"
+   i += 1
+end
+
+
+puts "Would you like to play again?"
+replay = gets.chomp
+if replay == 'yes'
+  states.sort_by! do |wrong|
+    -wrong[:incorrect]
+  end
+
+  i = 0
+elsif replay == 'no'
+  gameOn = 0
+  i = 0
+end
+
+end
