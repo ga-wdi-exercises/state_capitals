@@ -151,3 +151,38 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+testStates = [
+{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}]
+score = 0
+guesses = 0
+# correct = []
+# incorrect = []
+testStates.each do |testStates|
+  testStates[:correct] = 0
+  testStates[:incorrect] = 0
+end
+print testStates
+print "Welcome to the capitals game, please type the name of the state of the capital that is prompted"
+ testStates.shuffle.each do |testStates|
+  puts testStates[:name]
+  guess = gets.chomp
+  if guess == testStates[:capital]
+    testStates[:correct] += 1
+    score += 1
+    guesses += 1
+    print "Right! You have gotten #{score} out of #{guesses} right"
+  else
+    testStates[:incorrect] +=1
+    guesses += 1
+    print "Wrong answer, you have gotten #{score} out of #{guesses} right"
+end
+end
