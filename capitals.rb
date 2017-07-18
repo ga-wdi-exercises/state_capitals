@@ -151,3 +151,65 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+player ={
+  correct: 0,
+  incorrect: 0
+}
+
+
+states.shuffle!
+puts "Welcome to HOW MUCH DO YOU KNOW"
+
+prompt = "> "
+puts "Would you like to try your knowdledge?"
+print prompt
+
+while player_input = gets.chomp
+  case player_input
+  when "yes"
+    puts "ok, let's put your brain to work"
+    break
+  when "no"
+    puts "maybe next time.."
+
+    break
+  else
+    puts "Please enter yes or no"
+    print prompt
+  end
+end
+
+def game(player, states)
+
+50.times do |index|
+    correct = player[:correct]
+    puts correct
+    puts "What is the Capital of #{states[index][:name]}\ntotal correct: #{correct} out of #{index}"
+    input = gets.chomp
+
+    if (input == states[index][:capital])
+      puts "Correct! The Capital of #{states[index][:name]} is #{states[index][:capital]}"
+      player[:correct] += 1
+    else
+      puts " Keep trying! The Capital of #{states[index][:name]} is #{states[index][:capital]}"
+      player[:incorrect] += 1
+    end
+  end
+end
+
+states.shuffle!
+game(player, states)
+
+puts "Would you like one more round"
+input2 = gets.chomp
+
+while input2 == 'yes'
+  states.shuffle!
+  player[:correct] = 0
+  player[:incorrect] = 0
+  game(player, states)
+  puts "Would you like to play on more round"
+  input2 = gets.chomp
+end
+puts "Good bye"
