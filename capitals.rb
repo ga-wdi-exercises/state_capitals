@@ -151,3 +151,50 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+user ={
+  name: "",
+  score_correct: 0,
+  score_incorrect: 0,
+}
+
+
+puts "Welcome to the State Capitals Game!"
+puts "Please enter your name"
+user[:name] = gets.chomp
+
+#Method to Run Game
+def game(user, states)
+  # states.length.times do |index|
+  2.times do |index|
+      correct = user[:score_correct]
+      puts correct
+      puts "what is the capital of #{states[index][:name]} \ntotal Correct: #{correct} out of #{index}"
+      input = gets.chomp
+
+      if(input == states[index][:capital])
+        puts "That's Correct!  The Capital of #{states[index][:name]} is #{states[index][:capital]}"
+        user[:score_correct] +=1
+      else
+        puts "Sorry, that's incorrect! The Capital of #{states[index][:name]} is #{states[index][:capital]}"
+        user[:score_incorrect] +=1
+      end
+    end
+end
+
+states.shuffle!
+game(user, states)
+
+puts "do yo wish to play again y/n"
+input2 = gets.chomp
+
+while input2 == 'y'
+  states.shuffle!
+  user[:score_correct]=0
+  user[:score_incorrect]=0
+  game(user,states)
+  puts "do you wish to play again y/n"
+  input2 = gets.chomp
+end
+
+puts "goodbye"
