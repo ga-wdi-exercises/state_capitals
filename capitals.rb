@@ -151,3 +151,34 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+user ={
+  name: "",
+  score_correct: 0,
+  score_incorrect: 0,
+}
+
+
+puts "Welcome to the State Capitals Game!"
+puts "Please enter your name"
+user[:name] = gets.chomp
+
+states.shuffle!
+
+# states.length.times do |index|
+2.times do |index|
+  correct = user[:score_correct]
+  puts correct
+  puts "what is the capital of #{states[index][:name]}"
+  input = gets.chomp
+
+  if input == states[index][:capital]
+    puts "That's Correct"
+    user[:score_correct] +=1
+  else
+    puts "That's Incorrect"
+    user[:score_incorrect] +=1
+  end
+en
+puts user[:score_correct]
+puts user[:score_incorrect]
