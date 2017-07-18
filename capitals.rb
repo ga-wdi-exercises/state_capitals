@@ -141,7 +141,7 @@ states =[
 }, {
     name: "Washington",
     capital: "Olympia"
-}, {
+},{
     name: "West Virginia",
     capital: "Charleston"
 }, {
@@ -151,3 +151,61 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# testStates = [
+# {
+#     name: "Alabama",
+#     capital: "Montgomery"
+# }, {
+#     name: "Alaska",
+#     capital: "Juneau"
+# }, {
+#     name: "Arizona",
+#     capital: "Phoenix"
+# }]
+print "Welcome to the capitals game, please type the name of the state of the capital that is prompted, if stuck type hint\n"
+
+score = 0
+guesses = 0
+game = "y"
+# correct = []
+# incorrect = []
+states = states.shuffle
+
+while game == "y"
+  states.each do |states|
+  states[:correct] = 0
+  states[:incorrect] = 0
+end
+# print testStates
+ states.each do |states|
+  puts states[:name]
+  guess = gets.chomp.upcase
+  if guess == states[:capital].upcase
+    states[:correct] += 1
+    score += 1
+    guesses += 1
+    print "Right! You have gotten #{score} out of #{guesses} right\n"
+  elsif guess == "HINT"
+    puts states[:capital][0,3]
+    print "enter capital name\n"
+    guess = gets.chomp.upcase
+    if guess == states[:capital].upcase
+      states[:correct] += 1
+      score += 1
+      guesses += 1
+      print "Right! You have gotten #{score} out of #{guesses} right\n"
+    else
+      states[:incorrect] +=1
+      guesses += 1
+      print "Wrong answer, you have gotten #{score} out of #{guesses} right\n"
+    end
+  else
+    states[:incorrect] +=1
+    guesses += 1
+    print "Wrong answer, you have gotten #{score} out of #{guesses} right\n"
+end
+end
+puts "you have gotten #{score} out of #{guesses} right. again? y/n\n"
+game = gets.chomp
+states = states.sort_by {|state| state[:correct]}
+end
