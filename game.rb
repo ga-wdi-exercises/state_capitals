@@ -21,6 +21,9 @@ states = [
   }
 ]
 
+total_right = 0
+total_possible = 0
+
 
 # Initialize new keys in the Hashes that store the number of times
 # a user gets a capital `correct` and the number of times the answer is
@@ -53,24 +56,27 @@ while flag == "y"
     # If the answer is correct/wrong, display a message saying so, and increment
     # the `correct/wrong` key.
     if input == state[:capital]
-      puts "Correct! :)"
+      print "CORRECT! :) Scores for "
       state[:correct] += 1
-      puts state[:correct]
+      total_right += 1
     else
-      puts "Wrong! :("
+      print "WRONG! :( Scores for "
       state[:wrong] += 1
-      puts state[:wrong]
     end
+
+    total_possible += 1
 
     # After each prompt, display a message telling the reader how many
     # times the state was answered correctly out of the total number of times
     # answered.
-    puts "State answered correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} attempts"
+    puts "this State: #{state[:correct]}/#{state[:correct] + state[:wrong]} Overall Score: #{total_right}/#{total_possible}"
     puts
   }
 
-    # Once the user has gone through all 50 states,
-    # ask them if they'd like to play again.
-    puts "Would you like to play again? [y=Yes]"
-    flag = gets.chomp
+  # Once the user has gone through all 50 states,
+  # ask them if they'd like to play again.
+  puts "Your total score is #{total_right}/#{total_possible}. Would you like to play again? [y=Yes]"
+  flag = gets.chomp
+
+  possible_score *= 2
 end
