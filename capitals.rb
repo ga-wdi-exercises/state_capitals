@@ -1,5 +1,7 @@
+module States
+
 # an array of state hashes
-states =[
+STATE_CAPITALS  = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -152,30 +154,4 @@ states =[
     capital: "Cheyenne"
 }]
 
-# We're going to create a game to help us memorize the names of
-# the capitals of all 50 states.
-#
-# To play the game:
-#
-#  - Your program should prompt the user to identify
-#    the capital associated with a given state.
-#  - There should be running tallies on the number of correct
-#    and incorrect answers for each state
-#  - After getting through all 50 states one time, users should be
-#    asked whether or not they want to play again.
-
-# Welcome Message
-puts "Welcome to this Game!"
-
-# Make sure the states don't appear in alphabetical order in the prompts.
-states.shuffle!
-
-# Initialize new keys in the Hashes that store the number of times
-# a user gets a capital `correct` and the number of times the answer is
-# `wrong`.
-states.each { |state|
-  state[:correct] = 0
-  state[:wrong] = 0
-}
-
-puts states
+end
