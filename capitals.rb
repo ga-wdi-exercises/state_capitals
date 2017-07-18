@@ -151,3 +151,24 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+score_correct = 0
+score_incorrect= 0
+
+
+
+def run_game(states)
+
+
+
+  states.length.times do |index|
+    score_incorrect+=1
+    puts score_incorrect
+
+  end
+
+
+end
+
+
+run_game(states)
