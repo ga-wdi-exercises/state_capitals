@@ -178,11 +178,14 @@ state[:correct] +=1
 else
   # [:incorrect]
   state[:incorrect] +=1
-  # the answer is wrong, display a message 
+  # the answer is wrong, display a message
   puts "You are wrong #{state[:capital]} is the capital of #{state[:name]}!"
 end
+# display the correct and incorrect responses for each state
+state[:total] = state[:correct] + state[:incorrect]
+puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
+puts state
+
 break
 end
 # if the answer is correct, display a message saying so, and increment the correct key.
-
-puts states
