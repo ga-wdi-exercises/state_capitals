@@ -138,10 +138,11 @@ states =[
 }, {
     name: "Virginia",
     capital: "Richmond"
-}, {
+},{
     name: "Washington",
     capital: "Olympia"
-}, {
+},
+{
     name: "West Virginia",
     capital: "Charleston"
 }, {
@@ -151,3 +152,46 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+rightGuesses = 0
+wrongGuesses = 0
+turns = 0
+game = "y"
+
+print "Hi. Please enter your name to play "
+theirName = gets.chomp
+
+while game == "y"
+states.each do |state|
+  state[:right] = 0
+  state[:wrong] = 0
+  print "Please identify the capital of #{state[:name]}. Type 'hint' for a hint. "
+  input = gets.chomp.upcase
+  turns += 1
+  if input == state[:capital].upcase
+    rightGuesses += 1
+    print "You have #{rightGuesses} right out of #{turns} attempt(s) \n"
+    state[:right] += 1
+  elsif input == "HINT"
+    puts state[:capital][0,3]
+    print "Do you have a guess? "
+    input = gets.chomp.upcase
+    if input == state[:capital].upcase
+      rightGuesses += 1
+      print "You have #{rightGuesses} right out of #{turns} attempt(s) \n"
+      state[:right] += 1
+    else
+      wrongGuesses += 1
+      print "You have #{wrongGuesses} wrong out of #{turns} attempt(s) \n"
+      state[:wrong] += 1
+    end
+  else
+    wrongGuesses += 1
+    print "You have #{wrongGuesses} wrong out of #{turns} attempt(s) \n"
+    state[:wrong] += 1
+end
+end
+    print "You got #{rightGuesses} right out of #{turns} turns. Play again? (y/n) "
+    game = gets.chomp
+end
