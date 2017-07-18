@@ -153,36 +153,42 @@ states =[
 }]
 # welcome message explaining game to players
 # randomize states array
-states.shuffle!
 
 # add correct & incorrect keys to hashes set to nil
 states.each do |state|
   state[:correct] = 0
   state[:incorrect] = 0
 end
-
-# using a for in loop with state name
-for state in states do
-  # prompt user for capitol
-  puts "enter capitol of #{state[:name]}"
-  # input = gets.chomp
-  input = gets.chomp
-    # if input == [:capital]
-    if input == state[:capital]
-      # [:correct] ++
-      state[:correct] += 1
-      puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
-    # else
-    else
-      # [:incorrect] ++
-      state[:incorrect] += 1
-      puts "Sorry, your answer of #{input} is incorrect!"
+play_again = "yes"
+while play_again.downcase == "yes"
+  # if play_again.downcase == 'yes'
+  states.shuffle!
+  # using a for in loop with state name
+  for state in states do
+    # prompt user for capitol
+    puts "enter capitol of #{state[:name]}"
+    # input = gets.chomp
+    input = gets.chomp
+      # if input == [:capital]
+      if input == state[:capital]
+        # [:correct] ++
+        state[:correct] += 1
+        puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+      # else
+      else
+        # [:incorrect] ++
+        state[:incorrect] += 1
+        puts "Sorry, your answer of #{input} is incorrect!"
+      # end
+    end
+    # display correct and incorrect responses for each state
+    state[:total] = state[:correct] + state[:incorrect]
+    puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
+    puts state
     # end
+    break
   end
-  # display correct and incorrect responses for each state
-  state[:total] = state[:correct] + state[:incorrect]
-  puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
-  puts state
-  # end
-  break
+  # prompt do they want to play again
+  puts "enter yes if you want to play again"
+  play_again = gets.chomp
 end
