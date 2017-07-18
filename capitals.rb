@@ -153,7 +153,8 @@ states =[
 }]
 # welcome message explaining game to players
 puts "Welcome to the bestest states and capitals game in the world -- humblebrag! Try your luck at guessing the capitals of each state... we'll start you off with an easy one: "
-
+# Overall score set to zero to calculate when correct answer given
+overall_score = 0
 # add correct & incorrect keys to hashes set to nil
 states.each do |state|
   state[:correct] = 0
@@ -164,6 +165,9 @@ play_again = "yes"
 while play_again.downcase == "yes"
   # randomize states array
   states.shuffle!
+  states.sort_by! do |state|
+    state[:incorrect].reverse
+  end
   # using a for in loop with state name
   for state in states do
     # prompt user for capitol
@@ -172,7 +176,8 @@ while play_again.downcase == "yes"
     input = gets.chomp
       # if input == [:capital]
       if input == state[:capital]
-        # [:correct] ++
+        # overall_score & [:correct] ++
+        overall_score += 1
         state[:correct] += 1
         puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
       # else
@@ -185,10 +190,13 @@ while play_again.downcase == "yes"
     # display correct and incorrect responses for each state
     state[:total] = state[:correct] + state[:incorrect]
     puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
-    puts state
+    puts "Total Score: #{overall_score}!"
     # end
   end
   # prompt do they want to play again
   puts "enter yes if you want to play again"
   play_again = gets.chomp
 end
+
+# elsif input.downcase == 'hint'
+  # state[:capital].
