@@ -152,18 +152,6 @@ states =[
     capital: "Cheyenne"
 }]
 
-states1 =[
-{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Alaska",
-    capital: "Juneau"
-}, {
-    name: "Arizona",
-    capital: "Phoenix"
-}]
-
 puts "Welcome toooooooOOOOoOOO0o00000OOOOOoooooOoOOOOO00OOOOOooo00OOOOOooo00OOOOOooo........."
 puts "NAME"
 puts "THOSE"
@@ -175,9 +163,9 @@ puts "Well, #{user}, lets see if you can NAME THOSE CAPS....."
 puts "******************"
 puts "Here is our first question..."
 
-states1.shuffle!
+states.shuffle!
 
-states1.each do |state|
+states.each do |state|
   state[:correct] = 0
   state[:wrong] = 0
 end
@@ -188,7 +176,7 @@ totalWrong = 0
 start_game = true
 
 while start_game do
-  states1.each do |state|
+  states.each do |state|
     puts "Name the capital of #{state[:name]} (type 'hint' for a hint)"
     capital = gets.chomp
     while capital == "hint"
@@ -212,8 +200,8 @@ while start_game do
   play_again = gets.chomp
   if play_again == "yes"
     start_game = true
-    states1.shuffle!
-    states1 = states1.sort_by { |i| i[:correct]}
+    states.shuffle!
+    states = states.sort_by { |i| i[:correct]}
   else start_game = false
     puts "Hope you enjoyed playing NAME THOSE CAPS!"
   end
