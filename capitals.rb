@@ -154,10 +154,25 @@ states =[
 # welcome message explaining game to players
 # randomize states array
 states.shuffle!
+
 # add correct & incorrect keys to hashes set to nil
 states.each do |state|
   state[:correct] = nil
   state[:incorrect] = nil
 end
 puts states
-#
+
+# using a for in loop with state name
+for state in states do
+  # prompt user for capitol
+  puts "enter capitol of #{state[:name]}"
+  # input = gets.chomp
+  input = gets.chomp
+  break
+    # if input == [:capital]
+      # [:correct] ++
+    # else
+      # [:incorrect] ++
+    # end
+  # end
+end
