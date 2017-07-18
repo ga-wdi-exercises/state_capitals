@@ -151,3 +151,4 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+states.shuffle
