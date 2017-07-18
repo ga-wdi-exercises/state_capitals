@@ -1,5 +1,7 @@
+module States
+
 # an array of state hashes
-states =[
+STATE_CAPITALS  = [
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +153,5 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+end
