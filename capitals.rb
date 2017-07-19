@@ -175,7 +175,7 @@ while play_again.downcase == "yes"
     # input = gets.chomp
     input = gets.chomp
       # if input == [:capital]
-      if input == state[:capital]
+      if input.capitalize == state[:capital]
         # overall_score & [:correct] ++
         overall_score += 1
         state[:correct] += 1
@@ -183,6 +183,12 @@ while play_again.downcase == "yes"
       # elsif
       elsif input.downcase == 'hint'
         puts state[:capital][0, 3]
+        hint_check = gets.chomp
+          if hint_check = state[:capital]
+            overall_score += 1
+            state[:correct] += 1
+            puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+          end
       # else
       else
         # [:incorrect] ++
@@ -200,6 +206,3 @@ while play_again.downcase == "yes"
   puts "enter yes if you want to play again"
   play_again = gets.chomp
 end
-
-# elsif input.downcase == 'hint'
-  # puts state[:capital][0, 3]
