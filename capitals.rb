@@ -151,3 +151,58 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+# welcome message explaining game to players
+puts "Welcome to the bestest states and capitals game in the world -- humblebrag! Try your luck at guessing the capitals of each state... we'll start you off with an easy one: "
+# Overall score set to zero to calculate when correct answer given
+overall_score = 0
+# add correct & incorrect keys to hashes set to nil
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+play_again = "yes"
+# if play_again.downcase == 'yes'
+while play_again.downcase == "yes"
+  # randomize states array
+  states.shuffle!
+  states.sort_by! do |state|
+    state[:correct]
+  end
+  # using a for in loop with state name
+  for state in states do
+    # prompt user for capitol
+    puts "enter capitol of #{state[:name]}"
+    # input = gets.chomp
+    input = gets.chomp
+      # if input == [:capital]
+      if input.capitalize == state[:capital]
+        # overall_score & [:correct] ++
+        overall_score += 1
+        state[:correct] += 1
+        puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+      # elsif
+      elsif input.downcase == 'hint'
+        puts state[:capital][0, 3]
+        hint_check = gets.chomp
+          if hint_check = state[:capital]
+            overall_score += 1
+            state[:correct] += 1
+            puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+          end
+      # else
+      else
+        # [:incorrect] ++
+        state[:incorrect] += 1
+        puts "Sorry, your answer of #{input} is incorrect!"
+      # end
+    end
+    # display correct and incorrect responses for each state
+    state[:total] = state[:correct] + state[:incorrect]
+    puts "You've answered this capital correct #{state[:correct]} out of #{state[:total]}!"
+    puts "Total Score: #{overall_score}!"
+    # end
+  end
+  # prompt do they want to play again
+  puts "enter yes if you want to play again"
+  play_again = gets.chomp
+end
