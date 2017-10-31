@@ -166,7 +166,8 @@ def game (states)
   state_count = 0
   for state in states
     puts "What is the capital of #{state[:name]}?"
-    response = gets.chomp
+    response = gets.chomp.split.map(&:capitalize).join(' ')
+    puts response
     state_count += 1
     if response == state[:capital]
       state[:correct] += 1
