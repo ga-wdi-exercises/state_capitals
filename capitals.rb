@@ -160,10 +160,8 @@ def start_game(input, first_attempt, score)
       state[:wrong] = 0
     end
     states = input.sort_by! { rand }
-    puts states
   else
     states = input.sort_by { |state| state[:wrong] }.reverse!
-    puts states
   end
   ask_for_capital(states, score)
 end
