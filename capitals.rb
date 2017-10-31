@@ -15,152 +15,242 @@ states =[
     capital: "Phoenix",
     correct: [],
     incorrect:[]
+}, {
+    name: "Arkansas",
+    capital: "Little Rock",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "California",
+    capital: "Sacramento",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Colorado",
+    capital: "Denver",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Connecticut",
+    capital: "Hartford",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Delaware",
+    capital: "Dover",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Florida",
+    capital: "Tallahassee",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Georgia",
+    capital: "Atlanta",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Hawaii",
+    capital: "Honolulu",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Idaho",
+    capital: "Boise",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Illinois",
+    capital: "Springfield",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Indiana",
+    capital: "Indianapolis",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Iowa",
+    capital: "Des Moines",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Kansas",
+    capital: "Topeka",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Kentucky",
+    capital: "Frankfort",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Louisiana",
+    capital: "Baton Rouge",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Maine",
+    capital: "Augusta",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Maryland",
+    capital: "Annapolis",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Massachusetts",
+    capital: "Boston",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Michigan",
+    capital: "Lansing",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Minnesota",
+    capital: "St. Paul",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Mississippi",
+    capital: "Jackson",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Missouri",
+    capital: "Jefferson City",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Montana",
+    capital: "Helena",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Nebraska",
+    capital: "Lincoln",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Nevada",
+    capital: "Carson City",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "New Hampshire",
+    capital: "Concord",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "New Jersey",
+    capital: "Trenton",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "New Mexico",
+    capital: "Santa Fe",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "New York",
+    capital: "Albany",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "North Carolina",
+    capital: "Raleigh",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "North Dakota",
+    capital: "Bismarck",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Ohio",
+    capital: "Columbus",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Oklahoma",
+    capital: "Oklahoma City",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Oregon",
+    capital: "Salem",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Pennsylvania",
+    capital: "Harrisburg",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Rhode Island",
+    capital: "Providence",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "South Carolina",
+    capital: "Columbia",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "South Dakota",
+    capital: "Pierre",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Tennessee",
+    capital: "Nashville",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Texas",
+    capital: "Austin",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Utah",
+    capital: "Salt Lake City",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Vermont",
+    capital: "Montpelier",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Virginia",
+    capital: "Richmond",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Washington",
+    capital: "Olympia",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "West Virginia",
+    capital: "Charleston",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Wisconsin",
+    capital: "Madison",
+    correct: [],
+    incorrect:[]
+}, {
+    name: "Wyoming",
+    capital: "Cheyenne",
+    correct: [],
+    incorrect:[]
 }]
-
-
-
-# , {
-#     name: "Arkansas",
-#     capital: "Little Rock"
-# }, {
-#     name: "California",
-#     capital: "Sacramento"
-# }, {
-#     name: "Colorado",
-#     capital: "Denver"
-# }, {
-#     name: "Connecticut",
-#     capital: "Hartford"
-# }, {
-#     name: "Delaware",
-#     capital: "Dover"
-# }, {
-#     name: "Florida",
-#     capital: "Tallahassee"
-# }, {
-#     name: "Georgia",
-#     capital: "Atlanta"
-# }, {
-#     name: "Hawaii",
-#     capital: "Honolulu"
-# }, {
-#     name: "Idaho",
-#     capital: "Boise"
-# }, {
-#     name: "Illinois",
-#     capital: "Springfield"
-# }, {
-#     name: "Indiana",
-#     capital: "Indianapolis"
-# }, {
-#     name: "Iowa",
-#     capital: "Des Moines"
-# }, {
-#     name: "Kansas",
-#     capital: "Topeka"
-# }, {
-#     name: "Kentucky",
-#     capital: "Frankfort"
-# }, {
-#     name: "Louisiana",
-#     capital: "Baton Rouge"
-# }, {
-#     name: "Maine",
-#     capital: "Augusta"
-# }, {
-#     name: "Maryland",
-#     capital: "Annapolis"
-# }, {
-#     name: "Massachusetts",
-#     capital: "Boston"
-# }, {
-#     name: "Michigan",
-#     capital: "Lansing"
-# }, {
-#     name: "Minnesota",
-#     capital: "St. Paul"
-# }, {
-#     name: "Mississippi",
-#     capital: "Jackson"
-# }, {
-#     name: "Missouri",
-#     capital: "Jefferson City"
-# }, {
-#     name: "Montana",
-#     capital: "Helena"
-# }, {
-#     name: "Nebraska",
-#     capital: "Lincoln"
-# }, {
-#     name: "Nevada",
-#     capital: "Carson City"
-# }, {
-#     name: "New Hampshire",
-#     capital: "Concord"
-# }, {
-#     name: "New Jersey",
-#     capital: "Trenton"
-# }, {
-#     name: "New Mexico",
-#     capital: "Santa Fe"
-# }, {
-#     name: "New York",
-#     capital: "Albany"
-# }, {
-#     name: "North Carolina",
-#     capital: "Raleigh"
-# }, {
-#     name: "North Dakota",
-#     capital: "Bismarck"
-# }, {
-#     name: "Ohio",
-#     capital: "Columbus"
-# }, {
-#     name: "Oklahoma",
-#     capital: "Oklahoma City"
-# }, {
-#     name: "Oregon",
-#     capital: "Salem"
-# }, {
-#     name: "Pennsylvania",
-#     capital: "Harrisburg"
-# }, {
-#     name: "Rhode Island",
-#     capital: "Providence"
-# }, {
-#     name: "South Carolina",
-#     capital: "Columbia"
-# }, {
-#     name: "South Dakota",
-#     capital: "Pierre"
-# }, {
-#     name: "Tennessee",
-#     capital: "Nashville"
-# }, {
-#     name: "Texas",
-#     capital: "Austin"
-# }, {
-#     name: "Utah",
-#     capital: "Salt Lake City"
-# }, {
-#     name: "Vermont",
-#     capital: "Montpelier"
-# }, {
-#     name: "Virginia",
-#     capital: "Richmond"
-# }, {
-#     name: "Washington",
-#     capital: "Olympia"
-# }, {
-#     name: "West Virginia",
-#     capital: "Charleston"
-# }, {
-#     name: "Wisconsin",
-#     capital: "Madison"
-# }, {
-#     name: "Wyoming",
-#     capital: "Cheyenne"
-# }]
 
 states_shuffle = states.shuffle
 
