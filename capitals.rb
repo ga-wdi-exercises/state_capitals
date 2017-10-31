@@ -151,3 +151,31 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.each { |state| state[:num_correct] = 0 }
+states.each { |state| state[:num_incorrect] = 0 }
+states.each { |state| state[:num_total_guesses] = 0 }
+
+def game(states)
+  states.each do |state|
+    puts "What is the capital of this #{state[:name]}?"
+    answer = gets.chomp
+    if answer == state[:capital]
+      state[:num_correct] += 1
+      state[:num_total_guesses] += 1
+      puts "correct, you got this state correct #{state[:num_correct]} out of #{state[:num_total_guesses]}"
+    else
+      state[:num_incorrect] -=1
+      state[:num_total_guesses] +=1
+      puts "incorrect, you got this state incorrect #{state[:num_incorrect]} out of #{state[:num_total_guesses]}"
+    end
+  end
+end
+puts "Welcome to States Capitals Game! type play to begin the game"
+states.shuffle!
+answer = gets.chomp
+if answer == "play"
+  game(states)
+end
+# states[:num_total_guesses] = states[:num_correct] + states[:num_incorrect]
+# puts "You answer #{state[:num_correct]} out of #{state[:num_total_guesses]}"
