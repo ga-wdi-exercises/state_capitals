@@ -158,6 +158,7 @@ states.each do |state|
   state[:total_tries] = 0
 end
 
+
 def play(states)
   states.each do |state|
     puts "What is the capital of #{state[:name]}?"
@@ -175,12 +176,14 @@ def play(states)
   puts "Do you want to play again? (yes/no)"
   answer = gets.chomp
   if answer == "yes"
-    play(states)
+    sorted_states = []
+    sorted_states = states.sort_by{|state| state[:num_correct]}
+    play(sorted_states)
   end
 end
 
 puts "Welcome to State Capitals! Type 'play' to begin."
 answer = gets.chomp
-if answer == 'play'
+if answer == "play"
   play(states)
 end
