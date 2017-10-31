@@ -151,3 +151,33 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+continue = 'Y'
+total_correct = 0
+total_incorrect = 0
+
+states.each do |state|
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
+while continue.upcase == 'Y'
+  states.each do |state|
+    puts "What is the capital of #{state[:name]} (Hint: starts with #{state[:capital][0...3]})"
+    cap = gets.chomp
+    if cap.upcase == state[:capital].upcase
+      state[:correct] += 1
+      total_correct += 1
+      puts "Correct!"
+    else
+      state[:wrong] += 1
+      total_incorrect += 1
+      puts "Incorrect."
+    end
+    puts "#{state[:correct]} correct out of " + (state[:wrong] + state[:correct]).to_s + " for #{state[:name]} (#{total_correct}/" + (total_correct + total_incorrect).to_s + " overall)"
+  end
+  puts "Would you like to play again [Y]] or [N]?"
+  continue = gets.chomp
+  states.sort_by! {|state| state[:correct]}
+end
