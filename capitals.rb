@@ -198,3 +198,4 @@ puts "You've answered this capital correctly! #{state[:correct]} out of #{state[
 puts "Congrats! you are done with this round, would you like to play again?"
 repeat = gets.chomp
 end
+end
