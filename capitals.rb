@@ -151,3 +151,29 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.each do |state|
+  state[:correct] = 0
+  state[:incorrect] = 0
+end
+replay_game = ""
+
+input = ""
+until replay_game == "no" do
+  puts "Let's play Name That Capital!\nYou will be given a State and be asked what's it's capital."
+  states.each do |state|
+    puts "The capital of #{state[:name]} is: "
+    input = gets.chomp
+    if input.downcase == state[:capital].downcase
+      puts "Correct"
+      state[:correct] += 1
+      puts "You answered this correct #{state[:correct]} number of times"
+    else
+      puts "That's not right"
+      state[:incorrect] += 1
+      puts "You answered this incorrect #{state[:incorrect]} number of times"
+    end
+  end
+  puts "Would you like to try again?"
+  replay_game = gets.chomp
+end
