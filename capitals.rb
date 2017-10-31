@@ -174,7 +174,7 @@ end
 puts "Welcome to States Capitals Game! type play to begin the game"
 states.shuffle!
 answer = gets.chomp
-if answer == 'play'
+if answer == "play"
   game(states)
 end
 # states[:num_total_guesses] = states[:num_correct] + states[:num_incorrect]
