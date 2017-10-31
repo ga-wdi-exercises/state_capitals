@@ -177,7 +177,7 @@ while continue.upcase == 'Y'
     end
     puts "#{state[:correct]} correct out of " + (state[:wrong] + state[:correct]).to_s + " for #{state[:name]} (#{total_correct}/" + (total_correct + total_incorrect).to_s + " overall)"
   end
-  puts "Would you like to play again [Y]] or [N]?"
+  puts "Would you like to play again [Y] or [N]?"
   continue = gets.chomp
   states.sort_by! {|state| state[:correct]}
 end
