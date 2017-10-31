@@ -149,7 +149,8 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+]
 
 run_game = ""
 first_run = true
@@ -167,7 +168,6 @@ start_game = Proc.new do |game, states|
       cur_state[:incorrect] = 0
     end
     puts "#{index +1}: What's the capital of #{cur_state[:name]}?"
-    puts "Answer is #{cur_state[:capital]}"
     input = gets.chomp
     if input.upcase == cur_state[:capital].upcase
       cur_state[:correct] += 1
@@ -184,11 +184,9 @@ reset_game = Proc.new do
   { total_correct: 0, total_incorrect: 0 }
 end
 
-game_loop = Proc.new do |reset_game|
+game_loop = Proc.new do
   puts "Your total score is #{game[:total_correct]}"
   puts "Do you want to play again? yes/no\n\n"
-  game = reset_game.call()
-  gets.chomp.downcase
 end
 
 def init_game(run_game, first_run, reset_game, start_game, game_loop, game, states)
@@ -196,10 +194,14 @@ def init_game(run_game, first_run, reset_game, start_game, game_loop, game, stat
     if first_run
       first_run = false
       start_game.call(game, states.shuffle)
-      run_game = game_loop.call(reset_game)
+      game_loop.call()
+      game = reset_game.call()
+      run_game = gets.chomp.downcase
     else
       start_game.call(game, states.sort!{ |x,y| y[:incorrect] <=> x[:incorrect] })
-      run_game = game_loop.call(reset_game)
+      game_loop.call()
+      game = reset_game.call()
+      run_game = gets.chomp.downcase
     end
   end
 end
