@@ -150,4 +150,45 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+]
+
+#add two new tracking variables
+for state in states
+  state[:correct] = 0
+  state[:wrong] = 0
+end
+
+
+puts "Welcome to the capitals game!"
+def game (states)
+  total = 0
+  state_count = 0
+  for state in states
+    puts "What is the capital of #{state[:name]}?"
+    response = gets.chomp
+    state_count += 1
+    if response == state[:capital]
+      state[:correct] += 1
+      total += 1
+      puts "Correct! You answered it correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{total} out of #{state_count} states correct"
+    else
+      state[:wrong] += 1
+      puts "Wrong! You answered it correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{total} out of #{state_count} states correct"
+    end
+  end
+  puts "You got #{total} out of #{state_count} states correct"
+  puts "Do you want to play again? (Y/N)"
+  total = 0
+  state_count = 0
+  response = gets.chomp
+  if response == "Y" || response == "y"
+    states.sort! { |a,b| b[:wrong] <=> a[:wrong] }
+    game(states)
+  else
+    puts "Until next time...keep studying!"
+  end
+end
+
+states.shuffle!
+game(states)
