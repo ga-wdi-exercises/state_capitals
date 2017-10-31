@@ -9,8 +9,7 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
-}
-, {
+}, {
     name: "Arkansas",
     capital: "Little Rock"
 }, {
@@ -154,6 +153,7 @@ states =[
 }
 ].shuffle!
 
+#adds values for nmb of guesses to each state in array
 states.each {|state| state[:no_correct]=0}
 states.each {|state| state[:no_wrong]=0}
 states.each {|state| state[:no_ttl]=0}
@@ -177,14 +177,17 @@ states.each do |state|
 end
   puts "Do you want to play again? yes or no"
   answer = gets.chomp
-
+#if the user plays again, game will load from the sorted_states
   if answer == "yes"
-    play_game(states)
+  sorted_states = []
+  sorted_states = states.sort_by{|state| state[:num_correct]}
+  play_game(sorted_states)
 
 end
 end
 puts "Welcome to the State Capitals game! Type play to begin"
 answer = gets.chomp
-if answer = "play"
+if answer == "play"
+
   play_game(states)
 end
