@@ -32,7 +32,7 @@ You're given an array of hashes that contain each state name and capital in `cap
   - If the answer is correct, display a message saying so, and increment the `correct` key.
   - If the answer is wrong, display a message saying so, and increment the `wrong` key.
   
-- If you ever need to manually stop your Ruby script, enter <kbd>CMD</kbd> + <kbd>C</kbd>
+- If you ever need to manually stop your Ruby script, enter <kbd>CTRL</kbd> + <kbd>C</kbd>
 
 ### Potentially Useful Methods
 
