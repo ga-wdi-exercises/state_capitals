@@ -1,25 +1,24 @@
 # an array of state hashes
 states =[
-# {
-#     name: "Alabama",
-#     capital: "Montgomery"
-# }, {
-#     name: "Alaska",
-#     capital: "Juneau"
-# }, {
-#     name: "Arizona",
-#     capital: "Phoenix"
-# }, {
-#     name: "Arkansas",
-#     capital: "Little Rock"
-# }, {
-#     name: "California",
-#     capital: "Sacramento"
-# }, {
-#     name: "Colorado",
-#     capital: "Denver"
-# },
 {
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}, {
+    name: "Arkansas",
+    capital: "Little Rock"
+}, {
+    name: "California",
+    capital: "Sacramento"
+}, {
+    name: "Colorado",
+    capital: "Denver"
+}, {
     name: "Connecticut",
     capital: "Hartford"
 }, {
@@ -34,144 +33,147 @@ states =[
 }, {
     name: "Hawaii",
     capital: "Honolulu"
-}
-# , {
-#     name: "Idaho",
-#     capital: "Boise"
-# }, {
-#     name: "Illinois",
-#     capital: "Springfield"
-# }, {
-#     name: "Indiana",
-#     capital: "Indianapolis"
-# }, {
-#     name: "Iowa",
-#     capital: "Des Moines"
-# }, {
-#     name: "Kansas",
-#     capital: "Topeka"
-# }, {
-#     name: "Kentucky",
-#     capital: "Frankfort"
-# }, {
-#     name: "Louisiana",
-#     capital: "Baton Rouge"
-# }, {
-#     name: "Maine",
-#     capital: "Augusta"
-# }, {
-#     name: "Maryland",
-#     capital: "Annapolis"
-# }, {
-#     name: "Massachusetts",
-#     capital: "Boston"
-# }, {
-#     name: "Michigan",
-#     capital: "Lansing"
-# }, {
-#     name: "Minnesota",
-#     capital: "St. Paul"
-# }, {
-#     name: "Mississippi",
-#     capital: "Jackson"
-# }, {
-#     name: "Missouri",
-#     capital: "Jefferson City"
-# }, {
-#     name: "Montana",
-#     capital: "Helena"
-# }, {
-#     name: "Nebraska",
-#     capital: "Lincoln"
-# }, {
-#     name: "Nevada",
-#     capital: "Carson City"
-# }, {
-#     name: "New Hampshire",
-#     capital: "Concord"
-# }, {
-#     name: "New Jersey",
-#     capital: "Trenton"
-# }, {
-#     name: "New Mexico",
-#     capital: "Santa Fe"
-# }, {
-#     name: "New York",
-#     capital: "Albany"
-# }, {
-#     name: "North Carolina",
-#     capital: "Raleigh"
-# }, {
-#     name: "North Dakota",
-#     capital: "Bismarck"
-# }, {
-#     name: "Ohio",
-#     capital: "Columbus"
-# }, {
-#     name: "Oklahoma",
-#     capital: "Oklahoma City"
-# }, {
-#     name: "Oregon",
-#     capital: "Salem"
-# }, {
-#     name: "Pennsylvania",
-#     capital: "Harrisburg"
-# }, {
-#     name: "Rhode Island",
-#     capital: "Providence"
-# }, {
-#     name: "South Carolina",
-#     capital: "Columbia"
-# }, {
-#     name: "South Dakota",
-#     capital: "Pierre"
-# }, {
-#     name: "Tennessee",
-#     capital: "Nashville"
-# }, {
-#     name: "Texas",
-#     capital: "Austin"
-# }, {
-#     name: "Utah",
-#     capital: "Salt Lake City"
-# }, {
-#     name: "Vermont",
-#     capital: "Montpelier"
-# }, {
-#     name: "Virginia",
-#     capital: "Richmond"
-# }, {
-#     name: "Washington",
-#     capital: "Olympia"
-# }, {
-#     name: "West Virginia",
-#     capital: "Charleston"
-# }, {
-#     name: "Wisconsin",
-#     capital: "Madison"
-# }, {
-#     name: "Wyoming",
-#     capital: "Cheyenne"
-# }
-]
+}, {
+    name: "Idaho",
+    capital: "Boise"
+}, {
+    name: "Illinois",
+    capital: "Springfield"
+}, {
+    name: "Indiana",
+    capital: "Indianapolis"
+}, {
+    name: "Iowa",
+    capital: "Des Moines"
+}, {
+    name: "Kansas",
+    capital: "Topeka"
+}, {
+    name: "Kentucky",
+    capital: "Frankfort"
+}, {
+    name: "Louisiana",
+    capital: "Baton Rouge"
+}, {
+    name: "Maine",
+    capital: "Augusta"
+}, {
+    name: "Maryland",
+    capital: "Annapolis"
+}, {
+    name: "Massachusetts",
+    capital: "Boston"
+}, {
+    name: "Michigan",
+    capital: "Lansing"
+}, {
+    name: "Minnesota",
+    capital: "St. Paul"
+}, {
+    name: "Mississippi",
+    capital: "Jackson"
+}, {
+    name: "Missouri",
+    capital: "Jefferson City"
+}, {
+    name: "Montana",
+    capital: "Helena"
+}, {
+    name: "Nebraska",
+    capital: "Lincoln"
+}, {
+    name: "Nevada",
+    capital: "Carson City"
+}, {
+    name: "New Hampshire",
+    capital: "Concord"
+}, {
+    name: "New Jersey",
+    capital: "Trenton"
+}, {
+    name: "New Mexico",
+    capital: "Santa Fe"
+}, {
+    name: "New York",
+    capital: "Albany"
+}, {
+    name: "North Carolina",
+    capital: "Raleigh"
+}, {
+    name: "North Dakota",
+    capital: "Bismarck"
+}, {
+    name: "Ohio",
+    capital: "Columbus"
+}, {
+    name: "Oklahoma",
+    capital: "Oklahoma City"
+}, {
+    name: "Oregon",
+    capital: "Salem"
+}, {
+    name: "Pennsylvania",
+    capital: "Harrisburg"
+}, {
+    name: "Rhode Island",
+    capital: "Providence"
+}, {
+    name: "South Carolina",
+    capital: "Columbia"
+}, {
+    name: "South Dakota",
+    capital: "Pierre"
+}, {
+    name: "Tennessee",
+    capital: "Nashville"
+}, {
+    name: "Texas",
+    capital: "Austin"
+}, {
+    name: "Utah",
+    capital: "Salt Lake City"
+}, {
+    name: "Vermont",
+    capital: "Montpelier"
+}, {
+    name: "Virginia",
+    capital: "Richmond"
+}, {
+    name: "Washington",
+    capital: "Olympia"
+}, {
+    name: "West Virginia",
+    capital: "Charleston"
+}, {
+    name: "Wisconsin",
+    capital: "Madison"
+}, {
+    name: "Wyoming",
+    capital: "Cheyenne"
+}]
 
 states.each do |state|
   state[:correct] = 0
   state[:incorrect] = 0
 end
-
+replay_game = ""
 
 input = ""
-
-puts "Let's play Name That Capital!\nYou will be given a State and be asked what's it's capital."
-states.each do |state|
-  puts "The capital of #{state[:name]} is: "
-  input = gets.chomp
-  if input.downcase == state[:capital].downcase
-    puts "Correct"
-    state[:correct] += 1
-  else
-    puts "That's not right"
-    state[:incorrect] += 1
+until replay_game == "no" do
+  puts "Let's play Name That Capital!\nYou will be given a State and be asked what's it's capital."
+  states.each do |state|
+    puts "The capital of #{state[:name]} is: "
+    input = gets.chomp
+    if input.downcase == state[:capital].downcase
+      puts "Correct"
+      state[:correct] += 1
+      puts "You answered this correct #{state[:correct]} number of times"
+    else
+      puts "That's not right"
+      state[:incorrect] += 1
+      puts "You answered this incorrect #{state[:incorrect]} number of times"
+    end
   end
+  puts "Would you like to try again?"
+  replay_game = gets.chomp
 end
