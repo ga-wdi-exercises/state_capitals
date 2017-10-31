@@ -151,3 +151,50 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+##Provides users with a brief greeting to introduce users to the game.
+puts "Welcome players! Let's play a little game where you will guess the state Capitals!"
+overal_score = 0
+##adds correct and incorrect keys to Hashes
+states.each do |state|
+ state[:correct] = 0
+ state[:incorrect] = 0
+end
+repeat = "Yes"
+while repeat == "Yes" do
+
+#Ensures states don't appear in alphabetical order as it does in the prompts. This will make the game more challenging for the user(s).
+states.shuffle!
+states.sort_by! do |state|
+   state[:correct]
+end
+#for-loop method for guessing capital.
+for state in states do
+ ##prompts user to enter/guess a capital
+ puts "enter capital of #{state[:name]}"
+
+ input= gets.chomp
+
+if input == state[:capital]
+ ##the answer is correct, display a message
+ puts "You are correct #{state[:capital]} is the capital of #{state[:name]}!"
+ #score-tracker
+ overal_score +=1
+state[:correct] +=1
+
+else
+
+ state[:incorrect] +=1
+ #if the answer is wrong, display a message to notify the user.
+ puts "You are wrong! #{state[:capital]} is the capital of #{state[:name]}!"
+end
+#display the correct and incorrect responses for each state
+state[:total] = state[:correct] + state[:incorrect]
+puts "You've answered this capital correctly! #{state[:correct]} out of #{state[:total]}!"
+
+##Once the user has gone through all 50 states, ask them if they'd like to play the game again.
+###how would the player respond?
+###what if they say yes. ruby isn't a synchrise language?
+puts "Congrats! you are done with this round, would you like to play again?"
+repeat = gets.chomp
+end
