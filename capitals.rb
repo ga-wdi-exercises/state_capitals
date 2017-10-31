@@ -153,43 +153,68 @@ states =[
 }
 ]
 
-#add two new tracking variables
+#add two new tracking variables for each state
 for state in states
   state[:correct] = 0
   state[:wrong] = 0
 end
 
+#track how you've gotten correct (total) out of how many states asked (state_count)
+$total = 0
+$state_count = 1
 
+#intro message
 puts "Welcome to the capitals game!"
-def game (states)
-  total = 0
-  state_count = 0
-  for state in states
-    puts "What is the capital of #{state[:name]}?"
+
+# check if they got the right answer
+def check_answer(state, response, state_count, total)
+  # if correct, up the correct count by one, the total correct by one, and display the message
+  if response == state[:capital]
+    state[:correct] += 1
+    $total += 1
+    puts "\nCorrect! You answered this state correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{$total} out of #{$state_count} states correct"
+  # if they want a hint, print the first three letter and then run check answer again on their new response
+  elsif response == "Hint"
+    puts "\nThe first three letters are: #{state[:capital][0]}#{state[:capital][1]}#{state[:capital][2]}.  Got it?"
     response = gets.chomp.split.map(&:capitalize).join(' ')
-    puts response
-    state_count += 1
-    if response == state[:capital]
-      state[:correct] += 1
-      total += 1
-      puts "Correct! You answered it correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{total} out of #{state_count} states correct"
-    else
-      state[:wrong] += 1
-      puts "Wrong! You answered it correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{total} out of #{state_count} states correct"
-    end
-  end
-  puts "You got #{total} out of #{state_count} states correct"
-  puts "Do you want to play again? (Y/N)"
-  total = 0
-  state_count = 0
-  response = gets.chomp
-  if response == "Y" || response == "y"
-    states.sort! { |a,b| b[:wrong] <=> a[:wrong] }
-    game(states)
+    check_answer(state,response, state_count, total)
+  # if wrong, up the wrong count by one and display the message
   else
-    puts "Until next time...keep studying!"
+    state[:wrong] += 1
+    puts "\nWrong! You answered this state correctly #{state[:correct]} out of #{state[:correct] + state[:wrong]} times.  This round, you have gotten #{$total} out of #{state_count} states correct"
   end
 end
 
+#create the game
+def game (states, state_count)
+  #for each state...
+  for state in states
+    #ask the question
+    puts "\n#{$state_count}. What is the capital of #{state[:name]}?  Type 'hint' if you want to see three letters"
+    #get the response and convert it to first letter capital on each word
+    response = gets.chomp.split.map(&:capitalize).join(' ')
+    #run check answer
+    check_answer(state, response, $state_count, $total)
+    #increase the state count tracker by one
+    $state_count += 1
+  end
+  #when done with the game, tell them how many they got right and ask if they want to play again
+  puts "\nYou got #{$total} out of #{$state_count} states correct"
+  puts "\nDo you want to play again? (Y/N)"
+  #reset the variable for a new game
+  $total = 0
+  $state_count = 1
+  response = gets.chomp
+  #if they want to play again, run it again...if not, print a goodbye message
+  if response == "Y" || response == "y"
+    states.sort! { |a,b| b[:wrong] <=> a[:wrong] }
+    game(states, $state_count)
+  else
+    puts "\nUntil next time...keep studying!"
+  end
+end
+
+#shuffle up the state (for the first time)
 states.shuffle!
-game(states)
+#run the game!
+game(states, $state_count)
