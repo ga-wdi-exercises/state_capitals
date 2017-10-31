@@ -151,3 +151,53 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+for state in states do
+  state[:right] = 0
+  state[:wrong] = 0
+end
+states = states.shuffle
+overall_right = 0
+overall_total = 0
+
+while true
+  puts "Welcome!  Hope you're here to learn the state capitals!"
+  puts "Are you ready to learn? (yes/no)"
+  input = gets.chomp
+  if input == "yes"
+    for cap in states do
+      puts "Now what's the capital of #{cap[:name]}? #{overall_right} out of #{overall_total} (if you're desperate, type 'hint')"
+      guess = gets.chomp
+      if guess == cap[:capital]
+        cap[:right] += 1
+        total = cap[:right]+cap[:wrong]
+        overall_right += 1
+        overall_total += 1
+        puts "Nice! You've gotten that one right #{cap[:right]}/#{total} times"
+      elsif guess == "hint"
+        puts "'#{cap[:capital][0]}#{cap[:capital][1]}#{cap[:capital][2]}' are the first three letters.  You've got this."
+        hint_guess = gets.chomp
+        if
+          hint_guess == cap[:capital]
+          cap[:right] += 1
+          total = cap[:right]+cap[:wrong]
+          overall_right += 1
+          overall_total += 1
+          puts "Nice! You've gotten that one right #{cap[:right]}/#{total} times"
+        else
+          cap[:wrong] += 1
+          total = cap[:right]+cap[:wrong]
+          overall_total += 1
+          puts "Oy, keep at it. You've gotten that one right #{cap[:right]}/#{total} times"
+        end
+      else
+        cap[:wrong] += 1
+        total = cap[:right]+cap[:wrong]
+        overall_total += 1
+        puts "Oy, keep at it. You've gotten that one right #{cap[:right]}/#{total} times"
+      end
+    end
+  else
+    break
+  end
+end
