@@ -151,3 +151,49 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+score = 0
+guesses = 0
+game = "yes"
+correct = []
+incorrect = []
+states = states.shuffle
+
+puts "Please enter player name\n"
+players_name = gets.chomp
+puts "Welcome #{players_name} to Lets Learn our States! Please enter in the capital that belongs to the listed state."
+
+while game == "yes"
+  states.each do |states|
+  states[:correct] = 0
+  states[:incorrect] = 0
+end
+states.each do |states|
+  puts states [:name]
+  guess = gets.chomp.upcase
+  if guess == states[:capital].upcase
+    states[:correct] += 1
+    score += 1
+    guesses += 1
+    print "Correct! Yo have gotten #{score} out of #{guesses} right!\n"
+  elsif guess == "hint"
+    puts states[:capital][0,3]
+    print "enter capital name/n"
+    guess = gets.chomp.upcase
+  if guess == states[:capital].upcase
+    states[:correct] += 1
+    score += 1
+    guesses += 1
+  else
+    states[:incorrect] += 1
+    guesses += 1
+    puts "wrong answer, you have gotten #{score} out of #{guesses} right\n"
+  end
+else
+  states[:incorrect] += 1
+  guesses += 1
+  puts "wrong answer, you have gotten #{score} out of #{guesses} right\n"
+end
+end
+puts "you have gotten #{score} out of #{guesses} right. Try again? (yes/no)"
+game = gets.chomp
+end
