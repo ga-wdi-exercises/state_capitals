@@ -151,3 +151,53 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+def start_game(input, first_attempt, score)
+  if first_attempt == true
+    score = [0, 0]
+    input.each do |state|
+      state[:correct] = 0
+      state[:wrong] = 0
+    end
+    states = input.sort_by! { rand }
+  else
+    states = input.sort_by { |state| state[:wrong] }.reverse!
+  end
+  ask_for_capital(states, score)
+end
+
+def ask_for_capital(states, score)
+  states.each do |state|
+    name = state[:name]
+    puts "What is the capital of #{name}?"
+    answer = gets.chomp
+    check_answer(state, answer, score)
+  end
+  start_game(states, false, score)
+end
+
+def check_answer(state, answer, score)
+  if answer == "hint"
+    give_hint(state, score)
+  elsif state[:capital] == answer
+    name = state[:name]
+    state[:correct] += 1
+    score[0] += 1
+    tally = "[#{score[0]}/#{score[1]}]"
+    puts "Correct! #{answer} is the capital of #{name}. #{tally}"
+  else
+    state[:wrong] += 1
+    score[1] += 1
+    tally = "[#{score[0]}/#{score[1]}]"
+    puts "Wrong! Better luck next time. #{tally}"
+  end
+end
+
+def give_hint(state, score)
+  puts "Hint: " + state[:capital][0,3]
+  answer = gets.chomp
+  check_answer(state, answer, score)
+end
+
+
+start_game(states, true, 0)
