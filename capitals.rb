@@ -2,152 +2,277 @@
 states =[
 {
     name: "Alabama",
-    capital: "Montgomery"
+    capital: "Montgomery",
+    correct: [],
+    incorrect: []
 }, {
     name: "Alaska",
-    capital: "Juneau"
+    capital: "Juneau",
+    correct: [],
+    incorrect: []
 }, {
     name: "Arizona",
-    capital: "Phoenix"
+    capital: "Phoenix",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Arkansas",
-    capital: "Little Rock"
+    capital: "Little Rock",
+    correct: [],
+    incorrect:[]
 }, {
     name: "California",
-    capital: "Sacramento"
+    capital: "Sacramento",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Colorado",
-    capital: "Denver"
+    capital: "Denver",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Connecticut",
-    capital: "Hartford"
+    capital: "Hartford",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Delaware",
-    capital: "Dover"
+    capital: "Dover",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Florida",
-    capital: "Tallahassee"
+    capital: "Tallahassee",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Georgia",
-    capital: "Atlanta"
+    capital: "Atlanta",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Hawaii",
-    capital: "Honolulu"
+    capital: "Honolulu",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Idaho",
-    capital: "Boise"
+    capital: "Boise",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Illinois",
-    capital: "Springfield"
+    capital: "Springfield",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Indiana",
-    capital: "Indianapolis"
+    capital: "Indianapolis",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Iowa",
-    capital: "Des Moines"
+    capital: "Des Moines",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Kansas",
-    capital: "Topeka"
+    capital: "Topeka",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Kentucky",
-    capital: "Frankfort"
+    capital: "Frankfort",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Louisiana",
-    capital: "Baton Rouge"
+    capital: "Baton Rouge",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Maine",
-    capital: "Augusta"
+    capital: "Augusta",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Maryland",
-    capital: "Annapolis"
+    capital: "Annapolis",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Massachusetts",
-    capital: "Boston"
+    capital: "Boston",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Michigan",
-    capital: "Lansing"
+    capital: "Lansing",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Minnesota",
-    capital: "St. Paul"
+    capital: "St. Paul",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Mississippi",
-    capital: "Jackson"
+    capital: "Jackson",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Missouri",
-    capital: "Jefferson City"
+    capital: "Jefferson City",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Montana",
-    capital: "Helena"
+    capital: "Helena",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Nebraska",
-    capital: "Lincoln"
+    capital: "Lincoln",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Nevada",
-    capital: "Carson City"
+    capital: "Carson City",
+    correct: [],
+    incorrect:[]
 }, {
     name: "New Hampshire",
-    capital: "Concord"
+    capital: "Concord",
+    correct: [],
+    incorrect:[]
 }, {
     name: "New Jersey",
-    capital: "Trenton"
+    capital: "Trenton",
+    correct: [],
+    incorrect:[]
 }, {
     name: "New Mexico",
-    capital: "Santa Fe"
+    capital: "Santa Fe",
+    correct: [],
+    incorrect:[]
 }, {
     name: "New York",
-    capital: "Albany"
+    capital: "Albany",
+    correct: [],
+    incorrect:[]
 }, {
     name: "North Carolina",
-    capital: "Raleigh"
+    capital: "Raleigh",
+    correct: [],
+    incorrect:[]
 }, {
     name: "North Dakota",
-    capital: "Bismarck"
+    capital: "Bismarck",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Ohio",
-    capital: "Columbus"
+    capital: "Columbus",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Oklahoma",
-    capital: "Oklahoma City"
+    capital: "Oklahoma City",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Oregon",
-    capital: "Salem"
+    capital: "Salem",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Pennsylvania",
-    capital: "Harrisburg"
+    capital: "Harrisburg",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Rhode Island",
-    capital: "Providence"
+    capital: "Providence",
+    correct: [],
+    incorrect:[]
 }, {
     name: "South Carolina",
-    capital: "Columbia"
+    capital: "Columbia",
+    correct: [],
+    incorrect:[]
 }, {
     name: "South Dakota",
-    capital: "Pierre"
+    capital: "Pierre",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Tennessee",
-    capital: "Nashville"
+    capital: "Nashville",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Texas",
-    capital: "Austin"
+    capital: "Austin",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Utah",
-    capital: "Salt Lake City"
+    capital: "Salt Lake City",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Vermont",
-    capital: "Montpelier"
+    capital: "Montpelier",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Virginia",
-    capital: "Richmond"
+    capital: "Richmond",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Washington",
-    capital: "Olympia"
+    capital: "Olympia",
+    correct: [],
+    incorrect:[]
 }, {
     name: "West Virginia",
-    capital: "Charleston"
+    capital: "Charleston",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Wisconsin",
-    capital: "Madison"
+    capital: "Madison",
+    correct: [],
+    incorrect:[]
 }, {
     name: "Wyoming",
-    capital: "Cheyenne"
+    capital: "Cheyenne",
+    correct: [],
+    incorrect:[]
 }]
+
+states_shuffle = states.shuffle
+
+puts "Welcome to the game!"
+
+input = ""
+play_again = ""
+puts "What is the capital?"
+
+until play_again == "No" do
+  for i in 0..states_shuffle.length-1 do
+    until input == states_shuffle[i][:capital] do
+      puts "What is the capital of #{states_shuffle[i][:name]}"
+      input = gets.chomp
+      if input == states_shuffle[i][:capital]
+        states_shuffle[i][:correct].push(1)
+      elsif input != states_shuffle[i][:capital]
+        states_shuffle[i][:incorrect].push(1)
+      end
+      puts "You have answered this state correctly #{states_shuffle[i][:correct].length} times out of #{states_shuffle[i][:correct].length + states_shuffle[i][:incorrect].length}"
+    end
+  end
+  puts "Play again? (Yes/No)"
+  play_again = gets.chomp
+end
