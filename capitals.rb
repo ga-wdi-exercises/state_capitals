@@ -1,4 +1,4 @@
-# an array of state hashes
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +151,36 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states = states.shuffle
+  # creates instance of the states
+puts "Welcome! This is the State Capitals game. Let's see if you paid attention in Social Studies!"
+  # the welcome
+states.each do |state|
+  state[:correct_guess] = 0
+  state[:incorrect_guess] = 0
+end
+  # for each state, store number of times a player gets the state right or wrong
+while true
+  # until user decides to not play
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+    answer=gets.chomp
+      # if the player is correct add 1 to the correct counter
+    if answer.upcase == state[:capital].upcase
+        # deals with capitalization errors
+      puts "Correct!"
+      state[:correct_guess] += 1
+    else
+        # the answer is wrong so we add 1 to the incorrect counter
+      puts "Incorrect...I'm sorry"
+      state[:incorrect_guess] += 1
+    end
+    total = state[:correct_guess] + state[:incorrect_guess]
+    puts "You are #{state[:correct_guess]} for #{total} on this particular state"
+  end
+    # Let the player stop playing or go through the states again
+  puts "You've gone through all the states. Do you wish to continue? Y or N"
+  answer = gets.chomp
+  break if answer.upcase == "N"
+end
