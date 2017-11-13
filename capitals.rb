@@ -150,4 +150,61 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}].shuffle!
+
+states.each do |state|
+  state[:number_correct] = 0
+  state[:number_wrong] = 0
+  state[:number_total_guesses] = 0
+end
+
+def play_game(states)
+  total_correct = 0
+  total_guesses = 0
+  states.each { |state|
+    puts "What is the capital of #{state[:name]}?"
+    answer = gets.chomp
+    if answer == "hint"
+      puts "#{state[:capital][0..2]}"
+      answer = gets.chomp
+        if answer == state[:capital]
+          state[:number_correct] += 1
+          state[:number_total_guesses] += 1
+          total_correct += 1
+          total_guesses += 1
+          puts "That is the correct answer! You have gotten this right #{state[:number_correct]} out of #{state[:number_total_guesses]} times. Overall score this round: #{total_correct}/#{total_guesses}."
+        else
+          state[:number_wrong] += 1
+          state[:number_total_guesses] += 1
+          total_correct += 1
+          total_guesses += 1
+          puts "That is wrong. You have gotten this right #{state[:number_correct]} out of #{state[:number_total_guesses]} times. Overall score this round: #{total_correct}/#{total_guesses}."
+        end
+    elsif answer == state[:capital]
+      state[:number_correct] += 1
+      state[:number_total_guesses] += 1
+      total_correct += 1
+      total_guesses += 1
+      puts "That is the correct answer! You have gotten this right #{state[:number_correct]} out of #{state[:number_total_guesses]} times. Overall score this round: #{total_correct}/#{total_guesses}."
+    else
+      state[:number_wrong] += 1
+      state[:number_total_guesses] += 1
+      total_correct += 1
+      total_guesses += 1
+      puts "That is wrong. You have gotten this right #{state[:number_correct]} out of #{state[:number_total_guesses]} times. Overall score this round: #{total_correct}/#{total_guesses}."
+    end
+  }
+    puts "If you would like to play again, type 'play' below."
+    answer = gets.chomp
+    if answer == 'play'
+      states_sorted = []
+      states_sorted = states.sort_by {|state| state[:number_correct]}
+      play_game(states_sorted)
+    end
+end
+
+puts "Welcome to 'Learn State Capitals'! Type play below to begin."
+answer = gets.chomp
+if answer = 'play'
+  play_game(states)
+end
