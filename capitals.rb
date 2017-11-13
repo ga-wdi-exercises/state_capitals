@@ -1,4 +1,3 @@
-# an array of state hashes
 states =[
 {
     name: "Alabama",
@@ -150,4 +149,63 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+]
+
+run_game = ""
+first_run = true
+
+game = {
+  total_correct: 0,
+  total_incorrect: 0
+}
+
+start_game = Proc.new do |game, states|
+  states.length.times do |index|
+    cur_state = states[index]
+    if !cur_state[:correct] && !cur_state[:incorrect]
+      cur_state[:correct] = 0
+      cur_state[:incorrect] = 0
+    end
+    puts "#{index +1}: What's the capital of #{cur_state[:name]}?"
+    input = gets.chomp
+    if input.upcase == cur_state[:capital].upcase
+      cur_state[:correct] += 1
+      game[:total_correct] += 1
+    else
+      cur_state[:incorrect] += 1
+      game[:total_incorrect] += 1
+    end
+    puts "You guessed #{cur_state[:name]}'s capital correctly #{cur_state[:correct]}/#{cur_state[:incorrect] + cur_state[:correct]}\n\n"
+  end
+end
+
+reset_game = Proc.new do
+  { total_correct: 0, total_incorrect: 0 }
+end
+
+game_loop = Proc.new do
+  puts "Your total score is #{game[:total_correct]}"
+  puts "Do you want to play again? yes/no\n\n"
+end
+
+def init_game(run_game, first_run, reset_game, start_game, game_loop, game, states)
+  until run_game == "no" || run_game == "n" do
+    if first_run
+      first_run = false
+      start_game.call(game, states.shuffle)
+      game_loop.call()
+      game = reset_game.call()
+      run_game = gets.chomp.downcase
+    else
+      start_game.call(game, states.sort!{ |x,y| y[:incorrect] <=> x[:incorrect] })
+      game_loop.call()
+      game = reset_game.call()
+      run_game = gets.chomp.downcase
+    end
+  end
+end
+
+puts "Welcome to the state capital game!"
+puts "Try and see how many state capitals you can guess correctly \n\n"
+init_game(run_game, first_run, reset_game, start_game, game_loop, game, states)
