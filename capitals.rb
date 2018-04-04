@@ -9,7 +9,8 @@ states =[
 }, {
     name: "Arizona",
     capital: "Phoenix"
-}, {
+}
+, {
     name: "Arkansas",
     capital: "Little Rock"
 }, {
@@ -150,4 +151,30 @@ states =[
 }, {
     name: "Wyoming",
     capital: "Cheyenne"
-}]
+}
+]
+
+states = states.shuffle
+
+score = 0
+
+puts "Welcome Player 1"
+ 
+while true
+    states.each do |state|
+    puts "What is the capital of: " + state[:name] + " ?"
+    input = gets.chomp
+
+    if input.upcase == state[:capital].upcase
+        puts "correct"
+        score += 1
+    else
+        puts "incorrect"
+        score -= 1 
+    end
+        puts "Your score is #{score}"
+    end
+        puts "\nWould you like to play again? y/n?"
+        input = gets.chomp
+        break if input == "n"
+end
