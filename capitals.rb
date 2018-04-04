@@ -152,7 +152,7 @@ states =[
     capital: "Cheyenne"
 }]
 
-# TEST STATES, DELETE THESE BEFORE SUBMIT.
+# TEST STATES
 test_states = [{
     name: "Arizona",
     capital: "Phoenix"
@@ -210,4 +210,4 @@ def play (array)
     end
 end
 # Start game
-play(test_states)
+play(states)
