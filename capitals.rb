@@ -156,7 +156,7 @@ def beginning()
 
 
     puts ("Welcome to the game! Match the states with their capitals! Here's the first one:")
-    $test_states = $states[1..50].shuffle
+    $test_states = $states[0..49].shuffle
 
     $test_states.each do | state |
         state[:number_correct] = 0
