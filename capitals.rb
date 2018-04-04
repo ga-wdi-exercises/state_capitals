@@ -191,10 +191,9 @@ def play (array)
             end
             # Display amount correct out of amount answered. I'm still unsure why state[:incorrect/correct] need to_i to do additiion...is it not an integer already? 
             count = state[:correct].to_i + state[:incorrect].to_i
-            puts state[:incorrect]
             puts "You have answered this correct #{state[:correct] || 0}/#{count}"
         } 
-        # Display total correct
+        # Display total correct out of how many states
         puts "You correctly answered #{correct_sum}/#{array.length}!"
         # Ask if want to play again
         puts "Would you like to play again? (y/n)"
