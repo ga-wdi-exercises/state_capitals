@@ -170,35 +170,45 @@ puts "Welcome to the State Capital Game!"
 shuffled_states = test_states.shuffle
 # Display a prompt for each state to ask user for an answer
 def play (array)
-    play = 'y'
-    while play == 'y'
+    play_again = 'y'
+    while play_again == 'y'
+    correct_sum = 0
     array.each{|state| 
     puts "What is the capital of #{state[:name]}"
     answer = gets.chomp
     if answer == state[:capital] 
         if !state[:correct]
             state[:correct] = 1
-            puts "Correct #{state[:correct]}"
+            correct_sum += 1
+            puts 'CORRECT'
         else 
             state[:correct] += 1
-            puts "Correct #{state[:correct]}"
+            correct_sum += 1
+            puts 'CORRECT'
         end
          else 
         if !state[:incorrect]
             state[:incorrect] = 1
-            puts "Wrong #{state[:incorrect]}"
+            puts 'WRONG'
         else 
             state[:incorrect] += 1
-            puts "Wrong #{state[:incorrect]}"
+            puts 'WRONG'
         end
     end
+    count = state[:correct].to_i + state[:incorrect].to_i
+    puts count
+    puts "You have answered this correct #{state[:correct] || 0}/#{count}"
 }
-puts "Would you like to play again? (y/n)"
-play = gets.chomp
-if play === 'n'
-    play === 'n'
-end
-end
+
+    puts "You correctly answered #{correct_sum}/#{array.length}!"
+    puts "Would you like to play again? (y/n)"
+    play_again = gets.chomp
+        if play_again === 'n'
+            play_again === 'n' 
+        else 
+            correct_sum = 0
+        end
+    end
 end
 # Start game
 play(shuffled_states)
