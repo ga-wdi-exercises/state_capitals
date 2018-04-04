@@ -175,31 +175,23 @@ def play (array)
         new_array.each{|state| 
             puts "What is the capital of #{state[:name]}"
             answer = gets.chomp
+            # if correct/incorrect do not already exist
+            if !state[:correct] && !state[:incorrect]
+            state[:correct] = 0
+            state[:incorrect] = 0
+            end
             # If the answer equals the capital name value
             if answer == state[:capital] 
-                 # If correct doesnt exist, make it with score 1; else add 1 to it
-                if !state[:correct]
-                    state[:correct] = 1
-                    correct_sum += 1
-                    puts 'CORRECT'
-                else 
-                    state[:correct] += 1
-                    correct_sum += 1
-                    puts 'CORRECT'
-                end
-                else 
-                # If incorrect doesnt exist, make it with score 1; else add 1 to it
-                if !state[:incorrect]
-                    state[:incorrect] = 1
-                    puts 'WRONG'
-                else 
-                    state[:incorrect] += 1
-                    puts 'WRONG'
-                end
+                state[:correct] += 1
+                correct_sum += 1
+                puts 'CORRECT'
+            else 
+                state[:incorrect] += 1
+                puts 'WRONG'
             end
-            # Display amount correct out of amount answered. I'm still unsure why state[:incorrect/correct] need to_i to do additiion
+            # Display amount correct out of amount answered. I'm still unsure why state[:incorrect/correct] need to_i to do additiion...is it not an integer already? 
             count = state[:correct].to_i + state[:incorrect].to_i
-            puts state[:incorrect].to_i
+            puts state[:incorrect]
             puts "You have answered this correct #{state[:correct] || 0}/#{count}"
         } 
         # Display total correct
