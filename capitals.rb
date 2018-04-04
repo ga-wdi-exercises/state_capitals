@@ -1,5 +1,5 @@
 # an array of state hashes
-states =[
+$states =[
 {
     name: "Alabama",
     capital: "Montgomery"
@@ -151,3 +151,47 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+def beginning()
+
+
+    puts ("Welcome to the game! Match the states with their capitals! Here's the first one:")
+    $test_states = $states[1..50].shuffle
+
+    $test_states.each do | state |
+        state[:number_correct] = 0
+        state[:number_incorrect] = 0
+    end
+
+
+    def playgame()
+        $test_states.each do | state |
+            puts ("What is the capital of #{state[:name]} ?")
+            user_guess = gets.chomp
+            if user_guess == state[:capital]
+                state[:number_correct] = state[:number_correct] + 1
+                success_rate = (state[:number_correct]).to_f / (state[:number_correct].to_f + state[:number_incorrect].to_f) * 100
+                puts "You're right! Next question. By the way, your success rate on that question is " + success_rate.to_s + "%."
+            else
+                state[:number_incorrect] = state[:number_incorrect] + 1
+                # had to call it something different. no judgments
+                meme_rate = (state[:number_correct]).to_f / (state[:number_correct].to_f + state[:number_incorrect].to_f) * 100
+                puts "That's wrong, you fool. The correct answer was #{state[:capital]}. By the way, your success rate on that question is " + meme_rate.to_s + "%."
+            end
+        end
+        # puts $test_states
+
+    end
+
+$input = ""
+while $input != "no" do
+    playgame()
+    puts "Do you want to play again? Type 'no' to quit out. Press enter, or type anything else, to play again."
+    $input = gets.chomp
+end
+
+
+end
+
+beginning()
+
