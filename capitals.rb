@@ -151,3 +151,39 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+capital = ""
+
+puts "Hey there partner, whats your name?"
+user = gets.chomp
+is_first_round = true
+
+loop do
+puts "Howdy " + user + " thanks for playing States & Capitals!"
+state = states.shuffle.map{|state|
+if(is_first_round == true)
+    state[:correct] = 0
+    state[:incorrect] = 0
+end
+puts "What is the capital of " + state[:name]
+capital = gets.chomp
+if(capital == state[:capital])
+    state[:correct] = state[:correct] + 1
+else
+    state[:incorrect] = state[:incorrect] + 1
+    puts "Wrong"
+     next
+
+end
+
+total_times = state[:correct] + state[:incorrect]
+puts state[:correct].to_s + " correct out of " + total_times.to_s + " shown" 
+
+}
+is_first_round = false
+puts "Would you like to play again?"
+input = gets.chomp
+break if input == "No" || input == "no"
+end
+
+
+
