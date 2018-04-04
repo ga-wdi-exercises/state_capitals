@@ -154,12 +154,6 @@ states =[
 
 # TEST STATES, DELETE THESE BEFORE SUBMIT.
 test_states = [{
-    name: "Alabama",
-    capital: "Montgomery"
-}, {
-    name: "Alaska",
-    capital: "Juneau"
-}, {
     name: "Arizona",
     capital: "Phoenix"
 }, {
@@ -168,18 +162,6 @@ test_states = [{
 }, {
     name: "California",
     capital: "Sacramento"
-}, {
-    name: "Colorado",
-    capital: "Denver"
-}, {
-    name: "Connecticut",
-    capital: "Hartford"
-}, {
-    name: "Delaware",
-    capital: "Dover"
-}, {
-    name: "Florida",
-    capital: "Tallahassee"
 }]
 
 # Make a welcome message for the user
@@ -187,12 +169,36 @@ puts "Welcome to the State Capital Game!"
 # Get array of states in random order
 shuffled_states = test_states.shuffle
 # Display a prompt for each state to ask user for an answer
-shuffled_states.each{|state| 
-puts "What is the capital of #{state[:name]}"
-answer = gets.chomp
-if answer == state[:capital] 
-    puts 'Correct'
-else 
-    puts 'Wrong'
-end
+def play (array)
+    play = 'y'
+    while play == 'y'
+    array.each{|state| 
+    puts "What is the capital of #{state[:name]}"
+    answer = gets.chomp
+    if answer == state[:capital] 
+        if !state[:correct]
+            state[:correct] = 1
+            puts "Correct #{state[:correct]}"
+        else 
+            state[:correct] += 1
+            puts "Correct #{state[:correct]}"
+        end
+         else 
+        if !state[:incorrect]
+            state[:incorrect] = 1
+            puts "Wrong #{state[:incorrect]}"
+        else 
+            state[:incorrect] += 1
+            puts "Wrong #{state[:incorrect]}"
+        end
+    end
 }
+puts "Would you like to play again? (y/n)"
+play = gets.chomp
+if play === 'n'
+    play === 'n'
+end
+end
+end
+# Start game
+play(shuffled_states)
