@@ -151,3 +151,28 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+
+welcome_message = "Hello! Let's memorize the names of the capitals of all 50 states."
+puts welcome_message
+
+question = "What is the capital of this state?"
+puts question
+
+testArray = states[0..49].shuffle
+puts testArray
+
+testArray.each do |state|
+  puts state[:name]
+  answer = gets.chomp
+  if answer == state[:capital]
+    puts "Correct!"
+  elsif answer != state[:capital]
+    puts "Try again!"
+  end
+end
+
+
+
+# puts prompt
+# answer = gets.chomp
