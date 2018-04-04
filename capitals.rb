@@ -56,29 +56,26 @@ puts "What's your name?"
 user = gets.chomp
 puts "Hello, #{user}, tell me the capitals for each state I name. Or else. :))"
 
-states.each { |state| 
-  state[:correct] = 0
-  state[:wrong] = 0
-}
+states.each { |state| state[:score] = [0, 0]}
 
 def play_game(states)
-  total_right = 0
-  total_wrong = 0
+  total = [0, 0]
 
   states.shuffle!.length.times do |i|
     puts "What is the capital of #{states[i][:name]}?"
     answer = gets.chomp
     
     if answer.downcase == states[i][:capital].downcase
-      puts "#{states[i][:name]} => Correct: #{states[i][:correct] += 1}, Incorrect: #{states[i][:wrong]}" 
-      total_right += 1
+      puts "#{states[i][:name]} => Correct: #{states[i][:score][0] += 1}, Incorrect: #{states[i][:score][1]}" 
+      total[0] += 1
     else
-      puts "#{states[i][:name]} => Correct: #{states[i][:correct]}, Incorrect: #{states[i][:wrong] += 1}" 
-      total_wrong += 1
+      puts "#{states[i][:name]} => Correct: #{states[i][:score][0]}, Incorrect: #{states[i][:score][1] += 1}" 
+      total[1] += 1
     end
+    
   end
   
-  puts "Ok, you got a total of #{total_right} correct and #{total_wrong} wrong this time around."
+  puts "Ok, you got a total of #{total[0]} correct and #{total[1]} wrong this time around."
   puts "Do you want to play again? y/n"
   response = gets.chomp
   response.downcase == 'y' ? play_game(states) : puts("K bye")
