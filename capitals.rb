@@ -1,4 +1,4 @@
-# an array of state hashes
+# An array of state hashes
 states =[
 {
     name: "Alabama",
@@ -175,7 +175,9 @@ def play (array)
         new_array.each{|state| 
             puts "What is the capital of #{state[:name]}"
             answer = gets.chomp
+            # If the answer equals the capital name value
             if answer == state[:capital] 
+                 # If correct doesnt exist, make it with score 1; else add 1 to it
                 if !state[:correct]
                     state[:correct] = 1
                     correct_sum += 1
@@ -186,6 +188,7 @@ def play (array)
                     puts 'CORRECT'
                 end
                 else 
+                # If incorrect doesnt exist, make it with score 1; else add 1 to it
                 if !state[:incorrect]
                     state[:incorrect] = 1
                     puts 'WRONG'
@@ -194,16 +197,21 @@ def play (array)
                     puts 'WRONG'
                 end
             end
+            # Display amount correct out of amount answered. I'm still unsure why state[:incorrect/correct] need to_i to do additiion
             count = state[:correct].to_i + state[:incorrect].to_i
             puts state[:incorrect].to_i
             puts "You have answered this correct #{state[:correct] || 0}/#{count}"
-        }
+        } 
+        # Display total correct
         puts "You correctly answered #{correct_sum}/#{array.length}!"
+        # Ask if want to play again
         puts "Would you like to play again? (y/n)"
         play_again_prompt = gets.chomp
+        # If play again answer is 'n' then set play again to n so while loop stops
         if play_again_prompt === 'n'
             play_again === 'n' 
         else 
+            # Set's the array used for the game to be sorted by highest incorrect first
             new_array = new_array.sort_by{|state| state[:incorrect].to_i}.reverse
             correct_sum = 0
         end
