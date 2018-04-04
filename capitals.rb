@@ -151,3 +151,29 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+#  add score to each state score[0] = correct, score[1] = incorrect
+game_states = states.each{|state| state[:score] = [0, 0]}
+
+puts "Welcome to the state capital game.  Press enter to get started!"
+gets
+
+def start_game (game_states) 
+game_states.shuffle!
+game_states.each{|state| 
+puts "What is the capital of " + state[:name] + "?"
+input = gets.chomp
+if input == state[:capital] then state[:score][0] += 1
+    puts "Nice job! You're score for this state is " + state[:score][0].to_s + " correct and " + state[:score][1].to_s + " incorrect."
+else state[:score][1] +=1
+    puts "Wrong! You're score for this state is " + state[:score][0].to_s + " correct and " + state[:score][1].to_s + " incorrect."
+end
+}
+puts "Round over.  Would you like to play again? (y/n)"
+new_game = gets.chomp
+if new_game == "y" then start_game(game_states)
+else puts "Thanks for playing!"
+end
+end
+
+start_game(game_states)
