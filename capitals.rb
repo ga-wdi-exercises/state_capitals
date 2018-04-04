@@ -151,3 +151,48 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# TEST STATES, DELETE THESE BEFORE SUBMIT.
+test_states = [{
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}, {
+    name: "Arkansas",
+    capital: "Little Rock"
+}, {
+    name: "California",
+    capital: "Sacramento"
+}, {
+    name: "Colorado",
+    capital: "Denver"
+}, {
+    name: "Connecticut",
+    capital: "Hartford"
+}, {
+    name: "Delaware",
+    capital: "Dover"
+}, {
+    name: "Florida",
+    capital: "Tallahassee"
+}]
+
+# Make a welcome message for the user
+puts "Welcome to the State Capital Game!"
+# Get array of states in random order
+shuffled_states = test_states.shuffle
+# Display a prompt for each state to ask user for an answer
+shuffled_states.each{|state| 
+puts "What is the capital of #{state[:name]}"
+answer = gets.chomp
+if answer == state[:capital] 
+    puts 'Correct'
+else 
+    puts 'Wrong'
+end
+}
