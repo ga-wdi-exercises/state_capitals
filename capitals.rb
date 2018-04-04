@@ -165,14 +165,34 @@ states_trial = [
 }
 ]
 
+states_trial = [
+    {
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}
+]
+
+
 index = 0
 
-puts "You must guess the State Capital to exit the loop!"
+puts "You must guess the state capital to exit the loop!"
 loop do
-  puts "What is the capital of #{states_trial[0]}?"
+  puts "What is the capital of #{states_trial[index][:name]}?"
   input = gets.chomp 
-   if input == "Montgomery" 
-     elsif 
+  if input == states_trial[index][:capital]
+    puts "cool"
+  else 
+     puts "wrong"
+  end
+  index += 1
+  break if states_trial.length == index
 end
+
 puts "You made it out! Congrats!"
 
