@@ -151,3 +151,65 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states_trial = [
+    {
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}
+]
+
+
+states.each do |state|
+
+    state[:correct] = 0
+    state[:incorrect] = 0
+end
+
+index = 0
+
+puts "You must guess the state capital to win the game!"
+
+loop do
+  current_state = states[index]
+  puts "What is the capital of #{current_state[:name]}?"
+  
+  input = gets.chomp 
+  
+  if input == current_state[:capital]
+   
+    current_state[:correct] += 1
+    puts "Correct" 
+     
+  else 
+     puts "wrong" 
+     current_state[:incorrect] +=1
+  end
+  
+  index += 1
+  
+  break if states_trial.length == index
+end
+index = 0
+
+puts "You must guess the state capital to exit the loop!"
+loop do
+  puts "What is the capital of #{states_trial[index][:name]}?"
+  input = gets.chomp 
+  if input == states[index][:capital]
+    puts "cool"
+  else 
+     puts "wrong"
+  end
+  index += 1
+  break if states.length == index
+end
+
+puts "You made it! Congrats!"
+
