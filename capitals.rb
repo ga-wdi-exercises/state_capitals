@@ -12,9 +12,17 @@ states =[
 }]
 
 
-puts "hello world"
+# puts "hello world"
 
-puts "Can you name the capital cities?"
-states = gets.chomp
+# puts "Can you name the capital cities?"
+# states = gets.chomp
+
+input = ""
+puts "Hello"
+while input != "hello" do
+  puts states.shuffle
+  input = gets.chomp
+end
+puts "Good job!"
 
 
