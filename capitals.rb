@@ -166,49 +166,48 @@ test_states = [{
 
 # Make a welcome message for the user
 puts "Welcome to the State Capital Game!"
-# Get array of states in random order
-shuffled_states = test_states.shuffle
 # Display a prompt for each state to ask user for an answer
 def play (array)
     play_again = 'y'
+    new_array = array.shuffle
     while play_again == 'y'
-    correct_sum = 0
-    array.each{|state| 
-    puts "What is the capital of #{state[:name]}"
-    answer = gets.chomp
-    if answer == state[:capital] 
-        if !state[:correct]
-            state[:correct] = 1
-            correct_sum += 1
-            puts 'CORRECT'
-        else 
-            state[:correct] += 1
-            correct_sum += 1
-            puts 'CORRECT'
-        end
-         else 
-        if !state[:incorrect]
-            state[:incorrect] = 1
-            puts 'WRONG'
-        else 
-            state[:incorrect] += 1
-            puts 'WRONG'
-        end
-    end
-    count = state[:correct].to_i + state[:incorrect].to_i
-    puts count
-    puts "You have answered this correct #{state[:correct] || 0}/#{count}"
-}
-
-    puts "You correctly answered #{correct_sum}/#{array.length}!"
-    puts "Would you like to play again? (y/n)"
-    play_again = gets.chomp
-        if play_again === 'n'
+        correct_sum = 0
+        new_array.each{|state| 
+            puts "What is the capital of #{state[:name]}"
+            answer = gets.chomp
+            if answer == state[:capital] 
+                if !state[:correct]
+                    state[:correct] = 1
+                    correct_sum += 1
+                    puts 'CORRECT'
+                else 
+                    state[:correct] += 1
+                    correct_sum += 1
+                    puts 'CORRECT'
+                end
+                else 
+                if !state[:incorrect]
+                    state[:incorrect] = 1
+                    puts 'WRONG'
+                else 
+                    state[:incorrect] += 1
+                    puts 'WRONG'
+                end
+            end
+            count = state[:correct].to_i + state[:incorrect].to_i
+            puts state[:incorrect].to_i
+            puts "You have answered this correct #{state[:correct] || 0}/#{count}"
+        }
+        puts "You correctly answered #{correct_sum}/#{array.length}!"
+        puts "Would you like to play again? (y/n)"
+        play_again_prompt = gets.chomp
+        if play_again_prompt === 'n'
             play_again === 'n' 
         else 
+            new_array = new_array.sort_by{|state| state[:incorrect].to_i}.reverse
             correct_sum = 0
         end
     end
 end
 # Start game
-play(shuffled_states)
+play(test_states)
