@@ -62,17 +62,27 @@ states.each { |state|
 }
 
 def play_game(states)
-  
-  states.length.times do |i|
+  total_right = 0
+  total_wrong = 0
+
+  states.shuffle!.length.times do |i|
     puts "What is the capital of #{states[i][:name]}?"
     answer = gets.chomp
-    answer.downcase == states[i][:capital].downcase ? states[i][:correct] += 1 : states[i][:wrong] += 1
-    puts "#{states[i][:name]} => Correct: #{states[i][:correct]}, Incorrect: #{states[i][:wrong]}"
+    
+    if answer.downcase == states[i][:capital].downcase
+      puts "#{states[i][:name]} => Correct: #{states[i][:correct] += 1}, Incorrect: #{states[i][:wrong]}" 
+      total_right += 1
+    else
+      puts "#{states[i][:name]} => Correct: #{states[i][:correct]}, Incorrect: #{states[i][:wrong] += 1}" 
+      total_wrong += 1
+    end
   end
+  
+  puts "Ok, you got a total of #{total_right} correct and #{total_wrong} wrong this time around."
   puts "Do you want to play again? y/n"
   response = gets.chomp
-  response.downcase == 'y' ? play_game(states.shuffle!) : puts("K bye")
-  
+  response.downcase == 'y' ? play_game(states) : puts("K bye")
 end
 
 play_game(states)
+  
