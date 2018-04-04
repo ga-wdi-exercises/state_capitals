@@ -151,3 +151,28 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states_trial = [
+    {
+    name: "Alabama",
+    capital: "Montgomery"
+}, {
+    name: "Alaska",
+    capital: "Juneau"
+}, {
+    name: "Arizona",
+    capital: "Phoenix"
+}
+]
+
+index = 0
+
+puts "You must guess the State Capital to exit the loop!"
+loop do
+  puts "What is the capital of #{states_trial[0]}?"
+  input = gets.chomp 
+   if input == "Montgomery" 
+     elsif 
+end
+puts "You made it out! Congrats!"
+
