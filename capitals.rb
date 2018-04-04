@@ -1,4 +1,4 @@
-# an array of state hashes
+# An array of state hashes
 states =[
 {
     name: "Alabama",
@@ -151,3 +151,62 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# TEST STATES
+test_states = [{
+    name: "Arizona",
+    capital: "Phoenix"
+}, {
+    name: "Arkansas",
+    capital: "Little Rock"
+}, {
+    name: "California",
+    capital: "Sacramento"
+}]
+
+# Make a welcome message for the user
+puts "Welcome to the State Capital Game!"
+# Display a prompt for each state to ask user for an answer
+def play (array)
+    play_again = 'y'
+    new_array = array.shuffle
+    while play_again == 'y'
+        correct_sum = 0
+        new_array.each{|state| 
+            puts "What is the capital of #{state[:name]}"
+            answer = gets.chomp
+            # if correct/incorrect do not already exist
+            if !state[:correct] && !state[:incorrect]
+            state[:correct] = 0
+            state[:incorrect] = 0
+            end
+            # If the answer equals the capital name value
+            if answer == state[:capital] 
+                state[:correct] += 1
+                correct_sum += 1
+                puts 'CORRECT'
+            else 
+                state[:incorrect] += 1
+                puts 'WRONG'
+            end
+            # Display amount correct out of amount answered. I'm still unsure why state[:incorrect/correct] need to_i to do additiion...is it not an integer already? 
+            count = state[:correct].to_i + state[:incorrect].to_i
+            puts "You have answered this correct #{state[:correct] || 0}/#{count}"
+        } 
+        # Display total correct out of how many states
+        puts "You correctly answered #{correct_sum}/#{array.length}!"
+        # Ask if want to play again
+        puts "Would you like to play again? (y/n)"
+        play_again_prompt = gets.chomp
+        # If play again answer is 'n' then set play again to n so while loop stops
+        if play_again_prompt === 'n'
+            play_again === 'n' 
+        else 
+            # Set's the array used for the game to be sorted by highest incorrect first
+            new_array = new_array.sort_by{|state| state[:incorrect].to_i}.reverse
+            correct_sum = 0
+        end
+    end
+end
+# Start game
+play(states)
