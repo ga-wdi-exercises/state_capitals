@@ -151,3 +151,23 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+states.shuffle!
+states.each do |state|
+    state[:right] = 0
+end
+
+puts "Welcome Traveller"
+
+states.shuffle!
+states.each do |state|
+    puts "What is the capital of #{state[:name]}"
+    capital = gets.chomp
+    rightGuess = capital.capitalize == state[:capital]
+    while rightGuess == false
+        puts "Try again"
+        capital = gets.chomp
+        rightGuess = capital.capitalize == state[:capital]
+    
+    end
+end
