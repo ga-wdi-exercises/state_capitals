@@ -14,7 +14,6 @@ capital: "Cheyenne"
 puts "Welcome Traveller"
 
 states.shuffle!
-# puts states[0][:name]
 states.each do |state|
     puts "What is the capital of #{state[:name]}"
     capital = gets.chomp
