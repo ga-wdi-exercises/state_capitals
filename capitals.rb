@@ -152,21 +152,22 @@ states =[
     capital: "Cheyenne"
 }]
 
+states.shuffle!
+states.each do |state|
+    state[:right] = 0
+end
+
 puts "Welcome Traveller"
-counter = 0
 
 states.shuffle!
 states.each do |state|
     puts "What is the capital of #{state[:name]}"
     capital = gets.chomp
     rightGuess = capital.capitalize == state[:capital]
-    counter += 1
-    puts counter + "Score!"
     while rightGuess == false
         puts "Try again"
         capital = gets.chomp
         rightGuess = capital.capitalize == state[:capital]
-        counter += 1
-        puts counter + "Score!"
+    
     end
 end
