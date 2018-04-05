@@ -151,3 +151,29 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+# puts "Hello! Welcome to the State Capital Game!" 
+
+# if
+#   next
+# puts "this is a test"
+# to access it states[0][:name]
+
+# states.each
+
+states = [{  name: "West Virginia",
+    capital: "Charleston"
+}, {
+    name: "Wisconsin",
+    capital: "Madison"
+}, {
+    name: "Wyoming",
+    capital: "Cheyenne"
+}]
+
+states.each do |state|
+    puts "What is the capital of " + state[:name] + " ?"
+end
+# for state in states do
+# puts state
+# end
