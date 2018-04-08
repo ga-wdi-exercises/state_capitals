@@ -151,3 +151,25 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+incorrect=0
+correct= 0
+
+puts "Welcome players!Please enter the capital associated with a given state"
+
+# this mean that it will go through each state and each state will appear through piping which is a block.
+while true
+    states.each do |state|
+    puts "What is the capital of: " + state[:name] + " ?"
+    input = gets.chomp
+    if input==state[:name].upcase
+        correct += 1
+        puts "Correct gusses" + correct
+    else input==state[:name].upcase
+        incorrect += 1
+        puts "Correct gusses" + correct
+    end
+puts "Do you want to play again?"
+
+
+states = states.shuffle
