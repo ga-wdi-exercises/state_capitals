@@ -29,7 +29,7 @@ end
 
 puts "Welcome! What's your name?"
 user = gets.chomp
-
+play = true
 
     states.shuffle.map do |state|
         puts "#{user}, What is the capital of " + state[:name] + "?"
@@ -44,3 +44,7 @@ user = gets.chomp
         total = state[:correct] + state[:wrong]
         puts "Your current score is " + state[:correct].to_s + " out of " + total.to_s  
     end
+    puts "Would you like to play again?"
+    input = gets.chomp
+     
+    
