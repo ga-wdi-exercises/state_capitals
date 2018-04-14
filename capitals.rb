@@ -187,8 +187,6 @@ while true
     if answer.upcase == state[:capital].upcase
       puts "THATS IT! The capital is #{state[:capital]}."
       
-      
-      
       state[:num_correct] += 1
       #add counter 
 
@@ -196,4 +194,8 @@ while true
         puts "Kinda close, the capital is #{state[:capital]}."
         state[:num_wrong] += 1
       end
-    
+
+      total_score = state[:num_correct] + state[:num_wrong]
+      puts = "Your total score so far is #{total_score}. You can add to it!"
+      puts = "Should we try more? ("Y"/"N") ?
+
