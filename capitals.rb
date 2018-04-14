@@ -185,7 +185,7 @@ while true
 
     answer = gets.chomp
     if answer.upcase == state[:capital].upcase
-      puts "THATS IT!"
+      puts "THATS IT! The capital is #{state[:capital]}."
       
       
       
