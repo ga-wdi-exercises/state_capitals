@@ -191,7 +191,9 @@ while true
       
       state[:num_correct] += 1
       #add counter 
-      
-# for state in states do
-# puts state
-# end
+
+    else
+        puts "Kinda close, the capital is #{state[:capital]}."
+        state[:num_wrong] += 1
+      end
+    
