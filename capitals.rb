@@ -152,14 +152,13 @@
 #     capital: "Cheyenne"
 # }]
 
-puts "Hello! Welcome to the State Capital Game!" 
+puts "Hello! Welcome to the State Capital Game! The first letter of each word must be capitilized" 
 
 # if
 #   next
 # puts "this is a test"
 # to access it states[0][:name]
 
-states = states.shuffle
 
 states = [{  name: "West Virginia",
     capital: "Charleston"
@@ -172,8 +171,27 @@ states = [{  name: "West Virginia",
 }]
 
 states.each do |state|
-    puts "What is the capital of " + state[:name] + " ?"
+  state[:num_correct] = 0
+  state[:num_wrong] = 0
 end
+
+
+# set true condition with while break with the users exit
+while true
+  states.each do |state|
+    puts "What is the capital of " + state[:name] + "?"
+
+#loop states access the name with stat[:name] and the capitol with state[:capitol]
+
+    answer = gets.chomp
+    if answer.upcase == state[:capital].upcase
+      puts "THATS IT!"
+      
+      
+      
+      state[:num_correct] += 1
+      #add counter 
+      
 # for state in states do
 # puts state
 # end
